@@ -1,0 +1,11 @@
+#primarymedia img {max-width: 100%;}
+#mv-sponsorlogo img {width: 100px;vertical-align: middle;}
+#mv-presponsor {margin-left: 10px; font-size: 12px; font-weight: bold}
+#mv-pubdate {margin-right: 10px; font-size: 12px; font-weight: bold}
+span {display: inline-block;margin-bottom: 10px;}
+#mv-content{margin-bottom: 40px}
+.me-content-body a{color: #2296e3 !important; text-decoration: underline !important}
+body.sponsored .articlecontent h1{font-size: 34px;}
+body.sponsored .relatedarticles{margin-top: 40px}
+body.sponsored #mv-title{font-size: 34px; font-weight: 700}
+#DMSTag{border: none;margin: 0;padding: 0;overflow: hidden;}

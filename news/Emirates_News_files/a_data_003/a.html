@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Polar Tracking Opt-Out</title>
+</head>
+
+<body>
+  <script>
+
+    function checkForDebugQueryString() {
+      try {
+        return window.top.location.search.indexOf("mvdebug=1") > -1;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    const ENABLE_LOGGING = checkForDebugQueryString();
+
+    const log = function () {
+      if (ENABLE_LOGGING) {
+        console.log.apply(console, arguments);
+      }
+    }
+
+    function getCookie(checkName) {
+      try {
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const allCookies = decodedCookie.split(';');
+        for (var i = 0; i < allCookies.length; i++) {
+          const tempCookie = allCookies[i].split("=");
+          const cookieName = tempCookie[0].replace(/^\s+|\s+$/g, "");
+          if (cookieName === checkName && tempCookie.length > 1) {
+            return unescape(tempCookie[1].replace(/^\s+|\s+$/g, ""));
+          }
+        }
+        return "";
+      } catch (err) {
+        log("Error: Could not get cookie: " + checkName);
+      }
+    }
+
+    function receiveMessage(event) {
+      try {
+        const writeMessage = event.data;
+        if (writeMessage["action"] === "writeCookie" && writeMessage["target"] === "_polar_too") {
+          var userCookie = writeMessage["data"];
+          const encodedCookie = window.btoa(JSON.stringify(userCookie));
+          const dateInTwoYears = new Date();
+          dateInTwoYears.setFullYear(dateInTwoYears.getFullYear() + 2);
+          document.cookie = "_polar_too=" + encodedCookie + "; secure; expires=" + dateInTwoYears.toUTCString();
+
+          try {
+            userCookie["polarMessageType"] = "privacyOptOutData";
+            window.parent.postMessage(userCookie, "*");
+          } catch (err) {
+            log("Error: Could not postMessage cookie.", { receivedMessage: event.data });
+          }
+        }
+      } catch (err) {
+        log("Error: Could not parse received message.", { receivedMessage: event.data });
+      }
+    }
+
+    (function () {
+      const encodedPolarCookie = getCookie("_polar_too");
+      if (encodedPolarCookie && encodedPolarCookie !== "") {
+        try {
+          var polarCookie = JSON.parse(window.atob(encodedPolarCookie));
+        } catch (err) {
+          log("Error: Could not decode and parse cookie.");
+          var polarCookie = "";
+        }
+
+        var script = document.createElement('script');
+        script.setAttribute('type', 'text/mediavoice-privacy-data');
+        script.innerHTML = JSON.stringify(polarCookie, null, ' ');
+        document.body.appendChild(script);
+
+        if (polarCookie !== "") {
+          try {
+            polarCookie["polarMessageType"] = "privacyOptOutData";
+            window.parent.postMessage(polarCookie, "*");
+          } catch (err) {
+            log("Error: Could not postMessage cookie.");
+          }
+        }
+      }
+      else {
+        log("Error: Polar cookie not found.");
+      }
+
+      window.addEventListener("message", receiveMessage, false);
+    })();
+  </script>
+
+  <h1>Polar Tracking Opt-Out</h1>
+  <p>For more information, see
+    <a href="https://privacy.polar.me/opt-out/">Polar's Interest-Based Advertising Preference Opt-Out Tool</a>
+  </p>
+
+
+
+</body></html>

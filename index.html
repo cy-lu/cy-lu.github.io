@@ -394,14 +394,17 @@ work demonstrates a new route to nondestructively monitor the interface between 
 <div id="numerical" class="container tab-pane fade"><br>
 <h2>Finite difference time domain method</h2>
  
-<p>In 1966, Kane Yee [1] proposed the FDTD method, which was Maxwell’s curl equations based on the central finite difference method. In the 1990s, the FDTD method has become one of primary optical simulation methods owing to the implementation of the perfectly matched layer (PML) technique, which effectively truncate computational regions in the simulation domain. Nowadays, with advanced computational capabilities, the FDTD method has become a robust tool for the analysis and design of optical devices for various applications in daily routines at both academic and industrial levels. The Bible of the FDTD method was written by Taflove et al [2] and can be used as a user manual. Here, I provide two FDTD codes for references:
-</p>
+<p>In 1966, Kane Yee [1] proposed the FDTD method, which was Maxwell’s curl equations based on the central finite difference method. In the 1990s, the FDTD method has become one of primary optical simulation methods owing to the implementation of the perfectly matched layer (PML) technique, which effectively truncate computational regions in the simulation domain. Nowadays, with advanced computational capabilities, the FDTD method has become a robust tool for the analysis and design of optical devices for various applications in daily routines at both academic and industrial levels. The Bible of the FDTD method was written by Taflove et al [2] and can be used as a user manual. Here, I provide a two-dimensional TE FDTD code employing the PML absorption boundary condiction and total/scattering field for your reference. 
+
+In this code, the simulation domain consists of total field, scattered field, and perfectly matched layer (PML), as shown in the below figure.</p>
+    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/TFSF_PML.jpg" target="_blank"><img src="img/Interfacial_Solar_Vapor_Generators.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
 
 <ol>
 <li>Kane Yee (1966). "Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media". <i>IEEE Transactions on Antennas and Propagation</i> vol. 14, no. 3, pp. 302–307. </li> 
 <li>Allen Taflove and Susan C. Hagness (2005). Computational Electrodynamics: The Finite-Difference Time-Domain Method, 3rd ed. Artech House Publishers. ISBN 978-1-58053-832-9.
 </p>
 </ol>
+
 
 <ul>
 <li>update 11/11/2019</li>

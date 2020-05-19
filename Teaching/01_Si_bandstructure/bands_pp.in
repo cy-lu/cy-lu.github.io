@@ -1,0 +1,5 @@
+&bands
+  outdir='/scratch/cyulu/'
+  prefix='si'
+  filband='si.bands.dat'
+/

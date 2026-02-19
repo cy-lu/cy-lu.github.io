@@ -408,43 +408,115 @@ work demonstrates a new route to nondestructively monitor the interface between 
 <h2>Computational Electromagnetics</h2>
 
 <h3>Finite-Difference Time-Domain (FDTD) Method</h3>
-<p>In 1966, Kane Yee [1] proposed the finite difference time domain (FDTD) method, which is Maxwell’s curl equations based on the central finite difference method. In the 1990s, the FDTD method has become one of primary optical simulation methods owing to the implementation of the perfectly matched layer (PML) technique, which effectively truncate computational regions in the simulation domain. Nowadays, with advanced computational capabilities, the FDTD method has become a robust tool for the analysis and design of optical devices for various applications in daily routines at both academic and industrial levels. An excellent textbook of the FDTD method was written by Taflove et al [2] and can be used as a user manual.</p>
-<p>Here, I provide a two-dimensional TE FDTD code employing the PML absorption boundary condiction and total/scattering fields for your reference. In this code, the interaction of EM waves with a core-shell nanocylinder can be visualized as a function fo time. The permittivities of shell and core are 4 and 1, respectively. The simulation domain consists of total field, scattered field, and perfectly matched layer (PML), as shown in the below figure. The Matlab code could be accessed <a href="https://github.com/cy-lu/2D_FDTD/tree/master/matlab_code" target="_blank">here</a>.</p>
 
-  
 <p>
-<ol>
-<li>Kane Yee (1966). "Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media". <i>IEEE Transactions on Antennas and Propagation</i> vol. 14, no. 3, pp. 302–307. </li> 
-<li>Allen Taflove and Susan C. Hagness (2005). Computational Electrodynamics: The Finite-Difference Time-Domain Method, 3rd ed. Artech House Publishers. ISBN 978-1-58053-832-9.
+The finite-difference time-domain (FDTD) method was introduced by Kane Yee in 1966 [1]. In its core form, FDTD directly solves Maxwell’s curl equations in the time domain by discretizing both space and time using central finite differences on the well-known Yee grid. Because it is time-domain based, a single simulation can naturally capture broadband responses, transient field evolution, and near-to-far interactions once the electromagnetic fields are properly recorded and post-processed.
 </p>
+
+<p>
+FDTD became widely adopted in the 1990s with the practical development of the perfectly matched layer (PML), which provides an effective way to truncate an open computational region while minimizing artificial reflections at the boundaries. With modern computational resources (multi-core CPUs, GPUs, and cluster environments), FDTD has matured into a robust and widely used tool for electromagnetic and optical device analysis and design across both academic and industrial workflows. A comprehensive reference is the textbook by Taflove and Hagness [2].
+</p>
+
+<h4>What this example demonstrates</h4>
+
+<p>
+Below I provide a two-dimensional TE FDTD implementation that includes:
+</p>
+
+<ul>
+  <li><b>Yee-grid time stepping</b> for TE polarization in 2D</li>
+  <li><b>Total-field / scattered-field (TF/SF)</b> formulation to inject an incident wave while separating scattered fields</li>
+  <li><b>PML absorbing boundaries</b> to approximate an open domain</li>
+</ul>
+
+<p>
+The demonstration problem is electromagnetic scattering from a core–shell nanocylinder. The relative permittivities of the shell and core are set to 4 and 1, respectively. The simulation domain is divided into a total-field region, a scattered-field region, and surrounding PML layers (as illustrated in the figure/video). The animation visualizes the time evolution of the field (Ey) and provides an intuitive view of how the incident wave interacts with the core–shell structure and generates scattered waves.
+</p>
+
+<p>
+The MATLAB implementation can be accessed
+<a href="https://github.com/cy-lu/2D_FDTD/tree/master/matlab_code" target="_blank" rel="noopener noreferrer">here</a>.
+</p>
+
+<h4>Notes on interpretation</h4>
+
+<ul>
+  <li>
+    <b>Why time-domain?</b> In frequency-domain solvers you typically solve one frequency per run; in FDTD, a broadband pulse can reveal a wide spectral response from a single transient simulation.
+  </li>
+  <li>
+    <b>Why TF/SF?</b> TF/SF allows clean separation between incident and scattered fields, which is particularly useful for scattering and extinction calculations.
+  </li>
+  <li>
+    <b>Why PML matters?</b> Boundary reflections can contaminate scattering signatures; a properly configured PML reduces this artifact and improves the reliability of near- and far-field observables.
+  </li>
+</ul>
+
+<ol>
+  <li>
+    Kane Yee (1966). “Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media”.
+    <i>IEEE Transactions on Antennas and Propagation</i>, 14(3), 302–307.
+  </li>
+  <li>
+    Allen Taflove and Susan C. Hagness (2005).
+    <i>Computational Electrodynamics: The Finite-Difference Time-Domain Method</i>, 3rd ed.
+    Artech House Publishers. ISBN 978-1-58053-832-9.
+  </li>
 </ol>
-<video controls="controls" loop="loop" autoplay="autoplay">
+
+<video controls="controls" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" style="width:100%; max-width:900px;">
   <source src="img/2dfdtd_Ey_movie.mp4" type="video/mp4" />
 </video>
-  
-<h2>Plasmonic Metal Nanoparticles</h2>
-  
-<p>Over the last two decades, plasmon resonances in metallic nanoparticles have been the subject of intense research efforts. 
-Owing to having high efficiency at absorbing and scattering light, 
-applications related to plasmonic metal nanoparticles are impressively numerous, 
-ranging from sensing to solar vapor generating to biological cell imaging.
-Here, I provide a 2D-TE FDTD code for calculations of extinction, scattering, and absorption efficiencies of a gold-shell dielectric-core nanocylinder, as shown in the below figure (a).
-The Fortran code could be accessed <a href="https://github.com/cy-lu/2D_FDTD/tree/master/Fortran" target="_blank">here</a>.</p>
-<p> It would be nice to have a analytical solution to verify the simulation results of a 2D-FDTD codes. Therefore, I also provide a analytical code for calculating the extinction spectrum of a core-shell nanocylinder. The calculation results of a gold-shell dielectric-core nanocylinder, with an outer radius of 50 nm and an inner radius of 40 nm, are compared to those of FDTD simulations, as shown in the below figure (b). 
-The code can be accessed <a href="https://github.com/cy-lu/2D_FDTD/tree/master/Analytical_solution" target="_blank">here</a>.
-<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/full_comparison_FDTD_analytical.jpg" target="_blank"><img src="img/full_comparison_FDTD_analytical.jpg" style="width: 100%;" class="figure-img img-fluid rounded"></a>
 
+<hr>
+
+<h3>Plasmonic Metal Nanoparticles</h3>
+
+<p>
+Over the last two decades, plasmon resonances in metallic nanoparticles have been studied extensively because metallic nanostructures can strongly absorb and scatter light through localized surface plasmon resonances. This behavior underpins a broad range of applications, including optical sensing, photothermal heating and solar vapor generation, and bio-imaging.
 </p>
-  
-<h2>Application of the spectral density function to composite materials</h2>
-<p>According to the Bergman spectral density theory, any effective medium model has an integral representation in terms of a spectral density function g(x) that 
- depends on the geometry of the composite meterial and is independent of the optical constants of individual component materials.
- Therefore, conneting the spectral density function to the effective optical constant provides a great oppotunity to measure the contribution of individual and percolated particles
- inside the nanocomposite. </p>
-  
+
+<p>
+Here I provide a 2D-TE FDTD code to compute extinction, scattering, and absorption efficiencies for a gold-shell dielectric-core nanocylinder (schematically shown in the figure). The Fortran implementation can be accessed
+<a href="https://github.com/cy-lu/2D_FDTD/tree/master/Fortran" target="_blank" rel="noopener noreferrer">here</a>.
+</p>
+
+<h4>Analytical benchmark for verification</h4>
+
+<p>
+For 2D scattering problems with cylindrical symmetry, it is valuable to have an analytical solution as a reference for verifying numerical results. For this reason, I also provide an analytical code to calculate the extinction spectrum of a core–shell nanocylinder. As an example, results for a gold-shell dielectric-core nanocylinder with outer radius 50 nm and inner radius 40 nm are compared against the corresponding FDTD simulations in the figure below. The analytical implementation can be accessed
+<a href="https://github.com/cy-lu/2D_FDTD/tree/master/Analytical_solution" target="_blank" rel="noopener noreferrer">here</a>.
+</p>
+
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/full_comparison_FDTD_analytical.jpg" target="_blank" rel="noopener noreferrer">
+  <img src="img/full_comparison_FDTD_analytical.jpg" style="width: 100%;" class="figure-img img-fluid rounded" alt="Comparison between FDTD and analytical results for a core-shell nanocylinder">
+</a>
+
 <ul>
-<li>update 12/04/2020</li>
+  <li>
+    <b>Why this comparison is useful:</b> matching peak positions and spectral trends provides a practical sanity check on discretization, TF/SF injection, and boundary absorption settings.
+  </li>
+  <li>
+    <b>What can differ:</b> small deviations may arise from finite grid resolution, numerical dispersion, PML configuration, and the time-window / Fourier-transform settings used to extract spectra from transient fields.
+  </li>
 </ul>
+
+<hr>
+
+<h3>Application of the Spectral Density Function to Composite Materials</h3>
+
+<p>
+According to Bergman’s spectral representation, the effective response of a two-component composite can be expressed through an integral representation involving a spectral density function <i>g(x)</i>. The key idea is that <i>g(x)</i> encodes geometric and topological information of the composite microstructure (e.g., connectivity, percolation features) and is, in principle, independent of the optical constants of the constituent materials. Connecting <i>g(x)</i> to effective optical constants therefore provides a route to interpret how isolated inclusions and percolated networks contribute to the macroscopic electromagnetic response of nanocomposites.
+</p>
+
+<p>
+In practical terms, this framework can help bridge microstructural morphology (particle distribution and connectivity) to measurable effective properties, and can complement numerical simulations (e.g., FDTD/TMM) by offering a compact representation of geometry-driven contributions.
+</p>
+
+<ul>
+  <li>Update: 12/04/2022</li>
+</ul>
+
 
 </div>
 <!-- end of Numerical-codes --> 

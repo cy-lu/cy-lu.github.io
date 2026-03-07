@@ -19,7 +19,6 @@
       line-height: 1.72;
       font-size: 17px;
     }
-
     .hero {
       background: linear-gradient(135deg, #0e4d7a 0%, #1f6fa9 100%);
       color: #fff;
@@ -27,25 +26,21 @@
       margin-bottom: 32px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.10);
     }
-
     .hero h1 {
       font-weight: 700;
       margin-bottom: 14px;
       letter-spacing: 0.2px;
     }
-
     .hero p {
       max-width: 930px;
       font-size: 1.06rem;
       margin-bottom: 0;
     }
-
     .page-wrap {
       max-width: 1000px;
       margin: 0 auto 50px auto;
       padding: 0 15px;
     }
-
     .section-card {
       background: #fff;
       border-radius: 14px;
@@ -53,14 +48,12 @@
       margin-bottom: 26px;
       box-shadow: 0 6px 18px rgba(20, 40, 60, 0.08);
     }
-
     .section-card h2 {
       color: #0f4d7d;
       font-size: 1.70rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
-
     .section-card h3 {
       color: #244964;
       font-size: 1.18rem;
@@ -68,7 +61,6 @@
       margin-top: 22px;
       margin-bottom: 12px;
     }
-
     .toc a {
       display: inline-block;
       margin-right: 14px;
@@ -77,11 +69,9 @@
       font-weight: 600;
       text-decoration: none;
     }
-
     .toc a:hover {
       text-decoration: underline;
     }
-
     .highlight-box {
       background: #f2f8fd;
       border-left: 5px solid #1f6fa9;
@@ -89,7 +79,6 @@
       border-radius: 8px;
       margin: 18px 0;
     }
-
     .formula-box {
       background: #f8fbfe;
       border: 1px solid #d7e4f0;
@@ -99,7 +88,6 @@
       font-family: Georgia, serif;
       font-size: 1.05rem;
     }
-
     pre {
       background: #101820;
       color: #dfe8ee;
@@ -112,38 +100,49 @@
       margin-top: 14px;
       margin-bottom: 14px;
     }
-
     code {
       color: inherit;
     }
-
     figure {
       margin: 24px 0 20px 0;
       text-align: center;
     }
-
     figure img {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
-
     figcaption {
       font-size: 0.93rem;
       color: #5f6d78;
       margin-top: 10px;
       line-height: 1.55;
     }
-
-    ul li {
+    ul li, ol li {
       margin-bottom: 8px;
     }
-
     .source-list li {
       margin-bottom: 10px;
     }
-
+    .download-box {
+      background: #f9fcff;
+      border: 1px solid #d6e5f1;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .download-box a {
+      font-weight: 600;
+      color: #0f4d7d;
+      text-decoration: none;
+    }
+    .download-box a:hover {
+      text-decoration: underline;
+    }
+    table {
+      font-size: 0.97rem;
+    }
     .back-link {
       margin-top: 16px;
       display: inline-block;
@@ -151,7 +150,6 @@
       font-weight: 600;
       text-decoration: none;
     }
-
     .back-link:hover {
       text-decoration: underline;
     }
@@ -164,10 +162,7 @@
   <div class="container">
     <h1>CUDA Tutorial for Scientific Computing</h1>
     <p>
-      This page introduces GPU computing from a computational physics perspective.
-      The emphasis is on understanding why GPUs can accelerate structured numerical workloads,
-      how CUDA organizes parallel execution, and how these ideas connect naturally to stencil-based solvers,
-      finite-difference methods, and PDE-oriented scientific programming.
+      This page introduces GPU computing from a computational physics perspective. The focus is not only on how to launch CUDA kernels, but also on why GPUs can accelerate structured numerical workloads, how memory hierarchy influences performance, and how these ideas connect to stencil-based algorithms such as the Laplace operator and Jacobi iteration.
     </p>
   </div>
 </div>
@@ -179,263 +174,282 @@
     <a href="#why-gpu">Why can a GPU be faster?</a>
     <a href="#execution-model">CUDA execution model</a>
     <a href="#memory-hierarchy">GPU memory hierarchy</a>
-    <a href="#laplace">Laplace stencil and Jacobi iteration</a>
-    <a href="#practical-notes">Practical notes</a>
+    <a href="#laplace-1d">1D Laplace benchmark</a>
+    <a href="#laplace-2d">2D Laplace benchmark</a>
+    <a href="#benchmark-scaling">Scaling results and interpretation</a>
+    <a href="#historical-note">Texture memory and historical context</a>
     <a href="#sources">Image sources</a>
   </div>
 
   <div id="why-gpu" class="section-card">
     <h2>1. Why can a GPU be much faster than a CPU?</h2>
-
     <p>
-      The central reason is architectural specialization. A CPU is optimized for low-latency execution,
-      complex control flow, branch-heavy logic, and strong single-thread performance.
-      A GPU is optimized for throughput: it devotes much more of its hardware budget to arithmetic units
-      and parallel execution resources, which makes it especially effective when the same operation must be
-      applied to many data elements. This is exactly the situation encountered in array-based scientific computing,
-      stencil updates, matrix operations, and many structured PDE solvers.
+      The main reason is architectural specialization. A CPU is optimized for low-latency execution, complex control flow, branch prediction, and strong single-thread performance. A GPU is optimized for throughput: it devotes a much larger fraction of its hardware budget to arithmetic units and parallel execution resources. This makes it especially effective when the same operation must be applied to many data elements.
+    </p>
+    <p>
+      In scientific computing, this situation appears naturally in vector operations, matrix-style updates, structured-grid PDE solvers, image-style processing, and stencil-based algorithms. If the computation is regular enough, many GPU threads can work simultaneously on different parts of the domain.
     </p>
 
     <figure>
       <img src="../img/cpu_gpu_architecture.png" alt="CPU versus GPU architecture">
       <figcaption>
-        Figure 1. Conceptual comparison between CPU and GPU resource allocation.
-        The CPU devotes more hardware to control and cache, while the GPU devotes more hardware
-        to massively parallel arithmetic execution.
+        Figure 1. Conceptual comparison between CPU and GPU resource allocation. The CPU devotes more hardware to control and cache, while the GPU devotes more hardware to massively parallel arithmetic execution.
       </figcaption>
     </figure>
 
     <div class="highlight-box">
-      <b>Interpretation.</b> The GPU is not universally faster. It is most effective when the workload is
-      highly parallel, arithmetic-rich, and regular enough that many threads can execute similar instructions
-      on different data.
+      <b>Key point.</b> A GPU is not automatically faster for every workload. The strongest gains typically appear when the computation is data-parallel, arithmetic is repeated many times, and memory access is reasonably regular.
     </div>
-
-    <h3>When GPU acceleration is a natural fit</h3>
-    <ul>
-      <li>Large vector and matrix operations</li>
-      <li>Finite-difference and finite-volume structured-grid kernels</li>
-      <li>Stencil-based updates and iterative relaxation methods</li>
-      <li>Dense linear algebra and repeated array transforms</li>
-    </ul>
   </div>
 
   <div id="execution-model" class="section-card">
     <h2>2. CUDA execution model</h2>
-
     <p>
-      CUDA exposes the GPU as a parallel device on which a <b>kernel</b> is executed by many threads.
-      These threads are organized hierarchically into <b>threads</b>, <b>blocks</b>, and <b>grids</b>.
-      This hierarchy is fundamental because it determines both indexing and cooperation.
+      CUDA expresses GPU work through a kernel launched over many threads. These threads are organized hierarchically into <b>threads</b>, <b>blocks</b>, and <b>grids</b>. In numerical computing, one thread is often mapped to one array element, one mesh node, or one grid point.
     </p>
-
-    <ul>
-      <li><b>Thread</b>: one execution instance</li>
-      <li><b>Block</b>: a cooperating group of threads</li>
-      <li><b>Grid</b>: the full collection of blocks launched for one kernel</li>
-    </ul>
 
     <figure>
       <img src="../img/cuda_thread_block_grid.png" alt="CUDA thread block grid hierarchy">
       <figcaption>
         Figure 2. CUDA thread hierarchy: threads are grouped into blocks, and blocks are grouped into a grid.
-        This is the standard execution abstraction used in CUDA kernels.
       </figcaption>
     </figure>
 
     <p>
-      In the simplest one-dimensional case, each thread computes a global index according to
+      In one dimension, the global index is usually written as
     </p>
 
     <pre><code>int i = blockIdx.x * blockDim.x + threadIdx.x;</code></pre>
 
     <p>
-      and then uses that index to update one element of an array or one spatial point of a discretized field.
-      In two dimensions, the same idea is extended with <code>x</code> and <code>y</code> indices.
+      In two dimensions, the same pattern is extended to a pair of indices:
     </p>
 
     <pre><code>int i = blockIdx.x * blockDim.x + threadIdx.x;
 int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
 
-    <div class="highlight-box">
-      <b>Numerical viewpoint.</b> This model is particularly natural for scientific computing because
-      one thread can often be mapped to one degree of freedom, one mesh point, one grid cell, or one output datum.
-    </div>
+    <p>
+      This indexing logic is the bridge between the numerical grid and the CUDA execution hierarchy.
+    </p>
   </div>
 
   <div id="memory-hierarchy" class="section-card">
     <h2>3. GPU memory hierarchy</h2>
-
     <p>
-      Raw arithmetic throughput alone does not determine performance. For many CUDA kernels,
-      the true limiting factor is memory traffic. The GPU memory hierarchy therefore plays a central role in optimization.
-      Fast storage levels are smaller and closer to computation, while larger storage levels have higher latency.
+      Many CUDA kernels are limited less by arithmetic throughput than by data movement. For this reason, memory hierarchy is central to performance. Fast storage levels are smaller and closer to computation, while large-capacity levels are slower.
     </p>
 
     <figure>
       <img src="../img/GPUMemLevels.png" alt="GPU memory hierarchy">
       <figcaption>
-        Figure 3. GPU memory hierarchy, including registers, shared memory, L1 cache, L2 cache,
-        and global memory. Efficient CUDA programs try to maximize data reuse in the fast memory levels.
+        Figure 3. GPU memory hierarchy, including registers, shared memory, cache levels, and global memory.
       </figcaption>
     </figure>
 
-    <h3>Useful beginner-level interpretation</h3>
     <ul>
       <li><b>Registers</b>: private to each thread and the fastest storage available</li>
-      <li><b>Shared memory</b>: visible to threads in the same block and very important for stencil tiling</li>
-      <li><b>L1 / L2 cache</b>: hardware-managed caching levels</li>
-      <li><b>Global memory</b>: large device memory, but relatively slow compared with registers and shared memory</li>
+      <li><b>Shared memory</b>: shared inside a block and often useful for stencil tiling</li>
+      <li><b>L1 / texture cache / L2 cache</b>: hardware-managed cache hierarchy</li>
+      <li><b>Global memory</b>: large device memory, but relatively high latency</li>
     </ul>
 
+    <div class="highlight-box">
+      <b>Practical interpretation.</b> In stencil kernels, performance often depends on whether neighboring data are repeatedly reloaded from global memory or effectively reused through cache or shared memory.
+    </div>
+  </div>
+
+  <div id="laplace-1d" class="section-card">
+    <h2>4. 1D Laplace operator benchmark</h2>
     <p>
-      For stencil computations, performance often depends on whether neighboring data are repeatedly reloaded from
-      global memory or successfully reused from shared memory and cache. This is why memory-aware implementation
-      is often as important as the numerical formula itself.
+      A clean entry point into CUDA stencil programming is the 1D discrete Laplace operator,
+    </p>
+
+    <div class="formula-box">
+      (∇²u)<sub>i</sub> ≈ u<sub>i+1</sub> − 2u<sub>i</sub> + u<sub>i−1</sub>
+    </div>
+
+    <p>
+      This is a one-dimensional stencil update, not yet a full PDE solver. It is useful pedagogically because it separates the memory-access question from the broader complexity of iterative boundary-value solvers. The benchmark compares four implementations:
+    </p>
+
+    <ul>
+      <li><b>Naive</b>: direct global-memory loads</li>
+      <li><b>LDG</b>: read-only cache path via <code>__ldg()</code></li>
+      <li><b>TexObject</b>: texture-object fetches</li>
+      <li><b>Shared</b>: shared-memory tiling with halo loading</li>
+    </ul>
+
+    <pre><code>__global__ void ker_laplace_naive(float* y, const float* x, int n) {
+  int i = blockIdx.x * blockDim.x + threadIdx.x;
+  if (i >= n) return;
+
+  int prev = (i == 0) ? n - 1 : i - 1;
+  int next = (i == n - 1) ? 0 : i + 1;
+
+  y[i] = x[next] - 2.0f * x[i] + x[prev];
+}</code></pre>
+
+    <div class="download-box">
+      <b>Download code:</b><br>
+      <a href="benchmark_complete_1d_laplace.cu" download>benchmark_complete_1d_laplace.cu</a>
+    </div>
+
+    <p>
+      This example is ideal for introducing thread indexing, cache-aware stencil execution, and the difference between architectural assumptions and measured performance.
     </p>
   </div>
 
-  <div id="laplace" class="section-card">
-    <h2>4. Laplace stencil and Jacobi iteration</h2>
-
+  <div id="laplace-2d" class="section-card">
+    <h2>5. 2D Laplace operator benchmark</h2>
     <p>
-      A natural scientific computing example for CUDA is the discrete Laplace operator.
-      In two dimensions, the standard five-point stencil uses the four nearest neighbors of each interior point.
-      This same pattern is also the basis of Jacobi relaxation for solving the Laplace equation.
+      The natural extension is the 2D five-point stencil,
     </p>
 
     <div class="formula-box">
-      Discrete 2D Laplace operator:
-      <br><br>
-      ∇²u<sub>i,j</sub> ≈
-      u<sub>i+1,j</sub> + u<sub>i-1,j</sub> + u<sub>i,j+1</sub> + u<sub>i,j-1</sub> − 4u<sub>i,j</sub>
+      (∇²u)<sub>i,j</sub> ≈ u<sub>i+1,j</sub> + u<sub>i−1,j</sub> + u<sub>i,j+1</sub> + u<sub>i,j−1</sub> − 4u<sub>i,j</sub>
     </div>
 
-    <div class="formula-box">
-      Jacobi update for ∇²u = 0:
-      <br><br>
-      u<sub>i,j</sub><sup>new</sup> =
-      1/4 [u<sub>i+1,j</sub><sup>old</sup> + u<sub>i-1,j</sub><sup>old</sup> +
-      u<sub>i,j+1</sub><sup>old</sup> + u<sub>i,j-1</sub><sup>old</sup>]
-    </div>
+    <p>
+      This stencil is fundamental in computational physics and engineering. It appears in diffusion, electrostatics, heat conduction, pressure equations, and iterative relaxation methods. The 2D version is more realistic than the 1D case because it introduces two-dimensional indexing, more natural spatial locality, and a stronger connection to PDE discretization.
+    </p>
 
     <figure>
       <img src="../img/laplace_jacobi_stencil.png" alt="Laplace stencil and Jacobi iteration">
       <figcaption>
-        Figure 4. Illustration of stencil-based update structure. The same local-neighbor pattern
-        appears in many iterative solvers, including Jacobi-type relaxation schemes.
+        Figure 4. Illustration of stencil-based update structure and Jacobi-style local-neighbor averaging.
       </figcaption>
     </figure>
 
-    <h3>Why this example is important</h3>
-    <ul>
-      <li>It connects CUDA directly to computational physics and PDEs.</li>
-      <li>It shows how one thread can update one grid point.</li>
-      <li>It motivates shared-memory tiling and structured memory reuse.</li>
-      <li>It provides a clean bridge toward more advanced methods such as FDTD and Poisson solvers.</li>
-    </ul>
+    <pre><code>__global__ void ker_laplace2d_naive(float* y, const float* x, int nx, int ny) {
+  int i = blockIdx.x * blockDim.x + threadIdx.x;
+  int j = blockIdx.y * blockDim.y + threadIdx.y;
+  if (i >= nx || j >= ny) return;
 
-    <h3>Representative CUDA kernel structure</h3>
+  int im = (i == 0)      ? nx - 1 : i - 1;
+  int ip = (i == nx - 1) ? 0      : i + 1;
+  int jm = (j == 0)      ? ny - 1 : j - 1;
+  int jp = (j == ny - 1) ? 0      : j + 1;
 
-    <pre><code>__global__ void jacobi2d(float* u_new, const float* u_old, int nx, int ny)
-{
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    int j = blockIdx.y * blockDim.y + threadIdx.y;
+  int c  = j * nx + i;
+  int xm = j * nx + im;
+  int xp = j * nx + ip;
+  int ym = jm * nx + i;
+  int yp = jp * nx + i;
 
-    if (i <= 0 || i >= nx - 1 || j <= 0 || j >= ny - 1) return;
-
-    int c = j * nx + i;
-
-    u_new[c] = 0.25f * (
-        u_old[c + 1] +
-        u_old[c - 1] +
-        u_old[c + nx] +
-        u_old[c - nx]
-    );
+  y[c] = x[xp] + x[xm] + x[yp] + x[ym] - 4.0f * x[c];
 }</code></pre>
 
     <p>
-      This kernel is simple, but it already contains the essential elements of GPU scientific computing:
-      thread indexing, structured data layout, spatial locality, and repeated array updates over a mesh.
+      In this tutorial, the 2D benchmark is implemented in a scaling-oriented form so that the same code can be used to study how different memory strategies behave as the grid size increases.
+    </p>
+
+    <div class="download-box">
+      <b>Download code:</b><br>
+      <a href="benchmark_complete_2d_laplace_scaling.cu" download>benchmark_complete_2d_laplace_scaling.cu</a>
+    </div>
+  </div>
+
+  <div id="benchmark-scaling" class="section-card">
+    <h2>6. Scaling results and interpretation</h2>
+    <p>
+      The following benchmark was obtained on an NVIDIA Tesla T4 using a fixed block size of 16 × 16. Four memory-access strategies were compared for a 2D five-point Laplace stencil with periodic boundary conditions.
+    </p>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Grid size</th>
+          <th>Naive (ms)</th>
+          <th>LDG (ms)</th>
+          <th>TexObject (ms)</th>
+          <th>Shared (ms)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1024 × 1024</td><td>0.0398</td><td>0.0397</td><td>0.0468</td><td>0.0674</td></tr>
+        <tr><td>2048 × 2048</td><td>0.1432</td><td>0.1431</td><td>0.1644</td><td>0.2377</td></tr>
+        <tr><td>4096 × 4096</td><td>0.5662</td><td>0.5656</td><td>0.6569</td><td>0.9082</td></tr>
+        <tr><td>8192 × 8192</td><td>2.2476</td><td>2.2511</td><td>2.6381</td><td>3.6918</td></tr>
+      </tbody>
+    </table>
+
+    <h3>How the methods change with grid size</h3>
+    <p>
+      As the grid size increases, the runtime of all four methods grows approximately in proportion to the number of grid points. This is exactly what one expects from a stencil that performs a nearly fixed amount of work per point. The benchmark therefore behaves like a classical memory-bound scaling test rather than a compute-bound kernel.
+    </p>
+
+    <p>
+      The ranking is essentially unchanged across all tested grid sizes:
+    </p>
+
+    <pre><code>Naive ≈ LDG  &lt;  TexObject  &lt;  Shared</code></pre>
+
+    <p>
+      This consistency is itself an important result. It shows that the kernel’s limiting mechanism does not fundamentally change over the tested range. The performance is dominated by memory movement, and the relative overheads of the different implementations remain structurally similar from 1024² to 8192².
+    </p>
+
+    <h3>Naive and LDG</h3>
+    <p>
+      The naive and LDG versions are nearly indistinguishable in performance. This means that, for this regular row-major stencil on a Tesla T4, the default hardware cache hierarchy is already highly effective. The read-only path provided by <code>__ldg()</code> does not produce a meaningful additional gain in this case.
+    </p>
+
+    <h3>TexObject</h3>
+    <p>
+      The texture-object version is consistently slower. This indicates that texture fetches do not provide an advantage for this simple five-point stencil. The access pattern is regular enough that the ordinary caching path already handles the working set efficiently.
+    </p>
+
+    <h3>Shared memory tiling</h3>
+    <p>
+      The shared-memory version is slowest at every grid size. The reason is that this kernel is too lightweight for explicit tiling to pay off. Halo loading, corner handling, shared-memory bookkeeping, and block synchronization all add overhead. In this benchmark, those costs are larger than the reduction in global-memory traffic.
+    </p>
+
+    <div class="highlight-box">
+      <b>Key lesson.</b> Shared memory is not automatically beneficial. For regular stencil workloads on modern GPUs, optimization decisions should be based on measurements rather than assumptions.
+    </div>
+  </div>
+
+  <div id="historical-note" class="section-card">
+    <h2>7. Historical note: why texture memory no longer shows a clear advantage here</h2>
+    <p>
+      In earlier CUDA generations, texture memory often provided a noticeable advantage for stencil-style workloads. The reason was architectural: the texture path had a dedicated cache optimized for spatial locality, and regular 2D access patterns could benefit from it more clearly than from ordinary global-memory loads.
+    </p>
+
+    <p>
+      Over time, GPU memory systems evolved substantially. Modern architectures include much more capable cache hierarchies, and in several generations the L1 cache and texture-related caching behavior became increasingly integrated. CUDA also introduced <code>__ldg()</code>, which routes read-only data through a specialized cache path derived from the same broader memory-system evolution.
+    </p>
+
+    <p>
+      As a result, the historical advantage of texture memory has been weakened for many regular stencil workloads. In this benchmark, that effect is very clear: the naive implementation and the LDG version perform almost identically, while the texture-object version does not improve performance. This strongly suggests that the ordinary cache hierarchy is already effective enough for this access pattern.
+    </p>
+
+    <p>
+      This does not mean that texture memory is obsolete. It can still be useful for irregular access patterns, image-style kernels, gather operations, or cases that benefit from hardware interpolation. However, for a simple row-major five-point Laplace stencil, the modern cache system largely removes the historical reason to expect a texture-memory advantage.
     </p>
   </div>
 
-  <div id="practical-notes" class="section-card">
-    <h2>5. Practical notes for beginners</h2>
-
-    <ul>
-      <li><b>Start from correctness.</b> Always compare the GPU result against a CPU reference implementation.</li>
-      <li><b>Begin with a simple kernel.</b> Do not optimize too early.</li>
-      <li><b>Think about data layout.</b> In structured-grid methods, memory access patterns matter enormously.</li>
-      <li><b>Profile before optimizing.</b> Bandwidth bottlenecks are common in stencil codes.</li>
-      <li><b>Use GPUs for the right workloads.</b> Large, regular, data-parallel problems are the best entry point.</li>
-    </ul>
-
-    <div class="highlight-box">
-      A strong learning sequence is:
-      <b>vector update → 1D stencil → 2D stencil → Jacobi solver → memory optimization</b>.
-      This progression keeps both the numerical meaning and the CUDA execution model clear.
-    </div>
+  <div class="section-card">
+    <h2>8. Suggested usage in teaching</h2>
+    <p>
+      The sequence used here works well in teaching because it progresses from simple to physically meaningful examples:
+    </p>
+    <ol>
+      <li>Begin with 1D indexing and a simple 1D Laplace operator.</li>
+      <li>Extend the same idea to a 2D five-point stencil.</li>
+      <li>Discuss memory traffic and why stencil kernels are frequently memory-bound.</li>
+      <li>Compare cache-based and shared-memory implementations empirically.</li>
+      <li>Use the benchmark to demonstrate that optimization must be evidence-driven.</li>
+    </ol>
 
     <a class="back-link" href="../index.html">← Back to homepage</a>
   </div>
 
   <div id="sources" class="section-card">
-    <h2>6. Image sources and attribution</h2>
-
-    <p>
-      The figures used on this page are instructional diagrams reproduced for educational presentation.
-      The corresponding source references are listed below so that each image remains properly attributable.
-    </p>
-
+    <h2>9. Image sources and attribution</h2>
     <ol class="source-list">
-      <li>
-        <b>Figure 1: CPU vs GPU architecture.</b><br>
-        Based on the CPU/GPU comparison diagram discussed by Cornell Virtual Workshop,
-        which notes that the figure is taken from the CUDA C++ Programming Guide.<br>
-        Source page:
-        <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design" target="_blank" rel="noopener noreferrer">
-          Cornell Virtual Workshop – Comparing CPU and GPU architecture
-        </a>
-      </li>
-
-      <li>
-        <b>Figure 2: CUDA thread / block / grid hierarchy.</b><br>
-        Standard CUDA execution-model diagram from the NVIDIA CUDA C++ Programming Guide;
-        see also mirrored references showing the same figure.<br>
-        Source pages:
-        <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html" target="_blank" rel="noopener noreferrer">
-          NVIDIA CUDA C++ Programming Guide
-        </a>
-        |
-        <a href="https://www.researchgate.net/figure/1-Grid-of-thread-blocks-in-CUDA-source-CUDA-Programming-Guide-v65_fig16_268216668" target="_blank" rel="noopener noreferrer">
-          ResearchGate mirror of grid-of-thread-blocks figure
-        </a>
-      </li>
-
-      <li>
-        <b>Figure 3: GPU memory hierarchy.</b><br>
-        Cornell Virtual Workshop memory-levels diagram for the NVIDIA Tesla V100,
-        described as based on diagrams by NVIDIA and Citadel at GTC 2018.<br>
-        Source page:
-        <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-memory/memory_levels" target="_blank" rel="noopener noreferrer">
-          Cornell Virtual Workshop – GPU memory levels
-        </a>
-      </li>
-
-      <li>
-        <b>Figure 4: Laplace / Jacobi stencil illustration.</b><br>
-        Used as a teaching illustration for stencil-style iterative updates.
-        Related 2D 5-point Jacobi / stencil references include the following pages.<br>
-        Source pages:
-        <a href="https://www.researchgate.net/figure/Illustrating-different-concepts-of-2D-5-point-imperfect-Jacobi-a-Pseudo-code-T-is-the_fig1_325443412" target="_blank" rel="noopener noreferrer">
-          ResearchGate – 2D 5-point Jacobi illustration
-        </a>
-        |
-        <a href="https://www.researchgate.net/figure/Jacobi-2D-stencil-computation_fig5_291347107" target="_blank" rel="noopener noreferrer">
-          ResearchGate – Jacobi-2D stencil computation
-        </a>
-      </li>
+      <li><b>Figure 1: CPU vs GPU architecture.</b> Based on the CPU/GPU comparison diagram discussed by Cornell Virtual Workshop, which notes that the figure is taken from the CUDA C++ Programming Guide.</li>
+      <li><b>Figure 2: CUDA thread / block / grid hierarchy.</b> Standard CUDA execution-model diagram from the NVIDIA CUDA C++ Programming Guide.</li>
+      <li><b>Figure 3: GPU memory hierarchy.</b> Cornell Virtual Workshop memory-levels diagram for the NVIDIA Tesla V100, based on NVIDIA/Citadel teaching material.</li>
+      <li><b>Figure 4: Laplace / Jacobi stencil illustration.</b> Used as a teaching illustration for stencil-style iterative updates and local-neighbor averaging.</li>
     </ol>
   </div>
 

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMSOL Validation and Fracture Bridge</title>
+
+  <link rel="stylesheet" href="../../css/custom.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    body { padding-top: 20px; padding-bottom: 40px; }
+    .section-block { margin-top: 30px; }
+    .formula-box, .note-box {
+      background: #f8f9fa;
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+    }
+    .formula-box { border-left: 4px solid #17a2b8; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>COMSOL Validation and Fracture Bridge</h1>
+  <p><b>How CLT, strength assessment, and finite element analysis fit together</b></p>
+
+  <div class="section-block">
+    <h2>1. Why COMSOL is needed after CLT</h2>
+    <p>
+      CLT gives the global laminate mechanics efficiently. It tells us the expected extensional stiffness,
+      bending stiffness, membrane–bending coupling, mid-plane strain, curvature, and ply-level in-plane stress.
+    </p>
+    <p>
+      But CLT does not resolve local geometry. It does not know about:
+    </p>
+    <ul>
+      <li>holes and cutouts,</li>
+      <li>free-edge stress concentrations,</li>
+      <li>local constraints and fixtures,</li>
+      <li>complex thermal gradients,</li>
+      <li>interlaminar stress peaks at interfaces.</li>
+    </ul>
+    <p>
+      That is where COMSOL enters. The correct way to use it is not to replace CLT, but to
+      <b>validate and extend</b> the CLT-based understanding.
+    </p>
+  </div>
+
+  <div class="section-block">
+    <h2>2. What should be compared between CLT and COMSOL?</h2>
+    <p>
+      If CLT is the baseline, then COMSOL should first be checked against quantities that CLT actually predicts:
+    </p>
+    <ul>
+      <li>mid-plane strain \(\boldsymbol{\varepsilon}_0\),</li>
+      <li>curvature \(\boldsymbol{\kappa}\),</li>
+      <li>global displacement trend,</li>
+      <li>ply-level in-plane stress trend.</li>
+    </ul>
+    <div class="formula-box">
+      \[
+      \begin{bmatrix}
+      \mathbf{N}\\
+      \mathbf{M}
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+      \mathbf{A} & \mathbf{B}\\
+      \mathbf{B} & \mathbf{D}
+      \end{bmatrix}
+      \begin{bmatrix}
+      \boldsymbol{\varepsilon}_0\\
+      \boldsymbol{\kappa}
+      \end{bmatrix}
+      \]
+    </div>
+    <p>
+      If these global responses disagree strongly in a simple benchmark plate, then the COMSOL model setup should be questioned
+      before moving on to more complicated geometry.
+    </p>
+  </div>
+
+  <div class="section-block">
+    <h2>3. A practical COMSOL workflow</h2>
+    <ol>
+      <li>Build a simple benchmark geometry first, such as a rectangular laminate plate.</li>
+      <li>Select a structural formulation appropriate for the problem: shell or solid mechanics.</li>
+      <li>Define orthotropic ply properties \((E_1,E_2,G_{12},\nu_{12})\).</li>
+      <li>Assign ply angles \(\theta_k\) and thicknesses \(t_k\).</li>
+      <li>Apply loads equivalent to \(\mathbf{N}\) and \(\mathbf{M}\).</li>
+      <li>Solve the benchmark and compare the global response with CLT.</li>
+      <li>Only then move on to local features such as holes, free edges, notches, or thermal mismatch.</li>
+    </ol>
+    <div class="note-box">
+      <p><b>Teaching principle.</b> Start from the problem that CLT can solve. If the FEM model cannot reproduce the CLT benchmark,
+      then more complicated results should not yet be trusted.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h2>4. Strength versus fracture</h2>
+    <p>
+      It is important not to confuse <b>strength-based failure prediction</b> with <b>fracture mechanics</b>.
+    </p>
+    <p>
+      Strength-based criteria, such as Tsai–Hill, answer the question:
+    </p>
+    <div class="formula-box">
+      <p><b>Is the stress state in a ply large enough to indicate failure onset?</b></p>
+    </div>
+    <p>
+      Fracture mechanics answers a different question:
+    </p>
+    <div class="formula-box">
+      <p><b>If damage exists or starts, how does it propagate?</b></p>
+    </div>
+    <p>
+      The difference is fundamental:
+    </p>
+    <ul>
+      <li>Strength criteria predict <b>onset</b>.</li>
+      <li>Fracture mechanics studies <b>growth</b>.</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>5. Why local stress concentration matters</h2>
+    <p>
+      In CLT, the stress field is smooth through the laminate model. But in a real structure,
+      holes, cutouts, corners, and free edges can produce strong local stress concentration.
+    </p>
+    <p>
+      These local peaks matter because they often trigger:
+    </p>
+    <ul>
+      <li>matrix cracking,</li>
+      <li>fiber-dominated failure,</li>
+      <li>delamination initiation,</li>
+      <li>interface failure between adjacent layers.</li>
+    </ul>
+    <p>
+      A common workflow is therefore:
+    </p>
+    <ol>
+      <li>Use CLT to understand the global laminate response.</li>
+      <li>Use FEM to identify local hotspot regions.</li>
+      <li>Use strength criteria for first-pass screening.</li>
+      <li>Use fracture mechanics if propagation is the real design concern.</li>
+    </ol>
+  </div>
+
+  <div class="section-block">
+    <h2>6. Bridge to fracture mechanics</h2>
+    <p>
+      The natural fracture-mechanics bridge from laminate analysis includes:
+    </p>
+    <ul>
+      <li>matrix crack initiation and growth,</li>
+      <li>free-edge delamination,</li>
+      <li>interface crack growth,</li>
+      <li>energy release rate \(G\),</li>
+      <li>mode-mixity and cohesive-zone concepts.</li>
+    </ul>
+    <p>
+      The key conceptual transition is:
+    </p>
+    <div class="formula-box">
+      <p><b>CLT and strength criteria tell you where failure is likely to begin. Fracture mechanics tells you how damage evolves once it has begun.</b></p>
+    </div>
+    <p>
+      That is why it is pedagogically correct to learn laminate stiffness and ply stress first, then failure criteria,
+      and only after that move into delamination and fracture.
+    </p>
+  </div>
+
+  <div class="section-block">
+    <h2>7. Recommended learning order</h2>
+    <ol>
+      <li>Understand ply and laminate definitions</li>
+      <li>Understand \(\mathbf{Q}\), \(\bar{\mathbf{Q}}\), \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\)</li>
+      <li>Implement the CLT workflow in MATLAB</li>
+      <li>Check ply-level strength criteria</li>
+      <li>Build a benchmark COMSOL model</li>
+      <li>Move to local stress concentration problems</li>
+      <li>Only then enter fracture mechanics</li>
+    </ol>
+  </div>
+
+  <hr>
+  <p><a href="index.html">Back to module home</a></p>
+
+</div>
+</body>
+</html>

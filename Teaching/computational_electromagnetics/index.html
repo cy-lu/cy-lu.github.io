@@ -1,1 +1,161 @@
+<div class="section-block" id="methods">
+  <h2>4. Main numerical methods</h2>
+  <p>
+    No numerical method is universally best. The correct choice depends on the mathematical structure
+    of the problem: whether the geometry is layered or fully three-dimensional, whether the quantity
+    of interest is broadband or single-frequency, whether local field resolution is important, and whether
+    the material response is dispersive, lossy, anisotropic, or strongly resonant.
+  </p>
+  <p>
+    In practice, the three methods most relevant here are the <b>transfer-matrix method (TMM)</b>,
+    the <b>finite-difference time-domain method (FDTD)</b>, and the <b>finite element method (FEM)</b>.
+    They should not be viewed as competing software choices, but as different mathematical tools with
+    different domains of validity.
+  </p>
 
+  <div class="formula">
+    <p><b>Practical rule:</b> choose the simplest method that still matches the physics and the geometry.</p>
+  </div>
+</div>
+
+<div class="section-block" id="tmm">
+  <h2>5. Transfer-matrix method (TMM)</h2>
+  <p>
+    The transfer-matrix method is the natural starting point for <b>planar multilayer media</b>.
+    It treats each layer as a homogeneous slab and enforces field continuity at interfaces. The full
+    optical response is obtained by multiplying interface and propagation matrices in sequence.
+  </p>
+
+  <h4>What TMM is mathematically</h4>
+  <p>
+    TMM is essentially a one-dimensional wave-matching method. It assumes that the structure varies
+    along the propagation direction, while the transverse directions are uniform. For this reason,
+    it is very efficient and physically transparent.
+  </p>
+
+  <h4>When TMM is strong</h4>
+  <ul>
+    <li>thin-film optics and multilayer coatings,</li>
+    <li>metal–dielectric absorber stacks,</li>
+    <li>Fabry–Pérot resonators,</li>
+    <li>anti-reflection design,</li>
+    <li>wavelength-dependent reflectance, transmittance, and absorption in layered media.</li>
+  </ul>
+
+  <h4>Why it is valuable pedagogically</h4>
+  <p>
+    TMM is one of the best teaching tools in computational electromagnetics because it exposes the physics
+    directly: phase accumulation, impedance mismatch, interference, and resonance can all be seen without
+    the overhead of a full-wave grid solver.
+  </p>
+
+  <h4>Limits of TMM</h4>
+  <ul>
+    <li>It is not a general full-wave solver for arbitrary geometry.</li>
+    <li>It breaks down once the structure is no longer effectively one-dimensional.</li>
+    <li>It cannot naturally handle lateral patterning, isolated particles, curved interfaces, or arbitrary defects.</li>
+    <li>Local near-field distributions in complex nanostructures are outside its natural scope.</li>
+    <li>Once periodicity or patterning becomes essential, methods such as FDTD, FEM, or RCWA are more appropriate.</li>
+  </ul>
+
+  <p>
+    In short, TMM is excellent for <b>layered structures</b>, but it should not be stretched beyond that class of problems.
+  </p>
+</div>
+
+<div class="section-block" id="fdtd">
+  <h2>6. Finite-difference time-domain (FDTD)</h2>
+  <p>
+    FDTD solves Maxwell’s curl equations directly in the time domain on the Yee grid. The electric and
+    magnetic field components are staggered in space and time, and are updated explicitly in a leapfrog scheme.
+  </p>
+
+  <h4>What FDTD is mathematically</h4>
+  <p>
+    FDTD is a direct time-marching discretization of Maxwell’s equations. Because it works in time,
+    a single pulsed simulation can produce a broad frequency response after Fourier transformation.
+    This is one of its main strengths.
+  </p>
+
+  <h4>When FDTD is strong</h4>
+  <ul>
+    <li>broadband scattering and absorption problems,</li>
+    <li>transient wave propagation,</li>
+    <li>near-field and far-field analysis,</li>
+    <li>pulse-driven systems,</li>
+    <li>nanophotonic structures with strong field localization,</li>
+    <li>situations where time evolution itself is physically informative.</li>
+  </ul>
+
+  <h4>Why FDTD is important</h4>
+  <p>
+    FDTD behaves like a numerical laboratory for wave propagation. It shows how waves enter, scatter,
+    reflect, interfere, and decay in time. For teaching and physical intuition, this is extremely powerful.
+  </p>
+
+  <h4>Limits of FDTD</h4>
+  <ul>
+    <li>The spatial grid is global, so the entire domain pays the cost of the smallest required mesh size.</li>
+    <li>Fine geometric detail or subwavelength features can make memory and runtime extremely expensive.</li>
+    <li>The time step is restricted by the Courant stability condition, so finer spatial resolution immediately increases cost.</li>
+    <li>Numerical dispersion can distort phase velocity and resonance positions if the mesh is not sufficiently fine.</li>
+    <li>Curved or oblique interfaces are approximated on a Cartesian grid unless subpixel or conformal techniques are used.</li>
+    <li>PML setup, TF/SF injection, and spectral extraction can all introduce hidden errors if handled carelessly.</li>
+  </ul>
+
+  <div class="formula">
+    \\[
+    \\Delta t \\leq \\frac{1}{c\\sqrt{\\frac{1}{\\Delta x^2} + \\frac{1}{\\Delta y^2} + \\frac{1}{\\Delta z^2}}}
+    \\]
+  </div>
+
+  <p>
+    In short, FDTD is powerful when the problem is <b>broadband, full-wave, and transient</b>, but it becomes costly
+    when very fine resolution is required over a large computational region.
+  </p>
+</div>
+
+<div class="section-block" id="fem">
+  <h2>7. Finite element method (FEM)</h2>
+  <p>
+    FEM solves the governing equations in weak form by discretizing the domain into finite elements and
+    approximating the solution with basis functions. In electromagnetics, FEM is often used in the frequency
+    domain, though time-domain variants also exist.
+  </p>
+
+  <h4>What FEM is mathematically</h4>
+  <p>
+    FEM is a variational method. Instead of updating fields point by point on a structured grid, it solves
+    a global system assembled from local element contributions. This makes it especially suitable for
+    complex geometry and nonuniform meshing.
+  </p>
+
+  <h4>When FEM is strong</h4>
+  <ul>
+    <li>complex CAD-based geometry,</li>
+    <li>curved boundaries and nonuniform domains,</li>
+    <li>local mesh refinement near corners, gaps, ports, or singular features,</li>
+    <li>frequency-domain resonators and eigenmode problems,</li>
+    <li>multiphysics coupling, including thermal, structural, or electrostatic interaction.</li>
+  </ul>
+
+  <h4>Why FEM is often preferred in engineering simulation</h4>
+  <p>
+    FEM is usually the most flexible method when geometry matters more than broadband speed. It is particularly
+    strong when one needs to resolve a small critical region inside a larger device without refining the whole domain.
+  </p>
+
+  <h4>Limits of FEM</h4>
+  <ul>
+    <li>Broadband analysis is usually less natural than in FDTD because separate frequency points often require separate solves.</li>
+    <li>For very large 3D full-wave problems, the global matrix system can become memory-intensive.</li>
+    <li>Open-region radiation problems require careful treatment of absorbing boundaries or infinite elements.</li>
+    <li>The method is less intuitive for visualizing time evolution unless a time-domain FEM formulation is specifically used.</li>
+    <li>Poor mesh quality or inappropriate basis order can create numerical errors that are less visually obvious than in FDTD.</li>
+  </ul>
+
+  <p>
+    In short, FEM is the strongest choice when the problem is <b>geometrically complex, locally refined, or multiphysics-coupled</b>,
+    but it is not automatically the most efficient method for broadband wave problems.
+  </p>
+</div>

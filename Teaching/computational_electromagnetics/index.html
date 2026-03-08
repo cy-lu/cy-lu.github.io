@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Computational Electromagnetics</title>
+  <title>Computational Electromagnetics — Two-Week Intensive Module</title>
 
   <link rel="stylesheet" href="../../css/custom.css">
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -19,342 +19,1236 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
-    body { padding-top: 20px; padding-bottom: 40px; }
-    .section-block { margin-top: 30px; }
-    .leadbox {
-      background: #f8f9fa;
-      border-left: 4px solid #17a2b8;
+    :root {
+      --ink: #12263a;
+      --muted: #5c6b7a;
+      --line: #d7dee5;
+      --soft: #f6f8fa;
+      --soft2: #eef3f7;
+      --accent: #0b7285;
+      --accent2: #0f5132;
+      --warn: #9a3412;
+      --shadow: 0 10px 30px rgba(18, 38, 58, 0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      padding-top: 24px;
+      padding-bottom: 56px;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.62;
+      font-size: 16px;
+    }
+    h1, h2, h3, h4 {
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: 2.7rem; margin-bottom: 10px; }
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e9eef3;
+    }
+    h3 {
+      font-size: 1.22rem;
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 12px; }
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #0b7285 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 34px 34px 26px 34px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .hero h1, .hero h2, .hero h3, .hero p, .hero li, .hero small { color: #fff; border: none; }
+    .hero .tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-note {
+      background: rgba(255,255,255,0.08);
+      border-left: 4px solid #ffd166;
       padding: 16px 18px;
-      margin: 16px 0 22px 0;
+      border-radius: 10px;
+      margin-top: 16px;
+    }
+    .hero-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .hero-panel h4 { font-size: 1rem; margin-top: 0; color: #dff7ff; }
+    .hero-panel ul { padding-left: 18px; margin-bottom: 0; }
+    .section-block {
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.03);
     }
     .toc {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 6px;
-      padding: 16px 18px;
-      margin: 20px 0;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin: 22px 0 28px 0;
     }
-    .toc a { display:block; margin: 4px 0; }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 22px;
+    }
+    .toc a {
+      display: block;
+      padding: 5px 0;
+      color: #0b5c6b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .toc a:hover { text-decoration: underline; }
+    .leadbox, .warningbox, .examplebox, .resourcebox, .methodbox {
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .leadbox {
+      background: #eef7fa;
+      border-left: 5px solid var(--accent);
+    }
+    .warningbox {
+      background: #fff4eb;
+      border-left: 5px solid var(--warn);
+    }
+    .resourcebox {
+      background: #edf7ef;
+      border-left: 5px solid #2b8a3e;
+    }
+    .examplebox {
+      background: #f8fafc;
+      border: 1px solid #dbe4ec;
+    }
+    .methodbox {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid #dce5ec;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
     .formula {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 6px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
       padding: 14px 16px;
       margin: 14px 0;
+      overflow-x: auto;
+    }
+    .figure-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      margin: 16px 0;
+    }
+    .figure-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    .figure-caption {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-top: 10px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .four-col {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .metric-card, .week-card, .mini-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      height: 100%;
+    }
+    .metric-card h4, .week-card h4, .mini-card h4 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .week-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    }
+    .week-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .checklist li, .tight li { margin-bottom: 6px; }
+    .tight { padding-left: 18px; margin-bottom: 0; }
+    .pillrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 0 0;
+    }
+    .pill {
+      border: 1px solid #cfe2ea;
+      background: #f1f8fa;
+      color: #0a6171;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .decision-table th { background: #f5f7fa; }
+    .method-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .method-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0b7285;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      white-space: nowrap;
+    }
+    code, pre {
+      font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92rem;
     }
     pre {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 6px;
-      padding: 14px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+      border: none;
+    }
+    .small-note {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .svg-wrap svg { width: 100%; height: auto; display: block; }
+    .footer-back {
+      margin-top: 26px;
+      font-weight: 600;
+    }
+    @media (max-width: 991px) {
+      .hero-grid, .two-col, .three-col, .four-col, .method-grid, .toc-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <h1>Computational Electromagnetics</h1>
-  <p><b>Teaching Notes on Electromagnetic Modeling, Numerical Methods, and Validation</b></p>
-
-  <p>
-    These notes present computational electromagnetics as a <b>numerical laboratory</b> for understanding,
-    predicting, and validating electromagnetic behavior. The focus is not restricted to a single solver.
-    Instead, the aim is to connect <b>Maxwell’s equations</b>, <b>material models</b>, <b>numerical methods</b>,
-    and <b>observable quantities</b> in one coherent workflow.
-  </p>
-
-  <div class="leadbox">
-    <p><b>Working principle.</b> A simulation is not a black box. The correct question is not only “Can the
-    software run?” but also “What physics is being solved, what assumptions are built into the discretization,
-    and what observable can actually be validated?”</p>
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="tag">Computational Electromagnetics • Two-Week Intensive</div>
+        <h1>Computational Electromagnetics</h1>
+        <p><b>Two-week teaching page on Maxwell solvers, observables, material models, and validation.</b></p>
+        <p>
+          This page is built as a <b>course page</b>, not as a brochure. The logic is:
+          <b>physics → discretization → solver → observable → validation</b>. The aim is to teach students how to think,
+          not just how to run software.
+        </p>
+        <div class="hero-note">
+          <b>Core principle.</b> A field plot is not a result. A result is a defensible observable extracted from a
+          discretized Maxwell problem whose assumptions, resolution limits, and validation path are all explicit.
+        </div>
+        <div class="pillrow">
+          <span class="pill">Maxwell equations</span>
+          <span class="pill">TMM</span>
+          <span class="pill">RCWA</span>
+          <span class="pill">FDTD</span>
+          <span class="pill">FEM</span>
+          <span class="pill">MoM</span>
+          <span class="pill">Dispersion</span>
+          <span class="pill">Validation</span>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h4>What this page is designed to do</h4>
+        <ul>
+          <li>Support <b>roughly two weeks</b> of teaching.</li>
+          <li>Give each major method a <b>minimal working physical example</b>.</li>
+          <li>Keep equations visible, but tie them to <b>engineering observables</b>.</li>
+          <li>Use the uploaded <b>Lecture 1 PDF</b> as supplementary reading rather than as the main page.</li>
+        </ul>
+        <hr style="border-color: rgba(255,255,255,0.14);">
+        <h4>Expected outputs from students</h4>
+        <ul>
+          <li>Choose a solver rationally.</li>
+          <li>Explain mesh and time-step consequences.</li>
+          <li>Extract spectra, S-parameters, cross sections, or Q.</li>
+          <li>Show convergence and defend trustworthiness.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div class="toc">
-    <h4>Contents</h4>
-    <a href="#why">1. Why computational electromagnetics matters</a>
-    <a href="#maxwell">2. Maxwell equations and constitutive relations</a>
-    <a href="#observables">3. What should be extracted from a simulation?</a>
-    <a href="#methods">4. Main numerical methods</a>
-    <a href="#tmm">5. Transfer-matrix method (TMM)</a>
-    <a href="#fdtd">6. Finite-difference time-domain (FDTD)</a>
-    <a href="#fem">7. Finite element method (FEM)</a>
-    <a href="#materials">8. Dispersion and material models</a>
-    <a href="#workflow">9. A practical CEM workflow</a>
-    <a href="#validation">10. Validation and how not to be fooled</a>
-    <a href="#applications">11. Application areas</a>
+    <h3 style="margin-top:0;">Contents</h3>
+    <div class="toc-grid">
+      <a href="#roadmap">1. Two-week roadmap</a>
+      <a href="#foundations">2. Maxwell equations and constitutive relations</a>
+      <a href="#observables">3. Observables, not decorative field maps</a>
+      <a href="#solver-map">4. How to choose a solver</a>
+      <a href="#tmm">5. Transfer-matrix method (TMM)</a>
+      <a href="#rcwa">6. Rigorous coupled-wave analysis (RCWA)</a>
+      <a href="#fdtd">7. Finite-difference time-domain (FDTD)</a>
+      <a href="#fem">8. Finite element method (FEM)</a>
+      <a href="#mom">9. Method of moments (MoM)</a>
+      <a href="#materials">10. Dispersion and material models</a>
+      <a href="#sources">11. Sources, ports, and boundaries</a>
+      <a href="#workflow">12. Practical simulation workflow</a>
+      <a href="#validation">13. Validation and common failure modes</a>
+      <a href="#minilabs">14. Two-week mini-labs and resources</a>
+    </div>
   </div>
 
-  <div class="section-block" id="why">
-    <h2>1. Why computational electromagnetics matters</h2>
-    <p>
-      Computational electromagnetics (CEM) is the discipline of solving electromagnetic problems numerically.
-      Its role is not limited to making field maps. In practice, CEM is used to:
-    </p>
-    <ul>
-      <li>predict field–matter interaction in structures too complex for closed-form analysis,</li>
-      <li>evaluate device performance before fabrication,</li>
-      <li>interpret measurements through model-based analysis, and</li>
-      <li>optimize geometry, materials, and bandwidth before hardware is built.</li>
-    </ul>
-    <p>
-      A good CEM workflow therefore links <b>physical theory</b>, <b>numerical analysis</b>, and <b>engineering observables</b>.
-    </p>
+  <div class="section-block" id="roadmap">
+    <h2>1. Two-week roadmap</h2>
+    <div class="leadbox">
+      Treat this page as the <b>main spine</b> of the module. Slides and PDF notes can elaborate; this page should remain the fastest route from physical question to numerical method.
+    </div>
+    <div class="three-col">
+      <div class="week-card">
+        <div class="week-label">Week 1 • Session A</div>
+        <h4>Why CEM? Maxwell to observables</h4>
+        <ul class="tight">
+          <li>Numerical laboratory mindset</li>
+          <li>Maxwell equations and constitutive models</li>
+          <li>What an observable is</li>
+          <li>Why “pretty field maps” are not enough</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-label">Week 1 • Session B</div>
+        <h4>Planar and periodic methods</h4>
+        <ul class="tight">
+          <li>TMM for multilayers</li>
+          <li>RCWA for gratings</li>
+          <li>Reflection, transmission, diffraction</li>
+          <li>Where semi-analytical methods dominate</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-label">Week 1 • Session C</div>
+        <h4>Time-domain solvers</h4>
+        <ul class="tight">
+          <li>Yee grid and leapfrog update</li>
+          <li>CFL condition and numerical dispersion</li>
+          <li>Pulse excitation and FFT</li>
+          <li>Slab reflection example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:16px;">
+      <div class="week-card">
+        <div class="week-label">Week 2 • Session A</div>
+        <h4>Frequency-domain FEM</h4>
+        <ul class="tight">
+          <li>Weak form and unstructured mesh</li>
+          <li>Local refinement logic</li>
+          <li>Ports, resonators, eigenmodes</li>
+          <li>Waveguide/cavity example</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-label">Week 2 • Session B</div>
+        <h4>Integral equations and materials</h4>
+        <ul class="tight">
+          <li>MoM and radiating conductors</li>
+          <li>Drude, Lorentz, Debye response</li>
+          <li>Choice of material data source</li>
+          <li>Source and boundary discipline</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-label">Week 2 • Session C</div>
+        <h4>Validation and student mini-labs</h4>
+        <ul class="tight">
+          <li>Convergence and cross-validation</li>
+          <li>Post-processing traps</li>
+          <li>Minimal benchmark problems</li>
+          <li>Writing a defensible numerical report</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="section-block" id="maxwell">
+  <div class="section-block" id="foundations">
     <h2>2. Maxwell equations and constitutive relations</h2>
-    <p>
-      The foundation is Maxwell’s equations:
-    </p>
-    <div class="formula">
-      \[
-      \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad
-      \nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t},
-      \]
-      \[
-      \nabla \cdot \mathbf{D} = \rho, \qquad
-      \nabla \cdot \mathbf{B} = 0.
-      \]
+    <div class="two-col">
+      <div>
+        <p>
+          All computational electromagnetics starts from Maxwell’s equations. What changes from solver to solver is
+          <b>how these equations are approximated</b> and <b>what class of geometry or observable is targeted</b>.
+        </p>
+        <div class="formula">
+          \[
+          \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad
+          \nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t},
+          \]
+          \[
+          \nabla \cdot \mathbf{D} = \rho, \qquad
+          \nabla \cdot \mathbf{B} = 0.
+          \]
+        </div>
+        <p>For linear isotropic media:</p>
+        <div class="formula">
+          \[
+          \mathbf{D} = \varepsilon \mathbf{E}, \qquad
+          \mathbf{B} = \mu \mathbf{H}, \qquad
+          \mathbf{J} = \sigma \mathbf{E}.
+          \]
+        </div>
+        <p>
+          In optics and broadband RF, the medium is usually <b>dispersive</b>, so \(\varepsilon\) becomes
+          \(\varepsilon(\omega)\), and the constitutive relation becomes a real modeling decision rather than a fixed constant.
+        </p>
+      </div>
+      <div class="figure-card svg-wrap">
+        <div class="figure-title">Figure 1. Physics to prediction</div>
+        <svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Physics to prediction workflow">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0%" stop-color="#0b7285"/>
+              <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#557086"/>
+            </marker>
+          </defs>
+          <rect x="20" y="35" rx="18" ry="18" width="160" height="120" fill="#eaf7fa" stroke="#b8dce4"/>
+          <rect x="260" y="35" rx="18" ry="18" width="160" height="120" fill="#f4f7fa" stroke="#d5dee7"/>
+          <rect x="500" y="35" rx="18" ry="18" width="160" height="120" fill="#eef7ef" stroke="#cfe3d2"/>
+          <line x1="180" y1="95" x2="260" y2="95" stroke="#557086" stroke-width="4" marker-end="url(#arrow)"/>
+          <line x1="420" y1="95" x2="500" y2="95" stroke="#557086" stroke-width="4" marker-end="url(#arrow)"/>
+          <text x="100" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Physics</text>
+          <text x="100" y="102" text-anchor="middle" font-size="18" fill="#334155">Maxwell</text>
+          <text x="100" y="130" text-anchor="middle" font-size="18" fill="#334155">materials</text>
+          <text x="340" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Numerics</text>
+          <text x="340" y="102" text-anchor="middle" font-size="18" fill="#334155">mesh</text>
+          <text x="340" y="130" text-anchor="middle" font-size="18" fill="#334155">solver</text>
+          <text x="580" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Prediction</text>
+          <text x="580" y="102" text-anchor="middle" font-size="18" fill="#334155">R,T,A</text>
+          <text x="580" y="130" text-anchor="middle" font-size="18" fill="#334155">S, Q, RCS</text>
+
+          <rect x="30" y="220" width="620" height="110" rx="18" ry="18" fill="url(#g1)" opacity="0.96"/>
+          <text x="340" y="260" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">The page should teach this full chain</text>
+          <text x="340" y="294" text-anchor="middle" font-size="18" fill="#dceff3">not software buttons in isolation</text>
+        </svg>
+        <div class="figure-caption">
+          The page should keep the three layers visible at all times: governing equations, numerical approximation, and measurable output.
+        </div>
+      </div>
     </div>
-    <p>
-      The constitutive relations connect the fields to material response:
-    </p>
-    <div class="formula">
-      \[
-      \mathbf{D} = \varepsilon \mathbf{E}, \qquad
-      \mathbf{B} = \mu \mathbf{H}, \qquad
-      \mathbf{J} = \sigma \mathbf{E}.
-      \]
-    </div>
-    <p>
-      In optics and wave engineering, the material description is often written using the complex refractive
-      index \(\tilde{n}=n+i\kappa\) or the frequency-dependent permittivity \(\varepsilon(\omega)\).
-    </p>
   </div>
 
   <div class="section-block" id="observables">
-    <h2>3. What should be extracted from a simulation?</h2>
+    <h2>3. Observables, not decorative field maps</h2>
     <p>
-      Raw field data \(|\mathbf{E}|\) or \(|\mathbf{H}|\) is often visually useful but rarely sufficient by itself.
-      The real target is an <b>observable</b>: a quantity that can support interpretation, comparison, or validation.
+      Raw fields are necessary, but they are almost never the final answer. The actual target is an <b>observable</b>
+      that can support interpretation, design, or validation.
     </p>
-    <p>Common observables include:</p>
-    <ul>
-      <li>reflectance \(R\), transmittance \(T\), and absorption \(A\),</li>
-      <li>S-parameters \(S_{11}, S_{21}\),</li>
-      <li>scattering, absorption, and extinction cross sections,</li>
-      <li>quality factor \(Q\), mode volume, and resonance position,</li>
-      <li>field enhancement, power flow, and energy density.</li>
-    </ul>
+    <div class="four-col">
+      <div class="metric-card">
+        <h4>Reflection / Transmission</h4>
+        <p>Used in coatings, filters, metasurfaces, waveguides, and slab problems.</p>
+      </div>
+      <div class="metric-card">
+        <h4>S-parameters</h4>
+        <p>Natural language of microwave and port-based devices.</p>
+      </div>
+      <div class="metric-card">
+        <h4>Cross sections</h4>
+        <p>Scattering, absorption, and extinction for particles, radar, and nano-optics.</p>
+      </div>
+      <div class="metric-card">
+        <h4>Q and eigenfrequency</h4>
+        <p>Resonators, cavities, filters, oscillators, and photonic structures.</p>
+      </div>
+    </div>
     <div class="formula">
       \[
-      A = 1 - R - T.
+      A = 1 - R - T
       \]
     </div>
-    <p>
-      The difference between a useful simulation and a decorative one is often the difference between
-      <b>field visualization</b> and <b>observable extraction</b>.
-    </p>
+    <div class="warningbox">
+      <b>Do not confuse visibility with validity.</b> A bright hot spot in \(|\mathbf{E}|\) may say little about matching,
+      efficiency, or loss unless the observable extraction is mathematically correct.
+    </div>
+    <div class="figure-card svg-wrap">
+      <div class="figure-title">Figure 2. Field map versus observable</div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Field map versus observable workflow">
+        <defs>
+          <linearGradient id="heat" x1="0" x2="1">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="35%" stop-color="#0b7285"/>
+            <stop offset="70%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#ef4444"/>
+          </linearGradient>
+          <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+          </marker>
+        </defs>
+        <rect x="30" y="40" width="210" height="220" rx="16" fill="#f8fafc" stroke="#dbe3ea"/>
+        <text x="135" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Raw field map</text>
+        <rect x="60" y="95" width="150" height="120" rx="12" fill="url(#heat)"/>
+        <circle cx="108" cy="150" r="18" fill="#fde68a" opacity="0.95"/>
+        <circle cx="160" cy="135" r="28" fill="#fb7185" opacity="0.75"/>
+        <circle cx="175" cy="185" r="16" fill="#f59e0b" opacity="0.8"/>
+        <text x="135" y="240" text-anchor="middle" font-size="16" fill="#475569">qualitative, local, cluttered</text>
+
+        <line x1="240" y1="150" x2="340" y2="150" stroke="#64748b" stroke-width="4" marker-end="url(#arrow2)"/>
+        <text x="290" y="135" text-anchor="middle" font-size="16" fill="#64748b">post-process</text>
+
+        <rect x="360" y="40" width="370" height="220" rx="16" fill="#ffffff" stroke="#dbe3ea"/>
+        <text x="545" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Observable</text>
+        <line x1="400" y1="220" x2="400" y2="105" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="400" y1="220" x2="690" y2="220" stroke="#94a3b8" stroke-width="2"/>
+        <path d="M410,120 C440,90 490,100 520,150 C550,205 610,200 680,110" fill="none" stroke="#0b7285" stroke-width="5"/>
+        <path d="M410,180 C450,145 500,155 545,185 C590,212 640,205 685,160" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
+        <text x="675" y="100" font-size="15" fill="#0b7285">S21</text>
+        <text x="675" y="155" font-size="15" fill="#f59e0b">S11</text>
+        <text x="545" y="245" text-anchor="middle" font-size="16" fill="#475569">quantitative, comparable, defensible</text>
+      </svg>
+      <div class="figure-caption">
+        The student must learn to move from raw fields to a metric that can be compared across meshes, solvers, or experiments.
+      </div>
+    </div>
   </div>
 
-  <div class="section-block" id="methods">
-    <h2>4. Main numerical methods</h2>
+  <div class="section-block" id="solver-map">
+    <h2>4. How to choose a solver</h2>
     <p>
-      No single numerical method is universally best. The right solver depends on bandwidth, geometry,
-      boundary conditions, resonance behavior, and the type of observable required.
+      The correct question is not “which method is best?” but “which method matches the structure, the bandwidth,
+      the source condition, and the observable?”
     </p>
-
-    <table class="table table-bordered">
+    <table class="table table-bordered decision-table">
       <thead>
         <tr>
           <th>Method</th>
-          <th>Typical strength</th>
-          <th>Typical limitation</th>
+          <th>Best matched problem class</th>
+          <th>Main strength</th>
+          <th>Main penalty</th>
+          <th>Minimal classroom example</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>TMM</td>
-          <td>Fast for planar multilayers and thin-film stacks</td>
-          <td>Not suitable for laterally patterned structures</td>
+          <td><b>TMM</b></td>
+          <td>1D multilayers</td>
+          <td>Fast, analytical structure, exact for planar stacks</td>
+          <td>No lateral patterning</td>
+          <td>Quarter-wave anti-reflection coating</td>
         </tr>
         <tr>
-          <td>FDTD</td>
-          <td>Broadband, transient, full-wave time-domain physics</td>
-          <td>Global grid cost can become very high</td>
+          <td><b>RCWA</b></td>
+          <td>Periodic layered gratings</td>
+          <td>Efficient for diffraction and periodic nanophotonics</td>
+          <td>Convergence can be delicate for high contrast features</td>
+          <td>1D dielectric grating spectrum</td>
         </tr>
         <tr>
-          <td>FEM</td>
-          <td>Excellent for complex geometry and local mesh refinement</td>
-          <td>Broadband sweeps may require repeated solves</td>
+          <td><b>FDTD</b></td>
+          <td>Broadband transient full-wave problems</td>
+          <td>One pulse gives broadband response; strong intuition in time</td>
+          <td>Global grid cost; CFL constraint</td>
+          <td>Pulse incident on dielectric slab</td>
         </tr>
         <tr>
-          <td>RCWA</td>
-          <td>Periodic layered structures and diffraction problems</td>
-          <td>Less natural for strongly aperiodic geometry</td>
+          <td><b>FEM</b></td>
+          <td>Complex geometry, resonators, multiphysics</td>
+          <td>Local mesh refinement; flexible geometry</td>
+          <td>Broadband sweep means repeated solves</td>
+          <td>Waveguide bend or cavity eigenmode</td>
+        </tr>
+        <tr>
+          <td><b>MoM</b></td>
+          <td>Open-region radiation / conducting scatterers</td>
+          <td>Radiation handled naturally through Green’s functions</td>
+          <td>Dense matrices; harder with inhomogeneous volumetric media</td>
+          <td>Thin-wire dipole current</td>
         </tr>
       </tbody>
     </table>
-
-    <p>
-      The correct mindset is not “Which method is best?” but “Which method matches the mathematical nature of the problem?”
-    </p>
+    <div class="leadbox">
+      A good course page must expose this selection logic clearly. Otherwise students reduce method choice to software familiarity, which is exactly the wrong habit.
+    </div>
   </div>
 
   <div class="section-block" id="tmm">
     <h2>5. Transfer-matrix method (TMM)</h2>
-    <p>
-      For multilayer media, the transfer-matrix method is often the cleanest starting point. It is efficient,
-      physically transparent, and ideal for teaching interference, impedance matching, and resonant absorption.
-    </p>
-    <p>
-      TMM is especially useful for:
-    </p>
-    <ul>
-      <li>anti-reflection coatings,</li>
-      <li>Fabry–Pérot cavities,</li>
-      <li>metal–dielectric absorber stacks,</li>
-      <li>thin-film reflectance and transmittance analysis.</li>
-    </ul>
-    <p>
-      In your teaching portfolio, this is a strong analytical entry point because it shows that not every EM
-      problem needs a large-scale numerical solver.
-    </p>
+    <div class="methodbox">
+      <div class="method-header">
+        <h3 style="margin:0;">Method idea</h3>
+        <div class="method-tag">Planar multilayers</div>
+      </div>
+      <p>
+        TMM solves 1D stratified media by propagating forward and backward wave amplitudes through each layer.
+        It is the cleanest entry point for teaching interference, impedance matching, and thin-film spectra.
+      </p>
+      <div class="formula">
+        \[
+        \begin{bmatrix} E_0^+ \\ E_0^- \end{bmatrix}
+        =
+        \mathbf{M}_1 \mathbf{M}_2 \cdots \mathbf{M}_N
+        \begin{bmatrix} E_{N+1}^+ \\ E_{N+1}^- \end{bmatrix}
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minimal example: quarter-wave anti-reflection coating</h3>
+          <ul class="tight">
+            <li>Medium 0: air, \(n_0 = 1\)</li>
+            <li>Layer 1: coating, \(n_1 \approx \sqrt{n_s}\)</li>
+            <li>Substrate: glass, \(n_s \approx 1.5\)</li>
+            <li>Thickness: \(d = \lambda_0/(4n_1)\)</li>
+          </ul>
+          <div class="formula">
+            \[
+            r = \frac{r_{01}+r_{12}e^{2i\beta}}{1+r_{01}r_{12}e^{2i\beta}}, \qquad
+            \beta = \frac{2\pi n_1 d}{\lambda}
+            \]
+          </div>
+          <p>
+            At the design wavelength \(\lambda_0\), destructive interference suppresses reflection. Students immediately see how phase thickness becomes a design variable.
+          </p>
+        </div>
+        <div class="figure-card svg-wrap">
+          <div class="figure-title">Figure 3. TMM multilayer example</div>
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multilayer stack and reflectance sketch">
+            <defs>
+              <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+              </marker>
+            </defs>
+            <rect x="50" y="75" width="160" height="160" rx="12" fill="#f8fafc" stroke="#dbe3ea"/>
+            <rect x="210" y="75" width="90" height="160" fill="#b7e4f9" stroke="#88c9e0"/>
+            <rect x="300" y="75" width="220" height="160" fill="#dfe7ef" stroke="#c0cad6"/>
+            <text x="130" y="160" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Air</text>
+            <text x="255" y="150" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">AR</text>
+            <text x="255" y="178" text-anchor="middle" font-size="18" fill="#334155">coating</text>
+            <text x="410" y="160" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Glass substrate</text>
+            <line x1="25" y1="120" x2="115" y2="120" stroke="#ef4444" stroke-width="5" marker-end="url(#arrow3)"/>
+            <text x="70" y="105" text-anchor="middle" font-size="16" fill="#ef4444">incident</text>
+            <line x1="130" y1="95" x2="55" y2="60" stroke="#0b7285" stroke-width="4" marker-end="url(#arrow3)"/>
+            <text x="58" y="52" font-size="15" fill="#0b7285">reflected</text>
+
+            <line x1="560" y1="260" x2="560" y2="80" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="560" y1="260" x2="675" y2="260" stroke="#94a3b8" stroke-width="2"/>
+            <path d="M565,240 C590,200 620,145 675,100" fill="none" stroke="#0b7285" stroke-width="5"/>
+            <text x="620" y="90" font-size="16" fill="#0b7285">R(\u03bb)</text>
+            <circle cx="610" cy="175" r="6" fill="#ef4444"/>
+            <text x="620" y="180" font-size="15" fill="#475569">minimum at \u03bb₀</text>
+          </svg>
+          <div class="figure-caption">A fully teachable first example: simple enough for algebra, useful enough to feel real.</div>
+        </div>
+      </div>
+      <div class="small-note"><b>Teaching pay-off:</b> TMM shows that not every EM problem should be thrown into a large 3D solver.</div>
+    </div>
+  </div>
+
+  <div class="section-block" id="rcwa">
+    <h2>6. Rigorous coupled-wave analysis (RCWA)</h2>
+    <div class="methodbox">
+      <div class="method-header">
+        <h3 style="margin:0;">Method idea</h3>
+        <div class="method-tag">Periodic gratings</div>
+      </div>
+      <p>
+        RCWA expands fields and permittivity in Fourier harmonics inside layered periodic media. It is a natural method for diffraction problems, metasurfaces, and grating-mediated resonances.
+      </p>
+      <div class="formula">
+        \[
+        \varepsilon(x) = \sum_{m=-M}^{M} \varepsilon_m e^{iG_m x}, \qquad G_m = \frac{2\pi m}{\Lambda}
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minimal example: 1D dielectric grating</h3>
+          <ul class="tight">
+            <li>Period \(\Lambda\)</li>
+            <li>Fill factor \(f\)</li>
+            <li>Grating height \(h\)</li>
+            <li>Incident plane wave at normal incidence</li>
+          </ul>
+          <p>Typical outputs:</p>
+          <ul class="tight">
+            <li>0th-order reflection and transmission</li>
+            <li>diffraction efficiency into \(\pm 1\) orders</li>
+            <li>polarization dependence</li>
+            <li>resonant anomalies from periodicity</li>
+          </ul>
+          <div class="warningbox">
+            High-index contrast and sharp corners often demand careful harmonic convergence. Students must learn that “more orders” is not a cosmetic refinement; it changes the answer.
+          </div>
+        </div>
+        <div class="figure-card svg-wrap">
+          <div class="figure-title">Figure 4. RCWA grating example</div>
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Periodic grating and diffraction orders">
+            <defs>
+              <marker id="arrow4" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+              </marker>
+            </defs>
+            <rect x="70" y="90" width="370" height="60" fill="#dfe7ef" stroke="#c8d2dc"/>
+            <g fill="#9bd1ff" stroke="#6fb8ec">
+              <rect x="90" y="50" width="40" height="40"/>
+              <rect x="170" y="50" width="40" height="40"/>
+              <rect x="250" y="50" width="40" height="40"/>
+              <rect x="330" y="50" width="40" height="40"/>
+            </g>
+            <line x1="230" y1="10" x2="230" y2="48" stroke="#ef4444" stroke-width="5" marker-end="url(#arrow4)"/>
+            <text x="230" y="18" text-anchor="middle" font-size="16" fill="#ef4444">incident</text>
+            <line x1="230" y1="40" x2="140" y2="0" stroke="#0b7285" stroke-width="4" marker-end="url(#arrow4)"/>
+            <line x1="230" y1="40" x2="320" y2="0" stroke="#0b7285" stroke-width="4" marker-end="url(#arrow4)"/>
+            <text x="115" y="18" font-size="15" fill="#0b7285">m = -1</text>
+            <text x="320" y="18" font-size="15" fill="#0b7285">m = +1</text>
+            <text x="100" y="178" font-size="16" fill="#334155">period = \u039B</text>
+            <line x1="92" y1="190" x2="172" y2="190" stroke="#334155" stroke-width="2" marker-start="url(#arrow4)" marker-end="url(#arrow4)"/>
+
+            <line x1="505" y1="270" x2="505" y2="90" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="505" y1="270" x2="670" y2="270" stroke="#94a3b8" stroke-width="2"/>
+            <path d="M515,245 C545,120 580,120 610,245 C625,210 645,160 665,130" fill="none" stroke="#0b7285" stroke-width="5"/>
+            <text x="590" y="80" text-anchor="middle" font-size="16" fill="#334155">diffraction efficiency</text>
+          </svg>
+          <div class="figure-caption">RCWA is the right level of machinery when lateral periodicity matters but full arbitrary 3D complexity is not required.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="section-block" id="fdtd">
-    <h2>6. Finite-difference time-domain (FDTD)</h2>
-    <p>
-      FDTD directly updates electromagnetic fields in time on the Yee grid. Its defining strength is that
-      one transient simulation can produce a broadband response after Fourier analysis.
-    </p>
-    <p>
-      Key features:
-    </p>
-    <ul>
-      <li>explicit time stepping,</li>
-      <li>broadband response from a pulse source,</li>
-      <li>direct access to transient propagation and scattering,</li>
-      <li>clear interpretation of wave travel, reflection, and delay in time.</li>
-    </ul>
-    <p>
-      But FDTD is also demanding. The mesh is not merely geometric; it controls numerical dispersion,
-      stability, and cost. Finer spatial discretization improves fidelity, but it forces a smaller time step.
-    </p>
-    <div class="formula">
-      \[
-      \Delta t \leq \frac{\Delta x}{c\sqrt{n}}
-      \]
+    <h2>7. Finite-difference time-domain (FDTD)</h2>
+    <div class="methodbox">
+      <div class="method-header">
+        <h3 style="margin:0;">Method idea</h3>
+        <div class="method-tag">Broadband time-domain</div>
+      </div>
+      <p>
+        FDTD updates electric and magnetic fields on a staggered Yee grid. Its defining strength is that one pulse simulation can generate a broadband response after Fourier transformation.
+      </p>
+      <div class="formula">
+        \[
+        H_z^{n+1/2}\big|_{i+1/2,j+1/2} = H_z^{n-1/2}\big|_{i+1/2,j+1/2}
+        + \frac{\Delta t}{\mu}
+        \left( \frac{E_x^n|_{i+1/2,j+1}-E_x^n|_{i+1/2,j}}{\Delta y}
+        - \frac{E_y^n|_{i+1,j+1/2}-E_y^n|_{i,j+1/2}}{\Delta x} \right)
+        \]
+      </div>
+      <div class="formula">
+        \[
+        \Delta t \le
+        \frac{1}{c\sqrt{\Delta x^{-2}+\Delta y^{-2}+\Delta z^{-2}}}
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minimal example: pulse incident on a dielectric slab</h3>
+          <ul class="tight">
+            <li>1D or 2D line source launches a Gaussian pulse</li>
+            <li>Wave propagates through free space</li>
+            <li>Part reflects at slab entrance, part transmits</li>
+            <li>Monitors record incident, reflected, and transmitted signals</li>
+          </ul>
+          <div class="formula">
+            \[
+            s(t) = \exp\left[-\left(\frac{t-t_0}{\tau}\right)^2\right]\cos(\omega_0 t)
+            \]
+          </div>
+          <p>
+            After time stepping, apply FFT to monitor signals to obtain broadband \(R(\omega)\) and \(T(\omega)\). This is where FDTD becomes pedagogically powerful: the student sees the pulse, the reflection delay, and the spectrum from the same run.
+          </p>
+          <div class="warningbox">
+            In FDTD, the mesh is not just geometric. It controls dispersion, phase error, and the maximum stable time step.
+          </div>
+        </div>
+        <div>
+          <div class="figure-card svg-wrap">
+            <div class="figure-title">Figure 5. Yee-cell logic</div>
+            <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yee cell staggered locations">
+              <rect x="120" y="60" width="220" height="160" fill="#f8fafc" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="120" y1="60" x2="430" y2="30" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="340" y1="60" x2="430" y2="30" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="340" y1="220" x2="430" y2="190" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="120" y1="220" x2="210" y2="190" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="210" y1="190" x2="430" y2="190" stroke="#b7c3d1" stroke-width="3"/>
+              <line x1="430" y1="30" x2="430" y2="190" stroke="#b7c3d1" stroke-width="3"/>
+
+              <circle cx="230" cy="140" r="10" fill="#ef4444"/>
+              <text x="252" y="146" font-size="20" fill="#ef4444">H<tspan baseline-shift="sub" font-size="14">z</tspan></text>
+              <line x1="160" y1="140" x2="300" y2="140" stroke="#0b7285" stroke-width="6"/>
+              <text x="160" y="125" font-size="20" fill="#0b7285">E<tspan baseline-shift="sub" font-size="14">x</tspan></text>
+              <line x1="230" y1="85" x2="230" y2="195" stroke="#f59e0b" stroke-width="6"/>
+              <text x="242" y="90" font-size="20" fill="#f59e0b">E<tspan baseline-shift="sub" font-size="14">y</tspan></text>
+            </svg>
+            <div class="figure-caption">FDTD is organized around staggering in space and time, not around arbitrary CAD elements.</div>
+          </div>
+
+          <div class="figure-card svg-wrap">
+            <div class="figure-title">Figure 6. Pulse, reflection, transmission</div>
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pulse propagation timeline">
+              <rect x="40" y="55" width="620" height="160" rx="14" fill="#f8fafc" stroke="#dbe3ea"/>
+              <line x1="80" y1="135" x2="620" y2="135" stroke="#94a3b8" stroke-width="2"/>
+              <rect x="390" y="80" width="70" height="110" fill="#dbeafe" stroke="#93c5fd"/>
+              <text x="425" y="205" text-anchor="middle" font-size="16" fill="#475569">slab</text>
+              <path d="M110,135 C140,95 170,95 195,135 C210,160 235,160 255,135" fill="none" stroke="#ef4444" stroke-width="5"/>
+              <path d="M300,135 C320,105 345,105 365,135" fill="none" stroke="#0b7285" stroke-width="5"/>
+              <path d="M465,135 C490,110 520,110 545,135 C560,150 575,150 595,135" fill="none" stroke="#2b8a3e" stroke-width="5"/>
+              <text x="166" y="90" text-anchor="middle" font-size="16" fill="#ef4444">incident</text>
+              <text x="340" y="95" text-anchor="middle" font-size="16" fill="#0b7285">reflected</text>
+              <text x="540" y="95" text-anchor="middle" font-size="16" fill="#2b8a3e">transmitted</text>
+            </svg>
+            <div class="figure-caption">This is exactly the kind of intuitive temporal separation emphasized in a good introductory FDTD lecture.</div>
+          </div>
+        </div>
+      </div>
+      <pre>// skeleton logic for the slab example
+for (n = 0; n < Nt; ++n) {
+    update_H();
+    inject_source_half_step();
+    update_E();
+    inject_source_full_step();
+    record_monitors();
+}
+// FFT(incident), FFT(reflected), FFT(transmitted) -> R(ω), T(ω)</pre>
     </div>
-    <p>
-      This kind of solver-specific constraint is one reason CEM should be taught as a scientific method,
-      not as software operation.
-    </p>
   </div>
 
   <div class="section-block" id="fem">
-    <h2>7. Finite element method (FEM)</h2>
-    <p>
-      FEM is often preferable when geometry is complex, dimensions vary strongly, or local refinement is required.
-      In contrast to FDTD, mesh refinement can be concentrated near interfaces, corners, ports, or hotspots.
-    </p>
-    <p>
-      FEM is particularly strong for:
-    </p>
-    <ul>
-      <li>frequency-domain resonators,</li>
-      <li>waveguide and cavity analysis,</li>
-      <li>multiphysics coupling,</li>
-      <li>complex CAD-driven geometry.</li>
-    </ul>
-    <p>
-      In practice, FDTD and FEM should be seen as complementary rather than competing methods.
-    </p>
+    <h2>8. Finite element method (FEM)</h2>
+    <div class="methodbox">
+      <div class="method-header">
+        <h3 style="margin:0;">Method idea</h3>
+        <div class="method-tag">Complex geometry / frequency domain</div>
+      </div>
+      <p>
+        FEM rewrites Maxwell’s equations in weak form and solves them on unstructured meshes. It excels when geometry is irregular, local refinement matters, or frequency-domain resonances are central.
+      </p>
+      <div class="formula">
+        \[
+        \nabla \times \mu^{-1}(\nabla \times \mathbf{E}) - \omega^2 \varepsilon \mathbf{E} = i\omega \mathbf{J}
+        \]
+      </div>
+      <div class="formula">
+        \[
+        \int_{\Omega} (\nabla \times \mathbf{v})\cdot \mu^{-1}(\nabla \times \mathbf{E})\, d\Omega
+        - \omega^2 \int_{\Omega} \mathbf{v}\cdot\varepsilon \mathbf{E}\, d\Omega
+        = i\omega \int_{\Omega} \mathbf{v}\cdot\mathbf{J}\, d\Omega
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minimal example: rectangular cavity or waveguide bend</h3>
+          <ul class="tight">
+            <li>Complex shape cannot be represented efficiently by a uniform Cartesian grid</li>
+            <li>Refine mesh only near sharp corners, dielectric interfaces, or ports</li>
+            <li>Solve either a driven frequency response or an eigenvalue problem</li>
+          </ul>
+          <p>
+            A strong classroom example is a <b>2D waveguide bend</b>: students see that the geometry itself motivates FEM, not brand loyalty to a commercial package.
+          </p>
+          <div class="leadbox">
+            In FEM, mesh refinement is local. That is the central contrast with FDTD. The page should make this difference unmistakable.
+          </div>
+        </div>
+        <div class="figure-card svg-wrap">
+          <div class="figure-title">Figure 7. FEM mesh logic</div>
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FEM local refinement around a bend">
+            <rect x="60" y="70" width="180" height="80" fill="#dbeafe" stroke="#93c5fd"/>
+            <rect x="160" y="70" width="80" height="180" fill="#dbeafe" stroke="#93c5fd"/>
+            <path d="M60,70 L240,70 L240,250 L160,250 L160,150 L60,150 Z" fill="none" stroke="#2563eb" stroke-width="5"/>
+
+            <g stroke="#94a3b8" stroke-width="1.3" fill="none" opacity="0.9">
+              <path d="M85,85 L130,110 L105,145 Z"/>
+              <path d="M130,110 L170,85 L180,125 Z"/>
+              <path d="M105,145 L180,125 L155,160 Z"/>
+              <path d="M160,160 L215,120 L220,170 Z"/>
+              <path d="M170,85 L220,110 L215,120 Z"/>
+              <path d="M165,165 L205,205 L160,230 Z"/>
+              <path d="M205,205 L230,170 L220,230 Z"/>
+              <path d="M130,200 L165,165 L160,230 Z"/>
+              <path d="M90,170 L130,200 L110,235 Z"/>
+              <path d="M90,170 L155,160 L130,200 Z"/>
+            </g>
+            <circle cx="165" cy="155" r="38" fill="#f59e0b" opacity="0.22"/>
+            <text x="280" y="145" font-size="20" fill="#0f172a">Local refinement near</text>
+            <text x="280" y="173" font-size="20" fill="#0f172a">corner / field hotspot</text>
+            <text x="280" y="215" font-size="18" fill="#475569">geometry complexity</text>
+            <text x="280" y="240" font-size="18" fill="#475569">drives the mesh</text>
+          </svg>
+          <div class="figure-caption">This figure should visually contrast with the global-grid logic of FDTD.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="mom">
+    <h2>9. Method of moments (MoM)</h2>
+    <div class="methodbox">
+      <div class="method-header">
+        <h3 style="margin:0;">Method idea</h3>
+        <div class="method-tag">Radiation and conducting surfaces</div>
+      </div>
+      <p>
+        MoM solves integral equations for unknown currents. It is especially strong for antennas, scattering from conductors, and open-region problems where Green’s functions handle radiation naturally.
+      </p>
+      <div class="formula">
+        \[
+        \hat{n} \times \mathbf{E}^{\mathrm{inc}} = -\hat{n} \times \int_S \overline{\overline{G}}(\mathbf{r},\mathbf{r}') \cdot \mathbf{J}(\mathbf{r}') \, dS'
+        \]
+      </div>
+      <div class="formula">
+        \[
+        \mathbf{J}(\mathbf{r}) \approx \sum_{n=1}^{N} I_n \mathbf{f}_n(\mathbf{r})
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minimal example: thin-wire dipole</h3>
+          <ul class="tight">
+            <li>Expand current on short wire segments</li>
+            <li>Impose the electric field integral equation</li>
+            <li>Solve dense matrix system for segment currents</li>
+            <li>From current distribution, derive input impedance and far-field radiation</li>
+          </ul>
+          <p>
+            This is the cleanest classroom bridge between antenna theory and numerical linear algebra.
+          </p>
+        </div>
+        <div class="figure-card svg-wrap">
+          <div class="figure-title">Figure 8. MoM dipole example</div>
+          <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thin wire dipole and current envelope">
+            <line x1="180" y1="35" x2="180" y2="245" stroke="#334155" stroke-width="7"/>
+            <circle cx="180" cy="140" r="8" fill="#ef4444"/>
+            <text x="150" y="138" font-size="16" fill="#ef4444">feed</text>
+            <g stroke="#0b7285" stroke-width="2">
+              <line x1="165" y1="55" x2="195" y2="55"/>
+              <line x1="165" y1="85" x2="195" y2="85"/>
+              <line x1="165" y1="115" x2="195" y2="115"/>
+              <line x1="165" y1="165" x2="195" y2="165"/>
+              <line x1="165" y1="195" x2="195" y2="195"/>
+              <line x1="165" y1="225" x2="195" y2="225"/>
+            </g>
+            <line x1="350" y1="230" x2="350" y2="40" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="350" y1="230" x2="645" y2="230" stroke="#94a3b8" stroke-width="2"/>
+            <path d="M370,220 C410,175 450,95 500,70 C550,95 590,175 625,220" fill="none" stroke="#0b7285" stroke-width="5"/>
+            <text x="505" y="55" text-anchor="middle" font-size="18" fill="#0f172a">current envelope |I(z)|</text>
+          </svg>
+          <div class="figure-caption">A compact numerical example that teaches basis expansion, dense systems, and radiation observables.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="section-block" id="materials">
-    <h2>8. Dispersion and material models</h2>
+    <h2>10. Dispersion and material models</h2>
     <p>
-      Electromagnetic simulation is only as good as the material model. Constant \(\varepsilon\) is often
-      insufficient for metals, lossy dielectrics, polar media, and broadband optical problems.
+      Material modeling is where many simulations quietly fail. Constant \(\varepsilon\) is often inadequate for metals,
+      lossy dielectrics, polar media, and broadband optical problems.
     </p>
+    <div class="method-grid">
+      <div class="mini-card">
+        <h4>Drude model</h4>
+        <div class="formula">
+          \[
+          \varepsilon(\omega) = \varepsilon_\infty - \frac{\omega_p^2}{\omega^2 + i\gamma \omega}
+          \]
+        </div>
+        <p>Free-electron metallic response; good first model for noble metals in broad ranges when used carefully.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Lorentz model</h4>
+        <div class="formula">
+          \[
+          \varepsilon(\omega) = \varepsilon_\infty + \sum_j \frac{f_j \omega_j^2}{\omega_j^2-\omega^2-i\gamma_j\omega}
+          \]
+        </div>
+        <p>Bound resonances, phonons, optical transitions, and many dielectric line-shape fits.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Debye model</h4>
+        <div class="formula">
+          \[
+          \varepsilon(\omega)=\varepsilon_\infty+\frac{\varepsilon_s-\varepsilon_\infty}{1+i\omega\tau}
+          \]
+        </div>
+        <p>Relaxation response for polar dielectrics and many RF/microwave materials.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Measured data</h4>
+        <p>Often the most defensible choice in engineering work. But students must still inspect interpolation range, units, fitting quality, and measurement conditions.</p>
+      </div>
+    </div>
+    <div class="warningbox">
+      <b>Do not let the solver hide material ignorance.</b> A reasonable-looking spectrum with the wrong material model is still wrong.
+    </div>
+  </div>
+
+  <div class="section-block" id="sources">
+    <h2>11. Sources, ports, and boundaries</h2>
+    <div class="three-col">
+      <div class="mini-card">
+        <h4>Sources</h4>
+        <ul class="tight">
+          <li>plane wave</li>
+          <li>current dipole</li>
+          <li>Gaussian pulse</li>
+          <li>mode source / wave port</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>Boundaries</h4>
+        <ul class="tight">
+          <li>PML / CPML for open regions</li>
+          <li>PEC / PMC for ideal symmetries</li>
+          <li>periodic / Bloch for lattices</li>
+          <li>port terminations for guided systems</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>Port observables</h4>
+        <ul class="tight">
+          <li>\(S_{11}\), \(S_{21}\)</li>
+          <li>phase reference planes</li>
+          <li>impedance / admittance</li>
+          <li>mode purity</li>
+        </ul>
+      </div>
+    </div>
     <p>
-      Typical models include:
-    </p>
-    <ul>
-      <li>Drude model for free-electron metallic behavior,</li>
-      <li>Lorentz oscillators for resonant dielectric response,</li>
-      <li>Debye relaxation for polar materials and dielectrics,</li>
-      <li>tabulated optical constants from measurement.</li>
-    </ul>
-    <p>
-      A visually reasonable spectrum can still be physically wrong if the material model is wrong.
+      These are not implementation details. They define the experiment you are numerically performing.
+      Wrong source placement, wrong port normalization, or poorly separated PML will contaminate the result before post-processing even begins.
     </p>
   </div>
 
   <div class="section-block" id="workflow">
-    <h2>9. A practical CEM workflow</h2>
+    <h2>12. Practical simulation workflow</h2>
+    <div class="figure-card svg-wrap">
+      <div class="figure-title">Figure 9. Workflow from physics to defensible data</div>
+      <svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simulation workflow chart">
+        <defs>
+          <marker id="arrow5" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+          </marker>
+        </defs>
+        <g font-family="Arial, sans-serif">
+          <rect x="20" y="45" width="150" height="110" rx="16" fill="#eef7fa" stroke="#b8dce4"/>
+          <rect x="195" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
+          <rect x="370" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
+          <rect x="545" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
+          <rect x="720" y="45" width="160" height="110" rx="16" fill="#edf7ef" stroke="#cfe3d2"/>
+          <text x="95" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Geometry</text>
+          <text x="95" y="110" text-anchor="middle" font-size="16" fill="#475569">what is built?</text>
+          <text x="270" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Materials</text>
+          <text x="270" y="110" text-anchor="middle" font-size="16" fill="#475569">what is assumed?</text>
+          <text x="445" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Discretization</text>
+          <text x="445" y="110" text-anchor="middle" font-size="16" fill="#475569">how is it resolved?</text>
+          <text x="620" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Solver</text>
+          <text x="620" y="110" text-anchor="middle" font-size="16" fill="#475569">how is it solved?</text>
+          <text x="800" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Observable</text>
+          <text x="800" y="110" text-anchor="middle" font-size="16" fill="#475569">what is compared?</text>
+
+          <line x1="170" y1="100" x2="195" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
+          <line x1="345" y1="100" x2="370" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
+          <line x1="520" y1="100" x2="545" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
+          <line x1="695" y1="100" x2="720" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
+
+          <rect x="150" y="185" width="600" height="34" rx="10" fill="#0f172a"/>
+          <text x="450" y="207" text-anchor="middle" font-size="17" fill="#ffffff">Errors in one stage propagate into the next stage</text>
+        </g>
+      </svg>
+      <div class="figure-caption">This should mirror the course logic: geometry → mesh → solver → observable, with validation attached to the entire chain.</div>
+    </div>
     <ol>
-      <li>Define geometry and material response</li>
-      <li>Select the right model: analytical, TMM, FDTD, FEM, or RCWA</li>
-      <li>Set source conditions, polarization, and boundaries</li>
-      <li>Choose discretization consistent with wavelength and geometry</li>
-      <li>Run the solver and extract observables</li>
-      <li>Verify by benchmark, convergence, or cross-method comparison</li>
+      <li>Define geometry and its scale hierarchy.</li>
+      <li>Assign physically justified material models.</li>
+      <li>Select source, ports, and boundary conditions.</li>
+      <li>Choose the method that matches the problem class.</li>
+      <li>Choose discretization consistent with the smallest critical scale and wavelength.</li>
+      <li>Run the solver and extract observables.</li>
+      <li>Perform convergence, cross-validation, or analytical comparison.</li>
     </ol>
-    <p>
-      This workflow is more important than the software brand. If the workflow is wrong, the results are not trustworthy.
-    </p>
   </div>
 
   <div class="section-block" id="validation">
-    <h2>10. Validation and how not to be fooled</h2>
-    <p>
-      Validation is not a decorative final step. It is part of the discipline of simulation itself.
-      A credible result should be checked through one or more of the following:
-    </p>
-    <ul>
-      <li>comparison with analytical solutions,</li>
-      <li>mesh or time-step convergence,</li>
-      <li>cross-validation between numerical methods,</li>
-      <li>comparison with experimental data when available.</li>
-    </ul>
-    <p>
-      Common traps include:
-    </p>
-    <ul>
-      <li>wrong material parameters,</li>
-      <li>boundary reflections or poor PML placement,</li>
-      <li>insufficient spatial resolution,</li>
-      <li>post-processing errors in FFT and observable extraction.</li>
-    </ul>
-    <p>
-      A good numerical experimentalist is not the one who gets a plot fastest, but the one who knows why the plot should be trusted.
-    </p>
+    <h2>13. Validation and common failure modes</h2>
+    <div class="leadbox">
+      Validation is not a decorative final slide. It is part of the simulation method itself.
+    </div>
+    <div class="three-col">
+      <div class="mini-card">
+        <h4>Analytical checks</h4>
+        <ul class="tight">
+          <li>plane wave in layered media</li>
+          <li>Mie scattering</li>
+          <li>waveguide cutoff / cavity mode</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>Convergence checks</h4>
+        <ul class="tight">
+          <li>mesh refinement</li>
+          <li>time-step sensitivity</li>
+          <li>harmonic truncation in RCWA</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>Cross-validation</h4>
+        <ul class="tight">
+          <li>FDTD vs FEM</li>
+          <li>TMM vs FDTD for layered slab</li>
+          <li>simulation vs measurement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-grid" style="margin-top:16px;">
+      <div class="warningbox">
+        <b>Model failure.</b> Wrong \(\varepsilon\), wrong \(\sigma\), ignored dispersion, or unrealistic geometry.
+      </div>
+      <div class="warningbox">
+        <b>Discretization failure.</b> Too coarse a mesh, violated CFL, too few RCWA harmonics, poor element quality.
+      </div>
+      <div class="warningbox">
+        <b>Boundary failure.</b> PML too close, wrong periodicity, incorrect port definition, unintended reflection.
+      </div>
+      <div class="warningbox">
+        <b>Post-processing failure.</b> Bad FFT window, early time truncation, wrong normalization, wrong phase reference.
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:16px;">
+      <div>
+        <h3>Minimal convergence logic</h3>
+        <div class="formula">
+          \[
+          \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{Q_{k+1}}
+          \]
+        </div>
+        <p>
+          Replace \(Q\) by any key observable: resonant frequency, \(S_{11}\) minimum, reflectance peak, or cross section.
+          The point is not to run finer meshes forever. The point is to demonstrate that the chosen discretization no longer moves the answer in a consequential way.
+        </p>
+      </div>
+      <div class="figure-card svg-wrap">
+        <div class="figure-title">Figure 10. Convergence behavior</div>
+        <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Convergence curve">
+          <line x1="80" y1="260" x2="640" y2="260" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="80" y1="260" x2="80" y2="50" stroke="#94a3b8" stroke-width="2"/>
+          <text x="360" y="295" text-anchor="middle" font-size="16" fill="#475569">mesh density</text>
+          <text x="28" y="165" transform="rotate(-90 28,165)" text-anchor="middle" font-size="16" fill="#475569">observable value</text>
+          <path d="M120,90 C180,150 250,200 340,228 C430,243 520,247 620,248" fill="none" stroke="#0b7285" stroke-width="6"/>
+          <circle cx="120" cy="90" r="7" fill="#f59e0b"/>
+          <circle cx="220" cy="170" r="7" fill="#f59e0b"/>
+          <circle cx="320" cy="220" r="7" fill="#f59e0b"/>
+          <circle cx="430" cy="242" r="7" fill="#f59e0b"/>
+          <circle cx="520" cy="247" r="7" fill="#f59e0b"/>
+          <circle cx="620" cy="248" r="7" fill="#f59e0b"/>
+          <line x1="80" y1="248" x2="640" y2="248" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6"/>
+          <text x="575" y="236" font-size="15" fill="#ef4444">converged value</text>
+        </svg>
+        <div class="figure-caption">The page should teach the student to trust the plateau, not the first plausible plot.</div>
+      </div>
+    </div>
   </div>
 
-  <div class="section-block" id="applications">
-    <h2>11. Application areas</h2>
-    <p>
-      The same computational EM framework can support a wide range of topics:
-    </p>
-    <ul>
-      <li>thin-film optics and multilayer coatings,</li>
-      <li>plasmonics and nanophotonics,</li>
-      <li>metamaterials and effective medium response,</li>
-      <li>antenna design, EMC/EMI, and radar-related problems,</li>
-      <li>scattering, absorption, and resonant energy localization.</li>
-    </ul>
-    <p>
-      In that sense, computational electromagnetics is not just one method. It is a way of organizing
-      physical insight, numerical approximation, and engineering observables into one rigorous workflow.
-    </p>
+  <div class="section-block" id="minilabs">
+    <h2>14. Two-week mini-labs and resources</h2>
+    <div class="resourcebox">
+      <b>Use the PDF as supplementary material.</b> The uploaded Lecture 1 PDF should reinforce the same structure emphasized here: numerical laboratory mindset, workflow from geometry to observable, solver selection, the primacy of observables over raw field plots, and validation/convergence discipline.
+    </div>
+    <div class="three-col">
+      <div class="mini-card">
+        <h4>Mini-lab 1</h4>
+        <p><b>TMM slab.</b> Compute \(R(\lambda)\) and \(T(\lambda)\) for a quarter-wave anti-reflection coating. Compare with Fresnel intuition.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Mini-lab 2</h4>
+        <p><b>FDTD slab.</b> Launch a Gaussian pulse, extract reflection/transmission with FFT, and compare against TMM for the same stack.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Mini-lab 3</h4>
+        <p><b>FEM resonator.</b> Compute resonant frequency and field localization, then show mesh convergence of the resonance.</p>
+      </div>
+    </div>
+    <div class="three-col" style="margin-top:16px;">
+      <div class="mini-card">
+        <h4>Mini-lab 4</h4>
+        <p><b>RCWA grating.</b> Sweep period or fill factor and watch how diffraction channels open.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Mini-lab 5</h4>
+        <p><b>MoM dipole.</b> Recover current profile and input impedance near resonance.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Final report template</h4>
+        <ul class="tight">
+          <li>physical problem</li>
+          <li>solver choice justification</li>
+          <li>mesh / time-step logic</li>
+          <li>observable extraction</li>
+          <li>validation evidence</li>
+        </ul>
+      </div>
+    </div>
+    <div class="leadbox">
+      <b>What the student should leave with:</b> not just the ability to run one solver, but the ability to explain why a method was chosen, what it can and cannot resolve, how the observable was extracted, and why the result should be trusted.
+    </div>
   </div>
 
   <hr>
-  <p><a href="../../index.html#teaching">Back to Teaching</a></p>
+  <p class="footer-back"><a href="../../index.html#teaching">Back to Teaching</a></p>
 
 </div>
 </body>
 </html>
-

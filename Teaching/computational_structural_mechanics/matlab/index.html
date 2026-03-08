@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATLAB Code Package</title>
+
+  <link rel="stylesheet" href="../../../css/custom.css">
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    body { padding-top: 20px; padding-bottom: 40px; }
+    .note-box {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .file-card {
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      background: #fff;
+    }
+    code {
+      background: #f8f9fa;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>MATLAB Code Package</h1>
+  <p><b>Teaching scripts for Classical Lamination Theory</b></p>
+
+  <div class="note-box">
+    <p>
+      This page exists so that the MATLAB folder can open correctly on GitHub Pages.
+      GitHub Pages does not automatically list directory contents, so a folder link works only if
+      the folder contains its own <code>index.html</code>.
+    </p>
+  </div>
+
+  <h2>Files</h2>
+
+  <div class="file-card">
+    <h4><a href="clt_main_example.m">clt_main_example.m</a></h4>
+    <p>Main example script for the symmetric carbon/epoxy laminate \([0/45/-45/90]_s\).</p>
+  </div>
+
+  <div class="file-card">
+    <h4><a href="build_laminate_ABD.m">build_laminate_ABD.m</a></h4>
+    <p>Builds the laminate matrices \(\mathbf{A}\), \(\mathbf{B}\), \(\mathbf{D}\), and the full \(\mathbf{ABD}\) matrix.</p>
+  </div>
+
+  <div class="file-card">
+    <h4><a href="stress_xy_to_12.m">stress_xy_to_12.m</a></h4>
+    <p>Transforms laminate-frame stress into ply material stress.</p>
+  </div>
+
+  <div class="file-card">
+    <h4><a href="tsai_hill_index.m">tsai_hill_index.m</a></h4>
+    <p>Computes the Tsai–Hill failure index.</p>
+  </div>
+
+  <div class="file-card">
+    <h4><a href="plot_clt_results.m">plot_clt_results.m</a></h4>
+    <p>Plots ply stresses and failure index.</p>
+  </div>
+
+  <div class="file-card">
+    <h4><a href="README.txt">README.txt</a></h4>
+    <p>Short usage guide and recommended execution order.</p>
+  </div>
+
+  <hr>
+  <p><a href="../clt_theory_matlab.html">Back to CLT Theory and MATLAB</a></p>
+
+</div>
+</body>
+</html>

@@ -48,7 +48,16 @@
 <div class="container">
 
   <h1>CLT Theory and MATLAB</h1>
-  <p><b>A formal teaching page on laminated structures, laminate stiffness, ply stress, and code implementation</b></p>
+  <p><b>A formal teaching page on laminated structures, laminate stiffness, ply stress, strength assessment, and code interpretation</b></p>
+
+  
+  <div class="note-box">
+    <p><b>Teaching code package.</b> The MATLAB scripts used in this page are also available as a downloadable teaching package.</p>
+    <p>
+      <a href="matlab/" class="btn btn-info text-white">Open MATLAB code folder</a>
+      <a href="../../../csm_matlab_code_package.zip" class="btn btn-outline-info">Download MATLAB code package</a>
+    </p>
+  </div>
 
   <div class="note-box toc">
     <h4>Contents</h4>
@@ -57,13 +66,14 @@
     <a href="#data">3. Material data and engineering meaning</a>
     <a href="#constitutive">4. Lamina constitutive law</a>
     <a href="#transform">5. Coordinate transformation and rotated ply stiffness</a>
-    <a href="#abd">6. Derivation of laminate A, B, and D matrices</a>
+    <a href="#abd">6. Laminate A, B, and D matrices</a>
     <a href="#loads">7. Load resultants, mid-plane strain, and curvature</a>
     <a href="#stress">8. Ply stress recovery</a>
     <a href="#strength">9. Strength and first-ply failure</a>
     <a href="#example">10. Worked laminate example</a>
     <a href="#matlab">11. MATLAB implementation</a>
-    <a href="#interpretation">12. How to interpret the results</a>
+    <a href="#results">12. Example numerical results and how to read them</a>
+    <a href="#plots">13. Recommended plots and outputs</a>
   </div>
 
   <div class="section-block" id="definitions">
@@ -204,7 +214,7 @@
   </div>
 
   <div class="section-block" id="abd">
-    <h2>6. Derivation of laminate A, B, and D matrices</h2>
+    <h2>6. Laminate A, B, and D matrices</h2>
     <p>
       Let \(z_0,z_1,\ldots,z_n\) denote the through-thickness interface coordinates. Then the laminate stiffness matrices are
     </p>
@@ -457,19 +467,59 @@ end
 </pre>
   </div>
 
-  <div class="section-block" id="interpretation">
-    <h2>12. How to interpret the results</h2>
+  <div class="section-block" id="results">
+    <h2>12. Example numerical results and how to read them</h2>
     <p>
-      After the code runs, the first things to check are:
+      For the symmetric laminate \([0/45/-45/90]_s\) under pure in-plane loading, the first structural checks are:
+    </p>
+    <ol>
+      <li>Is \(\mathbf{B}\) numerically close to zero?</li>
+      <li>Are the curvatures \(\boldsymbol{\kappa}\) negligible under pure membrane loading?</li>
+      <li>Which plies carry the highest longitudinal stress \(\sigma_1\)?</li>
+      <li>Which plies carry the highest transverse stress \(\sigma_2\) or shear stress \(\tau_{12}\)?</li>
+      <li>Which ply gives the largest failure index \(FI\)?</li>
+    </ol>
+    <div class="note-box">
+      <p><b>Typical interpretation.</b> In a symmetric laminate under pure in-plane loading, one expects \(\mathbf{B}\approx 0\),
+      and therefore the induced curvature should also be very small. If the computed \(\boldsymbol{\kappa}\) is unexpectedly large,
+      the first things to check are the stacking sequence, the sign convention, and the ABD assembly.</p>
+    </div>
+    <p>
+      The stress distribution should also be interpreted physically:
     </p>
     <ul>
-      <li>Is \(\mathbf{B}\) close to zero for a symmetric laminate?</li>
-      <li>Are the curvatures \(\boldsymbol{\kappa}\) consistent with the applied moments?</li>
-      <li>Which ply has the largest \(\sigma_1\), \(\sigma_2\), or \(\tau_{12}\)?</li>
-      <li>Which ply has the largest failure index \(FI\)?</li>
+      <li>Plies oriented close to \(0^\circ\) usually carry more of the axial load in the fiber direction.</li>
+      <li>\(\pm45^\circ\) plies often carry more shear-related response.</li>
+      <li>\(90^\circ\) plies are more sensitive to transverse stress and often become critical earlier in transverse failure criteria.</li>
     </ul>
     <p>
-      These are not just numerical outputs. They tell you how the stacking sequence is controlling the structure.
+      This is exactly why the stress must be transformed back to the ply axes before any strength statement is made.
+    </p>
+  </div>
+
+  <div class="section-block" id="plots">
+    <h2>13. Recommended plots and outputs</h2>
+    <p>
+      A good teaching script should not end with raw console output alone. The following outputs are particularly useful:
+    </p>
+    <ul>
+      <li>\(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\) matrices printed clearly</li>
+      <li>mid-plane strain vector \(\boldsymbol{\varepsilon}_0\)</li>
+      <li>curvature vector \(\boldsymbol{\kappa}\)</li>
+      <li>bar chart of \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\) for each ply</li>
+      <li>bar chart of failure index \(FI\) for each ply</li>
+    </ul>
+    <p>
+      Recommended plot logic:
+    </p>
+    <ol>
+      <li>Plot ply number on the horizontal axis.</li>
+      <li>Plot \(\sigma_1\), \(\sigma_2\), or \(\tau_{12}\) on the vertical axis.</li>
+      <li>Use a separate plot for the failure index \(FI\).</li>
+      <li>Mark the critical ply directly in the figure caption or title.</li>
+    </ol>
+    <p>
+      These plots make the code pedagogically useful, because they connect laminate theory to interpretable structural behavior.
     </p>
   </div>
 

@@ -1095,45 +1095,49 @@ postprocess_field();</pre>
   <div class="section-block" id="codes">
     <h2>13. Example codes and mini-projects</h2>
     <div class="resourcebox">
-      The example codes attached to this page are intentionally minimal. They are meant to expose the structure of the method clearly.
-      In industrial settings, the same ideas appear inside larger simulation environments, but the underlying numerical logic is the same.
+      These example programs are intentionally compact. They show the numerical structure of each method clearly and can be used as a starting point for more realistic RF, microwave, photonics, EMC, shielding, sensing, and packaging problems.
     </div>
     <div class="three-col">
       <div class="mini-card">
         <h4>Code 1</h4>
         <p><b>1D FDTD slab.</b> Gaussian pulse, dielectric slab, monitor signals, and FFT-based reflection/transmission extraction.</p>
+        <p><a href="codes/fdtd_1d_slab.py" download>Download fdtd_1d_slab.py</a></p>
       </div>
       <div class="mini-card">
         <h4>Code 2</h4>
         <p><b>1D FEM layered medium.</b> Linear elements, piecewise material profile, global sparse solve, and field visualization.</p>
+        <p><a href="codes/fem_1d_layered.py" download>Download fem_1d_layered.py</a></p>
       </div>
       <div class="mini-card">
         <h4>Code 3</h4>
-        <p><b>2D FDTD without ABC.</b> Shows why a finite boundary contaminates an open-region transient problem.</p>
+        <p><b>2D FDTD without ABC.</b> Shows how edge reflection contaminates an open-region transient problem when no absorbing treatment is used.</p>
+        <p><a href="codes/fdtd_2d_no_abc.py" download>Download fdtd_2d_no_abc.py</a></p>
       </div>
     </div>
     <div class="three-col" style="margin-top:16px;">
       <div class="mini-card">
         <h4>Code 4</h4>
-        <p><b>2D FDTD with Mur ABC.</b> A pedagogical absorbing boundary that already demonstrates the purpose of open-region truncation.</p>
+        <p><b>2D FDTD with Mur ABC.</b> A simple absorbing-boundary implementation that already shows the logic of open-region truncation.</p>
+        <p><a href="codes/fdtd_2d_mur_abc.py" download>Download fdtd_2d_mur_abc.py</a></p>
       </div>
       <div class="mini-card">
         <h4>Code 5</h4>
         <p><b>2D FEM Helmholtz.</b> Triangular-mesh assembly for a dielectric inclusion in a bounded domain.</p>
+        <p><a href="codes/fem_2d_helmholtz.py" download>Download fem_2d_helmholtz.py</a></p>
       </div>
       <div class="mini-card">
-        <h4>Recommended student deliverables</h4>
+        <h4>Suggested extensions</h4>
         <ul class="tight">
-          <li>problem statement</li>
-          <li>discretization choice</li>
-          <li>boundary-condition rationale</li>
-          <li>observable extraction</li>
-          <li>validation evidence</li>
+          <li>extract reflection and transmission</li>
+          <li>compare no-ABC and ABC results</li>
+          <li>change dielectric contrast</li>
+          <li>refine mesh or time step</li>
+          <li>connect the result to a device use case</li>
         </ul>
       </div>
     </div>
     <div class="leadbox">
-      <b>What the student should leave with:</b> a clear understanding of what each formulation represents, what kind of response it can predict, and how those predictions connect to design, diagnosis, and industrial electromagnetic applications.
+      These codes are small enough to study line by line, but they already map directly onto practical workflows used in absorber design, waveguide analysis, antenna environments, EMC studies, photonic components, and package-level field prediction.
     </div>
   </div>
 

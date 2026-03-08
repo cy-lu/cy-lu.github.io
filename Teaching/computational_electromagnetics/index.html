@@ -1,161 +1,360 @@
-<div class="section-block" id="methods">
-  <h2>4. Main numerical methods</h2>
-  <p>
-    No numerical method is universally best. The correct choice depends on the mathematical structure
-    of the problem: whether the geometry is layered or fully three-dimensional, whether the quantity
-    of interest is broadband or single-frequency, whether local field resolution is important, and whether
-    the material response is dispersive, lossy, anisotropic, or strongly resonant.
-  </p>
-  <p>
-    In practice, the three methods most relevant here are the <b>transfer-matrix method (TMM)</b>,
-    the <b>finite-difference time-domain method (FDTD)</b>, and the <b>finite element method (FEM)</b>.
-    They should not be viewed as competing software choices, but as different mathematical tools with
-    different domains of validity.
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computational Electromagnetics</title>
 
-  <div class="formula">
-    <p><b>Practical rule:</b> choose the simplest method that still matches the physics and the geometry.</p>
-  </div>
-</div>
+  <link rel="stylesheet" href="../../css/custom.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-<div class="section-block" id="tmm">
-  <h2>5. Transfer-matrix method (TMM)</h2>
-  <p>
-    The transfer-matrix method is the natural starting point for <b>planar multilayer media</b>.
-    It treats each layer as a homogeneous slab and enforces field continuity at interfaces. The full
-    optical response is obtained by multiplying interface and propagation matrices in sequence.
-  </p>
+  <style>
+    body { padding-top: 20px; padding-bottom: 40px; }
+    .section-block { margin-top: 30px; }
+    .leadbox {
+      background: #f8f9fa;
+      border-left: 4px solid #17a2b8;
+      padding: 16px 18px;
+      margin: 16px 0 22px 0;
+    }
+    .toc {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 20px 0;
+    }
+    .toc a { display:block; margin: 4px 0; }
+    .formula {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+    pre {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
 
-  <h4>What TMM is mathematically</h4>
-  <p>
-    TMM is essentially a one-dimensional wave-matching method. It assumes that the structure varies
-    along the propagation direction, while the transverse directions are uniform. For this reason,
-    it is very efficient and physically transparent.
-  </p>
-
-  <h4>When TMM is strong</h4>
-  <ul>
-    <li>thin-film optics and multilayer coatings,</li>
-    <li>metal–dielectric absorber stacks,</li>
-    <li>Fabry–Pérot resonators,</li>
-    <li>anti-reflection design,</li>
-    <li>wavelength-dependent reflectance, transmittance, and absorption in layered media.</li>
-  </ul>
-
-  <h4>Why it is valuable pedagogically</h4>
-  <p>
-    TMM is one of the best teaching tools in computational electromagnetics because it exposes the physics
-    directly: phase accumulation, impedance mismatch, interference, and resonance can all be seen without
-    the overhead of a full-wave grid solver.
-  </p>
-
-  <h4>Limits of TMM</h4>
-  <ul>
-    <li>It is not a general full-wave solver for arbitrary geometry.</li>
-    <li>It breaks down once the structure is no longer effectively one-dimensional.</li>
-    <li>It cannot naturally handle lateral patterning, isolated particles, curved interfaces, or arbitrary defects.</li>
-    <li>Local near-field distributions in complex nanostructures are outside its natural scope.</li>
-    <li>Once periodicity or patterning becomes essential, methods such as FDTD, FEM, or RCWA are more appropriate.</li>
-  </ul>
+  <h1>Computational Electromagnetics</h1>
+  <p><b>Teaching Notes on Electromagnetic Modeling, Numerical Methods, and Validation</b></p>
 
   <p>
-    In short, TMM is excellent for <b>layered structures</b>, but it should not be stretched beyond that class of problems.
-  </p>
-</div>
-
-<div class="section-block" id="fdtd">
-  <h2>6. Finite-difference time-domain (FDTD)</h2>
-  <p>
-    FDTD solves Maxwell’s curl equations directly in the time domain on the Yee grid. The electric and
-    magnetic field components are staggered in space and time, and are updated explicitly in a leapfrog scheme.
+    These notes present computational electromagnetics as a <b>numerical laboratory</b> for understanding,
+    predicting, and validating electromagnetic behavior. The focus is not restricted to a single solver.
+    Instead, the aim is to connect <b>Maxwell’s equations</b>, <b>material models</b>, <b>numerical methods</b>,
+    and <b>observable quantities</b> in one coherent workflow.
   </p>
 
-  <h4>What FDTD is mathematically</h4>
-  <p>
-    FDTD is a direct time-marching discretization of Maxwell’s equations. Because it works in time,
-    a single pulsed simulation can produce a broad frequency response after Fourier transformation.
-    This is one of its main strengths.
-  </p>
-
-  <h4>When FDTD is strong</h4>
-  <ul>
-    <li>broadband scattering and absorption problems,</li>
-    <li>transient wave propagation,</li>
-    <li>near-field and far-field analysis,</li>
-    <li>pulse-driven systems,</li>
-    <li>nanophotonic structures with strong field localization,</li>
-    <li>situations where time evolution itself is physically informative.</li>
-  </ul>
-
-  <h4>Why FDTD is important</h4>
-  <p>
-    FDTD behaves like a numerical laboratory for wave propagation. It shows how waves enter, scatter,
-    reflect, interfere, and decay in time. For teaching and physical intuition, this is extremely powerful.
-  </p>
-
-  <h4>Limits of FDTD</h4>
-  <ul>
-    <li>The spatial grid is global, so the entire domain pays the cost of the smallest required mesh size.</li>
-    <li>Fine geometric detail or subwavelength features can make memory and runtime extremely expensive.</li>
-    <li>The time step is restricted by the Courant stability condition, so finer spatial resolution immediately increases cost.</li>
-    <li>Numerical dispersion can distort phase velocity and resonance positions if the mesh is not sufficiently fine.</li>
-    <li>Curved or oblique interfaces are approximated on a Cartesian grid unless subpixel or conformal techniques are used.</li>
-    <li>PML setup, TF/SF injection, and spectral extraction can all introduce hidden errors if handled carelessly.</li>
-  </ul>
-
-  <div class="formula">
-    \\[
-    \\Delta t \\leq \\frac{1}{c\\sqrt{\\frac{1}{\\Delta x^2} + \\frac{1}{\\Delta y^2} + \\frac{1}{\\Delta z^2}}}
-    \\]
+  <div class="leadbox">
+    <p><b>Working principle.</b> A simulation is not a black box. The correct question is not only “Can the
+    software run?” but also “What physics is being solved, what assumptions are built into the discretization,
+    and what observable can actually be validated?”</p>
   </div>
 
-  <p>
-    In short, FDTD is powerful when the problem is <b>broadband, full-wave, and transient</b>, but it becomes costly
-    when very fine resolution is required over a large computational region.
-  </p>
+  <div class="toc">
+    <h4>Contents</h4>
+    <a href="#why">1. Why computational electromagnetics matters</a>
+    <a href="#maxwell">2. Maxwell equations and constitutive relations</a>
+    <a href="#observables">3. What should be extracted from a simulation?</a>
+    <a href="#methods">4. Main numerical methods</a>
+    <a href="#tmm">5. Transfer-matrix method (TMM)</a>
+    <a href="#fdtd">6. Finite-difference time-domain (FDTD)</a>
+    <a href="#fem">7. Finite element method (FEM)</a>
+    <a href="#materials">8. Dispersion and material models</a>
+    <a href="#workflow">9. A practical CEM workflow</a>
+    <a href="#validation">10. Validation and how not to be fooled</a>
+    <a href="#applications">11. Application areas</a>
+  </div>
+
+  <div class="section-block" id="why">
+    <h2>1. Why computational electromagnetics matters</h2>
+    <p>
+      Computational electromagnetics (CEM) is the discipline of solving electromagnetic problems numerically.
+      Its role is not limited to making field maps. In practice, CEM is used to:
+    </p>
+    <ul>
+      <li>predict field–matter interaction in structures too complex for closed-form analysis,</li>
+      <li>evaluate device performance before fabrication,</li>
+      <li>interpret measurements through model-based analysis, and</li>
+      <li>optimize geometry, materials, and bandwidth before hardware is built.</li>
+    </ul>
+    <p>
+      A good CEM workflow therefore links <b>physical theory</b>, <b>numerical analysis</b>, and <b>engineering observables</b>.
+    </p>
+  </div>
+
+  <div class="section-block" id="maxwell">
+    <h2>2. Maxwell equations and constitutive relations</h2>
+    <p>
+      The foundation is Maxwell’s equations:
+    </p>
+    <div class="formula">
+      \[
+      \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad
+      \nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t},
+      \]
+      \[
+      \nabla \cdot \mathbf{D} = \rho, \qquad
+      \nabla \cdot \mathbf{B} = 0.
+      \]
+    </div>
+    <p>
+      The constitutive relations connect the fields to material response:
+    </p>
+    <div class="formula">
+      \[
+      \mathbf{D} = \varepsilon \mathbf{E}, \qquad
+      \mathbf{B} = \mu \mathbf{H}, \qquad
+      \mathbf{J} = \sigma \mathbf{E}.
+      \]
+    </div>
+    <p>
+      In optics and wave engineering, the material description is often written using the complex refractive
+      index \(\tilde{n}=n+i\kappa\) or the frequency-dependent permittivity \(\varepsilon(\omega)\).
+    </p>
+  </div>
+
+  <div class="section-block" id="observables">
+    <h2>3. What should be extracted from a simulation?</h2>
+    <p>
+      Raw field data \(|\mathbf{E}|\) or \(|\mathbf{H}|\) is often visually useful but rarely sufficient by itself.
+      The real target is an <b>observable</b>: a quantity that can support interpretation, comparison, or validation.
+    </p>
+    <p>Common observables include:</p>
+    <ul>
+      <li>reflectance \(R\), transmittance \(T\), and absorption \(A\),</li>
+      <li>S-parameters \(S_{11}, S_{21}\),</li>
+      <li>scattering, absorption, and extinction cross sections,</li>
+      <li>quality factor \(Q\), mode volume, and resonance position,</li>
+      <li>field enhancement, power flow, and energy density.</li>
+    </ul>
+    <div class="formula">
+      \[
+      A = 1 - R - T.
+      \]
+    </div>
+    <p>
+      The difference between a useful simulation and a decorative one is often the difference between
+      <b>field visualization</b> and <b>observable extraction</b>.
+    </p>
+  </div>
+
+  <div class="section-block" id="methods">
+    <h2>4. Main numerical methods</h2>
+    <p>
+      No single numerical method is universally best. The right solver depends on bandwidth, geometry,
+      boundary conditions, resonance behavior, and the type of observable required.
+    </p>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Typical strength</th>
+          <th>Typical limitation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TMM</td>
+          <td>Fast for planar multilayers and thin-film stacks</td>
+          <td>Not suitable for laterally patterned structures</td>
+        </tr>
+        <tr>
+          <td>FDTD</td>
+          <td>Broadband, transient, full-wave time-domain physics</td>
+          <td>Global grid cost can become very high</td>
+        </tr>
+        <tr>
+          <td>FEM</td>
+          <td>Excellent for complex geometry and local mesh refinement</td>
+          <td>Broadband sweeps may require repeated solves</td>
+        </tr>
+        <tr>
+          <td>RCWA</td>
+          <td>Periodic layered structures and diffraction problems</td>
+          <td>Less natural for strongly aperiodic geometry</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The correct mindset is not “Which method is best?” but “Which method matches the mathematical nature of the problem?”
+    </p>
+  </div>
+
+  <div class="section-block" id="tmm">
+    <h2>5. Transfer-matrix method (TMM)</h2>
+    <p>
+      For multilayer media, the transfer-matrix method is often the cleanest starting point. It is efficient,
+      physically transparent, and ideal for teaching interference, impedance matching, and resonant absorption.
+    </p>
+    <p>
+      TMM is especially useful for:
+    </p>
+    <ul>
+      <li>anti-reflection coatings,</li>
+      <li>Fabry–Pérot cavities,</li>
+      <li>metal–dielectric absorber stacks,</li>
+      <li>thin-film reflectance and transmittance analysis.</li>
+    </ul>
+    <p>
+      In your teaching portfolio, this is a strong analytical entry point because it shows that not every EM
+      problem needs a large-scale numerical solver.
+    </p>
+  </div>
+
+  <div class="section-block" id="fdtd">
+    <h2>6. Finite-difference time-domain (FDTD)</h2>
+    <p>
+      FDTD directly updates electromagnetic fields in time on the Yee grid. Its defining strength is that
+      one transient simulation can produce a broadband response after Fourier analysis.
+    </p>
+    <p>
+      Key features:
+    </p>
+    <ul>
+      <li>explicit time stepping,</li>
+      <li>broadband response from a pulse source,</li>
+      <li>direct access to transient propagation and scattering,</li>
+      <li>clear interpretation of wave travel, reflection, and delay in time.</li>
+    </ul>
+    <p>
+      But FDTD is also demanding. The mesh is not merely geometric; it controls numerical dispersion,
+      stability, and cost. Finer spatial discretization improves fidelity, but it forces a smaller time step.
+    </p>
+    <div class="formula">
+      \[
+      \Delta t \leq \frac{\Delta x}{c\sqrt{n}}
+      \]
+    </div>
+    <p>
+      This kind of solver-specific constraint is one reason CEM should be taught as a scientific method,
+      not as software operation.
+    </p>
+  </div>
+
+  <div class="section-block" id="fem">
+    <h2>7. Finite element method (FEM)</h2>
+    <p>
+      FEM is often preferable when geometry is complex, dimensions vary strongly, or local refinement is required.
+      In contrast to FDTD, mesh refinement can be concentrated near interfaces, corners, ports, or hotspots.
+    </p>
+    <p>
+      FEM is particularly strong for:
+    </p>
+    <ul>
+      <li>frequency-domain resonators,</li>
+      <li>waveguide and cavity analysis,</li>
+      <li>multiphysics coupling,</li>
+      <li>complex CAD-driven geometry.</li>
+    </ul>
+    <p>
+      In practice, FDTD and FEM should be seen as complementary rather than competing methods.
+    </p>
+  </div>
+
+  <div class="section-block" id="materials">
+    <h2>8. Dispersion and material models</h2>
+    <p>
+      Electromagnetic simulation is only as good as the material model. Constant \(\varepsilon\) is often
+      insufficient for metals, lossy dielectrics, polar media, and broadband optical problems.
+    </p>
+    <p>
+      Typical models include:
+    </p>
+    <ul>
+      <li>Drude model for free-electron metallic behavior,</li>
+      <li>Lorentz oscillators for resonant dielectric response,</li>
+      <li>Debye relaxation for polar materials and dielectrics,</li>
+      <li>tabulated optical constants from measurement.</li>
+    </ul>
+    <p>
+      A visually reasonable spectrum can still be physically wrong if the material model is wrong.
+    </p>
+  </div>
+
+  <div class="section-block" id="workflow">
+    <h2>9. A practical CEM workflow</h2>
+    <ol>
+      <li>Define geometry and material response</li>
+      <li>Select the right model: analytical, TMM, FDTD, FEM, or RCWA</li>
+      <li>Set source conditions, polarization, and boundaries</li>
+      <li>Choose discretization consistent with wavelength and geometry</li>
+      <li>Run the solver and extract observables</li>
+      <li>Verify by benchmark, convergence, or cross-method comparison</li>
+    </ol>
+    <p>
+      This workflow is more important than the software brand. If the workflow is wrong, the results are not trustworthy.
+    </p>
+  </div>
+
+  <div class="section-block" id="validation">
+    <h2>10. Validation and how not to be fooled</h2>
+    <p>
+      Validation is not a decorative final step. It is part of the discipline of simulation itself.
+      A credible result should be checked through one or more of the following:
+    </p>
+    <ul>
+      <li>comparison with analytical solutions,</li>
+      <li>mesh or time-step convergence,</li>
+      <li>cross-validation between numerical methods,</li>
+      <li>comparison with experimental data when available.</li>
+    </ul>
+    <p>
+      Common traps include:
+    </p>
+    <ul>
+      <li>wrong material parameters,</li>
+      <li>boundary reflections or poor PML placement,</li>
+      <li>insufficient spatial resolution,</li>
+      <li>post-processing errors in FFT and observable extraction.</li>
+    </ul>
+    <p>
+      A good numerical experimentalist is not the one who gets a plot fastest, but the one who knows why the plot should be trusted.
+    </p>
+  </div>
+
+  <div class="section-block" id="applications">
+    <h2>11. Application areas</h2>
+    <p>
+      The same computational EM framework can support a wide range of topics:
+    </p>
+    <ul>
+      <li>thin-film optics and multilayer coatings,</li>
+      <li>plasmonics and nanophotonics,</li>
+      <li>metamaterials and effective medium response,</li>
+      <li>antenna design, EMC/EMI, and radar-related problems,</li>
+      <li>scattering, absorption, and resonant energy localization.</li>
+    </ul>
+    <p>
+      In that sense, computational electromagnetics is not just one method. It is a way of organizing
+      physical insight, numerical approximation, and engineering observables into one rigorous workflow.
+    </p>
+  </div>
+
+  <hr>
+  <p><a href="../../index.html#teaching">Back to Teaching</a></p>
+
 </div>
+</body>
+</html>
 
-<div class="section-block" id="fem">
-  <h2>7. Finite element method (FEM)</h2>
-  <p>
-    FEM solves the governing equations in weak form by discretizing the domain into finite elements and
-    approximating the solution with basis functions. In electromagnetics, FEM is often used in the frequency
-    domain, though time-domain variants also exist.
-  </p>
-
-  <h4>What FEM is mathematically</h4>
-  <p>
-    FEM is a variational method. Instead of updating fields point by point on a structured grid, it solves
-    a global system assembled from local element contributions. This makes it especially suitable for
-    complex geometry and nonuniform meshing.
-  </p>
-
-  <h4>When FEM is strong</h4>
-  <ul>
-    <li>complex CAD-based geometry,</li>
-    <li>curved boundaries and nonuniform domains,</li>
-    <li>local mesh refinement near corners, gaps, ports, or singular features,</li>
-    <li>frequency-domain resonators and eigenmode problems,</li>
-    <li>multiphysics coupling, including thermal, structural, or electrostatic interaction.</li>
-  </ul>
-
-  <h4>Why FEM is often preferred in engineering simulation</h4>
-  <p>
-    FEM is usually the most flexible method when geometry matters more than broadband speed. It is particularly
-    strong when one needs to resolve a small critical region inside a larger device without refining the whole domain.
-  </p>
-
-  <h4>Limits of FEM</h4>
-  <ul>
-    <li>Broadband analysis is usually less natural than in FDTD because separate frequency points often require separate solves.</li>
-    <li>For very large 3D full-wave problems, the global matrix system can become memory-intensive.</li>
-    <li>Open-region radiation problems require careful treatment of absorbing boundaries or infinite elements.</li>
-    <li>The method is less intuitive for visualizing time evolution unless a time-domain FEM formulation is specifically used.</li>
-    <li>Poor mesh quality or inappropriate basis order can create numerical errors that are less visually obvious than in FDTD.</li>
-  </ul>
-
-  <p>
-    In short, FEM is the strongest choice when the problem is <b>geometrically complex, locally refined, or multiphysics-coupled</b>,
-    but it is not automatically the most efficient method for broadband wave problems.
-  </p>
-</div>

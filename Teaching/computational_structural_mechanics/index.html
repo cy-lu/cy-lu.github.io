@@ -78,6 +78,7 @@
 
   <div class="section-block">
     <h2>2. The central constitutive statement</h2>
+
     <div class="formula-box">
       \[
       \begin{bmatrix}
@@ -95,17 +96,77 @@
       \end{bmatrix}.
       \]
     </div>
-    <ul>
-      <li>\(\mathbf{N}\): in-plane force resultants</li>
-      <li>\(\mathbf{M}\): bending and twisting moment resultants</li>
-      <li>\(\mathbf{A}\): extensional stiffness matrix</li>
-      <li>\(\mathbf{B}\): membrane–bending coupling matrix</li>
-      <li>\(\mathbf{D}\): bending stiffness matrix</li>
-      <li>\(\boldsymbol{\varepsilon}_0\): mid-plane strain vector</li>
-      <li>\(\boldsymbol{\kappa}\): curvature vector</li>
-    </ul>
+
     <p>
-      This is the main equation of the module. Everything else exists to define it correctly, compute it, and interpret it.
+      This equation is the laminate-level constitutive law of Classical Lamination Theory (CLT).
+      It states that the applied <b>in-plane force resultants</b> and <b>bending/twisting moment resultants</b>
+      are related to the laminate <b>mid-plane strains</b> and <b>curvatures</b> through the stiffness blocks
+      \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
+    </p>
+
+    <ul>
+      <li><b>\(\mathbf{N}=[N_x\;N_y\;N_{xy}]^T\)</b>: in-plane force resultants, units <b>N/m</b>.
+        These represent stretching, compression, or in-plane shear acting on the laminate.</li>
+
+      <li><b>\(\mathbf{M}=[M_x\;M_y\;M_{xy}]^T\)</b>: bending and twisting moment resultants, units <b>N</b>.
+        In CLT these are moments <i>per unit width</i>, so their unit is \((\text{N}\cdot\text{m})/\text{m}=\text{N}\).</li>
+
+      <li><b>\(\boldsymbol{\varepsilon}_0=[\varepsilon_x^0\;\varepsilon_y^0\;\gamma_{xy}^0]^T\)</b>: mid-plane strain vector, <b>dimensionless</b>.
+        It describes stretching or shear of the laminate mid-surface.</li>
+
+      <li><b>\(\boldsymbol{\kappa}=[\kappa_x\;\kappa_y\;\kappa_{xy}]^T\)</b>: curvature vector, units <b>1/m</b>.
+        It describes bending or twisting of the laminate.</li>
+
+      <li><b>\(\mathbf{A}\)</b>: extensional stiffness matrix, units <b>N/m</b>.
+        It controls resistance to in-plane stretching and shear.</li>
+
+      <li><b>\(\mathbf{B}\)</b>: membrane–bending coupling matrix, units <b>N</b>.
+        It measures how strongly stretching couples to bending.</li>
+
+      <li><b>\(\mathbf{D}\)</b>: bending stiffness matrix, units <b>N·m</b>.
+        It controls resistance to bending and twisting.</li>
+    </ul>
+
+    <p>
+      Physically, the equation says that a laminate can respond in two ways:
+      it can <b>deform in its plane</b> and it can <b>bend out of plane</b>.
+      The matrix \(\mathbf{A}\) governs the first response, \(\mathbf{D}\) governs the second,
+      and \(\mathbf{B}\) tells us whether these two responses are coupled.
+    </p>
+
+    <p>
+      In the usual CLT workflow, the matrices \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\)
+      are not prescribed independently. They are computed from the laminate itself:
+      the lamina elastic properties, ply orientations, stacking sequence, and thickness coordinates.
+    </p>
+
+    <p>
+      By contrast, the vectors \(\mathbf{N}\) and \(\mathbf{M}\) are usually treated as the
+      externally applied load resultants. Once the laminate stiffness and the applied loading are known,
+      the main unknowns to be solved are the mid-plane strains \(\boldsymbol{\varepsilon}_0\)
+      and the curvatures \(\boldsymbol{\kappa}\).
+    </p>
+
+    <div class="note-box">
+      <p><b>Typical interpretation.</b>
+      In a forward CLT problem, we first define the laminate, which gives \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
+      We then prescribe the applied force and moment resultants \(\mathbf{N}\) and \(\mathbf{M}\).
+      The constitutive system is then solved for \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\).</p>
+
+      <p><b>Example 1: symmetric laminate.</b>
+      If the stacking sequence is symmetric about the mid-plane, then typically \(\mathbf{B}=0\).
+      In that case, applying only \(N_x\) produces mainly in-plane strain \(\varepsilon_x^0\),
+      without inducing bending curvature.</p>
+
+      <p><b>Example 2: unsymmetric laminate.</b>
+      If the laminate is unsymmetric, then \(\mathbf{B}\neq 0\) in general.
+      A purely in-plane tensile load can then produce not only extension, but also bending.
+      In other words, pulling the laminate may cause it to curve.</p>
+    </div>
+
+    <p>
+      This is the main equation of the module. The following page explains how the stiffness blocks are built
+      from ply properties, ply orientations, and thickness coordinates.
     </p>
   </div>
 

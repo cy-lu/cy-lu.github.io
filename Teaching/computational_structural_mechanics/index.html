@@ -41,7 +41,9 @@
       border: 1px solid #dee2e6;
       border-radius: 6px;
       padding: 14px;
+      white-space: pre-wrap;
     }
+    code { color: #212529; }
   </style>
 </head>
 
@@ -50,54 +52,72 @@
 
   <div class="hero">
     <h1>Computational Structural Mechanics</h1>
-    <p><b>Teaching Notes on Analytical Modeling, MATLAB Implementation, and COMSOL-Based Simulation</b></p>
+    <p><b>Teaching Notes on Classical Lamination Theory, MATLAB Implementation, and COMSOL-Based Validation</b></p>
     <p>
-      These notes introduce a practical workflow for structural modeling of layered and anisotropic systems.
-      The emphasis is on clear physical definitions, compact derivations, and simulation-oriented interpretation.
-      Classical Lamination Theory (CLT) is used as the analytical foundation, while MATLAB and COMSOL are treated
-      as complementary tools for computation and validation.
+      These notes are written for learning how a laminate model actually works. The goal is not to present
+      CLT as a black-box formula set, but to show how the mechanical quantities are defined, how they are assembled
+      into the laminate stiffness, and how the same workflow can be implemented in MATLAB and then checked in COMSOL.
     </p>
   </div>
 
   <div class="note-box toc">
     <h4>Contents</h4>
     <a href="#why">1. Why this topic matters</a>
-    <a href="#lamina">2. Lamina constitutive law</a>
-    <a href="#rotation">3. Ply rotation and transformed stiffness</a>
-    <a href="#abd">4. Laminate stiffness: \(\mathbf{A}\), \(\mathbf{B}\), \(\mathbf{D}\)</a>
-    <a href="#response">5. Mid-plane strain \(\boldsymbol{\varepsilon}_0\) and curvature \(\boldsymbol{\kappa}\)</a>
-    <a href="#stress">6. Ply stress recovery</a>
-    <a href="#matlab">7. MATLAB workflow</a>
-    <a href="#comsol">8. COMSOL workflow</a>
-    <a href="#optimization">9. Optimization and next steps</a>
+    <a href="#assumptions">2. CLT assumptions and where it is valid</a>
+    <a href="#lamina">3. Lamina constitutive law</a>
+    <a href="#rotation">4. Ply rotation and transformed stiffness</a>
+    <a href="#abd">5. Laminate stiffness: \(\mathbf{A}\), \(\mathbf{B}\), \(\mathbf{D}\)</a>
+    <a href="#response">6. Mid-plane strain \(\boldsymbol{\varepsilon}_0\) and curvature \(\boldsymbol{\kappa}\)</a>
+    <a href="#stress">7. Ply strain and ply stress recovery</a>
+    <a href="#matlab-logic">8. MATLAB workflow: what each step does</a>
+    <a href="#matlab-code">9. MATLAB example code</a>
+    <a href="#comsol">10. COMSOL workflow</a>
+    <a href="#optimization">11. Optimization and next steps</a>
   </div>
 
   <div class="section-block" id="why">
     <h2>1. Why this topic matters</h2>
     <p>
-      Many engineering structures are not made from a single isotropic material. Instead, they contain multiple
-      bonded layers, directional materials, thin films, substrates, stiffeners, or laminated sections.
-      In such systems, stiffness and stress are controlled not only by geometry, but also by material orientation,
-      layer thickness, and stacking sequence.
+      A laminated structure is built from plies with different orientations \(\theta_k\), thicknesses \(t_k\),
+      and material properties \((E_1,E_2,G_{12},\nu_{12})\). Even if all plies are made from the same material,
+      the global stiffness changes when the stacking sequence changes.
     </p>
     <p>
-      For these problems, it is useful to separate the workflow into two levels:
+      The two main questions are:
     </p>
     <ul>
-      <li><b>Analytical modeling</b>: fast prediction of global stiffness, force–deformation relations, and stress trends</li>
-      <li><b>Finite element simulation</b>: resolution of realistic geometry, boundary conditions, local stress gradients, and coupled physics</li>
+      <li>Given a laminate, what are its in-plane and bending stiffnesses?</li>
+      <li>Given a load, what are the strains, curvatures, and ply stresses?</li>
     </ul>
     <p>
-      In these notes, the analytical model is Classical Lamination Theory. It does not replace finite element analysis,
-      but it gives the physical baseline that should be understood before building a COMSOL model.
+      Classical Lamination Theory answers these questions quickly. It is therefore the right starting point
+      before building a more detailed finite element model.
+    </p>
+  </div>
+
+  <div class="section-block" id="assumptions">
+    <h2>2. CLT assumptions and where it is valid</h2>
+    <p>
+      CLT is based on the following assumptions:
+    </p>
+    <ul>
+      <li>each ply is linearly elastic,</li>
+      <li>the laminate is thin compared with its in-plane dimensions,</li>
+      <li>normals to the mid-surface remain straight and normal after deformation,</li>
+      <li>transverse shear deformation is neglected,</li>
+      <li>bonding between plies is perfect.</li>
+    </ul>
+    <p>
+      As a result, CLT is best for <b>global stiffness</b>, <b>membrane-bending coupling</b>, and
+      <b>ply-level in-plane stress trends</b>. It is not a complete model for interlaminar stress,
+      thick laminates, or local damage.
     </p>
   </div>
 
   <div class="section-block" id="lamina">
-    <h2>2. Lamina constitutive law</h2>
+    <h2>3. Lamina constitutive law</h2>
     <p>
-      Consider a single orthotropic lamina in its material coordinates \((1,2)\).
-      The in-plane stress vector is
+      Consider one orthotropic lamina in its material axes \((1,2)\). The in-plane stress vector is
     </p>
     <div class="formula-box">
       \[
@@ -117,14 +137,23 @@
       \]
     </div>
     <p>
-      Under plane stress, the constitutive relation is
+      Here:
+    </p>
+    <ul>
+      <li>\(\sigma_1\): normal stress along the fiber direction</li>
+      <li>\(\sigma_2\): normal stress transverse to the fiber direction</li>
+      <li>\(\tau_{12}\): in-plane shear stress in the material frame</li>
+      <li>\(\varepsilon_1\): normal strain along the fiber direction</li>
+      <li>\(\varepsilon_2\): normal strain transverse to the fiber direction</li>
+      <li>\(\gamma_{12}\): engineering shear strain in the material frame</li>
+    </ul>
+    <p>
+      Under plane stress, the constitutive law is
     </p>
     <div class="formula-box">
       \[
       \boldsymbol{\sigma}_{12} = \mathbf{Q}\,\boldsymbol{\varepsilon}_{12},
-      \]
-      where
-      \[
+      \qquad
       \mathbf{Q} =
       \begin{bmatrix}
       Q_{11} & Q_{12} & 0 \\
@@ -134,25 +163,15 @@
       \]
     </div>
     <p>
-      The material parameters are:
+      The material constants are:
     </p>
     <ul>
-      <li>Longitudinal Young’s modulus \(E_1\)</li>
-      <li>Transverse Young’s modulus \(E_2\)</li>
-      <li>In-plane shear modulus \(G_{12}\)</li>
-      <li>Major Poisson’s ratio \(\nu_{12}\)</li>
+      <li>\(E_1\): longitudinal Young’s modulus</li>
+      <li>\(E_2\): transverse Young’s modulus</li>
+      <li>\(G_{12}\): in-plane shear modulus</li>
+      <li>\(\nu_{12}\): major Poisson’s ratio</li>
+      <li>\(\nu_{21}=\nu_{12}E_2/E_1\): reciprocal Poisson’s ratio</li>
     </ul>
-    <p>
-      The reciprocal Poisson’s ratio is
-    </p>
-    <div class="formula-box">
-      \[
-      \nu_{21} = \nu_{12}\frac{E_2}{E_1}.
-      \]
-    </div>
-    <p>
-      The reduced stiffness entries are
-    </p>
     <div class="formula-box">
       \[
       Q_{11}=\frac{E_1}{1-\nu_{12}\nu_{21}},\qquad
@@ -162,42 +181,49 @@
       \]
     </div>
     <p>
-      This matrix describes the lamina only in the material axes. Once the ply is rotated in a laminate,
-      the stiffness must be transformed into the laminate coordinates.
+      This \(\mathbf{Q}\) matrix is defined only in the material frame. A laminate, however, is assembled in the
+      global laminate frame \((x,y)\), so each ply stiffness must be rotated.
     </p>
   </div>
 
   <div class="section-block" id="rotation">
-    <h2>3. Ply rotation and transformed stiffness</h2>
+    <h2>4. Ply rotation and transformed stiffness</h2>
     <p>
-      Let the ply be rotated by an angle \(\theta\) from the laminate coordinates \((x,y)\) to the material
-      coordinates \((1,2)\). Then the reduced stiffness \(\mathbf{Q}\) becomes the transformed reduced stiffness
-      \(\bar{\mathbf{Q}}\), which operates in the laminate frame.
+      Let a ply be oriented at angle \(\theta\) relative to the laminate axes \((x,y)\).
+      After rotation, the constitutive law becomes
     </p>
     <div class="formula-box">
       \[
       \boldsymbol{\sigma}_{xy} =
-      \bar{\mathbf{Q}}\,\boldsymbol{\varepsilon}_{xy}.
+      \bar{\mathbf{Q}}\,\boldsymbol{\varepsilon}_{xy},
       \]
     </div>
     <p>
-      Physically:
+      where
     </p>
     <ul>
-      <li>\(\mathbf{Q}\): stiffness in the ply’s own material axes</li>
-      <li>\(\bar{\mathbf{Q}}\): stiffness seen by the laminate in global coordinates</li>
+      <li>\(\boldsymbol{\sigma}_{xy}=[\sigma_x,\sigma_y,\tau_{xy}]^T\)</li>
+      <li>\(\boldsymbol{\varepsilon}_{xy}=[\varepsilon_x,\varepsilon_y,\gamma_{xy}]^T\)</li>
+      <li>\(\bar{\mathbf{Q}}\): transformed reduced stiffness matrix in the laminate frame</li>
     </ul>
     <p>
-      This transformation is the key reason that stacking sequence matters. A laminate made from identical plies can
-      behave very differently depending on the orientation set \(\{\theta_k\}\).
+      The physical meaning is simple:
+    </p>
+    <ul>
+      <li>\(\mathbf{Q}\) describes one ply in its own principal directions.</li>
+      <li>\(\bar{\mathbf{Q}}\) tells the laminate how that ply contributes in the global \(x\)–\(y\) system.</li>
+    </ul>
+    <p>
+      This is why two laminates made from the same plies can have very different global behavior if their angle set
+      \(\{\theta_k\}\) is different.
     </p>
   </div>
 
   <div class="section-block" id="abd">
-    <h2>4. Laminate stiffness: \(\mathbf{A}\), \(\mathbf{B}\), \(\mathbf{D}\)</h2>
+    <h2>5. Laminate stiffness: \(\mathbf{A}\), \(\mathbf{B}\), \(\mathbf{D}\)</h2>
     <p>
-      Let the laminate consist of \(n\) plies, with thickness coordinates \(z_0, z_1, \dots, z_n\),
-      measured from the laminate mid-plane. The extensional, coupling, and bending stiffnesses are
+      For a laminate with \(n\) plies, let \(z_0,z_1,\dots,z_n\) be the through-thickness coordinates of the ply interfaces,
+      measured from the laminate mid-plane. Then the laminate stiffness matrices are
     </p>
     <div class="formula-box">
       \[
@@ -211,23 +237,31 @@
       \]
     </div>
     <p>
-      Their meanings are:
+      The three matrices represent:
     </p>
     <ul>
-      <li><b>\(\mathbf{A}\)</b>: in-plane extensional stiffness</li>
-      <li><b>\(\mathbf{B}\)</b>: bending–extension coupling stiffness</li>
-      <li><b>\(\mathbf{D}\)</b>: bending stiffness</li>
+      <li>\(\mathbf{A}\): extensional stiffness</li>
+      <li>\(\mathbf{B}\): bending–extension coupling stiffness</li>
+      <li>\(\mathbf{D}\): bending stiffness</li>
     </ul>
     <p>
-      A symmetric laminate about the mid-plane has \(\mathbf{B}=\mathbf{0}\). If \(\mathbf{B}\neq\mathbf{0}\),
-      membrane loading can generate curvature, and bending can generate in-plane strain.
+      Their units are different, and their roles are different:
+    </p>
+    <ul>
+      <li>\(\mathbf{A}\) relates in-plane forces to mid-plane strains</li>
+      <li>\(\mathbf{B}\) couples in-plane forces with curvature, and moments with mid-plane strains</li>
+      <li>\(\mathbf{D}\) relates bending moments to curvature</li>
+    </ul>
+    <p>
+      If the laminate is symmetric about the mid-plane, then \(\mathbf{B}=\mathbf{0}\). If \(\mathbf{B}\neq\mathbf{0}\),
+      a purely in-plane load may induce bending.
     </p>
   </div>
 
   <div class="section-block" id="response">
-    <h2>5. Mid-plane strain \(\boldsymbol{\varepsilon}_0\) and curvature \(\boldsymbol{\kappa}\)</h2>
+    <h2>6. Mid-plane strain \(\boldsymbol{\varepsilon}_0\) and curvature \(\boldsymbol{\kappa}\)</h2>
     <p>
-      The laminate constitutive equation is written in resultant form:
+      The laminate constitutive equation is written in resultant form as
     </p>
     <div class="formula-box">
       \[
@@ -247,7 +281,7 @@
       \]
     </div>
     <p>
-      Here,
+      The vectors are:
     </p>
     <div class="formula-box">
       \[
@@ -282,107 +316,212 @@
       \]
     </div>
     <p>
-      Once \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\) are assembled, the unknown mid-plane strain and curvature
-      follow from inversion of the laminate stiffness matrix. This is the central CLT prediction step.
+      Here:
+    </p>
+    <ul>
+      <li>\(N_x,N_y,N_{xy}\): in-plane force resultants per unit width</li>
+      <li>\(M_x,M_y,M_{xy}\): bending/twisting moment resultants per unit width</li>
+      <li>\(\varepsilon_x^0,\varepsilon_y^0,\gamma_{xy}^0\): mid-plane strains</li>
+      <li>\(\kappa_x,\kappa_y,\kappa_{xy}\): curvatures and twisting curvature</li>
+    </ul>
+    <p>
+      Once the \(6\times6\) laminate stiffness matrix is assembled, the unknowns
+      \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\) are found by inversion.
     </p>
   </div>
 
   <div class="section-block" id="stress">
-    <h2>6. Ply stress recovery</h2>
+    <h2>7. Ply strain and ply stress recovery</h2>
     <p>
-      The in-plane strain at any thickness coordinate \(z\) is
+      After solving for \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\), the strain at thickness position \(z\) is
     </p>
     <div class="formula-box">
       \[
-      \boldsymbol{\varepsilon}(z)=\boldsymbol{\varepsilon}_0 + z\boldsymbol{\kappa}.
+      \boldsymbol{\varepsilon}_{xy}(z)=\boldsymbol{\varepsilon}_0 + z\boldsymbol{\kappa}.
       \]
     </div>
     <p>
-      For the \(k\)-th ply, the stress in laminate coordinates is
+      For the \(k\)-th ply, the global in-plane stress is
     </p>
     <div class="formula-box">
       \[
-      \boldsymbol{\sigma}_{xy}^{(k)} =
-      \bar{\mathbf{Q}}^{(k)}\boldsymbol{\varepsilon}(z).
+      \boldsymbol{\sigma}_{xy}^{(k)}(z)=
+      \bar{\mathbf{Q}}^{(k)}\boldsymbol{\varepsilon}_{xy}(z).
       \]
     </div>
     <p>
-      If needed, this stress can be transformed back to material coordinates to obtain
-      \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\). This step is important whenever failure criteria
-      are defined in the ply axes rather than in the global laminate frame.
+      If the stress is needed in the material axes, then transform back to
+      \(\boldsymbol{\sigma}_{12}^{(k)}=[\sigma_1,\sigma_2,\tau_{12}]^T\).
+      This is usually the stress vector used in ply-level failure criteria.
+    </p>
+    <p>
+      In practice, a common choice is to evaluate stress at the top and bottom of each ply, because stress varies
+      through thickness whenever \(\boldsymbol{\kappa}\neq\mathbf{0}\).
     </p>
   </div>
 
-  <div class="section-block" id="matlab">
-    <h2>7. MATLAB workflow</h2>
+  <div class="section-block" id="matlab-logic">
+    <h2>8. MATLAB workflow: what each step does</h2>
     <p>
-      A practical MATLAB implementation usually follows these steps:
+      A clean MATLAB implementation is not just a script that dumps numbers. It is a sequence of physically meaningful steps:
     </p>
     <ol>
-      <li>Input material constants \((E_1,E_2,G_{12},\nu_{12})\)</li>
-      <li>Build \(\mathbf{Q}\) for a single lamina</li>
-      <li>Generate \(\bar{\mathbf{Q}}^{(k)}\) for each ply angle \(\theta_k\)</li>
+      <li>Define material properties \((E_1,E_2,G_{12},\nu_{12})\)</li>
+      <li>Build \(\mathbf{Q}\) for one lamina</li>
+      <li>For each ply angle \(\theta_k\), compute \(\bar{\mathbf{Q}}^{(k)}\)</li>
+      <li>Build interface coordinates \(z_k\) from the ply thicknesses \(t_k\)</li>
       <li>Assemble \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\)</li>
+      <li>Apply the laminate loads \(\mathbf{N}\) and \(\mathbf{M}\)</li>
       <li>Solve for \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\)</li>
-      <li>Recover ply stresses</li>
+      <li>Recover ply strains and stresses</li>
     </ol>
+    <p>
+      That sequence is the heart of CLT in code.
+    </p>
+  </div>
+
+  <div class="section-block" id="matlab-code">
+    <h2>9. MATLAB example code</h2>
+    <p>
+      The following compact example shows the actual computational flow. It is not a full toolbox,
+      but it makes the logic explicit.
+    </p>
 
 <pre>
+% Material properties of one orthotropic ply
 E1  = 135e9;
 E2  = 10e9;
 G12 = 5e9;
 v12 = 0.30;
+v21 = v12 * E2 / E1;
 
+% Reduced stiffness matrix Q
+den = 1 - v12 * v21;
+Q11 = E1 / den;
+Q22 = E2 / den;
+Q12 = v12 * E2 / den;
+Q66 = G12;
+
+Q = [Q11 Q12 0;
+     Q12 Q22 0;
+     0   0   Q66];
+
+% Laminate definition
 angles = [0 45 -45 90 90 -45 45 0];
+nply   = numel(angles);
 tply   = 0.125e-3;
+h      = nply * tply;
 
+% Through-thickness coordinates z_k
+z = linspace(-h/2, h/2, nply+1);
+
+% Initialize laminate stiffness matrices
+A = zeros(3,3);
+B = zeros(3,3);
+D = zeros(3,3);
+
+for k = 1:nply
+    theta = angles(k);
+    m = cosd(theta);
+    n = sind(theta);
+
+    % Transformed reduced stiffness Qbar
+    Qbar11 = Q11*m^4 + 2*(Q12+2*Q66)*m^2*n^2 + Q22*n^4;
+    Qbar22 = Q11*n^4 + 2*(Q12+2*Q66)*m^2*n^2 + Q22*m^4;
+    Qbar12 = (Q11+Q22-4*Q66)*m^2*n^2 + Q12*(m^4+n^4);
+    Qbar16 = (Q11-Q12-2*Q66)*m^3*n - (Q22-Q12-2*Q66)*m*n^3;
+    Qbar26 = (Q11-Q12-2*Q66)*m*n^3 - (Q22-Q12-2*Q66)*m^3*n;
+    Qbar66 = (Q11+Q22-2*Q12-2*Q66)*m^2*n^2 + Q66*(m^4+n^4);
+
+    Qbar = [Qbar11 Qbar12 Qbar16;
+            Qbar12 Qbar22 Qbar26;
+            Qbar16 Qbar26 Qbar66];
+
+    zk1 = z(k);
+    zk2 = z(k+1);
+
+    A = A + Qbar * (zk2 - zk1);
+    B = B + 0.5 * Qbar * (zk2^2 - zk1^2);
+    D = D + (1/3) * Qbar * (zk2^3 - zk1^3);
+end
+
+ABD = [A B; B D];
+
+% Resultant load vector [Nx Ny Nxy Mx My Mxy]^T
 NM = [1000; 0; 0; 0; 0; 0];
+
+% Solve for [eps0; kappa]
+ek = ABD \ NM;
+eps0  = ek(1:3);
+kappa = ek(4:6);
+
+disp('Mid-plane strain eps0 =');
+disp(eps0)
+
+disp('Curvature kappa =');
+disp(kappa)
 </pre>
 
     <p>
-      This level is ideal for quick parameter sweeps, laminate comparisons, and pre-FEM design studies.
+      Once \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\) are known, the stress in each ply can be recovered by
+      evaluating \(\boldsymbol{\varepsilon}_{xy}(z)\) and then applying \(\bar{\mathbf{Q}}^{(k)}\).
+    </p>
+
+<pre>
+% Example: stress recovery at the mid-surface of ply k
+k = 1;
+zmid = 0.5 * (z(k) + z(k+1));
+eps_xy = eps0 + zmid * kappa;
+sigma_xy = Qbar * eps_xy;
+</pre>
+
+    <p>
+      In a better organized code, the stress-recovery step should be placed in its own function so that each ply
+      is treated consistently.
     </p>
   </div>
 
   <div class="section-block" id="comsol">
-    <h2>8. COMSOL workflow</h2>
+    <h2>10. COMSOL workflow</h2>
     <p>
-      After the analytical baseline is clear, COMSOL can be used to resolve geometry-dependent and boundary-dependent effects.
-      A clean workflow is:
+      After the analytical baseline is clear, COMSOL should be used to answer questions that CLT cannot answer reliably.
+      A practical workflow is:
     </p>
     <ol>
       <li>Build the geometry</li>
-      <li>Select <b>Shell</b> or <b>Solid Mechanics</b>, depending on the structural level</li>
-      <li>Assign layered or anisotropic material properties</li>
-      <li>Apply boundary conditions and loads</li>
+      <li>Select <b>Shell</b> or <b>Solid Mechanics</b></li>
+      <li>Define anisotropic material properties \((E_1,E_2,G_{12},\nu_{12})\)</li>
+      <li>Assign ply orientations \(\theta_k\) and thicknesses \(t_k\)</li>
+      <li>Apply boundary conditions and loads \((\mathbf{N},\mathbf{M})\) or equivalent edge loads</li>
       <li>Mesh and solve</li>
       <li>Compare global response against CLT</li>
     </ol>
     <p>
-      The analytical model gives the expected global response. COMSOL then adds:
-    </p>
-    <ul>
-      <li>finite geometry effects</li>
-      <li>local stress concentration</li>
-      <li>thermal strain and thermal mismatch</li>
-      <li>coupled-field effects when required</li>
-    </ul>
-    <p>
-      In other words, CLT is the fast physical model, while COMSOL is the higher-fidelity structural model.
+      CLT should be used as the first physical check. COMSOL should then be used to capture
+      finite geometry, local stress concentration, and coupled-field behavior that lies outside the CLT assumptions.
     </p>
   </div>
 
   <div class="section-block" id="optimization">
-    <h2>9. Optimization and next steps</h2>
+    <h2>11. Optimization and next steps</h2>
     <p>
       Once the analytical and numerical workflows are established, the same framework can be extended to design studies.
-      Typical design variables include ply angle \(\theta\), layer thickness \(t\), geometry, and material selection.
-      Typical objectives include stiffness increase, warpage reduction, stress control, and robustness under thermal loading.
+      Typical design variables are:
+    </p>
+    <ul>
+      <li>ply angle \(\theta_k\),</li>
+      <li>ply thickness \(t_k\),</li>
+      <li>stacking sequence,</li>
+      <li>material selection,</li>
+      <li>geometric dimensions.</li>
+    </ul>
+    <p>
+      Typical objectives include higher extensional stiffness, lower warpage, smaller peak stress, or improved
+      robustness under thermal loading.
     </p>
     <p>
-      Failure and reliability do matter, but at this stage they only need to be placed in context:
-      first understand constitutive behavior and stiffness, then verify with simulation, and only then move toward
-      damage, delamination, or interface reliability.
+      Failure and reliability should be introduced only after the stiffness and stress workflow is clear.
+      Otherwise the analysis becomes more complicated before the basic mechanics is understood.
     </p>
   </div>
 

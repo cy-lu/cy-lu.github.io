@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computational Structural Mechanics</title>
 
+  <link rel="stylesheet" href="../../css/custom.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Computational Structural Mechanics</h1>
+  <p><b>Analytical Modeling, Finite Element Simulation, and Design Optimization</b></p>
+
+  <p>
+    This module presents a practical workflow for structural modeling using analytical methods,
+    MATLAB implementation, and COMSOL Multiphysics. The emphasis is on layered and heterogeneous
+    structures, where stiffness, stress, coupling, and reliability depend on both material properties
+    and structural configuration.
+  </p>
+
+  <hr>
+
+  <h2>1. Why structural modeling matters</h2>
+  <p>
+    Many engineering systems consist of multiple materials, bonded layers, or anisotropic components.
+    Their mechanical response depends not only on geometry and loading, but also on elastic constants,
+    layer thickness, and spatial arrangement. In such systems, analytical modeling provides fast physical
+    insight, while finite element simulation resolves geometry-dependent fields and local stress concentrations.
+  </p>
+
+  <hr>
+
+  <h2>2. Classical Lamination Theory (CLT)</h2>
+  <p>
+    Classical Lamination Theory is a compact analytical framework for predicting the in-plane and bending
+    response of laminated structures. Each lamina is described in its material coordinates
+    \((1,2)\) by the in-plane stresses \((\sigma_1,\sigma_2,\tau_{12})\) and strains
+    \((\varepsilon_1,\varepsilon_2,\gamma_{12})\).
+  </p>
+
+  <p>
+    The constitutive law of a lamina is written as
+  </p>
+
+  <p>
+    <code>
+    [σ1 σ2 τ12]ᵀ = [Q][ε1 ε2 γ12]ᵀ
+    </code>
+  </p>
+
+  <p>
+    where \(E_1\) is the longitudinal Young’s modulus, \(E_2\) is the transverse Young’s modulus,
+    \(G_{12}\) is the in-plane shear modulus, and \(\nu_{12}\) is the major Poisson’s ratio.
+  </p>
+
+  <p>
+    After rotation by the ply angle \(\theta\), the reduced stiffness matrix \(\mathbf{Q}\) is transformed
+    into the laminate coordinates \((x,y)\), giving the transformed reduced stiffness \(\bar{\mathbf{Q}}\).
+  </p>
+
+  <p>
+    The laminate constitutive equation is
+  </p>
+
+  <p>
+    <code>
+    [N M]ᵀ = [A B; B D][ε0 κ]ᵀ
+    </code>
+  </p>
+
+  <p>
+    where \(\mathbf{N}\) and \(\mathbf{M}\) are the in-plane force and moment resultants,
+    \(\boldsymbol{\varepsilon}_0\) is the mid-plane strain vector, and \(\boldsymbol{\kappa}\)
+    is the curvature vector. The matrices \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\)
+    represent extensional stiffness, bending-extension coupling, and bending stiffness, respectively.
+  </p>
+
+  <hr>
+
+  <h2>3. MATLAB implementation</h2>
+  <p>
+    In MATLAB, the workflow is organized into four steps:
+  </p>
+
+  <ol>
+    <li>Define lamina properties \((E_1, E_2, G_{12}, \nu_{12})\)</li>
+    <li>Construct \(\mathbf{Q}\) and \(\bar{\mathbf{Q}}\) for each ply</li>
+    <li>Assemble the laminate stiffness matrices \(\mathbf{A}, \mathbf{B}, \mathbf{D}\)</li>
+    <li>Solve for \(\boldsymbol{\varepsilon}_0\), \(\boldsymbol{\kappa}\), and recover ply stresses</li>
+  </ol>
+
+  <pre>
+E1 = 135e9;
+E2 = 10e9;
+v12 = 0.30;
+G12 = 5e9;
+
+angles = [0 45 -45 90 90 -45 45 0];
+t = 0.125e-3;
+  </pre>
+
+  <p>
+    This analytical stage is useful for fast parameter sweeps, stacking-sequence studies, and
+    preliminary design before finite element simulation.
+  </p>
+
+  <hr>
+
+  <h2>4. COMSOL-based finite element simulation</h2>
+  <p>
+    COMSOL Multiphysics is used to validate analytical predictions and to extend the analysis
+    to complex geometries, realistic boundary conditions, thermal stress, and local field concentrations.
+  </p>
+
+  <p>
+    A typical workflow includes:
+  </p>
+
+  <ol>
+    <li>Build the geometry</li>
+    <li>Select the structural interface (Shell or Solid Mechanics)</li>
+    <li>Assign layered or anisotropic material properties</li>
+    <li>Apply loads and boundary conditions</li>
+    <li>Generate mesh and solve</li>
+    <li>Compare global deformation and local stress with analytical predictions</li>
+  </ol>
+
+  <p>
+    For layered structures, CLT provides the global baseline, while COMSOL resolves local stress gradients,
+    geometric effects, thermal expansion mismatch, and failure-prone regions.
+  </p>
+
+  <hr>
+
+  <h2>5. Optimization</h2>
+  <p>
+    Once the analytical and numerical models are established, design variables such as ply angle \(\theta\),
+    layer thickness \(t\), material selection, and geometry can be optimized. Typical objectives include
+    stiffness maximization, weight reduction, stress control, and reliability improvement.
+  </p>
+
+  <hr>
+
+  <h2>6. Failure and reliability</h2>
+  <p>
+    Structural analysis is incomplete without failure assessment. Depending on the application,
+    relevant failure mechanisms may include matrix cracking, fiber-dominated failure, interfacial
+    separation, and delamination. These are evaluated using stress recovery, failure criteria,
+    and, when needed, higher-fidelity simulation.
+  </p>
+
+  <hr>
+
+  <h2>7. Planned tutorial pages</h2>
+  <ul>
+    <li>CLT derivation and constitutive equations</li>
+    <li>MATLAB implementation of laminate stiffness and ply stress recovery</li>
+    <li>COMSOL validation for layered structures</li>
+    <li>Thermal-mechanical coupling and reliability analysis</li>
+    <li>Design optimization workflows</li>
+  </ul>
+
+  <p><a href="../../index.html#teaching">Back to Teaching</a></p>
+
+</div>
+</body>
+</html>

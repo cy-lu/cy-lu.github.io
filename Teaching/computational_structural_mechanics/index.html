@@ -33,7 +33,6 @@
       padding: 14px 18px;
       margin: 16px 0;
     }
-    ul, ol { margin-bottom: 0.8rem; }
   </style>
 </head>
 <body>
@@ -45,8 +44,7 @@
   <div class="hero">
     <p>
       This module is about how to model a <b>laminated structure</b> in a way that is physically meaningful,
-      computationally transparent, and useful for engineering interpretation. The subject is not only
-      “how to compute a matrix,” but how to understand a complete workflow:
+      computationally transparent, and useful for engineering interpretation.
     </p>
     <div class="formula-box">
       <p><b>material data</b> \(\rightarrow\) <b>lamina stiffness</b> \(\rightarrow\) <b>laminate stiffness</b> \(\rightarrow\) <b>deformation</b> \(\rightarrow\) <b>ply stress</b> \(\rightarrow\) <b>strength assessment</b> \(\rightarrow\) <b>FEM validation</b> \(\rightarrow\) <b>fracture-mechanics extension</b></p>
@@ -54,27 +52,20 @@
     <p>
       The central analytical tool is <b>Classical Lamination Theory (CLT)</b>. CLT starts from the mechanics
       of a single ply, builds the laminate stiffness from all plies, and then predicts the response under
-      in-plane forces and bending moments. MATLAB is used here because it makes the computational sequence explicit.
-      COMSOL is used later because it resolves geometry-dependent effects and local stress concentrations that
-      lie outside simple plate theory.
+      in-plane forces and bending moments.
     </p>
   </div>
 
   <div class="section-block">
     <h2>1. What problem is being solved here?</h2>
     <p>
-      A laminate is a stack of thin layers, or plies, each with its own material orientation \(\theta_k\) and
-      thickness \(t_k\). Even when every ply comes from the same material system, the laminate does not behave
-      like a simple isotropic plate. Its stiffness depends on:
+      A laminate is a stack of plies, each with its own material orientation \(\theta_k\) and thickness \(t_k\).
+      Even when every ply comes from the same material system, the laminate does not behave like an isotropic plate.
+      Its stiffness depends on the lamina elastic constants, the stacking sequence, the thickness distribution,
+      and whether the laminate is symmetric or unsymmetric.
     </p>
-    <ul>
-      <li>the lamina elastic constants \((E_1,E_2,G_{12},\nu_{12})\),</li>
-      <li>the stacking sequence \([\theta_1/\theta_2/\cdots/\theta_n]\),</li>
-      <li>the ply thicknesses \(t_k\),</li>
-      <li>whether the laminate is symmetric or unsymmetric.</li>
-    </ul>
     <p>
-      The practical engineering questions are:
+      The practical questions are:
     </p>
     <ol>
       <li>How stiff is the laminate in membrane loading?</li>
@@ -86,29 +77,7 @@
   </div>
 
   <div class="section-block">
-    <h2>2. Why is this not just a “composites” topic?</h2>
-    <p>
-      Laminate mechanics is not merely a materials topic. It is fundamentally a <b>structural mechanics</b> topic,
-      because the real objective is not just to list material constants, but to predict the behavior of a built
-      structure under load. A change in ply angle or stacking sequence changes:
-    </p>
-    <ul>
-      <li>the extensional stiffness,</li>
-      <li>the bending stiffness,</li>
-      <li>the coupling behavior,</li>
-      <li>the stress carried by each ply,</li>
-      <li>the likelihood of failure initiation.</li>
-    </ul>
-    <p>
-      This is why CLT belongs naturally inside a broader computational structural mechanics framework.
-    </p>
-  </div>
-
-  <div class="section-block">
-    <h2>3. The central constitutive statement</h2>
-    <p>
-      The key equation of CLT is
-    </p>
+    <h2>2. The central constitutive statement</h2>
     <div class="formula-box">
       \[
       \begin{bmatrix}
@@ -126,87 +95,40 @@
       \end{bmatrix}.
       \]
     </div>
-    <p>
-      Here:
-    </p>
     <ul>
-      <li>\(\mathbf{N}=[N_x,N_y,N_{xy}]^T\): in-plane force resultants per unit width</li>
-      <li>\(\mathbf{M}=[M_x,M_y,M_{xy}]^T\): bending and twisting moment resultants per unit width</li>
+      <li>\(\mathbf{N}\): in-plane force resultants</li>
+      <li>\(\mathbf{M}\): bending and twisting moment resultants</li>
       <li>\(\mathbf{A}\): extensional stiffness matrix</li>
       <li>\(\mathbf{B}\): membrane–bending coupling matrix</li>
       <li>\(\mathbf{D}\): bending stiffness matrix</li>
-      <li>\(\boldsymbol{\varepsilon}_0=[\varepsilon_x^0,\varepsilon_y^0,\gamma_{xy}^0]^T\): mid-plane strain vector</li>
-      <li>\(\boldsymbol{\kappa}=[\kappa_x,\kappa_y,\kappa_{xy}]^T\): curvature vector</li>
+      <li>\(\boldsymbol{\varepsilon}_0\): mid-plane strain vector</li>
+      <li>\(\boldsymbol{\kappa}\): curvature vector</li>
     </ul>
     <p>
-      This equation is not the start of the subject by accident. It is the point toward which all earlier definitions
-      are moving: ply stiffness, coordinate transformation, and through-thickness integration all exist in order
-      to build \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
+      This is the main equation of the module. Everything else exists to define it correctly, compute it, and interpret it.
     </p>
   </div>
 
   <div class="section-block">
-    <h2>4. What has to be understood before fracture mechanics?</h2>
-    <p>
-      Fracture mechanics is not the first topic in this module because it is not the first question in the analysis.
-      Before asking how a crack propagates, one must first know:
-    </p>
-    <ul>
-      <li>what the laminate stiffness is,</li>
-      <li>how the laminate deforms,</li>
-      <li>what stress each ply carries,</li>
-      <li>whether the stress level suggests failure onset.</li>
-    </ul>
-    <p>
-      In other words:
-    </p>
-    <div class="formula-box">
-      <p><b>laminate stiffness and ply stress come first; fracture and damage growth come later.</b></p>
-    </div>
-    <p>
-      That order is not simplification for convenience. It is the correct physical order for learning and for modeling.
-    </p>
-  </div>
-
-  <div class="section-block">
-    <h2>5. How these notes are organized</h2>
+    <h2>3. How these notes are organized</h2>
     <div class="note-box">
-      <p>
-        This module is split into two pages because the subject has two natural levels.
-      </p>
       <ol>
-        <li><b>CLT Theory and MATLAB</b>: this is the core page. It defines ply, lamina, laminate, material properties,
-        laminate matrices, strength parameters, and the main MATLAB implementation.</li>
-        <li><b>COMSOL Validation and Fracture Bridge</b>: this is the engineering extension. It explains what COMSOL adds,
-        what should be checked against CLT, and how the discussion naturally leads toward fracture mechanics.</li>
+        <li><b>CLT Theory and MATLAB</b>: the core page, where ply, lamina, laminate, material properties, laminate matrices, strength parameters, and the code workflow are introduced carefully.</li>
+        <li><b>COMSOL Validation and Fracture Bridge</b>: the extension page, where CLT is connected to finite element analysis, local stress concentration, and later fracture-mechanics thinking.</li>
       </ol>
     </div>
   </div>
 
   <div class="section-block">
-    <h2>6. Recommended reading order</h2>
-    <ol>
-      <li>Start with <b>CLT Theory and MATLAB</b> if you want to understand the mechanics from the foundation upward.</li>
-      <li>Then read <b>COMSOL Validation and Fracture Bridge</b> to connect the theory to finite element analysis and
-      to prepare for later damage-related topics.</li>
-    </ol>
-    <p>
-      The first page is the conceptual and computational core. The second page should be read as the simulation and
-      interpretation extension.
-    </p>
-  </div>
-
-  <div class="section-block">
-    <h2>7. Module pages</h2>
+    <h2>4. Module pages</h2>
     <div class="row">
       <div class="col-md-6">
         <div class="card border-info">
           <div class="card-body">
             <h3 class="card-title">CLT Theory and MATLAB</h3>
             <p class="card-text">
-              Basic definitions of ply, lamina, and laminate; material constants; reduced stiffness
-              \(\mathbf{Q}\); transformed stiffness \(\bar{\mathbf{Q}}\); laminate matrices
-              \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\); worked carbon/epoxy example;
+              Basic definitions of ply, lamina, and laminate; material constants; reduced stiffness matrix;
+              transformed reduced stiffness; laminate A, B, and D matrices; worked carbon/epoxy example;
               strength parameters; and MATLAB implementation.
             </p>
             <a href="clt_theory_matlab.html" class="btn btn-info text-white">Open notes</a>
@@ -220,8 +142,7 @@
             <h3 class="card-title">COMSOL Validation and Fracture Bridge</h3>
             <p class="card-text">
               How to use CLT as a baseline, what should be compared between CLT and FEM, what kinds of local effects
-              require COMSOL, how strength differs from fracture, and how the discussion extends toward
-              damage initiation and propagation.
+              require COMSOL, how strength differs from fracture, and how the discussion extends toward damage initiation and propagation.
             </p>
             <a href="comsol_fracture_bridge.html" class="btn btn-info text-white">Open notes</a>
           </div>

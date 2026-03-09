@@ -5,10 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Computational Structural Mechanics</title>
+
   <link rel="stylesheet" href="../../css/custom.css">
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
   <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
   <script>
     window.MathJax = {
       tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]},
@@ -16,10 +19,21 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <style>
-    body { padding-top: 20px; padding-bottom: 40px; }
-    .section-block { margin-top: 30px; }
-    .card { margin-bottom: 18px; }
+    body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+
+    .section-block {
+      margin-top: 30px;
+    }
+
+    .card {
+      margin-bottom: 18px;
+    }
+
     .hero, .note-box {
       background: #f8f9fa;
       border: 1px solid #dee2e6;
@@ -27,14 +41,39 @@
       padding: 16px 18px;
       margin: 16px 0;
     }
+
     .formula-box {
       background: #f8f9fa;
       border-left: 4px solid #17a2b8;
       padding: 14px 18px;
       margin: 16px 0;
     }
+
+    .figure-block {
+      text-align: center;
+      margin: 24px 0 10px 0;
+    }
+
+    .figure-block img {
+      max-width: 100%;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+    }
+
+    .figure-caption {
+      margin-top: 10px;
+      font-size: 0.96em;
+      color: #333;
+    }
+
+    .small-note {
+      font-size: 0.95em;
+      color: #555;
+    }
   </style>
 </head>
+
 <body>
 <div class="container">
 
@@ -46,9 +85,20 @@
       This module is about how to model a <b>laminated structure</b> in a way that is physically meaningful,
       computationally transparent, and useful for engineering interpretation.
     </p>
+
     <div class="formula-box">
-      <p><b>material data</b> \(\rightarrow\) <b>lamina stiffness</b> \(\rightarrow\) <b>laminate stiffness</b> \(\rightarrow\) <b>deformation</b> \(\rightarrow\) <b>ply stress</b> \(\rightarrow\) <b>strength assessment</b> \(\rightarrow\) <b>FEM validation</b> \(\rightarrow\) <b>fracture-mechanics extension</b></p>
+      <p>
+        <b>material data</b> \(\rightarrow\)
+        <b>lamina stiffness</b> \(\rightarrow\)
+        <b>laminate stiffness</b> \(\rightarrow\)
+        <b>deformation</b> \(\rightarrow\)
+        <b>ply stress</b> \(\rightarrow\)
+        <b>strength assessment</b> \(\rightarrow\)
+        <b>FEM validation</b> \(\rightarrow\)
+        <b>fracture-mechanics extension</b>
+      </p>
     </div>
+
     <p>
       The central analytical tool is <b>Classical Lamination Theory (CLT)</b>. CLT starts from the mechanics
       of a single ply, builds the laminate stiffness from all plies, and then predicts the response under
@@ -105,26 +155,40 @@
     </p>
 
     <ul>
-      <li><b>\(\mathbf{N}=[N_x\;N_y\;N_{xy}]^T\)</b>: in-plane force resultants, units <b>N/m</b>.
-        These represent stretching, compression, or in-plane shear acting on the laminate.</li>
+      <li>
+        <b>\(\mathbf{N}=[N_x\;N_y\;N_{xy}]^T\)</b>: in-plane force resultants, units <b>N/m</b>.
+        These represent stretching, compression, or in-plane shear acting on the laminate.
+      </li>
 
-      <li><b>\(\mathbf{M}=[M_x\;M_y\;M_{xy}]^T\)</b>: bending and twisting moment resultants, units <b>N</b>.
-        In CLT these are moments <i>per unit width</i>, so their unit is \((\text{N}\cdot\text{m})/\text{m}=\text{N}\).</li>
+      <li>
+        <b>\(\mathbf{M}=[M_x\;M_y\;M_{xy}]^T\)</b>: bending and twisting moment resultants, units <b>N</b>.
+        In CLT these are moments <i>per unit width</i>, so their unit is \((\text{N}\cdot\text{m})/\text{m}=\text{N}\).
+      </li>
 
-      <li><b>\(\boldsymbol{\varepsilon}_0=[\varepsilon_x^0\;\varepsilon_y^0\;\gamma_{xy}^0]^T\)</b>: mid-plane strain vector, <b>dimensionless</b>.
-        It describes stretching or shear of the laminate mid-surface.</li>
+      <li>
+        <b>\(\boldsymbol{\varepsilon}_0=[\varepsilon_x^0\;\varepsilon_y^0\;\gamma_{xy}^0]^T\)</b>: mid-plane strain vector, <b>dimensionless</b>.
+        It describes stretching or shear of the laminate mid-surface.
+      </li>
 
-      <li><b>\(\boldsymbol{\kappa}=[\kappa_x\;\kappa_y\;\kappa_{xy}]^T\)</b>: curvature vector, units <b>1/m</b>.
-        It describes bending or twisting of the laminate.</li>
+      <li>
+        <b>\(\boldsymbol{\kappa}=[\kappa_x\;\kappa_y\;\kappa_{xy}]^T\)</b>: curvature vector, units <b>1/m</b>.
+        It describes bending or twisting of the laminate.
+      </li>
 
-      <li><b>\(\mathbf{A}\)</b>: extensional stiffness matrix, units <b>N/m</b>.
-        It controls resistance to in-plane stretching and shear.</li>
+      <li>
+        <b>\(\mathbf{A}\)</b>: extensional stiffness matrix, units <b>N/m</b>.
+        It controls resistance to in-plane stretching and shear.
+      </li>
 
-      <li><b>\(\mathbf{B}\)</b>: membrane–bending coupling matrix, units <b>N</b>.
-        It measures how strongly stretching couples to bending.</li>
+      <li>
+        <b>\(\mathbf{B}\)</b>: membrane–bending coupling matrix, units <b>N</b>.
+        It measures how strongly stretching couples to bending.
+      </li>
 
-      <li><b>\(\mathbf{D}\)</b>: bending stiffness matrix, units <b>N·m</b>.
-        It controls resistance to bending and twisting.</li>
+      <li>
+        <b>\(\mathbf{D}\)</b>: bending stiffness matrix, units <b>N·m</b>.
+        It controls resistance to bending and twisting.
+      </li>
     </ul>
 
     <p>
@@ -148,21 +212,41 @@
     </p>
 
     <div class="note-box">
-      <p><b>Typical interpretation.</b>
-      In a forward CLT problem, we first define the laminate, which gives \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
-      We then prescribe the applied force and moment resultants \(\mathbf{N}\) and \(\mathbf{M}\).
-      The constitutive system is then solved for \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\).</p>
+      <p>
+        <b>Typical interpretation.</b>
+        In a forward CLT problem, we first define the laminate, which gives \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
+        We then prescribe the applied force and moment resultants \(\mathbf{N}\) and \(\mathbf{M}\).
+        The constitutive system is then solved for \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\).
+      </p>
 
-      <p><b>Example 1: symmetric laminate.</b>
-      If the stacking sequence is symmetric about the mid-plane, then typically \(\mathbf{B}=0\).
-      In that case, applying only \(N_x\) produces mainly in-plane strain \(\varepsilon_x^0\),
-      without inducing bending curvature.</p>
+      <p>
+        <b>Example 1: symmetric laminate.</b>
+        If the stacking sequence is symmetric about the mid-plane, then typically \(\mathbf{B}=0\).
+        In that case, applying only \(N_x\) produces mainly in-plane strain \(\varepsilon_x^0\),
+        without inducing bending curvature.
+      </p>
 
-      <p><b>Example 2: unsymmetric laminate.</b>
-      If the laminate is unsymmetric, then \(\mathbf{B}\neq 0\) in general.
-      A purely in-plane tensile load can then produce not only extension, but also bending.
-      In other words, pulling the laminate may cause it to curve.</p>
+      <p>
+        <b>Example 2: unsymmetric laminate.</b>
+        If the laminate is unsymmetric, then \(\mathbf{B}\neq 0\) in general.
+        A purely in-plane tensile load can then produce not only extension, but also bending.
+        In other words, pulling the laminate may cause it to curve.
+      </p>
     </div>
+
+    <div class="figure-block">
+      <img src="img/unsymmetric_laminate_curing.png" alt="Unsymmetric laminate after curing">
+      <div class="figure-caption">
+        <b>Unsymmetric laminate after curing.</b>
+        Residual thermal or curing-induced strains can generate out-of-plane warpage when
+        membrane–bending coupling is present, that is, when \(\mathbf{B}\neq 0\).
+      </div>
+    </div>
+
+    <p class="small-note">
+      This type of warpage is one of the clearest physical manifestations of an unsymmetric laminate.
+      The image helps connect the CLT constitutive equation to a directly observable structural response.
+    </p>
 
     <p>
       This is the main equation of the module. The following page explains how the stiffness blocks are built
@@ -174,8 +258,14 @@
     <h2>3. How these notes are organized</h2>
     <div class="note-box">
       <ol>
-        <li><b>CLT Theory and MATLAB</b>: the core page, where ply, lamina, laminate, material properties, laminate matrices, strength parameters, and the code workflow are introduced carefully.</li>
-        <li><b>COMSOL Validation and Fracture Bridge</b>: the extension page, where CLT is connected to finite element analysis, local stress concentration, and later fracture-mechanics thinking.</li>
+        <li>
+          <b>CLT Theory and MATLAB</b>: the core page, where ply, lamina, laminate, material properties,
+          laminate matrices, strength parameters, and the code workflow are introduced carefully.
+        </li>
+        <li>
+          <b>COMSOL Validation and Fracture Bridge</b>: the extension page, where CLT is connected to finite element analysis,
+          local stress concentration, and later fracture-mechanics thinking.
+        </li>
       </ol>
     </div>
   </div>

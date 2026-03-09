@@ -42,6 +42,20 @@
       white-space: pre-wrap;
     }
     table { margin-top: 12px; }
+    .figure-block {
+      text-align: center;
+      margin: 18px 0;
+    }
+    .figure-block img {
+      max-width: 100%;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+    }
+    .figure-caption {
+      margin-top: 10px;
+      font-size: 0.96em;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -91,18 +105,6 @@
     <p>
       The purpose of CLT is to connect ply-level mechanics to laminate-level response.
     </p>
-    <div class="note-box">
-      <p><b>Important distinction.</b> In laminate mechanics, we constantly move between two levels:</p>
-      <ul>
-        <li><b>lamina level:</b> what one orthotropic ply does in its own material axes</li>
-        <li><b>laminate level:</b> what the full bonded stack does in the global plate axes</li>
-      </ul>
-      <p>
-        Many student errors come from mixing these two descriptions. A single ply may be simple in its own
-        material frame, but once that ply is rotated and embedded in a laminate, its contribution to the global
-        response is no longer simple.
-      </p>
-    </div>
   </div>
 
   <div class="section-block" id="motivation">
@@ -122,14 +124,6 @@
       <li>Under a given load, what are the mid-plane strains and curvatures?</li>
       <li>What stress does each ply carry?</li>
     </ul>
-    <div class="note-box">
-      <p><b>Why not jump directly to FEM?</b> Because CLT gives the first mechanical structure of the problem.</p>
-      <p>
-        Before any finite-element model is built, CLT already tells us whether the laminate is stiff or compliant,
-        symmetric or unsymmetric, strongly coupled or weakly coupled, and which plies are likely to become critical.
-        FEM should extend or validate this understanding, not replace it.
-      </p>
-    </div>
   </div>
 
   <div class="section-block" id="data">
@@ -156,50 +150,56 @@
       The strength parameters determine whether the predicted stress state is safe or unsafe.</p>
     </div>
     <div class="note-box">
-      <p><b>Physical meaning of the material axes.</b></p>
+      <p><b>Material-axis meaning.</b></p>
       <ul>
         <li>Direction <b>1</b> is the fiber direction, usually the stiff and strong direction.</li>
-        <li>Direction <b>2</b> is transverse to the fibers in the lamina plane, usually much less stiff and much weaker.</li>
+        <li>Direction <b>2</b> is the in-plane transverse direction, usually much softer and weaker.</li>
       </ul>
       <p>
-        This is why composite plies are strongly anisotropic. The same layer can behave very stiffly in one in-plane direction
-        and much more softly in another. CLT keeps track of this directional behavior as the ply is rotated inside the laminate.
+        This directional contrast is exactly why a composite lamina cannot be treated like an isotropic sheet.
       </p>
     </div>
   </div>
 
   <div class="section-block" id="constitutive">
     <h2>4. Lamina constitutive law</h2>
+
     <div class="note-box">
-  <p><b>Conditions under which the zero terms are valid.</b></p>
-  <p>
-    The reduced stiffness matrix written as
-    \[
-    \mathbf{Q}=
-    \begin{bmatrix}
-    Q_{11} & Q_{12} & 0\\
-    Q_{12} & Q_{22} & 0\\
-    0 & 0 & Q_{66}
-    \end{bmatrix}
-    \]
-    is <b>not</b> the most general 2D constitutive form. It is valid only under the following conditions:
-  </p>
-  <ol>
-    <li>The material is treated as an <b>orthotropic lamina</b>.</li>
-    <li>The constitutive law is written in the lamina <b>material principal axes</b> \((1,2)\).</li>
-    <li>The in-plane behavior is written in the <b>plane-stress reduced form</b> used in Classical Lamination Theory.</li>
-    <li>The ply is described in its own local material frame, <b>not yet in a rotated global laminate frame</b>.</li>
-  </ol>
-  <p>
-    Under these conditions, the normal–shear coupling terms vanish, so \(Q_{16}=Q_{26}=0\).
-    In a more general coordinate system, these terms do not have to be zero.
-  </p>
-</div>
+      <p><b>Conditions under which the zero terms are valid.</b></p>
+      <p>
+        The reduced stiffness matrix written as
+      </p>
+      <div class="formula-box">
+        \[
+        \mathbf{Q}=
+        \begin{bmatrix}
+        Q_{11} & Q_{12} & 0\\
+        Q_{12} & Q_{22} & 0\\
+        0 & 0 & Q_{66}
+        \end{bmatrix}
+        \]
+      </div>
+      <p>
+        is <b>not</b> the most general 2D constitutive form. It is valid only under the following conditions:
+      </p>
+      <ol>
+        <li>The material is treated as an <b>orthotropic lamina</b>.</li>
+        <li>The constitutive law is written in the lamina <b>material principal axes</b> \((1,2)\).</li>
+        <li>The in-plane response is written in the <b>plane-stress reduced form</b> used in Classical Lamination Theory.</li>
+        <li>The ply is described in its own <b>local material frame</b>, not yet in a rotated laminate frame.</li>
+      </ol>
+      <p>
+        Under these conditions, the normal–shear coupling terms vanish, so \(Q_{16}=Q_{26}=0\).
+        In a more general coordinate system, these terms do not have to be zero.
+      </p>
+    </div>
+
     <p>
       At the lamina level, the first task is to write the constitutive relation of a single orthotropic ply in its own
       material axes \((1,2)\). These axes are attached to the lamina itself. Direction \(1\) is the fiber direction,
       and direction \(2\) is the in-plane transverse direction.
     </p>
+
     <p>
       In the material axes \((1,2)\), define the in-plane stress and strain vectors as
     </p>
@@ -222,23 +222,21 @@
     </div>
 
     <p>
-      Each quantity above has a specific mechanical meaning:
+      Here each symbol has a specific physical meaning:
     </p>
     <ul>
       <li><b>\(\sigma_1\)</b>: normal stress along the fiber direction, units <b>Pa</b></li>
       <li><b>\(\sigma_2\)</b>: normal stress transverse to the fiber direction, units <b>Pa</b></li>
-      <li><b>\(\tau_{12}\)</b>: in-plane shear stress in the lamina material axes, units <b>Pa</b></li>
+      <li><b>\(\tau_{12}\)</b>: in-plane shear stress in the material axes, units <b>Pa</b></li>
       <li><b>\(\varepsilon_1\)</b>: normal strain along direction \(1\), dimensionless</li>
       <li><b>\(\varepsilon_2\)</b>: normal strain along direction \(2\), dimensionless</li>
       <li><b>\(\gamma_{12}\)</b>: engineering shear strain in the \(1\)-\(2\) plane, dimensionless</li>
     </ul>
 
     <div class="note-box">
-      <p><b>Important convention.</b> Here \(\gamma_{12}\) is the <b>engineering shear strain</b>, not the tensor shear strain.</p>
+      <p><b>Important convention.</b> In CLT, \(\gamma_{12}\) is the <b>engineering shear strain</b>, not the tensor shear strain.</p>
       <p>
-        In standard laminate theory and in most engineering texts, the constitutive matrix is written using
-        \(\gamma_{12}\), which is twice the tensor shear strain component. This is why the shear modulus appears
-        directly as \(Q_{66}=G_{12}\).
+        Therefore the shear stiffness appears directly as \(Q_{66}=G_{12}\).
       </p>
     </div>
 
@@ -257,6 +255,7 @@
       \end{bmatrix}.
       \]
     </div>
+
     <p>
       The zero terms in \(\mathbf{Q}\) must be interpreted carefully. They do <b>not</b> mean that shear is absent.
       They mean only that, in the material principal axes of an orthotropic lamina, the normal response and the
@@ -271,29 +270,23 @@
       Therefore the zeros in the reduced stiffness matrix reflect a <b>special coordinate choice</b>,
       not the disappearance of shear physics.
     </p>
-    <p>
-      The phrase <b>plane stress</b> means that the lamina is assumed thin enough that the out-of-plane stress components are neglected:
-    </p>
+
     <div class="formula-box">
       \[
       \sigma_3=\tau_{13}=\tau_{23}=0.
       \]
     </div>
     <p>
-      This is a standard assumption in Classical Lamination Theory. It is appropriate for thin laminates when the dominant behavior
-      is in-plane stretching and plate bending, and when interlaminar stresses are not the primary quantity of interest.
+      The plane-stress assumption means that the lamina is thin enough that out-of-plane stress components are neglected.
+      This is the standard reduction used in Classical Lamination Theory.
     </p>
 
     <div class="note-box">
       <p><b>What \(\mathbf{Q}\) represents.</b></p>
       <p>
         \(\mathbf{Q}\) is the <b>reduced stiffness matrix</b> of one lamina in its own material frame.
-        “Reduced” here means reduced from a full three-dimensional orthotropic constitutive law to the
-        two-dimensional plane-stress form used in laminate theory.
-      </p>
-      <p>
-        The matrix \(\mathbf{Q}\) tells us how much in-plane stress is generated by a given in-plane strain state
-        when the ply is viewed in its own \(1\)-\(2\) axes.
+        “Reduced” means reduced from a full three-dimensional orthotropic constitutive law to the
+        two-dimensional plane-stress form used in CLT.
       </p>
     </div>
 
@@ -307,9 +300,8 @@
     </div>
 
     <p>
-      This relation is not optional. It follows from the symmetry of the elastic constitutive law.
-      For a linearly elastic orthotropic lamina, the compliance matrix must satisfy a reciprocity condition,
-      and that condition gives the relation above.
+      This relation follows from reciprocity and constitutive symmetry in linear elasticity.
+      It is required for a physically consistent orthotropic lamina model.
     </p>
 
     <p>
@@ -325,35 +317,190 @@
     </div>
 
     <p>
-      Their physical meaning should be interpreted carefully:
+      Their physical meaning is:
     </p>
     <ul>
-      <li><b>\(Q_{11}\)</b>: axial stiffness contribution associated with strain in direction \(1\), units <b>Pa</b></li>
-      <li><b>\(Q_{22}\)</b>: axial stiffness contribution associated with strain in direction \(2\), units <b>Pa</b></li>
-      <li><b>\(Q_{12}\)</b>: coupling between normal stress in one material direction and normal strain in the other, units <b>Pa</b></li>
-      <li><b>\(Q_{66}\)</b>: in-plane shear stiffness, units <b>Pa</b></li>
+      <li><b>\(Q_{11}\)</b>: axial stiffness contribution associated with strain in direction \(1\)</li>
+      <li><b>\(Q_{22}\)</b>: axial stiffness contribution associated with strain in direction \(2\)</li>
+      <li><b>\(Q_{12}\)</b>: normal coupling between the two material directions</li>
+      <li><b>\(Q_{66}\)</b>: in-plane shear stiffness</li>
     </ul>
 
     <div class="note-box">
-      <p><b>Why the zeros appear in \(\mathbf{Q}\).</b></p>
+      <p><b>Material constants vs. constitutive coefficients.</b></p>
       <p>
-        In the material axes of an orthotropic lamina under plane stress, normal and in-plane shear responses are uncoupled.
-        That is why the \(Q_{16}\) and \(Q_{26}\) terms are zero here. Those coupling terms appear only after the ply is rotated
-        away from its own material axes and expressed in the laminate axes.
+        \(E_1\), \(E_2\), \(G_{12}\), and \(\nu_{12}\) are the engineering input data.
+        \(Q_{11}\), \(Q_{22}\), \(Q_{12}\), and \(Q_{66}\) are the constitutive coefficients derived from them.
+        In CLT calculations, the stiffness matrix \(\mathbf{Q}\) is what is actually used.
       </p>
     </div>
 
-    <p>
-      It is also useful to distinguish clearly between <b>material constants</b> and <b>stiffness coefficients</b>.
-      The quantities \(E_1\), \(E_2\), \(G_{12}\), and \(\nu_{12}\) are engineering input data.
-      The quantities \(Q_{11}\), \(Q_{22}\), \(Q_{12}\), and \(Q_{66}\) are constitutive coefficients derived from those inputs.
-      In practice, CLT uses \(\mathbf{Q}\), not the raw engineering constants directly.
-    </p>
+    <div class="note-box">
+      <p><b>Numerical and physical illustration: one lamina, one material, four strain states.</b></p>
+      <p>
+        The MATLAB program below considers a <b>single lamina</b> with one fixed set of material properties
+        \((E_1,E_2,\nu_{12},G_{12})\). The material is the same in all four cases. Only the imposed
+        in-plane strain state is changed.
+      </p>
+      <p>
+        Therefore the four plots do <b>not</b> represent four different materials. They represent the
+        <b>same orthotropic lamina</b> subjected to four different strain inputs:
+      </p>
+      <ol>
+        <li>longitudinal tension: \(\varepsilon_1 \neq 0\)</li>
+        <li>transverse tension: \(\varepsilon_2 \neq 0\)</li>
+        <li>pure shear: \(\gamma_{12} \neq 0\)</li>
+        <li>biaxial tension: \(\varepsilon_1 \neq 0\) and \(\varepsilon_2 \neq 0\)</li>
+      </ol>
+      <p>
+        These different deformations can be <b>predicted and calculated directly</b> from the constitutive discussion in this section.
+        Once the strain vector \(\boldsymbol{\varepsilon}_{12}\) is prescribed, the stress vector
+        \(\boldsymbol{\sigma}_{12}\) follows from
+      </p>
+      <div class="formula-box">
+        \[
+        \boldsymbol{\sigma}_{12}=\mathbf{Q}\boldsymbol{\varepsilon}_{12}.
+        \]
+      </div>
+      <p>
+        The same constitutive law also explains why each imposed strain pattern produces a different geometric deformation
+        of the same square lamina.
+      </p>
+    </div>
+
+    <h4>4.1 MATLAB illustration for one lamina under four prescribed strain states</h4>
+<pre>
+% Lamina Analysis: Material Properties & Deformation Visualization
+clear; clc; clf;
+
+% ==========================================================
+% PART 1: Define Material Properties (E1, E2, v12, G12)
+% ==========================================================
+% Example using Carbon/Epoxy T300 properties
+E1  = 181e9;    % Elastic Modulus in Fiber Direction (Pa)
+E2  = 10.3e9;   % Elastic Modulus in Transverse Direction (Pa)
+v12 = 0.28;     % Major Poisson's Ratio
+G12 = 7.17e9;   % In-plane Shear Modulus (Pa)
+
+% Calculate v21 using the Reciprocity Relation
+v21 = v12 * E2 / E1;
+
+% Calculate Reduced Stiffness Matrix [Q] components
+denominator = 1 - v12 * v21;
+Q11 = E1 / denominator;
+Q12 = (v12 * E2) / denominator;
+Q22 = E2 / denominator;
+Q66 = G12;
+
+% ==========================================================
+% PART 2: Set Plot Parameters (Large Fonts for Visibility)
+% ==========================================================
+ax_fs = 14;      % Axis label font size
+title_fs = 16;   % Subplot title font size
+label_fs = 20;   % Strain label font size (Right-side labels)
+
+% Define original unit square vertices (1-2 plane)
+x_orig = [0 1 1 0 0];
+y_orig = [0 0 1 1 0];
+
+% Define 4 Strain Cases [e1; e2; g12] (Magnified for visualization)
+cases = {
+    [0.2; 0; 0],     % Case 1: Longitudinal Tension
+    [0; 0.2; 0],     % Case 2: Transverse Tension
+    [0; 0; 0.4],     % Case 3: Pure Shear
+    [0.2; 0.2; 0]    % Case 4: Biaxial Tension
+};
+
+titles = {'Case 1: Longitudinal Tension', 'Case 2: Transverse Tension', ...
+          'Case 3: Pure Shear', 'Case 4: Biaxial Tension'};
+
+figure('Color', 'w', 'Name', 'Lamina Analysis - English Version');
+
+% ==========================================================
+% PART 3: Loop through Cases and Plot Results
+% ==========================================================
+for i = 1:4
+    subplot(2, 2, i); hold on;
+    
+    % Get current strain values
+    e1 = cases{i}(1); e2 = cases{i}(2); g12 = cases{i}(3);
+    
+    % --- Stress Calculation (Sigma = Q * Epsilon) ---
+    % Note: Q16 and Q26 are zero in the principal material axes
+    s1 = Q11*e1 + Q12*e2;
+    s2 = Q12*e1 + Q22*e2;
+    tau12 = Q66*g12;
+    
+    % Calculate deformed coordinates
+    % Mapping: x' = (1+e1)x + (g12)y, y' = (1+e2)y
+    x_new = (1 + e1) * x_orig + g12 * y_orig;
+    y_new = (1 + e2) * y_orig;
+    
+    % Plot original shape (dashed grey) and deformed shape (solid red)
+    plot(x_orig, y_orig, 'k--', 'LineWidth', 1.2, 'Color', [0.5 0.5 0.5]);
+    plot(x_new, y_new, 'r-s', 'LineWidth', 2, 'MarkerFaceColor', 'r');
+    
+    % Plot fiber direction arrow
+    quiver(0.1, 0.5, 0.6, 0, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.5);
+    text(0.15, 0.6, 'Fiber', 'Color', 'b', 'FontWeight', 'bold', 'FontSize', 12);
+    
+    % Chart formatting
+    axis([-0.2 2.5 -0.2 1.5]); % Widened right margin for labels
+    axis equal; grid on;
+    title(titles{i}, 'FontSize', title_fs);
+    xlabel('Direction 1 (Fiber)', 'FontSize', ax_fs);
+    ylabel('Direction 2 (Transverse)', 'FontSize', ax_fs);
+    
+    % Large labels on the RIGHT side to avoid overlap
+    label_x = 1.7; 
+    if e1 > 0
+        text(label_x, 1.2, ['\epsilon_1 = ' num2str(e1)], ...
+             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
+    end
+    
+    if e2 > 0
+        % Offset e2 if e1 is already present
+        y_pos = (e1 > 0) * 0.9 + (e1 == 0) * 1.2;
+        text(label_x, y_pos, ['\epsilon_2 = ' num2str(e2)], ...
+             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold'); 
+    end
+    
+    if g12 > 0
+        text(label_x, 0.6, ['\gamma_{12} = ' num2str(g12)], ...
+             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
+    end
+end
+</pre>
+
+    <div class="figure-block">
+      <img src="img/lamina_single_ply_strain_cases.png" alt="One lamina under four prescribed in-plane strain states">
+      <div class="figure-caption">
+        <b>One lamina, one material, four prescribed in-plane strain states.</b>
+        The same orthotropic single-ply lamina is shown under longitudinal tension, transverse tension,
+        pure shear, and biaxial tension. The different deformed shapes arise from different prescribed
+        strain vectors \(\boldsymbol{\varepsilon}_{12}\), while the material itself remains the same.
+        Section 4 provides the constitutive relation used to predict and calculate the corresponding stresses.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <p><b>How to read the four panels.</b></p>
+      <ul>
+        <li><b>Case 1:</b> \(\varepsilon_1 \neq 0\), so the lamina stretches mainly in the fiber direction.</li>
+        <li><b>Case 2:</b> \(\varepsilon_2 \neq 0\), so the lamina stretches mainly transverse to the fiber direction.</li>
+        <li><b>Case 3:</b> \(\gamma_{12} \neq 0\), so the square distorts into a parallelogram under pure in-plane shear.</li>
+        <li><b>Case 4:</b> both \(\varepsilon_1\) and \(\varepsilon_2\) are nonzero, so the lamina expands biaxially.</li>
+      </ul>
+      <p>
+        This is exactly the point of the lamina constitutive law: the same material responds differently depending on
+        the imposed strain state, and the corresponding stress state can be computed from \(\mathbf{Q}\).
+      </p>
+    </div>
 
     <div class="note-box">
       <p><b>What this section accomplishes.</b></p>
       <p>
-        Up to this point, we only know the constitutive behavior of one lamina in its own axes.
+        Up to this point, we only know the constitutive behavior of one lamina in its own material axes.
         A real laminate, however, is built in the global laminate axes \((x,y)\), and different plies
         are rotated by different angles. Therefore the next necessary step is to express each ply stiffness
         in the laminate coordinate system.
@@ -375,6 +522,10 @@
     <p>
       where \(\bar{\mathbf{Q}}\) is the transformed reduced stiffness matrix of a ply oriented at angle \(\theta\).
       This is the step that makes the stacking sequence mechanically meaningful.
+    </p>
+    <p>
+      In other words, the zero coupling terms in the material-axis matrix \(\mathbf{Q}\) do not remain zero in general;
+      they remain zero only for special alignment cases such as \(0^\circ\) and \(90^\circ\) plies.
     </p>
 
     <p>
@@ -441,12 +592,28 @@
     </p>
 
     <div class="note-box">
-      <p><b>Interpretation of special angles.</b></p>
-      <ul>
-        <li><b>\(0^\circ\) ply:</b> material axes coincide with laminate axes, so \(\bar{\mathbf{Q}}=\mathbf{Q}\)</li>
-        <li><b>\(90^\circ\) ply:</b> fiber and transverse directions are exchanged relative to the laminate frame</li>
-        <li><b>\(\pm45^\circ\) plies:</b> strong normal–shear coupling effects often appear and these plies are important in shear-dominated response</li>
-      </ul>
+      <p><b>Case A: \(0^\circ\) ply.</b></p>
+      <p>
+        If the ply is aligned with the laminate axes, then the laminate axes and the material principal axes coincide.
+        In that case, the transformed matrix is the same as the material-axis matrix, so the coupling terms remain zero:
+        \(\bar{Q}_{16}=\bar{Q}_{26}=0\).
+      </p>
+
+      <p><b>Case B: \(90^\circ\) ply.</b></p>
+      <p>
+        A \(90^\circ\) ply is still aligned with a material symmetry direction, even though the fiber and transverse directions
+        are exchanged relative to the laminate axes. Because the axes are still along principal material directions,
+        the normal–shear coupling terms again vanish:
+        \(\bar{Q}_{16}=\bar{Q}_{26}=0\).
+      </p>
+
+      <p><b>Case C: off-axis ply such as \(45^\circ\).</b></p>
+      <p>
+        For an off-axis ply, the laminate axes no longer coincide with the material principal axes.
+        Then normal and shear response generally become coupled in the transformed constitutive law, and
+        \(\bar{Q}_{16}\) and \(\bar{Q}_{26}\) are generally nonzero.
+        This is the usual case for rotated plies in a laminate.
+      </p>
     </div>
   </div>
 
@@ -480,15 +647,6 @@
       Therefore \(z=0\) is the mid-surface, negative \(z\) lies below it, and positive \(z\) lies above it.
     </p>
 
-    <p>
-      Each matrix has both a mathematical role and a physical meaning:
-    </p>
-    <ul>
-      <li><b>\(\mathbf{A}\)</b> collects the first thickness moment of stiffness and governs <b>in-plane stretching and in-plane shear</b></li>
-      <li><b>\(\mathbf{B}\)</b> couples stretching to bending and is the mathematical signature of an <b>unsymmetric laminate</b></li>
-      <li><b>\(\mathbf{D}\)</b> collects the bending stiffness contributions weighted more strongly by distance from the mid-plane and governs <b>bending and twisting resistance</b></li>
-    </ul>
-
     <div class="note-box">
       <p><b>Units matter.</b></p>
       <ul>
@@ -497,19 +655,6 @@
         <li>\(\mathbf{B}\): units <b>N</b></li>
         <li>\(\mathbf{D}\): units <b>N\(\cdot\)m</b></li>
       </ul>
-      <p>
-        This unit structure is not accidental. It already tells us that \(\mathbf{A}\) multiplies strains to produce force resultants,
-        \(\mathbf{B}\) couples strains and curvatures to force and moment resultants, and \(\mathbf{D}\) multiplies curvatures to produce moments.
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>Why symmetric laminates are special.</b></p>
-      <p>
-        In a symmetric laminate, the stiffness distribution above and below the mid-plane balances exactly.
-        The odd first moment of stiffness cancels, and therefore \(\mathbf{B}=0\). This means a pure membrane load does not,
-        in the ideal CLT model, induce bending curvature, and a pure bending load does not induce mid-plane strain.
-      </p>
     </div>
   </div>
 
@@ -571,44 +716,21 @@
       This is the main system solved in CLT.
     </p>
 
-    <p>
-      Each of these quantities must be interpreted at the laminate level:
-    </p>
     <ul>
       <li><b>\(N_x, N_y\)</b>: in-plane normal force resultants, units <b>N/m</b></li>
       <li><b>\(N_{xy}\)</b>: in-plane shear force resultant, units <b>N/m</b></li>
       <li><b>\(M_x, M_y\)</b>: bending moment resultants per unit width</li>
       <li><b>\(M_{xy}\)</b>: twisting moment resultant per unit width</li>
-      <li><b>\(\varepsilon_x^0, \varepsilon_y^0\)</b>: mid-plane normal strains, dimensionless</li>
-      <li><b>\(\gamma_{xy}^0\)</b>: mid-plane engineering shear strain, dimensionless</li>
-      <li><b>\(\kappa_x, \kappa_y\)</b>: curvatures in the \(x\) and \(y\) directions, units <b>1/m</b></li>
-      <li><b>\(\kappa_{xy}\)</b>: twisting curvature, units <b>1/m</b></li>
+      <li><b>\(\varepsilon_x^0, \varepsilon_y^0\)</b>: mid-plane normal strains</li>
+      <li><b>\(\gamma_{xy}^0\)</b>: mid-plane engineering shear strain</li>
+      <li><b>\(\kappa_x, \kappa_y, \kappa_{xy}\)</b>: laminate curvatures, units <b>1/m</b></li>
     </ul>
 
     <div class="note-box">
-      <p><b>What “resultant” means.</b></p>
-      <p>
-        \(\mathbf{N}\) and \(\mathbf{M}\) are not point stresses or point moments. They are <b>through-thickness resultants</b>.
-        In other words, they are the net in-plane force and net bending/twisting moment obtained after integrating the stress
-        distribution through the laminate thickness.
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>What the unknowns are in a forward problem.</b></p>
-      <p>
-        In most CLT calculations, the laminate is known first. That means \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\) are already known.
-        The applied loading \(\mathbf{N}\) and \(\mathbf{M}\) is then prescribed. The unknowns solved from the \(6\times 6\) system are
-        the mid-plane strains \(\boldsymbol{\varepsilon}_0\) and the curvatures \(\boldsymbol{\kappa}\).
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>Physical interpretation of the coupling block.</b></p>
+      <p><b>Physical interpretation of coupling.</b></p>
       <p>
         If \(\mathbf{B}=0\), stretching and bending are decoupled. If \(\mathbf{B}\neq 0\), they interact.
-        Then a purely in-plane load can produce curvature, and a pure bending moment can produce mid-plane strain.
-        This is the core structural consequence of laminate unsymmetry.
+        Then a purely in-plane load can induce curvature, and a pure moment can induce mid-plane strain.
       </p>
     </div>
   </div>
@@ -616,7 +738,6 @@
   <div class="section-block" id="stress">
     <h2>8. Ply stress recovery</h2>
     <p>
-      Once the laminate mid-plane strain and curvature are known, the next step is to recover the strain and stress in each ply.
       The in-plane strain at thickness coordinate \(z\) is
     </p>
     <div class="formula-box">
@@ -625,23 +746,6 @@
       \]
     </div>
     <p>
-      This equation is fundamental. It says that the in-plane strain varies <b>linearly through the thickness</b> in CLT.
-      The mid-plane strain is the reference value at \(z=0\), and the curvature term adds a linear variation away from the mid-plane.
-    </p>
-
-    <div class="note-box">
-      <p><b>Meaning of each term.</b></p>
-      <ul>
-        <li><b>\(\boldsymbol{\varepsilon}_{xy}(z)\)</b>: global in-plane strain at a particular thickness position \(z\)</li>
-        <li><b>\(\boldsymbol{\varepsilon}_0\)</b>: mid-plane strain vector</li>
-        <li><b>\(z\boldsymbol{\kappa}\)</b>: strain contribution caused by bending and twisting</li>
-      </ul>
-      <p>
-        This is the plate analogue of the linear strain distribution familiar from elementary beam bending.
-      </p>
-    </div>
-
-    <p>
       The global ply stress is
     </p>
     <div class="formula-box">
@@ -649,36 +753,14 @@
       \boldsymbol{\sigma}_{xy}^{(k)}(z)=\bar{\mathbf{Q}}^{(k)}\boldsymbol{\varepsilon}_{xy}(z).
       \]
     </div>
-
-    <p>
-      Here \(\bar{\mathbf{Q}}^{(k)}\) is the transformed reduced stiffness matrix of the \(k\)-th ply.
-      Therefore the global stress in each ply depends on two things:
-    </p>
-    <ul>
-      <li>the local strain state at that thickness position</li>
-      <li>the orientation-dependent stiffness of that ply</li>
-    </ul>
-
     <p>
       For failure criteria, this stress must often be transformed back into the material frame to obtain
       \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\).
     </p>
 
     <div class="note-box">
-      <p><b>Why stress recovery is not the last step.</b></p>
-      <p>
-        The global stresses \(\sigma_x\), \(\sigma_y\), and \(\tau_{xy}\) are useful for understanding laminate-level response,
-        but lamina failure criteria are usually written in the material axes of each ply. Therefore a stress state that looks modest
-        in the laminate frame can still be critical when resolved into \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\) in the ply frame.
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>Practical implementation detail.</b></p>
-      <p>
-        Stress is often recovered at the <b>top and bottom surfaces of each ply</b>, because those are the locations where bending-induced
-        extremes usually occur. If only one value per ply is reported, important peak stresses can be missed.
-      </p>
+      <p><b>Practical point.</b> Stress is often evaluated at the top and bottom of each ply, because bending-driven
+      peak values often occur at these surfaces.</p>
     </div>
   </div>
 
@@ -701,52 +783,13 @@
       \(\sigma_1\) and \(\sigma_2\).
     </p>
 
-    <p>
-      The symbols in the criterion mean:
-    </p>
-    <ul>
-      <li><b>\(\sigma_1\)</b>: normal stress along the fiber direction</li>
-      <li><b>\(\sigma_2\)</b>: normal stress transverse to the fiber direction</li>
-      <li><b>\(\tau_{12}\)</b>: in-plane shear stress in the ply material axes</li>
-      <li><b>\(X\)</b>: longitudinal strength used for the sign of \(\sigma_1\)</li>
-      <li><b>\(Y\)</b>: transverse strength used for the sign of \(\sigma_2\)</li>
-      <li><b>\(S\)</b>: in-plane shear strength</li>
-      <li><b>\(FI\)</b>: failure index, dimensionless</li>
-    </ul>
-
     <div class="note-box">
-      <p><b>How to select \(X\) and \(Y\).</b></p>
+      <p><b>Interpretation.</b></p>
       <ul>
-        <li>If \(\sigma_1>0\), use \(X=X_t\)</li>
-        <li>If \(\sigma_1<0\), use \(X=X_c\)</li>
-        <li>If \(\sigma_2>0\), use \(Y=Y_t\)</li>
-        <li>If \(\sigma_2<0\), use \(Y=Y_c\)</li>
+        <li><b>\(FI&lt;1\)</b>: below the criterion surface</li>
+        <li><b>\(FI=1\)</b>: reaches the criterion surface</li>
+        <li><b>\(FI&gt;1\)</b>: predicted failure by the criterion</li>
       </ul>
-      <p>
-        This sign-dependent choice matters because composite laminae usually have very different tensile and compressive strengths,
-        especially in the transverse direction.
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>Interpretation of the index.</b></p>
-      <ul>
-        <li><b>\(FI&lt;1\)</b>: the ply is predicted to remain below the criterion surface</li>
-        <li><b>\(FI=1\)</b>: the ply reaches the criterion surface</li>
-        <li><b>\(FI&gt;1\)</b>: the ply is predicted to fail according to the chosen criterion</li>
-      </ul>
-      <p>
-        In a laminate calculation, the first ply that reaches \(FI=1\) defines the <b>first-ply failure</b> load.
-      </p>
-    </div>
-
-    <div class="note-box">
-      <p><b>Limitation to remember.</b></p>
-      <p>
-        Tsai–Hill is a convenient quadratic interaction criterion, but it does not explicitly distinguish different physical failure modes
-        such as fiber tension, fiber compression, matrix cracking, or shear-driven failure. It is useful for teaching and first screening,
-        but it should not be mistaken for a full damage model.
-      </p>
     </div>
   </div>
 
@@ -800,10 +843,8 @@
     <div class="note-box">
       <p><b>Why this example is useful.</b></p>
       <p>
-        The laminate \([0/45/-45/90]_s\) is symmetric, so it is a good first benchmark.
-        A correct implementation should give \(\mathbf{B}\approx 0\), and under pure in-plane loading
-        the computed curvatures should be negligible. That makes this example a good debugging case
-        for sign conventions, transformation formulas, and ABD assembly.
+        Because the laminate is symmetric, a correct implementation should produce \(\mathbf{B}\approx 0\),
+        and under pure membrane loading the curvatures should be negligible.
       </p>
     </div>
   </div>
@@ -883,21 +924,6 @@ t12 = -m*n*sx + m*n*sy + (m^2-n^2)*txy;
 sigma_12 = [s1; s2; t12];
 end
 </pre>
-
-    <div class="note-box">
-      <p><b>How the code maps onto the theory.</b></p>
-      <ul>
-        <li>The material constants \((E_1,E_2,G_{12},\nu_{12})\) define the lamina constitutive law.</li>
-        <li>The loop over <code>angles</code> computes the transformed stiffness of each ply.</li>
-        <li>The thickness coordinates <code>z</code> define the ply interfaces.</li>
-        <li>The matrices <code>A</code>, <code>B</code>, and <code>D</code> are assembled by thickness integration.</li>
-        <li>The vector <code>ek</code> contains \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\).</li>
-      </ul>
-      <p>
-        So the MATLAB implementation follows the theory in exactly the same order as the teaching notes:
-        lamina stiffness \(\rightarrow\) rotated ply stiffness \(\rightarrow\) laminate ABD \(\rightarrow\) laminate response.
-      </p>
-    </div>
   </div>
 
   <div class="section-block" id="results">
@@ -928,20 +954,6 @@ end
     <p>
       This is exactly why the stress must be transformed back to the ply axes before any strength statement is made.
     </p>
-
-    <div class="note-box">
-      <p><b>What would indicate a bug or a misunderstanding?</b></p>
-      <ul>
-        <li>A clearly symmetric laminate giving a large \(\mathbf{B}\) matrix</li>
-        <li>Pure membrane loading giving unexpectedly large curvature</li>
-        <li>\(0^\circ\) plies not carrying a significant fraction of axial load under \(N_x\)</li>
-        <li>failure indices that are obviously inconsistent with the stress pattern</li>
-      </ul>
-      <p>
-        These are not subtle issues. They usually point to errors in angle convention, coordinate transformation,
-        ply ordering, thickness coordinates, or unit conversion.
-      </p>
-    </div>
   </div>
 
   <div class="section-block" id="plots">
@@ -968,15 +980,6 @@ end
     <p>
       These plots make the code pedagogically useful, because they connect laminate theory to interpretable structural behavior.
     </p>
-
-    <div class="note-box">
-      <p><b>Teaching recommendation.</b></p>
-      <p>
-        If this page is used in class, do not show only the final failure index. Show the intermediate layers of reasoning:
-        first the laminate stiffness, then the solved mid-plane response, then the recovered ply stresses, and only then the
-        failure measure. Students learn laminate mechanics much better when they see the chain of cause and effect.
-      </p>
-    </div>
   </div>
 
   <hr>

@@ -170,6 +170,31 @@
 
   <div class="section-block" id="constitutive">
     <h2>4. Lamina constitutive law</h2>
+    <div class="note-box">
+  <p><b>Conditions under which the zero terms are valid.</b></p>
+  <p>
+    The reduced stiffness matrix written as
+    \[
+    \mathbf{Q}=
+    \begin{bmatrix}
+    Q_{11} & Q_{12} & 0\\
+    Q_{12} & Q_{22} & 0\\
+    0 & 0 & Q_{66}
+    \end{bmatrix}
+    \]
+    is <b>not</b> the most general 2D constitutive form. It is valid only under the following conditions:
+  </p>
+  <ol>
+    <li>The material is treated as an <b>orthotropic lamina</b>.</li>
+    <li>The constitutive law is written in the lamina <b>material principal axes</b> \((1,2)\).</li>
+    <li>The in-plane behavior is written in the <b>plane-stress reduced form</b> used in Classical Lamination Theory.</li>
+    <li>The ply is described in its own local material frame, <b>not yet in a rotated global laminate frame</b>.</li>
+  </ol>
+  <p>
+    Under these conditions, the normal–shear coupling terms vanish, so \(Q_{16}=Q_{26}=0\).
+    In a more general coordinate system, these terms do not have to be zero.
+  </p>
+</div>
     <p>
       At the lamina level, the first task is to write the constitutive relation of a single orthotropic ply in its own
       material axes \((1,2)\). These axes are attached to the lamina itself. Direction \(1\) is the fiber direction,
@@ -232,7 +257,20 @@
       \end{bmatrix}.
       \]
     </div>
-
+    <p>
+      The zero terms in \(\mathbf{Q}\) must be interpreted carefully. They do <b>not</b> mean that shear is absent.
+      They mean only that, in the material principal axes of an orthotropic lamina, the normal response and the
+      in-plane shear response are uncoupled.
+    </p>
+    <ul>
+      <li>\(\varepsilon_1\) and \(\varepsilon_2\) do not directly generate \(\tau_{12}\).</li>
+      <li>\(\gamma_{12}\) does not directly generate \(\sigma_1\) or \(\sigma_2\).</li>
+      <li>Shear is still present through \(Q_{66}=G_{12}\).</li>
+    </ul>
+    <p>
+      Therefore the zeros in the reduced stiffness matrix reflect a <b>special coordinate choice</b>,
+      not the disappearance of shear physics.
+    </p>
     <p>
       The phrase <b>plane stress</b> means that the lamina is assumed thin enough that the out-of-plane stress components are neglected:
     </p>

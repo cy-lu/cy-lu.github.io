@@ -655,6 +655,54 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
       lamina properties and the orientation angle.
     </p>
 
+    <p>
+      To compute \(\bar{\mathbf{Q}}\), we start from the reduced stiffness matrix \(\mathbf{Q}\) in the material axes \((1,2)\)
+      and transform it into the laminate axes \((x,y)\). Define
+    </p>
+    <div class="formula-box">
+      \[
+      m=\cos\theta,\qquad n=\sin\theta.
+      \]
+    </div>
+
+    <p>
+      The transformed reduced stiffness components are
+    </p>
+    <div class="formula-box">
+      \[
+      \bar{Q}_{11}=Q_{11}m^4+2\left(Q_{12}+2Q_{66}\right)m^2n^2+Q_{22}n^4,
+      \]
+      \[
+      \bar{Q}_{22}=Q_{11}n^4+2\left(Q_{12}+2Q_{66}\right)m^2n^2+Q_{22}m^4,
+      \]
+      \[
+      \bar{Q}_{12}=\left(Q_{11}+Q_{22}-4Q_{66}\right)m^2n^2+Q_{12}\left(m^4+n^4\right),
+      \]
+      \[
+      \bar{Q}_{16}=\left(Q_{11}-Q_{12}-2Q_{66}\right)m^3n-\left(Q_{22}-Q_{12}-2Q_{66}\right)mn^3,
+      \]
+      \[
+      \bar{Q}_{26}=\left(Q_{11}-Q_{12}-2Q_{66}\right)mn^3-\left(Q_{22}-Q_{12}-2Q_{66}\right)m^3n,
+      \]
+      \[
+      \bar{Q}_{66}=\left(Q_{11}+Q_{22}-2Q_{12}-2Q_{66}\right)m^2n^2+Q_{66}\left(m^4+n^4\right).
+      \]
+    </div>
+
+    <div class="note-box">
+      <p><b>How the transformation should be read.</b></p>
+      <p>
+        The material-axis matrix \(\mathbf{Q}\) is first built from the lamina engineering constants
+        \(E_1\), \(E_2\), \(G_{12}\), and \(\nu_{12}\). The trigonometric factors \(m=\cos\theta\) and \(n=\sin\theta\)
+        then rotate that local stiffness into the laminate axes. In other words, the laminate does not change the material;
+        it changes the coordinate frame in which the same ply stiffness is written.
+      </p>
+      <p>
+        This is why \(\bar{Q}_{16}\) and \(\bar{Q}_{26}\) appear only after rotation. They are not new material constants.
+        They are transformed stiffness terms produced by expressing the orthotropic ply in a rotated global frame.
+      </p>
+    </div>
+
     <div class="note-box">
       <p><b>When this matrix form is valid.</b></p>
       <ol>

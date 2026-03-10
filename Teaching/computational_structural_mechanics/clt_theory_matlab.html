@@ -931,82 +931,176 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
     </div>
   </div>
 
-  <div class="section-block" id="loads">
-    <h2>7. Load resultants, mid-plane strain, and curvature</h2>
-    <div class="formula-box">
-      \[
-      \begin{bmatrix}
-      \mathbf{N}\\
-      \mathbf{M}
-      \end{bmatrix}
-      =
-      \begin{bmatrix}
-      \mathbf{A} & \mathbf{B}\\
-      \mathbf{B} & \mathbf{D}
-      \end{bmatrix}
-      \begin{bmatrix}
-      \boldsymbol{\varepsilon}_0\\
-      \boldsymbol{\kappa}
-      \end{bmatrix}.
-      \]
-    </div>
-    <p>
-      Define
-    </p>
-    <div class="formula-box">
-      \[
-      \mathbf{N}=
-      \begin{bmatrix}
-      N_x\\
-      N_y\\
-      N_{xy}
-      \end{bmatrix},
-      \qquad
-      \mathbf{M}=
-      \begin{bmatrix}
-      M_x\\
-      M_y\\
-      M_{xy}
-      \end{bmatrix},
-      \]
-      \[
-      \boldsymbol{\varepsilon}_0=
-      \begin{bmatrix}
-      \varepsilon_x^0\\
-      \varepsilon_y^0\\
-      \gamma_{xy}^0
-      \end{bmatrix},
-      \qquad
-      \boldsymbol{\kappa}=
-      \begin{bmatrix}
-      \kappa_x\\
-      \kappa_y\\
-      \kappa_{xy}
-      \end{bmatrix}.
-      \]
-    </div>
-    <p>
-      This is the main system solved in CLT.
-    </p>
+<div class="section-block" id="loads">
+  <h2>7. Load resultants, mid-plane strain, and curvature</h2>
 
+  <p>
+    Once the laminate stiffness matrices \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\) are known, the next step in
+    Classical Lamination Theory is to connect the applied laminate loads to the global deformation of the plate.
+    This is done through the ABD constitutive system:
+  </p>
+
+  <div class="formula-box">
+    \[
+    \begin{bmatrix}
+    \mathbf{N}\\
+    \mathbf{M}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \mathbf{A} & \mathbf{B}\\
+    \mathbf{B} & \mathbf{D}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \boldsymbol{\varepsilon}_0\\
+    \boldsymbol{\kappa}
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <p>
+    This is the main laminate-level equilibrium relation solved in CLT. It tells us how in-plane force resultants
+    and bending/twisting moment resultants generate mid-plane strains and curvatures.
+  </p>
+
+  <p>
+    Define
+  </p>
+  <div class="formula-box">
+    \[
+    \mathbf{N}=
+    \begin{bmatrix}
+    N_x\\
+    N_y\\
+    N_{xy}
+    \end{bmatrix},
+    \qquad
+    \mathbf{M}=
+    \begin{bmatrix}
+    M_x\\
+    M_y\\
+    M_{xy}
+    \end{bmatrix},
+    \]
+    \[
+    \boldsymbol{\varepsilon}_0=
+    \begin{bmatrix}
+    \varepsilon_x^0\\
+    \varepsilon_y^0\\
+    \gamma_{xy}^0
+    \end{bmatrix},
+    \qquad
+    \boldsymbol{\kappa}=
+    \begin{bmatrix}
+    \kappa_x\\
+    \kappa_y\\
+    \kappa_{xy}
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <ul>
+    <li><b>\(N_x, N_y\)</b>: in-plane normal force resultants, units <b>N/m</b></li>
+    <li><b>\(N_{xy}\)</b>: in-plane shear force resultant, units <b>N/m</b></li>
+    <li><b>\(M_x, M_y\)</b>: bending moment resultants per unit width</li>
+    <li><b>\(M_{xy}\)</b>: twisting moment resultant per unit width</li>
+    <li><b>\(\varepsilon_x^0, \varepsilon_y^0\)</b>: mid-plane normal strains</li>
+    <li><b>\(\gamma_{xy}^0\)</b>: mid-plane engineering shear strain</li>
+    <li><b>\(\kappa_x, \kappa_y, \kappa_{xy}\)</b>: laminate curvatures, units <b>1/m</b></li>
+  </ul>
+
+  <div class="note-box">
+    <p><b>Why this section is useful.</b></p>
+    <p>
+      This section is where the theory becomes structurally predictive. Sections 4–6 define ply stiffness,
+      rotated ply stiffness, and laminate stiffness. Section 7 uses those quantities to answer the practical question:
+      <b>under a given mechanical loading, how will the laminate deform?</b>
+    </p>
+    <p>
+      In other words, this section gives the direct bridge from <b>loading</b> to <b>global laminate response</b>.
+      Once \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\) are known, all ply strains and stresses can
+      be recovered later through the thickness.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p><b>What this section can predict.</b></p>
     <ul>
-      <li><b>\(N_x, N_y\)</b>: in-plane normal force resultants, units <b>N/m</b></li>
-      <li><b>\(N_{xy}\)</b>: in-plane shear force resultant, units <b>N/m</b></li>
-      <li><b>\(M_x, M_y\)</b>: bending moment resultants per unit width</li>
-      <li><b>\(M_{xy}\)</b>: twisting moment resultant per unit width</li>
-      <li><b>\(\varepsilon_x^0, \varepsilon_y^0\)</b>: mid-plane normal strains</li>
-      <li><b>\(\gamma_{xy}^0\)</b>: mid-plane engineering shear strain</li>
-      <li><b>\(\kappa_x, \kappa_y, \kappa_{xy}\)</b>: laminate curvatures, units <b>1/m</b></li>
+      <li>Whether the laminate mainly stretches, bends, twists, or does a combination of them</li>
+      <li>The magnitude of mid-plane in-plane deformation under membrane loading</li>
+      <li>The laminate curvature under bending or twisting moments</li>
+      <li>Whether an in-plane load can induce bending due to \(\mathbf{B}\neq 0\)</li>
+      <li>Whether a moment can induce in-plane strain due to membrane–bending coupling</li>
+      <li>Whether an asymmetric laminate is likely to warp after loading or due to internal mismatch effects</li>
     </ul>
+    <p>
+      This makes Section 7 essential for both deformation prediction and later stress recovery.
+    </p>
+  </div>
 
-    <div class="note-box">
-      <p><b>Physical interpretation of coupling.</b></p>
-      <p>
-        If \(\mathbf{B}=0\), stretching and bending are decoupled. If \(\mathbf{B}\neq 0\), they interact.
-        Then a purely in-plane load can induce curvature, and a pure moment can induce mid-plane strain.
-      </p>
+  <div class="note-box">
+    <p><b>Physical interpretation of coupling.</b></p>
+    <p>
+      If \(\mathbf{B}=0\), stretching and bending are decoupled. Then an in-plane load produces mainly mid-plane strain,
+      while a pure moment produces mainly curvature. If \(\mathbf{B}\neq 0\), they interact. In that case,
+      a purely in-plane load can induce bending, and a pure moment can induce mid-plane strain.
+    </p>
+    <p>
+      This is exactly why laminate symmetry matters so much in design. A symmetric laminate is much easier to control,
+      while an asymmetric laminate can deform in less intuitive ways.
+    </p>
+  </div>
+
+  <div class="figure-block">
+    <img src="img/asymmetric_vs_symmetric_warpage.png" alt="Comparison of warpage response in asymmetric and symmetric balanced laminates">
+    <div class="figure-caption">
+      <b>Comparison of asymmetric and symmetric balanced laminates under coupling-sensitive conditions.</b>
+      The left panel shows an asymmetric balanced laminate with a nonzero coupling term \(B_{16}\), which produces
+      out-of-plane deformation. The right panel shows a symmetric balanced laminate for which the coupling term
+      vanishes, leading to a flat response. This illustrates why the \(\mathbf{B}\) matrix is so important in
+      laminate deformation prediction.
     </div>
   </div>
+
+  <div class="note-box">
+    <p><b>Why the figure matters.</b></p>
+    <p>
+      The figure provides a direct geometric interpretation of what the ABD system predicts. In the asymmetric case,
+      the nonzero coupling term means that membrane-type loading is no longer isolated from bending-type response,
+      so the plate can warp out of plane. In the symmetric case, the coupling term vanishes, and the same type of
+      unintended out-of-plane deformation is suppressed.
+    </p>
+    <p>
+      This is a very useful teaching example because students often understand the algebra of \(\mathbf{B}\) only after
+      they see its geometric consequence: <b>nonzero coupling can produce warpage</b>.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p><b>Typical engineering applications that need this section.</b></p>
+    <ul>
+      <li><b>Aerospace composite panels:</b> prediction of extension, bending, and twist under combined service loads</li>
+      <li><b>3DIC and electronic substrates:</b> warpage control caused by asymmetric layer stacking and stiffness mismatch</li>
+      <li><b>Printed circuit boards and package laminates:</b> curvature and flatness prediction during assembly and service</li>
+      <li><b>Wind turbine blades and sporting structures:</b> tailoring bending–twist coupling for performance</li>
+      <li><b>Composite automotive panels:</b> stiffness design and deformation control under distributed loading</li>
+      <li><b>Satellite and space structures:</b> dimensional stability and coupling suppression in thin laminated components</li>
+    </ul>
+    <p>
+      In all of these applications, engineers do not only want the laminate to be strong. They also want it to deform
+      in a controlled and predictable way. That is exactly what Section 7 helps quantify.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p><b>Most important takeaway.</b></p>
+    <p>
+      Section 7 is the point where laminate mechanics becomes directly usable for design. It predicts how a laminate
+      responds globally to applied force and moment resultants, and it identifies whether symmetry, asymmetry,
+      or coupling will lead to desirable behavior or unwanted warpage.
+    </p>
+  </div>
+</div>
 
   <div class="section-block" id="stress">
     <h2>8. Ply stress recovery</h2>

@@ -1102,34 +1102,202 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
   </div>
 </div>
 
-  <div class="section-block" id="stress">
-    <h2>8. Ply stress recovery</h2>
-    <p>
-      The in-plane strain at thickness coordinate \(z\) is
-    </p>
-    <div class="formula-box">
-      \[
-      \boldsymbol{\varepsilon}_{xy}(z)=\boldsymbol{\varepsilon}_0+z\boldsymbol{\kappa}.
-      \]
-    </div>
-    <p>
-      The global ply stress is
-    </p>
-    <div class="formula-box">
-      \[
-      \boldsymbol{\sigma}_{xy}^{(k)}(z)=\bar{\mathbf{Q}}^{(k)}\boldsymbol{\varepsilon}_{xy}(z).
-      \]
-    </div>
-    <p>
-      For failure criteria, this stress must often be transformed back into the material frame to obtain
-      \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\).
-    </p>
+<div class="section-block" id="stress">
+  <h2>8. Ply stress recovery</h2>
 
-    <div class="note-box">
-      <p><b>Practical point.</b> Stress is often evaluated at the top and bottom of each ply, because bending-driven
-      peak values often occur at these surfaces.</p>
-    </div>
+  <div class="note-box">
+    <p><b>The physics of internal incompatibility.</b></p>
+    <p>
+      When a laminate is subjected to mechanical loading or thermal change, the stress inside each ply comes from a conflict
+      between what that ply would like to do freely and what it is forced to do because it is bonded to the rest of the laminate.
+      In that sense, ply stress recovery is the mechanics of <b>internal constraint</b>.
+    </p>
   </div>
+
+  <h4>8.1 Physical intuition: the gap between free deformation and constrained deformation</h4>
+  <p>
+    Consider a laminate containing a \(45^\circ\) ply and a \(-45^\circ\) ply. Under cooling, the two plies do not
+    naturally want to deform in the same way.
+  </p>
+  <ul>
+    <li><b>Free strain:</b> if the \(45^\circ\) ply were isolated, it would contract along its own preferred material directions, which projects into one in-plane direction.</li>
+    <li><b>Free strain:</b> if the \(-45^\circ\) ply were isolated, it would contract in a different projected in-plane direction.</li>
+    <li><b>Global constraint:</b> because the plies are bonded together, the laminate cannot let each ply deform independently. The entire laminate must adopt one compatible global deformation field.</li>
+    <li><b>Result:</b> the mismatch between each ply’s preferred free deformation and the actual laminate deformation generates internal stresses.</li>
+  </ul>
+  <p>
+    This is why composite laminates and multi-material packages can develop residual stress even before service loading begins.
+    The stress is not always caused by an externally applied force. It can also come from incompatibility created by bonding,
+    cooling, thermal mismatch, or stacking asymmetry.
+  </p>
+
+  <div class="note-box">
+    <p><b>Engineering interpretation.</b></p>
+    <p>
+      A ply does not “feel” stress simply because it deforms. It feels stress because it is prevented from deforming in the way
+      it would choose if it were free. Ply stress recovery therefore means reconstructing the actual internal stress state from
+      the laminate-level deformation and the local constitutive behavior of each ply.
+    </p>
+  </div>
+
+  <h4>8.2 Core equations</h4>
+  <p>
+    The in-plane strain at thickness coordinate \(z\) is
+  </p>
+  <div class="formula-box">
+    \[
+    \boldsymbol{\varepsilon}_{xy}(z)=\boldsymbol{\varepsilon}_0+z\boldsymbol{\kappa}.
+    \]
+  </div>
+
+  <p>
+    This strain field is continuous through the thickness in Classical Lamination Theory. In other words, the laminate deforms
+    as one compatible structure. However, the stress inside each ply depends on how that compatible deformation compares with
+    the free strain that the ply would have preferred.
+  </p>
+
+  <p>
+    For a thermo-mechanical case, the global ply stress is written as
+  </p>
+  <div class="formula-box">
+    \[
+    \boldsymbol{\sigma}_{xy}^{(k)}(z)
+    =
+    \bar{\mathbf{Q}}^{(k)}
+    \left(
+    \boldsymbol{\varepsilon}_{xy}(z)
+    -
+    \boldsymbol{\alpha}^{(k)}\Delta T
+    \right).
+    \]
+  </div>
+
+  <p>
+    Here:
+  </p>
+  <ul>
+    <li><b>\(\boldsymbol{\varepsilon}_{xy}(z)\)</b>: the actual laminate strain at that thickness location</li>
+    <li><b>\(\boldsymbol{\alpha}^{(k)}\Delta T\)</b>: the free thermal strain that the \(k\)-th ply would undergo if it were unconstrained</li>
+    <li><b>\(\bar{\mathbf{Q}}^{(k)}\)</b>: the transformed reduced stiffness matrix of the \(k\)-th ply, written in laminate axes</li>
+  </ul>
+
+  <div class="note-box">
+    <p><b>Meaning of the formula.</b></p>
+    <p>
+      The quantity inside parentheses is the difference between <b>actual deformation</b> and <b>free thermal deformation</b>.
+      That difference is the constrained strain seen by the ply. Multiplying it by \(\bar{\mathbf{Q}}^{(k)}\) gives the
+      internal stress needed to enforce compatibility.
+    </p>
+  </div>
+
+  <p>
+    If thermal effects are neglected, the stress recovery relation reduces to
+  </p>
+  <div class="formula-box">
+    \[
+    \boldsymbol{\sigma}_{xy}^{(k)}(z)=\bar{\mathbf{Q}}^{(k)}\boldsymbol{\varepsilon}_{xy}(z).
+    \]
+  </div>
+
+  <p>
+    For failure analysis, the global stress is often transformed back into the material frame to obtain
+    \(\sigma_1\), \(\sigma_2\), and \(\tau_{12}\), because most ply-level strength criteria are formulated in the material axes.
+  </p>
+
+  <h4>8.3 MATLAB illustration: observing the stress jump</h4>
+  <p>
+    The following MATLAB example shows how to compute the through-thickness stress distribution after cooling from a reflow-like
+    thermal condition. A key result is that the strain field is smooth, but the stress field can exhibit sharp jumps from one ply
+    to the next.
+  </p>
+
+<pre>
+% Section 8 & 11 Integrated: Ply Stress Recovery Example
+% This script demonstrates residual stress recovery after cooling
+
+% 1. Define thermal loading
+deltaT = -200; % Example: cooling from 220C to 20C
+z_plot = [];
+stress_plot = [];
+
+% 2. Loop through plies and recover stresses
+for k = 1:nply
+    % Obtain transformed stiffness Qbar and transformed thermal expansion alpha
+    % (Qbar and alpha are defined from the ply angle and material data)
+    theta = angles(k);
+    m = cosd(theta); n = sind(theta);
+
+    alpha = [CTE1*m^2 + CTE2*n^2;
+             CTE1*n^2 + CTE2*m^2;
+             2*(CTE1-CTE2)*m*n];
+
+    % Sample stress at the bottom and top of each ply
+    for zp = [z(k), z(k+1)]
+        eps_z  = eps0 + zp * kappa;   % Total laminate strain (continuous)
+        eps_th = alpha * deltaT;      % Free thermal strain (ply-dependent)
+
+        % Residual stress recovery
+        sig = Qbar_all(:,:,k) * (eps_z - eps_th);
+
+        z_plot = [z_plot; zp];
+        stress_plot = [stress_plot; sig'];
+    end
+end
+
+% 3. Plot through-thickness stress
+figure;
+subplot(1,2,1);
+plot(z_plot, stress_plot(:,1)/1e6, 'b-o');
+title('Normal Stress \sigma_x (MPa)');
+xlabel('z (m)');
+ylabel('\sigma_x (MPa)');
+grid on;
+
+subplot(1,2,2);
+plot(z_plot, stress_plot(:,3)/1e6, 'r-s');
+title('Shear Stress \tau_{xy} (MPa)');
+xlabel('z (m)');
+ylabel('\tau_{xy} (MPa)');
+grid on;
+</pre>
+
+  <div class="note-box">
+    <p><b>Why stress jumps from ply to ply.</b></p>
+    <p>
+      The strain field \(\boldsymbol{\varepsilon}_{xy}(z)\) is continuous because the laminate remains kinematically compatible.
+      However, the stress does not have to be continuous in the same way at ply interfaces, because each ply has its own
+      transformed stiffness \(\bar{\mathbf{Q}}^{(k)}\) and its own transformed thermal expansion vector \(\boldsymbol{\alpha}^{(k)}\).
+    </p>
+    <p>
+      This is similar to forcing springs with different stiffnesses to undergo the same total extension:
+      the stiffer spring carries a larger force. In a laminate, different plies can therefore carry very different stresses
+      even though they participate in the same overall deformation.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p><b>Why this matters physically.</b></p>
+    <p>
+      Large stress jumps often occur near ply interfaces, and these regions are important because they are frequently associated
+      with interfacial damage risk. In practical terms, strong local stress mismatch can contribute to:
+    </p>
+    <ul>
+      <li>delamination between adjacent plies,</li>
+      <li>matrix cracking in transverse or off-axis plies,</li>
+      <li>thermo-mechanical reliability problems in packaging and layered structures,</li>
+      <li>residual stress accumulation before any external service loading is applied.</li>
+    </ul>
+  </div>
+
+  <div class="note-box">
+    <p><b>Teaching point.</b></p>
+    <p>
+      Section 8 is where students begin to see the difference between <b>global laminate deformation</b> and
+      <b>local ply stress</b>. The laminate may deform smoothly as a whole, but the internal stress state is highly layer-dependent.
+      This is one of the most important insights in laminate mechanics.
+    </p>
+  </div>
+</div>
 
   <div class="section-block" id="strength">
     <h2>9. Strength and first-ply failure</h2>

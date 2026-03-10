@@ -821,7 +821,100 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
     <p>
       If the laminate is symmetric about the mid-plane, \(\mathbf{B}=0\).
     </p>
-
+    <div class="note-box">
+    <p><b>Physical interpretation of the \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\) matrices.</b></p>
+    <p>
+      This set of equations is the core of Classical Lamination Theory (CLT). It explains how the
+      stiffness of the full laminate is built by accumulating the stiffness contribution of each individual ply
+      through the thickness direction. In essence, the laminate stiffness is obtained by a discrete summation
+      of ply stiffness contributions over the thickness coordinate \(z\).
+    </p>
+  
+    <p><b>1. \(\mathbf{A}\) matrix: extensional stiffness</b></p>
+    <p>
+      The \(\mathbf{A}\) matrix represents the in-plane or extensional stiffness of the laminate.
+      Its meaning is the most direct: the resistance of the laminate to in-plane stretching depends on how stiff
+      each ply is and how much thickness that ply occupies.
+    </p>
+    <p>
+      Physically, every ply contributes to extensional stiffness regardless of whether it is located near the top,
+      bottom, or middle of the laminate. As long as the ply exists, it adds to \(\mathbf{A}\).
+    </p>
+    <div class="formula-box">
+      \[
+      \mathbf{A}=\int \bar{\mathbf{Q}}\,dz
+      \;\approx\;
+      \sum_k \left(\bar{\mathbf{Q}}^{(k)}\Delta z_k\right).
+      \]
+    </div>
+  
+    <p><b>2. \(\mathbf{B}\) matrix: coupling stiffness</b></p>
+    <p>
+      The \(\mathbf{B}\) matrix governs membrane–bending coupling. This is the matrix that determines whether
+      in-plane loading can induce bending or whether bending can induce in-plane strain. Its physical meaning is tied
+      directly to the symmetry of stiffness about the laminate mid-plane \((z=0)\).
+    </p>
+    <p>
+      In practical terms, the contribution of a ply to \(\mathbf{B}\) depends not only on its stiffness, but also on
+      its distance from the mid-plane. If the laminate is perfectly symmetric, the positive and negative \(z\)-side
+      contributions cancel, giving \(\mathbf{B}=0\). If the laminate is not symmetric, the cancellation is incomplete,
+      and \(\mathbf{B}\neq 0\), which leads to coupling and possible warpage.
+    </p>
+    <p>
+      For example, if the upper half and lower half of the laminate do not mirror each other in orientation and stiffness,
+      their weighted contributions about the mid-plane will not balance. That is the origin of extension–bending coupling.
+    </p>
+    <div class="formula-box">
+      \[
+      \mathbf{B}=\int \bar{\mathbf{Q}}\,z\,dz
+      \;\approx\;
+      \sum_k \left(\bar{\mathbf{Q}}^{(k)}\Delta z_k\,\bar z_k\right),
+      \]
+    </div>
+    <p>
+      where \(\bar z_k\) is the distance from the mid-plane to the center of the \(k\)-th ply.
+    </p>
+  
+    <p><b>3. \(\mathbf{D}\) matrix: bending stiffness</b></p>
+    <p>
+      The \(\mathbf{D}\) matrix measures the resistance of the laminate to bending. The key idea is the same as in
+      elementary beam theory: material located farther from the neutral axis contributes much more strongly to bending
+      resistance than material placed near the middle.
+    </p>
+    <p>
+      This is closely related to the parallel-axis principle. The dominant term scales with the square of the distance
+      from the mid-plane, which means that plies near the outer surfaces are much more effective in increasing bending stiffness.
+      This is why placing stiff plies near the top and bottom surfaces is highly effective when bending resistance is important.
+    </p>
+    <p>
+      In the discrete form, one contribution comes from the ply position relative to the mid-plane, and another smaller
+      contribution comes from the bending inertia of the ply about its own centroid.
+    </p>
+    <div class="formula-box">
+      \[
+      \mathbf{D}=\int \bar{\mathbf{Q}}\,z^2\,dz
+      \;\approx\;
+      \sum_k \left[
+      \bar{\mathbf{Q}}^{(k)}
+      \left(
+      \Delta z_k\,\bar z_k^2+\frac{\Delta z_k^3}{12}
+      \right)
+      \right].
+      \]
+    </div>
+  
+    <p><b>Summary of the accumulation logic</b></p>
+    <ul>
+      <li><b>\(\mathbf{A}\):</b> depends mainly on how much stiffness material is present through the thickness.</li>
+      <li><b>\(\mathbf{B}\):</b> depends on whether the stiffness distribution is balanced or unbalanced about the mid-plane.</li>
+      <li><b>\(\mathbf{D}\):</b> depends strongly on whether stiff material is placed near the middle or near the outer surfaces.</li>
+    </ul>
+    <p>
+      In that sense, the ABD formulation acts like a mechanical bookkeeping system for the laminate:
+      \(\mathbf{A}\) tracks extensional stiffness, \(\mathbf{B}\) tracks coupling caused by asymmetry,
+      and \(\mathbf{D}\) tracks bending resistance controlled by through-thickness stiffness placement.
+    </p>
+  </div>
     <p>
       The thickness coordinates \(z_k\) are measured through the laminate thickness, usually from the laminate mid-plane.
       Therefore \(z=0\) is the mid-surface, negative \(z\) lies below it, and positive \(z\) lies above it.

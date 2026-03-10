@@ -1297,6 +1297,276 @@ grid on;
       This is one of the most important insights in laminate mechanics.
     </p>
   </div>
+  <h4>8.4 Worked thermal residual-stress example: symmetric balanced \( [45/-45/-45/45] \) laminate</h4>
+  <p>
+    This example is best placed at the <b>end of Section 8</b>, not in Section 9.
+    The reason is straightforward: the script below is a <b>stress-recovery demonstration</b>, not yet a failure calculation.
+    It solves the thermal residual deformation of the laminate, then recovers the ply-level stress field through the thickness.
+    That makes it a natural continuation of Section 8 and a direct bridge into the failure discussion of Section 9.
+  </p>
+
+  <div class="note-box">
+    <p><b>What this example is designed to show.</b></p>
+    <ul>
+      <li>A symmetric balanced laminate can have <b>almost zero global curvature</b> after uniform cooling.</li>
+      <li>Even when the laminate-level deformation is simple, the <b>ply-level residual stress state</b> can still be nontrivial.</li>
+      <li>For this specific layup, the plotted \(\sigma_x\) profile is nearly continuous and very small, while the plotted \(\tau_{xy}\) profile changes sign across the thickness.</li>
+      <li>That sign change is a useful indicator of <b>interfacial mismatch tendency</b>, which is why such plots are often discussed before delamination or failure analysis.</li>
+    </ul>
+  </div>
+
+  <p>
+    The script uses a uniform temperature drop \(\Delta T=-200\,\mathrm{K}\) and computes the equivalent thermal force and moment resultants,
+    then solves
+  </p>
+  <div class="formula-box">
+    \[
+    \begin{bmatrix}
+    \mathbf{A} & \mathbf{B}\\
+    \mathbf{B} & \mathbf{D}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \boldsymbol{\varepsilon}_0\\
+    \boldsymbol{\kappa}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \mathbf{N}^{T}\\
+    \mathbf{M}^{T}
+    \end{bmatrix}.
+    \]
+  </div>
+  <p>
+    Once \(\boldsymbol{\varepsilon}_0\) and \(\boldsymbol{\kappa}\) are known, the residual stress in each ply is recovered from
+  </p>
+  <div class="formula-box">
+    \[
+    \boldsymbol{\sigma}_{xy}^{(k)}(z)
+    =
+    \bar{\mathbf{Q}}^{(k)}
+    \left(
+    \boldsymbol{\varepsilon}_0 + z\boldsymbol{\kappa}
+    -
+    \boldsymbol{\alpha}^{(k)}\Delta T
+    \right).
+    \]
+  </div>
+
+<pre>
+% clt_residual_stress_symmetric_balanced_cooling_demo.m
+% -------------------------------------------------------------------------
+% Classical Lamination Theory (CLT) demonstration:
+% Thermal residual-stress recovery in a symmetric balanced [45/-45/-45/45]
+% laminate after uniform cooling.
+%
+% Physical purpose:
+% 1) Solve the laminate-level thermal deformation (mid-plane strain/curvature)
+% 2) Recover the ply-level residual stresses through the thickness
+% 3) Show why a symmetric balanced laminate can have nearly zero sigma_x,
+%    but still carry a sign-changing tau_xy field across ply interfaces
+%
+% Important limitation:
+% The plotted tau_xy is the in-plane shear stress predicted by CLT inside
+% each ply. It is not the true interlaminar shear stress tau_xz or tau_yz.
+% However, a jump in tau_xy across an interface is still a useful indicator
+% of interfacial mismatch and potential delamination-driving tendency.
+% -------------------------------------------------------------------------
+
+clear; clc; close all;
+
+%% 1. Material properties, laminate definition, and thermal loading
+E1   = 22e9;      % Pa
+E2   = 19e9;      % Pa
+G12  = 7.17e9;    % Pa
+nu12 = 0.16;
+
+tply = 0.2e-3;    % m
+CTE1 = 16e-6;     % 1/K
+CTE2 = 18e-6;     % 1/K
+
+angles = [45, -45, -45, 45];   % symmetric balanced layup
+nply   = length(angles);
+h      = nply * tply;
+z_coords = linspace(-h/2, h/2, nply+1);
+
+deltaT = -200;    % K, cooling from processing temperature to room condition
+
+%% 2. Material-axis reduced stiffness matrix [Q]
+nu21 = nu12 * E2 / E1;
+denom = 1 - nu12 * nu21;
+
+Q11 = E1 / denom;
+Q12 = nu12 * E2 / denom;
+Q22 = E2 / denom;
+Q66 = G12;
+
+%% 3. Assemble laminate A, B, D and equivalent thermal resultants
+A  = zeros(3,3);
+B  = zeros(3,3);
+D  = zeros(3,3);
+Nt = zeros(3,1);
+Mt = zeros(3,1);
+
+for k = 1:nply
+    theta = angles(k);
+    [Qbar, alpha_bar] = transformed_ply_data(Q11, Q12, Q22, Q66, CTE1, CTE2, theta);
+
+    z1 = z_coords(k);
+    z2 = z_coords(k+1);
+    dz = z2 - z1;
+    zm = 0.5 * (z1 + z2);
+
+    % ABD assembly written in centroid form
+    A = A + Qbar * dz;
+    B = B + Qbar * dz * zm;
+    D = D + Qbar * (dz * zm^2 + dz^3 / 12);
+
+    % Equivalent thermal force and moment resultants
+    Nt = Nt + Qbar * alpha_bar * deltaT * dz;
+    Mt = Mt + Qbar * alpha_bar * deltaT * dz * zm;
+end
+
+ABD = [A, B; B, D];
+
+%% 4. Solve for laminate mid-plane strain and curvature
+% No external mechanical loads are applied here.
+solution = ABD \ [Nt; Mt];
+eps0  = solution(1:3);
+kappa = solution(4:6);
+
+%% 5. Recover residual stress at bottom/top of every ply
+stress_data = zeros(2*nply, 4);  % [z, sigma_x, sigma_y, tau_xy]
+row = 0;
+
+for k = 1:nply
+    theta = angles(k);
+    [Qbar, alpha_bar] = transformed_ply_data(Q11, Q12, Q22, Q66, CTE1, CTE2, theta);
+
+    for zp = [z_coords(k), z_coords(k+1)]
+        row = row + 1;
+
+        eps_total = eps0 + zp * kappa;     % actual laminate strain at z
+        eps_free  = alpha_bar * deltaT;    % free thermal strain of the ply
+        sigma_xy  = Qbar * (eps_total - eps_free);
+
+        stress_data(row,:) = [zp, sigma_xy(:).'];
+    end
+end
+
+%% 6. Print key numerical checks
+fprintf('--- Laminate thermal residual-stress demo ---\n');
+fprintf('Layup                : [45/-45/-45/45]\n');
+fprintf('Temperature change   : %g K\n', deltaT);
+fprintf('\nMid-plane strain eps0 = [%.6e, %.6e, %.6e]^T\n', eps0(1), eps0(2), eps0(3));
+fprintf('Curvature kappa      = [%.6e, %.6e, %.6e]^T 1/m\n', kappa(1), kappa(2), kappa(3));
+fprintf('\nB matrix (should be ~0 for symmetric layup):\n');
+disp(B);
+
+%% 7. Visualization: nearly continuous sigma_x and sign-changing tau_xy
+figure('Color', 'w', 'Position', [100, 100, 1000, 500]);
+
+% Normal residual stress sigma_x
+subplot(1,2,1);
+plot(stress_data(:,2)/1e6, stress_data(:,1), 'b-o', ...
+    'LineWidth', 2.2, 'MarkerSize', 7, 'MarkerFaceColor', 'none');
+grid on; box on;
+title('Normal Residual Stress \sigma_x', 'FontWeight', 'bold');
+xlabel('Stress (MPa)');
+ylabel('z-coordinate (m)');
+line([0 0], [min(z_coords) max(z_coords)], 'Color', [0.3 0.3 0.3], 'LineStyle', '--');
+
+sx_min = min(stress_data(:,2)/1e6);
+sx_max = max(stress_data(:,2)/1e6);
+if abs(sx_max - sx_min) < 1e-9
+    xlim([-1 1]);
+else
+    pad = max(1, 0.08 * (sx_max - sx_min));
+    xlim([sx_min - pad, sx_max + pad]);
+end
+
+% Shear residual stress tau_xy
+subplot(1,2,2);
+plot(stress_data(:,4)/1e6, stress_data(:,1), 'r-s', ...
+    'LineWidth', 2.2, 'MarkerSize', 7, 'MarkerFaceColor', 'none');
+grid on; box on; hold on;
+line([0 0], [min(z_coords) max(z_coords)], 'Color', 'k', 'LineStyle', '--');
+title('Shear Residual Stress \tau_{xy} (Interfacial Mismatch Driver)', 'FontWeight', 'bold');
+xlabel('Shear Stress (MPa)');
+ylabel('z-coordinate (m)');
+
+sy_min = min(stress_data(:,4)/1e6);
+sy_max = max(stress_data(:,4)/1e6);
+pad = max(0.5, 0.08 * (sy_max - sy_min));
+xlim([sy_min - pad, sy_max + pad]);
+
+sgtitle('Thermal Residual Stress Recovery in a Symmetric Balanced Laminate', ...
+    'FontWeight', 'bold');
+
+%% Local function
+function [Qbar, alpha_bar] = transformed_ply_data(Q11, Q12, Q22, Q66, CTE1, CTE2, theta)
+    m = cosd(theta);
+    n = sind(theta);
+
+    Qbar11 = Q11*m^4 + 2*(Q12 + 2*Q66)*m^2*n^2 + Q22*n^4;
+    Qbar12 = (Q11 + Q22 - 4*Q66)*m^2*n^2 + Q12*(m^4 + n^4);
+    Qbar22 = Q11*n^4 + 2*(Q12 + 2*Q66)*m^2*n^2 + Q22*m^4;
+    Qbar66 = (Q11 + Q22 - 2*Q12 - 2*Q66)*m^2*n^2 + Q66*(m^4 + n^4);
+    Qbar16 = (Q11 - Q12 - 2*Q66)*m^3*n - (Q22 - Q12 - 2*Q66)*m*n^3;
+    Qbar26 = (Q11 - Q12 - 2*Q66)*m*n^3 - (Q22 - Q12 - 2*Q66)*m^3*n;
+
+    Qbar = [Qbar11, Qbar12, Qbar16;
+            Qbar12, Qbar22, Qbar26;
+            Qbar16, Qbar26, Qbar66];
+
+    alpha_bar = [CTE1*m^2 + CTE2*n^2;
+                 CTE1*n^2 + CTE2*m^2;
+                 2*(CTE1 - CTE2)*m*n];
+end
+</pre>
+
+  <div class="figure-block">
+    <img src="img/residual_stress_symmetric_balanced_demo.png" alt="Through-thickness thermal residual stress in a symmetric balanced laminate">
+    <div class="figure-caption">
+      <b>Thermal residual-stress recovery for a symmetric balanced \( [45/-45/-45/45] \) laminate.</b>
+      Under uniform cooling, the laminate remains nearly curvature-free because the stacking sequence is symmetric,
+      so \(\mathbf{B}\approx 0\). The plotted \(\sigma_x\) profile is therefore very small and nearly continuous.
+      By contrast, the plotted in-plane shear residual stress \(\tau_{xy}\) changes sign across the thickness because
+      \(+45^\circ\) and \(-45^\circ\) plies prefer opposite shear-type thermal deformation when written in the global laminate axes.
+      This does not mean that CLT has directly computed an interlaminar stress component; rather, it reveals a strong
+      <b>interfacial mismatch indicator</b> that helps explain why such interfaces deserve attention before failure assessment.
+    </div>
+  </div>
+
+  <div class="note-box">
+    <p><b>How to read the figure correctly.</b></p>
+    <ul>
+      <li><b>Left panel:</b> the near-zero \(\sigma_x\) profile reflects the fact that this particular laminate and thermal load do not produce a strong net global normal residual stress in the laminate axes.</li>
+      <li><b>Right panel:</b> the sign reversal of \(\tau_{xy}\) shows that adjacent off-axis plies do not prefer the same thermal deformation pattern in the global frame.</li>
+      <li><b>At the interfaces:</b> the step change is a consequence of ply-wise differences in \(\bar{\mathbf{Q}}^{(k)}\) and \(\boldsymbol{\alpha}^{(k)}\), even though the laminate strain field itself remains compatible.</li>
+    </ul>
+  </div>
+
+  <div class="note-box">
+    <p><b>Important CLT limitation.</b></p>
+    <p>
+      The shear quantity plotted here is the <b>in-plane ply stress</b> \(\tau_{xy}\), not the true interlaminar shear stresses
+      \(\tau_{xz}\) or \(\tau_{yz}\). Classical Lamination Theory cannot directly resolve those out-of-plane interface stresses.
+      Therefore the right panel should be interpreted carefully: it is not a direct delamination proof, but a physically useful
+      <b>warning signal of interface mismatch</b>. If a design is sensitive to delamination, a higher-order theory or finite-element
+      analysis is needed for direct interlaminar stress evaluation.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p><b>Why this subsection leads naturally into Section 9.</b></p>
+    <p>
+      Section 8 recovers the internal stress state. Section 9 uses that recovered stress state for strength evaluation.
+      In other words, this example is the missing bridge between laminate deformation and failure assessment:
+      <b>first recover the stresses, then apply a failure criterion.</b>
+    </p>
+  </div>
+
+
 </div>
 
   <div class="section-block" id="strength">

@@ -370,106 +370,184 @@
 
     <h4>4.1 MATLAB illustration for one lamina under four prescribed strain states</h4>
 <pre>
-% Lamina Analysis: Material Properties & Deformation Visualization
+% Lamina Analysis: Material Properties and Deformation Visualization
 clear; clc; clf;
 
 % ==========================================================
-% PART 1: Define Material Properties (E1, E2, v12, G12)
+% PART 1: Define Lamina Material Properties
 % ==========================================================
-% Example using Carbon/Epoxy T300 properties
-E1  = 181e9;    % Elastic Modulus in Fiber Direction (Pa)
-E2  = 10.3e9;   % Elastic Modulus in Transverse Direction (Pa)
-v12 = 0.28;     % Major Poisson's Ratio
-G12 = 7.17e9;   % In-plane Shear Modulus (Pa)
+% Example: Carbon/Epoxy T300 lamina properties
+E1  = 181e9;    % Young's modulus in fiber direction (Pa)
+E2  = 10.3e9;   % Young's modulus in transverse direction (Pa)
+v12 = 0.28;     % Major Poisson's ratio
+G12 = 7.17e9;   % In-plane shear modulus (Pa)
 
-% Calculate v21 using the Reciprocity Relation
+% Calculate minor Poisson's ratio using reciprocity
 v21 = v12 * E2 / E1;
 
-% Calculate Reduced Stiffness Matrix [Q] components
-denominator = 1 - v12 * v21;
-Q11 = E1 / denominator;
-Q12 = (v12 * E2) / denominator;
-Q22 = E2 / denominator;
+% Compute reduced stiffness matrix [Q] components
+denom = 1 - v12 * v21;
+Q11 = E1 / denom;
+Q12 = v12 * E2 / denom;
+Q22 = E2 / denom;
 Q66 = G12;
 
 % ==========================================================
-% PART 2: Set Plot Parameters (Large Fonts for Visibility)
+% PART 2: Set Plot Parameters
 % ==========================================================
-ax_fs = 14;      % Axis label font size
+ax_fs    = 14;   % Axis label font size
 title_fs = 16;   % Subplot title font size
-label_fs = 20;   % Strain label font size (Right-side labels)
+label_fs = 20;   % Right-side strain label font size
+text_fs  = 11;   % General annotation font size
 
-% Define original unit square vertices (1-2 plane)
+% Original unit square in the 1-2 material coordinate system
 x_orig = [0 1 1 0 0];
 y_orig = [0 0 1 1 0];
 
-% Define 4 Strain Cases [e1; e2; g12] (Magnified for visualization)
+% Define four prescribed strain cases: [e1; e2; g12]
 cases = {
-    [0.2; 0; 0],     % Case 1: Longitudinal Tension
-    [0; 0.2; 0],     % Case 2: Transverse Tension
-    [0; 0; 0.4],     % Case 3: Pure Shear
-    [0.2; 0.2; 0]    % Case 4: Biaxial Tension
+    [0.2; 0;   0  ],   % Case 1: Longitudinal tension
+    [0;   0.2; 0  ],   % Case 2: Transverse tension
+    [0;   0;   0.4],   % Case 3: Pure shear
+    [0.2; 0.2; 0  ]    % Case 4: Biaxial tension
 };
 
-titles = {'Case 1: Longitudinal Tension', 'Case 2: Transverse Tension', ...
-          'Case 3: Pure Shear', 'Case 4: Biaxial Tension'};
+titles = {
+    'Case 1: Longitudinal Tension', ...
+    'Case 2: Transverse Tension', ...
+    'Case 3: Pure Shear', ...
+    'Case 4: Biaxial Tension'
+};
 
-figure('Color', 'w', 'Name', 'Lamina Analysis - English Version');
+figure('Color', 'w', 'Name', 'Lamina Analysis - Final Version');
 
 % ==========================================================
-% PART 3: Loop through Cases and Plot Results
+% PART 3: Loop Through Cases and Plot Deformation
 % ==========================================================
 for i = 1:4
-    subplot(2, 2, i); hold on;
+    subplot(2, 2, i);
+    hold on;
     
-    % Get current strain values
-    e1 = cases{i}(1); e2 = cases{i}(2); g12 = cases{i}(3);
+    % Current prescribed strain components
+    e1  = cases{i}(1);
+    e2  = cases{i}(2);
+    g12 = cases{i}(3);
     
-    % --- Stress Calculation (Sigma = Q * Epsilon) ---
-    % Note: Q16 and Q26 are zero in the principal material axes
-    s1 = Q11*e1 + Q12*e2;
-    s2 = Q12*e1 + Q22*e2;
-    tau12 = Q66*g12;
+    % ------------------------------------------------------
+    % Effective strains used only for visualization
+    % Poisson contraction is included in uniaxial cases
+    % ------------------------------------------------------
+    e1_plot = e1;
+    e2_plot = e2;
+    g12_plot = g12;
     
-    % Calculate deformed coordinates
-    % Mapping: x' = (1+e1)x + (g12)y, y' = (1+e2)y
-    x_new = (1 + e1) * x_orig + g12 * y_orig;
-    y_new = (1 + e2) * y_orig;
+    if i == 1
+        % Case 1: Longitudinal tension causes transverse contraction
+        e2_plot = -v12 * e1;
+    elseif i == 2
+        % Case 2: Transverse tension causes longitudinal contraction
+        e1_plot = -v21 * e2;
+    end
     
-    % Plot original shape (dashed grey) and deformed shape (solid red)
-    plot(x_orig, y_orig, 'k--', 'LineWidth', 1.2, 'Color', [0.5 0.5 0.5]);
-    plot(x_new, y_new, 'r-s', 'LineWidth', 2, 'MarkerFaceColor', 'r');
+    % ------------------------------------------------------
+    % Stress calculation in principal material coordinates
+    % sigma = Q * epsilon
+    % Note: Q16 = Q26 = 0 in the principal material axes
+    % ------------------------------------------------------
+    s1    = Q11 * e1 + Q12 * e2;
+    s2    = Q12 * e1 + Q22 * e2;
+    tau12 = Q66 * g12;
+    
+    % ------------------------------------------------------
+    % Deformation mapping
+    % x' = (1 + e1)x + gamma12*y
+    % y' = (1 + e2)y
+    % ------------------------------------------------------
+    x_new = (1 + e1_plot) * x_orig + g12_plot * y_orig;
+    y_new = (1 + e2_plot) * y_orig;
+    
+    % Plot original and deformed shapes
+    plot(x_orig, y_orig, '--', 'LineWidth', 1.5, 'Color', [0.6 0.6 0.6]);
+    plot(x_new, y_new, 'r-s', 'LineWidth', 2.5, 'MarkerFaceColor', 'r', 'MarkerSize', 7);
     
     % Plot fiber direction arrow
-    quiver(0.1, 0.5, 0.6, 0, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.5);
-    text(0.15, 0.6, 'Fiber', 'Color', 'b', 'FontWeight', 'bold', 'FontSize', 12);
+    quiver(0.1, 0.5, 0.45, 0, 0, 'b', 'LineWidth', 2.2, 'MaxHeadSize', 0.5);
+    text(0.14, 0.58, 'Fiber', 'Color', 'b', 'FontWeight', 'bold', 'FontSize', 12);
     
-    % Chart formatting
-    axis([-0.2 2.5 -0.2 1.5]); % Widened right margin for labels
-    axis equal; grid on;
-    title(titles{i}, 'FontSize', title_fs);
+    % ------------------------------------------------------
+    % Add loading/boundary-condition annotations
+    % ------------------------------------------------------
+    switch i
+        case 1
+            % Longitudinal tension: pull left and right
+            quiver(-0.08, 0.5, -0.18, 0, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            quiver(1.22, 0.5,  0.18, 0, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            text(-0.18, 0.63, '\sigma_1', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(1.24, 0.63, '\sigma_1', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            
+        case 2
+            % Transverse tension: pull top and bottom
+            quiver(0.5, -0.08, 0, -0.18, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            quiver(0.5, 1.22, 0,  0.18, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            text(0.58, -0.18, '\sigma_2', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(0.58,  1.33, '\sigma_2', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            
+        case 3
+            % Pure shear: bottom fixed, top edge sheared to the right
+            quiver(0.35, 1.10, 0.35, 0, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            text(0.74, 1.16, '\tau_{12}', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(0.18, -0.18, 'Bottom edge fixed', 'Color', [0.2 0.2 0.2], 'FontSize', text_fs, 'FontWeight', 'bold');
+            
+        case 4
+            % Biaxial tension: pull in both 1- and 2-directions
+            quiver(-0.08, 0.6, -0.18, 0, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            quiver(1.22, 0.6,  0.18, 0, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            quiver(0.6, -0.08, 0, -0.18, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            quiver(0.6, 1.22, 0,  0.18, 0, 'Color', [0.85 0 0], 'LineWidth', 2, 'MaxHeadSize', 0.8);
+            text(-0.18, 0.73, '\sigma_1', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(1.24, 0.73, '\sigma_1', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(0.68, -0.18, '\sigma_2', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+            text(0.68,  1.33, '\sigma_2', 'Color', [0.85 0 0], 'FontSize', text_fs, 'FontWeight', 'bold');
+    end
+    
+    % Axes formatting
+    axis([-0.25 2.5 -0.25 1.65]);
+    axis equal;
+    grid on;
+    box on;
+    title(titles{i}, 'FontSize', title_fs, 'FontWeight', 'bold');
     xlabel('Direction 1 (Fiber)', 'FontSize', ax_fs);
     ylabel('Direction 2 (Transverse)', 'FontSize', ax_fs);
     
-    % Large labels on the RIGHT side to avoid overlap
-    label_x = 1.7; 
+    % ------------------------------------------------------
+    % Display prescribed strain labels on the right side
+    % ------------------------------------------------------
+    label_x = 1.72;
+    
     if e1 > 0
-        text(label_x, 1.2, ['\epsilon_1 = ' num2str(e1)], ...
-             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
+        text(label_x, 1.15, ['\epsilon_1 = ' num2str(e1)], ...
+            'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
     end
     
     if e2 > 0
-        % Offset e2 if e1 is already present
-        y_pos = (e1 > 0) * 0.9 + (e1 == 0) * 1.2;
+        if e1 > 0
+            y_pos = 0.85;
+        else
+            y_pos = 1.15;
+        end
         text(label_x, y_pos, ['\epsilon_2 = ' num2str(e2)], ...
-             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold'); 
+            'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
     end
     
     if g12 > 0
-        text(label_x, 0.6, ['\gamma_{12} = ' num2str(g12)], ...
-             'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
+        text(label_x, 0.60, ['\gamma_{12} = ' num2str(g12)], ...
+            'Color', 'r', 'FontSize', label_fs, 'FontWeight', 'bold');
     end
 end
+
+% Optional overall title
+sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
+        'FontSize', 18, 'FontWeight', 'bold');
 </pre>
 
     <div class="figure-block">

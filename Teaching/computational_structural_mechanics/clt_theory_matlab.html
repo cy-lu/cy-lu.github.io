@@ -650,9 +650,25 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
     </div>
 
     <p>
-      This matrix is still a stiffness matrix, but now written in the laminate axes. Its entries depend on the original
-      lamina properties and on the ply orientation angle \(\theta\).
+      This matrix is the <b>general plane-stress constitutive form of a rotated orthotropic lamina written in the laminate axes</b>.
+      The matrix form itself is valid for any ply orientation \(\theta\), but the values of its entries depend on both the
+      lamina properties and the orientation angle.
     </p>
+
+    <div class="note-box">
+      <p><b>When this matrix form is valid.</b></p>
+      <ol>
+        <li>The ply is modeled as an <b>orthotropic lamina</b>.</li>
+        <li>The constitutive law is written in the <b>plane-stress reduced form</b> of CLT.</li>
+        <li>The stresses and strains are expressed in the <b>laminate axes</b> \((x,y)\), not in the local material axes \((1,2)\).</li>
+        <li>The ply may be rotated by any angle \(\theta\) relative to the laminate axes.</li>
+      </ol>
+      <p>
+        Therefore, the 3×3 structure of \(\bar{\mathbf{Q}}\) is the correct general form for a rotated ply in CLT.
+        What changes from case to case is not the matrix size or structure, but whether the coupling terms
+        \(\bar{Q}_{16}\) and \(\bar{Q}_{26}\) vanish or remain nonzero.
+      </p>
+    </div>
 
     <div class="note-box">
       <p><b>Key physical point.</b></p>
@@ -670,17 +686,42 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
     </p>
 
     <div class="note-box">
+      <p><b>How the general form should be interpreted.</b></p>
+      <p>
+        The matrix
+      </p>
+      <div class="formula-box">
+        \[
+        \bar{\mathbf{Q}}=
+        \begin{bmatrix}
+        \bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}\\
+        \bar{Q}_{12} & \bar{Q}_{22} & \bar{Q}_{26}\\
+        \bar{Q}_{16} & \bar{Q}_{26} & \bar{Q}_{66}
+        \end{bmatrix}
+        \]
+      </div>
+      <p>
+        should be understood as a <b>single general constitutive template</b> for all rotated plies under plane stress.
+        It does <b>not</b> imply that \(\bar{Q}_{16}\) and \(\bar{Q}_{26}\) are always nonzero.
+        Instead, those two terms are angle-dependent and identify whether normal and shear response are coupled in the laminate frame.
+      </p>
+    </div>
+
+    <div class="note-box">
+      <p><b>Special and general cases.</b></p>
+
       <p><b>Case A: \(0^\circ\) ply.</b></p>
       <p>
         If the ply is aligned with the laminate axes, then the laminate axes and the material principal axes coincide.
-        In that case, the transformed matrix is the same as the material-axis matrix, so the coupling terms remain zero:
+        In that case,
+        \(\bar{\mathbf{Q}}=\mathbf{Q}\), and the coupling terms remain zero:
         \(\bar{Q}_{16}=\bar{Q}_{26}=0\).
       </p>
 
       <p><b>Case B: \(90^\circ\) ply.</b></p>
       <p>
         A \(90^\circ\) ply is still aligned with a material symmetry direction, even though the fiber and transverse directions
-        are exchanged relative to the laminate axes. Because the axes are still along principal material directions,
+        are exchanged relative to the laminate axes. Because the laminate axes are still along principal material directions,
         the normal–shear coupling terms again vanish:
         \(\bar{Q}_{16}=\bar{Q}_{26}=0\).
       </p>
@@ -691,6 +732,19 @@ sgtitle('In-Plane Deformation Modes of an Orthotropic Lamina', ...
         Then normal and shear response generally become coupled in the transformed constitutive law, and
         \(\bar{Q}_{16}\) and \(\bar{Q}_{26}\) are generally nonzero.
         This is the usual case for rotated plies in a laminate.
+      </p>
+    </div>
+
+    <div class="note-box">
+      <p><b>Most important takeaway.</b></p>
+      <p>
+        The local material-axis matrix \(\mathbf{Q}\) and the global laminate-axis matrix \(\bar{\mathbf{Q}}\) should never be mixed.
+        The matrix \(\mathbf{Q}\) is valid in the local principal material axes of a ply.
+        The matrix \(\bar{\mathbf{Q}}\) is the rotated form used when that ply is embedded in a laminate and described in global coordinates.
+      </p>
+      <p>
+        For \(0^\circ\) and \(90^\circ\) plies, the global matrix still has the same 3×3 form, but
+        \(\bar{Q}_{16}=\bar{Q}_{26}=0\). For a general off-axis ply, those coupling terms are generally nonzero.
       </p>
     </div>
   </div>

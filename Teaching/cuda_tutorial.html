@@ -186,9 +186,6 @@
     <p>
       The main reason is architectural specialization. A CPU is optimized for low-latency execution, complex control flow, branch prediction, and strong single-thread performance. A GPU is optimized for throughput: it devotes a much larger fraction of its hardware budget to arithmetic units and parallel execution resources. This makes it especially effective when the same operation must be applied to many data elements.
     </p>
-    <p>
-      In scientific computing, this situation appears naturally in vector operations, matrix-style updates, structured-grid PDE solvers, image-style processing, and stencil-based algorithms. If the computation is regular enough, many GPU threads can work simultaneously on different parts of the domain.
-    </p>
 
     <figure>
       <img src="../img/cpu_gpu_architecture.png" alt="CPU versus GPU architecture">
@@ -198,7 +195,19 @@
     </figure>
 
     <p>
-      Before diving into the memory hierarchy and code, let’s look at the practical outcome. Here is a complex electromagnetic wave propagation (FDTD) simulation. A standard CPU implementation takes hours, while a CUDA-optimized GPU implementation takes minutes.
+      To understand this intuitively, think of a CPU as a highly skilled hero—powerful and versatile, but working alone. A GPU is like a massive legion of soldiers; individually simpler, but capable of executing thousands of identical tasks simultaneously in parallel.
+    </p>
+
+    <figure>
+      <img src="../img/CPU_GPU_CARTOON.png" alt="CPU vs GPU Analogy - Hero vs Thousands in parallel" style="max-width: 75%; border: 1px solid #ddd; border-radius: 10px;">
+      <figcaption>
+        <strong>Figure 1.1. The "Hero vs. Legion" analogy (AI-generated).</strong> 
+        The CPU excels at complex single-thread logic (latency-oriented), while the GPU is optimized for massive data-parallel throughput.
+      </figcaption>
+    </figure>
+
+    <p>
+      In scientific computing, this throughput-oriented architecture is ideal for structured-grid PDE solvers or stencil-based algorithms. Let’s look at the practical outcome in a <strong>Finite-Difference Time-Domain (FDTD)</strong> electromagnetic simulation:
     </p>
 
     <div style="text-align: center; margin: 24px 0 20px 0;">
@@ -206,7 +215,7 @@
         <source src="../img/FDTD_CUDA_GPU_CPU_Comparison.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p style="font-size: 0.93rem; color: #5f6d78; margin-top: 10px; line-height: 1.55;"><em>Simulation of electromagnetic wave propagation. Left: CPU execution. Right: CUDA-accelerated execution showing a significant speedup.</em></p>
+      <p style="font-size: 0.93rem; color: #5f6d78; margin-top: 10px; line-height: 1.55;"><em>FDTD Simulation: Left: CPU execution. Right: CUDA-accelerated execution showing significant speedup.</em></p>
     </div>
 
     <div class="highlight-box">
@@ -459,6 +468,7 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
     <h2>9. Image sources and attribution</h2>
     <ol class="source-list">
       <li><b>Figure 1: CPU vs GPU architecture.</b> Based on the CPU/GPU comparison diagram discussed by Cornell Virtual Workshop, which notes that the figure is taken from the CUDA C++ Programming Guide.</li>
+      <li><b>Figure 1.1: CPU vs GPU Analogy.</b> AI-generated illustration depicting the "Hero vs. Legion" concept for pedagogical purposes.</li>
       <li><b>Figure 2: CUDA thread / block / grid hierarchy.</b> Standard CUDA execution-model diagram from the NVIDIA CUDA C++ Programming Guide.</li>
       <li><b>Figure 3: GPU memory hierarchy.</b> Cornell Virtual Workshop memory-levels diagram for the NVIDIA Tesla V100, based on NVIDIA/Citadel teaching material.</li>
       <li><b>Figure 4: Laplace / Jacobi stencil illustration.</b> Used as a teaching illustration for stencil-style iterative updates and local-neighbor averaging.</li>

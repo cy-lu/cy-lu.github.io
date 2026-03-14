@@ -197,6 +197,18 @@
       </figcaption>
     </figure>
 
+    <p>
+      Before diving into the memory hierarchy and code, let’s look at the practical outcome. Here is a complex electromagnetic wave propagation (FDTD) simulation. A standard CPU implementation takes hours, while a CUDA-optimized GPU implementation takes minutes.
+    </p>
+
+    <div style="text-align: center; margin: 24px 0 20px 0;">
+      <video width="80%" autoplay loop muted playsinline style="border: 1px solid #ccc; box-shadow: 0 4px 14px rgba(0,0,0,0.08); border-radius: 10px;">
+        <source src="../img/FDTD_CUDA_GPU_CPU_Comparison.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p style="font-size: 0.93rem; color: #5f6d78; margin-top: 10px; line-height: 1.55;"><em>Simulation of electromagnetic wave propagation. Left: CPU execution. Right: CUDA-accelerated execution showing a significant speedup.</em></p>
+    </div>
+
     <div class="highlight-box">
       <b>Key point.</b> A GPU is not automatically faster for every workload. The strongest gains typically appear when the computation is data-parallel, arithmetic is repeated many times, and memory access is reasonably regular.
     </div>

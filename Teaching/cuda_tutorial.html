@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CUDA Tutorial for Scientific Computing | Chun-Yu Lu</title>
+  <title>CUDA for Scientific Computing: A Practical Guide | Chun-Yu Lu</title>
 
   <link rel="stylesheet" href="../css/custom.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -160,9 +160,9 @@
 
 <div class="hero">
   <div class="container">
-    <h1>CUDA Tutorial for Scientific Computing</h1>
+    <h1>CUDA for Scientific Computing: A Practical Guide</h1>
     <p>
-      This tutorial introduces GPU computing from a computational physics perspective. The focus is strictly on application: why GPUs accelerate structured numerical workloads, how memory hierarchy dictates performance, and how to implement stencil-based algorithms like the Laplace operator effectively.
+      Bridging the gap between basic syntax and high-performance PDE solvers. This guide focuses on the engineering realities of GPU computing: hardware-aware memory management, stencil optimization, and why architectural design dictates algorithmic choices in computational physics.
     </p>
   </div>
 </div>
@@ -171,132 +171,115 @@
 
   <div class="section-card toc">
     <h2>Contents</h2>
-    <a href="#why-gpu">1. Why GPUs Accelerate Computation</a>
-    <a href="#execution-model">2. CUDA Execution Model</a>
-    <a href="#memory-hierarchy">3. GPU Memory Hierarchy</a>
-    <a href="#laplace-1d">4. 1D Laplace Benchmark</a>
-    <a href="#laplace-2d">5. 2D Laplace Benchmark</a>
-    <a href="#benchmark-scaling">6. Scaling Results & Performance Analysis</a>
-    <a href="#historical-note">7. The Evolution of Texture Memory</a>
-    <a href="#sources">8. Image Sources</a>
+    <a href="#why-gpu">1. The Architectural Shift: CPU vs. GPU</a>
+    <a href="#execution-model">2. Mapping Grids to CUDA Hierarchies</a>
+    <a href="#memory-hierarchy">3. The Memory Bottleneck</a>
+    <a href="#laplace-1d">4. 1D Laplace Benchmarking</a>
+    <a href="#laplace-2d">5. 2D Laplace & Stencil Operations</a>
+    <a href="#benchmark-scaling">6. Performance Analysis on Tesla T4</a>
+    <a href="#historical-note">7. The Obsolescence of Texture Memory</a>
+    <a href="#beyond-naive">8. Production-Grade Optimizations</a>
+    <a href="#sources">9. References</a>
   </div>
 
   <div id="why-gpu" class="section-card">
-    <h2>1. Why GPUs Accelerate Computation</h2>
+    <h2>1. The Architectural Shift: CPU vs. GPU</h2>
     <p>
-      The core difference lies in architectural specialization. CPUs are optimized for low-latency execution and complex control flow, making them ideal for sequential logic. GPUs are designed for massive throughput, dedicating the majority of their hardware to arithmetic logic units (ALUs). This architecture excels when identical operations are applied to large datasets simultaneously.
+      CPUs are built to minimize latency for unpredictable workloads, dedicating vast die area to complex control logic and massive L3 caches. GPUs take the opposite approach: they maximize throughput by heavily prioritizing Arithmetic Logic Units (ALUs) over control logic. 
     </p>
 
     <figure>
-      <img src="../img/cpu_gpu_architecture.png" alt="CPU versus GPU architecture">
+      <img src="../img/cpu_gpu_architecture.png" alt="Hardware allocation differences between CPU and GPU">
       <figcaption>
-        Figure 1. CPU vs. GPU architecture. CPUs allocate significant die area to control logic and cache; GPUs prioritize massively parallel arithmetic execution.
+        Figure 1. Transistor allocation in CPU vs. GPU architecture. GPUs trade latency-hiding caches for sheer computational density.
       </figcaption>
     </figure>
 
     <p>
-      Think of the CPU as a highly specialized single worker handling complex, dynamic tasks. The GPU, conversely, is a massive highly-coordinated legion, executing thousands of simple, identical tasks in parallel.
+      For structured-grid algorithms—such as Finite-Difference Time-Domain (FDTD) or Jacobi iterations—this throughput-centric design is a natural fit. These solvers demand high arithmetic intensity across massive arrays with highly predictable memory access patterns. When properly implemented, a modern GPU can routinely deliver order-of-magnitude speedups over a multi-core CPU.
     </p>
 
     <figure>
-      <img src="../img/CPU_GPU_CARTOON.png" alt="CPU vs GPU Analogy - Hero vs Thousands in parallel" style="max-width: 75%; border: 1px solid #ddd; border-radius: 10px;">
+      <img src="../img/CPU_GPU_CARTOON.png" alt="Conceptual analogy of CPU vs GPU" style="max-width: 75%; border: 1px solid #ddd; border-radius: 10px;">
       <figcaption>
-        <strong>Figure 1.1. The "Hero vs. Legion" analogy.</strong>
+        <strong>Figure 1.1. Single complex worker (CPU) vs. Massively parallel coordinated workers (GPU).</strong>
       </figcaption>
     </figure>
-
-    <p>
-      In scientific computing, this throughput-oriented design is the perfect match for structured-grid PDE solvers or stencil algorithms. A practical example is a <strong>Finite-Difference Time-Domain (FDTD)</strong> electromagnetic simulation, where GPU acceleration routinely yields order-of-magnitude speedups over multithreaded CPUs.
-    </p>
 
     <div style="text-align: center; margin: 24px 0 20px 0;">
       <video width="80%" autoplay loop muted playsinline style="border: 1px solid #ccc; box-shadow: 0 4px 14px rgba(0,0,0,0.08); border-radius: 10px;">
         <source src="../img/FDTD_CUDA_GPU_CPU_Comparison.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p style="font-size: 0.93rem; color: #5f6d78; margin-top: 10px; line-height: 1.55;"><em>Left: CPU FDTD execution. Right: CUDA-accelerated FDTD execution demonstrating massive throughput gains.</em></p>
-    </div>
-
-    <div class="highlight-box">
-      <b>Key takeaway:</b> GPU acceleration is not a universal solution. It delivers maximum impact for data-parallel workloads characterized by high arithmetic intensity and regular memory access patterns.
+      <p style="font-size: 0.93rem; color: #5f6d78; margin-top: 10px; line-height: 1.55;"><em>FDTD Simulation: Multi-threaded CPU vs. CUDA execution.</em></p>
     </div>
   </div>
 
   <div id="execution-model" class="section-card">
-    <h2>2. CUDA Execution Model</h2>
+    <h2>2. Mapping Grids to CUDA Hierarchies</h2>
     <p>
-      CUDA structures parallelism hierarchically. Work is launched as a <b>kernel</b>, executed by thousands of <b>threads</b>. These threads are grouped into <b>blocks</b>, and blocks form a <b>grid</b>. In numerical grid solvers, one thread typically computes the update for one spatial mesh node.
+      CUDA abstractions map directly to numerical grids. Computations are launched as <b>kernels</b>, executed by thousands of <b>threads</b>. Threads are bundled into <b>blocks</b>, which formulate a <b>grid</b>. In spatial simulations, the standard practice is mapping one thread to one discrete mesh node.
     </p>
 
     <figure>
-      <img src="../img/cuda_thread_block_grid.png" alt="CUDA thread block grid hierarchy">
+      <img src="../img/cuda_thread_block_grid.png" alt="CUDA hierarchical execution model">
       <figcaption>
-        Figure 2. CUDA thread hierarchy mapping.
+        Figure 2. Mapping execution threads to a computational grid.
       </figcaption>
     </figure>
 
-    <p>
-      Global memory indexing in 1D is defined as:
-    </p>
+    <p>Global memory indexing in 1D:</p>
     <pre><code>int i = blockIdx.x * blockDim.x + threadIdx.x;</code></pre>
 
-    <p>
-      Extended to 2D for surface or cross-section modeling:
-    </p>
+    <p>Extended to 2D for cross-section models or surface boundaries:</p>
     <pre><code>int i = blockIdx.x * blockDim.x + threadIdx.x;
 int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
   </div>
 
   <div id="memory-hierarchy" class="section-card">
-    <h2>3. GPU Memory Hierarchy</h2>
+    <h2>3. The Memory Bottleneck</h2>
     <p>
-      In numerical computing, performance is often bottlenecked by data movement, not math. Optimizing a CUDA kernel requires understanding the memory hierarchy to minimize latency and maximize bandwidth.
+      In computational physics, FLOPS are practically free; data movement is expensive. Real-world solver performance is almost entirely bound by memory bandwidth. Understanding the memory hierarchy is a prerequisite for writing fast kernels.
     </p>
 
     <figure>
-      <img src="../img/GPUMemLevels.png" alt="GPU memory hierarchy">
+      <img src="../img/GPUMemLevels.png" alt="Memory layout of a modern GPU">
       <figcaption>
-        Figure 3. GPU memory hierarchy: Balancing speed and capacity.
+        Figure 3. Memory hierarchy: balancing latency, bandwidth, and capacity.
       </figcaption>
     </figure>
 
     <ul>
-      <li><b>Registers</b>: Thread-private, zero-latency storage.</li>
-      <li><b>Shared Memory</b>: Block-private, user-managed cache. Highly effective for stencil tiling.</li>
-      <li><b>L1 / L2 Cache</b>: Hardware-managed cache hierarchy.</li>
-      <li><b>Global Memory</b>: High capacity, high latency. Minimizing transactions here is critical.</li>
+      <li><b>Registers:</b> Thread-private. Zero latency, but extremely limited. Overusing them causes "register spilling" to local memory.</li>
+      <li><b>Shared Memory:</b> Block-level, user-managed cache. Vital for algorithms needing complex intra-block data reuse.</li>
+      <li><b>L1 / L2 Cache:</b> Hardware-managed. Modern NVIDIA architectures have highly efficient L1 caches that automatically handle most regular read patterns.</li>
+      <li><b>Global Memory:</b> High capacity, but hundreds of clock cycles of latency. Kernel design must minimize transactions here.</li>
     </ul>
-
-    <div class="highlight-box">
-      <b>Practical impact:</b> In stencil operations, true acceleration is achieved by ensuring neighboring mesh nodes are reused efficiently from registers or cache, rather than repeatedly fetched from global memory.
-    </div>
   </div>
 
   <div id="laplace-1d" class="section-card">
-    <h2>4. 1D Laplace Operator Benchmark</h2>
+    <h2>4. 1D Laplace Benchmarking</h2>
     <p>
-      The 1D discrete Laplace operator serves as the foundational test for memory access strategies:
+      To isolate memory access behavior from arithmetic complexity, we use the 1D discrete Laplace operator:
     </p>
 
     <div class="formula-box">
       (∇²u)<sub>i</sub> ≈ u<sub>i+1</sub> − 2u<sub>i</sub> + u<sub>i−1</sub>
     </div>
 
-    <p>
-      This isolates memory-access profiling from the complexity of full PDE solvers. We evaluate four distinct implementations:
-    </p>
-
+    <p>We evaluate four distinct implementation strategies to measure hardware response:</p>
     <ul>
-      <li><b>Naive</b>: Direct global memory reads/writes.</li>
-      <li><b>LDG</b>: Read-only cache targeting via <code>__ldg()</code>.</li>
-      <li><b>TexObject</b>: Hardware texture cache fetches.</li>
-      <li><b>Shared</b>: Explicit shared memory tiling with halo exchange.</li>
+      <li><b>Naive:</b> Standard pointer arithmetic to global memory.</li>
+      <li><b>LDG:</b> Forcing read-only cache usage via <code>__ldg()</code>.</li>
+      <li><b>TexObject:</b> Utilizing the hardware texture cache.</li>
+      <li><b>Shared:</b> Explicit tiling in shared memory with halo (ghost cell) exchange.</li>
     </ul>
 
     <pre><code>__global__ void ker_laplace_naive(float* y, const float* x, int n) {
   int i = blockIdx.x * blockDim.x + threadIdx.x;
   if (i >= n) return;
 
+  // Periodic boundary conditions
   int prev = (i == 0) ? n - 1 : i - 1;
   int next = (i == n - 1) ? 0 : i + 1;
 
@@ -309,9 +292,9 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
   </div>
 
   <div id="laplace-2d" class="section-card">
-    <h2>5. 2D Laplace Operator Benchmark</h2>
+    <h2>5. 2D Laplace & Stencil Operations</h2>
     <p>
-      Moving to practical modeling, the 2D five-point stencil is ubiquitous in physics (diffusion, electrostatics, FDTD updating schemes):
+      Scaling up to 2D, the five-point stencil is the backbone of diffusion solvers, electrostatics, and TM/TE mode FDTD schemes:
     </p>
 
     <div class="formula-box">
@@ -319,9 +302,9 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
     </div>
 
     <figure>
-      <img src="../img/laplace_jacobi_stencil.png" alt="Laplace stencil and Jacobi iteration">
+      <img src="../img/laplace_jacobi_stencil.png" alt="5-point spatial stencil">
       <figcaption>
-        Figure 4. Standard 5-point stencil pattern for Jacobi iteration.
+        Figure 4. Central difference representation for 2D spatial derivatives.
       </figcaption>
     </figure>
 
@@ -336,12 +319,7 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
   int jp = (j == ny - 1) ? 0      : j + 1;
 
   int c  = j * nx + i;
-  int xm = j * nx + im;
-  int xp = j * nx + ip;
-  int ym = jm * nx + i;
-  int yp = jp * nx + i;
-
-  y[c] = x[xp] + x[xm] + x[yp] + x[ym] - 4.0f * x[c];
+  y[c] = x[j * nx + ip] + x[j * nx + im] + x[jp * nx + i] + x[jm * nx + i] - 4.0f * x[c];
 }</code></pre>
 
     <div class="download-box">
@@ -350,15 +328,15 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
   </div>
 
   <div id="benchmark-scaling" class="section-card">
-    <h2>6. Scaling Results & Performance Analysis</h2>
+    <h2>6. Performance Analysis on Tesla T4</h2>
     <p>
-      The following timings were recorded on an NVIDIA Tesla T4 GPU (16×16 block size), comparing the four memory access strategies across varying grid resolutions.
+      Executing the 2D benchmark on an NVIDIA T4 GPU (using 16×16 blocks) reveals crucial insights about modern hardware behavior.
     </p>
 
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Grid size</th>
+          <th>Grid Resolution</th>
           <th>Naive (ms)</th>
           <th>LDG (ms)</th>
           <th>TexObject (ms)</th>
@@ -373,77 +351,81 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
       </tbody>
     </table>
 
-    <h3>Result Breakdown</h3>
+    <h3>Engineering Takeaways</h3>
     <p>
-      Runtime scales linearly with the number of grid points, confirming this is fundamentally a memory-bound workload. The performance ranking remains rigid across all grid sizes:
+      The execution time scales linearly with grid size, verifying a strict memory-bound state. More importantly, the hierarchy of execution speed remains rigid:
+      <code>Naive ≈ LDG &lt; TexObject &lt; Shared</code>
     </p>
 
-    <pre><code>Naive ≈ LDG  &lt;  TexObject  &lt;  Shared</code></pre>
-
     <ul>
-      <li><b>Naive vs. LDG:</b> Identical performance. On modern architectures like the T4, the unified L1/L2 cache perfectly handles regular, row-major memory accesses. The explicit <code>__ldg()</code> instruction offers zero additional benefit.</li>
-      <li><b>Texture Object:</b> Consistently slower. Texture caching provides no advantage for simple, aligned Cartesian stencils over modern L1 cache.</li>
-      <li><b>Shared Memory:</b> The slowest method. For extremely lightweight kernels like a 5-point update, the computational overhead of block synchronization, halo loading, and index bookkeeping heavily outweighs the reduction in global memory transactions.</li>
+      <li><b>Naive vs. LDG:</b> Statistically identical. The T4's L1/L2 cache seamlessly handles row-major spatial locality. Explicit read-only directives offer no advantage here.</li>
+      <li><b>Texture Caching:</b> Measurably slower. For Cartesian grids, routing data through texture units introduces latency without benefit.</li>
+      <li><b>The Shared Memory Trap:</b> Shared memory is the slowest approach for this specific operator. For a lightweight 5-point stencil, the indexing overhead, block synchronization (<code>__syncthreads()</code>), and ghost cell loading consume more cycles than they save in global memory transactions.</li>
     </ul>
-
+    
     <div class="highlight-box">
-      <b>Engineering Reality:</b> Explicit shared memory tiling is not a silver bullet. Always profile before adding complexity. For basic stencils on modern GPUs, hardware cache often wins.
+      <b>Practical Rule:</b> Never assume shared memory automatically guarantees a speedup. For low arithmetic-intensity stencils on modern architectures (Volta/Turing/Ampere onwards), the hardware L1 cache often outperforms explicit manual tiling.
     </div>
   </div>
 
   <div id="historical-note" class="section-card">
-    <h2>7. The Evolution of Texture Memory</h2>
+    <h2>7. The Obsolescence of Texture Memory</h2>
     <p>
-      Historically, older CUDA architectures heavily relied on texture memory to accelerate 2D spatial locality workloads. The texture cache was uniquely optimized for spatial coherence, outperforming the rudimentary L1 caches of the time.
+      In the Kepler and Maxwell eras, exploiting texture memory was mandatory for high-performance 2D/3D wave propagation solvers. The texture cache was explicitly designed for spatial locality, vastly outperforming the rudimentary data caches of the time. 
     </p>
     <p>
-      However, modern GPU memory architectures have highly unified and sophisticated cache hierarchies. As demonstrated in the benchmark above, standard global memory accesses (Naive) now match or exceed the performance of texture fetches for regular grids. Today, texture memory should be reserved for specific use cases: irregular access patterns, hardware-level interpolation (e.g., in graphics), or specialized image processing tasks, rather than standard PDE solvers.
+      However, as unified cache architectures evolved, standard global memory accesses (our "Naive" method) caught up. Today, texture units should be strictly reserved for their intended use cases: hardware-accelerated interpolation, boundary clamping, and unstructured image processing.
+    </p>
+  </div>
+
+  <div id="beyond-naive" class="section-card">
+    <h2>8. Production-Grade Optimizations</h2>
+    <p>
+      When hardware caches handle basic stencils efficiently, further speedups in industrial PDE solvers (e.g., 3D FDTD, Maxwell solvers) require addressing global memory bandwidth and hardware occupancy directly.
     </p>
 
-    <a class="back-link" href="../index.html">← Back to homepage</a>
-  </div>
-  <div id="beyond-naive" class="section-card">
-      <h2>8. Beyond Naive CUDA: Advanced Optimizations</h2>
-      <p>
-        When hardware caches handle basic stencils efficiently, further speedups in production-grade PDE solvers (e.g., 3D FDTD or CFD) are achieved by addressing the specific bottlenecks of memory bandwidth and hardware occupancy.
-      </p>
-  
-      <h3>I. Memory Coalescing</h3>
-      
-      <p>
-        GPU global memory is accessed via 32-byte or 128-byte transactions. If all threads in a Warp (32 threads) access a <b>contiguous and aligned</b> memory block, the hardware fulfills the request in a single transaction. 
-      </p>
-      <p>
-        <b>Application:</b> In multiphysics simulations, avoid <b>Array of Structures (AoS)</b> (e.g., <code>struct{Ex,Ey,Hz} grid[N]</code>) as it results in non-contiguous access for individual components. Use <b>Structure of Arrays (SoA)</b> to ensure 100% coalesced transactions for every field component load.
-      </p>
-  
-      <h3>II. Kernel Fusion</h3>
-      
-      <p>
-        Every kernel launch requires writing intermediate results back to global memory and re-reading them in the next step. Moving data off-chip is significantly slower than the computation itself.
-      </p>
-      <p>
-        <b>Application:</b> Combine sequential operations—such as gradient computation, boundary conditions, and time integration—into a single massive kernel. By keeping intermediate values in <b>registers</b>, you eliminate off-chip memory round-trips and maximize the compute-to-memory ratio.
-      </p>
-  
-      <h3>III. Thread Coarsening</h3>
-      
-      <p>
-        Mapping one thread to one grid point is logical but can be inefficient due to indexing overhead. 
-      </p>
-      <p>
-        <b>Application:</b> Assign a single thread to compute a small cluster of nodes (e.g., 1x4 points). This reduces total kernel launch and indexing overhead. More importantly, it allows for <b>register reuse</b>: shared boundary data between the 4 points can be loaded once and kept in zero-latency registers, effectively bypassing even the L1 cache while increasing <b>Instruction-Level Parallelism (ILP)</b>.
-      </p>
+    <h3>I. Enforcing Memory Coalescing</h3>
+    <p>
+      GPUs retrieve memory in 32- or 128-byte segments. If all 32 threads in a Warp access a contiguous and aligned block of memory, the transaction is "coalesced" and executed in a single cycle.
+    </p>
+    <p>
+      <b>Implementation:</b> In multiphysics simulations, using <b>Array of Structures (AoS)</b> (e.g., <code>struct {float Ex, Ey, Hz;} grid[N]</code>) breaks continuity. To achieve maximum bandwidth, data structures must be refactored into a <b>Structure of Arrays (SoA)</b> (e.g., independent arrays for <code>Ex[N]</code>, <code>Ey[N]</code>), ensuring 100% coalesced access for every field component.
+    </p>
+
+    <h3>II. Kernel Fusion</h3>
+    <p>
+      Writing intermediate fields to global memory, only to read them back in the next sequential step, is a severe bottleneck. Data transfer off-chip frequently dominates the runtime of a solver.
+    </p>
+    <p>
+      <b>Implementation:</b> Combine sequential operations—such as calculating gradients, updating field values, and applying absorbing boundary conditions (like UPML/CPML)—into a single, robust kernel. Retaining intermediate values within <b>registers</b> eliminates off-chip memory round-trips entirely.
+    </p>
+
+    <h3>III. Thread Coarsening and Register Reuse</h3>
+    <p>
+      The standard "one thread per node" mapping creates significant instruction overhead in massive 3D arrays. 
+    </p>
+    <p>
+      <b>Implementation:</b> Assign a single thread to compute a small cluster of nodes (e.g., a 1x4 element column). This reduces the total number of blocks launched. Crucially, shared boundary data between those nodes can be loaded once from global memory and held in zero-latency <b>registers</b> for reuse. This bypasses the L1 cache entirely and massively increases Instruction-Level Parallelism (ILP).
+    </p>
+
+    <div class="highlight-box">
+      <b>References & Best Practices:</b>
+      <ul style="margin-top: 8px; margin-bottom: 0;">
+        <li><a href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#coalesced-access-to-global-memory" target="_blank" rel="noopener">NVIDIA CUDA C++ Best Practices: Coalesced Access</a></li>
+        <li><a href="https://developer.nvidia.com/blog/cuda-pro-tip-increase-performance-with-vectorized-memory-access/" target="_blank" rel="noopener">NVIDIA Developer Blog: AoS vs SoA</a></li>
+      </ul>
     </div>
+  </div>
+
   <div id="sources" class="section-card">
-    <h2>9. Image Sources & Attribution</h2>
+    <h2>9. References & Image Attribution</h2>
     <ol class="source-list">
-      <li><b>Figure 1: CPU vs GPU architecture.</b> Sourced from CUDA C++ Programming Guide (via Cornell Virtual Workshop).</li>
-      <li><b>Figure 1.1: CPU vs GPU Analogy.</b> AI-generated conceptual illustration.</li>
-      <li><b>Figure 2: CUDA execution hierarchy.</b> NVIDIA CUDA C++ Programming Guide.</li>
-      <li><b>Figure 3: GPU memory hierarchy.</b> Cornell Virtual Workshop / NVIDIA teaching materials.</li>
-      <li><b>Figure 4: Laplace / Jacobi stencil.</b> Standard teaching illustration for iterative local-neighbor updates.</li>
+      <li><b>Figure 1:</b> Hardware allocation derived from NVIDIA CUDA C++ Programming Guide.</li>
+      <li><b>Figure 2:</b> Thread hierarchy mapping, NVIDIA Developer Documentation.</li>
+      <li><b>Figure 3:</b> GPU memory architecture, Cornell Virtual Workshop.</li>
+      <li><b>Figure 4:</b> Standard numerical methods 5-point stencil representation.</li>
     </ol>
+    <a class="back-link" href="../index.html">← Back to homepage</a>
   </div>
 
 </div>

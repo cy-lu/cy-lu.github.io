@@ -72,12 +72,33 @@
       color: #555;
     }
 
-    /* 新增：強調參考書的樣式，但不破壞原本設定 */
     .ref-highlight {
       border-left: 3px solid #6c757d;
       padding-left: 15px;
       margin: 15px 0;
       font-size: 0.95em;
+    }
+    
+    /* Back to Top Button Styling */
+    #backToTopBtn {
+      display: none; 
+      position: fixed; 
+      bottom: 20px; 
+      right: 30px; 
+      z-index: 99; 
+      border: none; 
+      outline: none; 
+      background-color: #17a2b8; 
+      color: white; 
+      cursor: pointer; 
+      padding: 10px 15px; 
+      border-radius: 4px; 
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    #backToTopBtn:hover {
+      opacity: 1;
     }
   </style>
 </head>
@@ -173,6 +194,45 @@
       are related to the laminate <b>mid-plane strains</b> and <b>curvatures</b> through the stiffness blocks
       \(\mathbf{A}\), \(\mathbf{B}\), and \(\mathbf{D}\).
     </p>
+
+    <div class="table-responsive" style="margin-top: 25px; margin-bottom: 25px;">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>3D Continuum Quantity</th>
+            <th>2D Laminate (Thickness-Integrated)</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Displacement \(u(x,y,z)\)</td>
+            <td>Mid-plane strain \(\boldsymbol{\varepsilon}_0\)</td>
+            <td>In-plane deformation</td>
+          </tr>
+          <tr>
+            <td>Rotation \(\theta(x,y)\)</td>
+            <td>Curvature \(\boldsymbol{\kappa}\)</td>
+            <td>Bending deformation</td>
+          </tr>
+          <tr>
+            <td>Force \(F\)</td>
+            <td>Force resultant \(\mathbf{N}\) (N/m)</td>
+            <td>Force per unit width</td>
+          </tr>
+          <tr>
+            <td>Moment \(M\)</td>
+            <td>Moment resultant \(\mathbf{M}\) (N)</td>
+            <td>Bending moment per unit width</td>
+          </tr>
+          <tr>
+            <td>Stiffness \(k\)</td>
+            <td>Laminate stiffness \(\mathbf{A, B, D}\)</td>
+            <td>Effective stiffness after thickness integration</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <ul>
       <li>
@@ -326,5 +386,26 @@
   <p><a href="../../index.html#teaching">Back to Teaching</a></p>
 
 </div>
+
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">Top &uarr;</button>
+
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    var btn = document.getElementById("backToTopBtn");
+    // 當滾動超過 200px 時顯示按鈕
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+
 </body>
 </html>

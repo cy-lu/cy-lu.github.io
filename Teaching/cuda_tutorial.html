@@ -329,6 +329,26 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
 
   <div id="benchmark-scaling" class="section-card">
     <h2>6. Performance Analysis on Tesla T4</h2>
+    <h3>3D FDTD Performance Benchmark</h3>
+    <p>
+      Beyond lightweight stencil tests, it is also useful to show what a real 3D scientific solver can achieve after a CUDA pipeline has been implemented. In the present case, a 3D FDTD solver with dispersive material updates, real-time spectral accumulation, and Ex data output was executed on a publicly accessible NVIDIA T4 GPU.
+    </p>
+
+    <div class="highlight-box">
+      <b>Representative result:</b> a <b>600 × 600 × 200</b> simulation with <b>12,000 time steps</b>, including <b>real-time spectral accumulation</b> and <b>Ex field output</b>, was completed in <b>less than 30 minutes</b> on a T4 GPU.
+    </div>
+
+    <figure>
+      <img src="../img/fdtd_t4_performance_benchmark.png" alt="3D FDTD performance benchmark on NVIDIA T4">
+      <figcaption>
+        Figure 5. Baseline 3D CUDA benchmark on an NVIDIA T4. This table gives a practical sense of how grid size and numerical precision affect sustained throughput, and helps connect introductory CUDA concepts to production-scale scientific computing.
+      </figcaption>
+    </figure>
+
+    <p>
+      This benchmark is not meant to replace the kernel-level discussion below. Rather, it gives readers a more concrete sense of the scale at which GPU acceleration becomes transformative for end-to-end computational electromagnetics workflows.
+    </p>
+
     <p>
       Executing the 2D benchmark on an NVIDIA T4 GPU (using 16×16 blocks) reveals crucial insights about modern hardware behavior.
     </p>

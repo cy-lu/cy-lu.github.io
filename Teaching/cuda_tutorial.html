@@ -153,6 +153,35 @@
     .back-link:hover {
       text-decoration: underline;
     }
+
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: #0f4d7d;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+    }
+    .back-to-top:hover {
+      background: #1f6fa9;
+      transform: translateY(-2px);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+
   </style>
 </head>
 
@@ -449,6 +478,30 @@ int j = blockIdx.y * blockDim.y + threadIdx.y;</code></pre>
   </div>
 
 </div>
+
+
+<button id="backToTopBtn" class="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
+
+<script>
+  (function () {
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    function toggleBackToTopButton() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    }
+
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', toggleBackToTopButton);
+    toggleBackToTopButton();
+  })();
+</script>
 
 </body>
 </html>

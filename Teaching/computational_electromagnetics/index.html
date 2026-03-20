@@ -317,22 +317,21 @@
     <section class="section-card">
       <h2>Contents</h2>
       <div class="toc">
-        <a href="#foundations">1. Governing equations</a>
-        <a href="#quantities">2. Physical quantities and units</a>
-        <a href="#observables">3. Engineering observables</a>
-        <a href="#solver-map">4. FDTD and FEM selection</a>
-        <a href="#fdtd1d">5. 1D FDTD</a>
-        <a href="#fem1d">6. 1D FEM</a>
-        <a href="#fdtd2d">7. 2D FDTD</a>
-        <a href="#fem2d">8. 2D FEM</a>
-        <a href="#boundaries">9. Sources and boundaries</a>
-        <a href="#workflow">10. Workflow and validation</a>
-        <a href="#codes">11. Example codes</a>
+        <a href="#foundations">1. Governing equations & quantities</a>
+        <a href="#observables">2. Engineering observables</a>
+        <a href="#solver-map">3. FDTD and FEM selection</a>
+        <a href="#fdtd1d">4. 1D FDTD</a>
+        <a href="#fem1d">5. 1D FEM</a>
+        <a href="#fdtd2d">6. 2D FDTD</a>
+        <a href="#fem2d">7. 2D FEM</a>
+        <a href="#boundaries">8. Sources and boundaries</a>
+        <a href="#workflow">9. Workflow and validation</a>
+        <a href="#codes">10. Example codes</a>
       </div>
     </section>
 
     <section class="section-card" id="foundations">
-      <h2>1. Governing equations</h2>
+      <h2>1. Governing equations and physical quantities</h2>
       <p>Computational electromagnetics starts from Maxwell’s equations. The solver changes. The physics does not.</p>
       <div class="formula-box">
         \[
@@ -355,10 +354,7 @@
       <div class="note-box">
         In practical RF and photonics work, \(\varepsilon\), \(\mu\), and \(\sigma\) may vary with position and may also depend on frequency. That is the point where numerical methods become necessary.
       </div>
-    </section>
-
-    <section class="section-card" id="quantities">
-      <h2>2. Physical quantities and units</h2>
+      
       <p>Use SI units unless a project convention states otherwise. In optics, wavelength is often reported in nm; in RF, frequency is often reported in MHz or GHz. The underlying SI units remain the reference.</p>
 
       <h3>Core field and material quantities</h3>
@@ -367,22 +363,21 @@
           <tr>
             <th>Symbol</th>
             <th>Name</th>
-            <th>Meaning</th>
             <th>SI unit</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>\(\mathbf{E}\)</td><td>Electric field</td><td>Electric force per unit charge; primary field used to describe voltage-driven response.</td><td>V/m</td></tr>
-          <tr><td>\(\mathbf{D}\)</td><td>Electric flux density</td><td>Electric displacement; includes material polarization through \(\mathbf{D}=\varepsilon\mathbf{E}\).</td><td>C/m²</td></tr>
-          <tr><td>\(\mathbf{H}\)</td><td>Magnetic field</td><td>Magnetizing field associated with currents and time-varying electric fields.</td><td>A/m</td></tr>
-          <tr><td>\(\mathbf{B}\)</td><td>Magnetic flux density</td><td>Magnetic induction; the physical magnetic flux field through area.</td><td>T</td></tr>
-          <tr><td>\(\mathbf{J}\)</td><td>Current density</td><td>Conduction current per unit cross-sectional area.</td><td>A/m²</td></tr>
-          <tr><td>\(\rho\)</td><td>Charge density</td><td>Electric charge per unit volume.</td><td>C/m³</td></tr>
-          <tr><td>\(\varepsilon\)</td><td>Permittivity</td><td>Material parameter relating \(\mathbf{E}\) to \(\mathbf{D}\); controls capacitive response and wave speed.</td><td>F/m</td></tr>
-          <tr><td>\(\mu\)</td><td>Permeability</td><td>Material parameter relating \(\mathbf{H}\) to \(\mathbf{B}\); controls magnetic response.</td><td>H/m</td></tr>
-          <tr><td>\(\sigma\)</td><td>Conductivity</td><td>Material parameter relating \(\mathbf{E}\) to conduction current \(\mathbf{J}\).</td><td>S/m</td></tr>
-          <tr><td>\(\varepsilon_r\)</td><td>Relative permittivity</td><td>Permittivity normalized by vacuum permittivity \(\varepsilon_0\).</td><td>dimensionless</td></tr>
-          <tr><td>\(\mu_r\)</td><td>Relative permeability</td><td>Permeability normalized by vacuum permeability \(\mu_0\).</td><td>dimensionless</td></tr>
+          <tr><td>\(\mathbf{E}\)</td><td>Electric field</td><td>V/m</td></tr>
+          <tr><td>\(\mathbf{D}\)</td><td>Electric flux density</td><td>C/m²</td></tr>
+          <tr><td>\(\mathbf{H}\)</td><td>Magnetic field</td><td>A/m</td></tr>
+          <tr><td>\(\mathbf{B}\)</td><td>Magnetic flux density</td><td>T</td></tr>
+          <tr><td>\(\mathbf{J}\)</td><td>Current density</td><td>A/m²</td></tr>
+          <tr><td>\(\rho\)</td><td>Charge density</td><td>C/m³</td></tr>
+          <tr><td>\(\varepsilon\)</td><td>Permittivity</td><td>F/m</td></tr>
+          <tr><td>\(\mu\)</td><td>Permeability</td><td>H/m</td></tr>
+          <tr><td>\(\sigma\)</td><td>Conductivity</td><td>S/m</td></tr>
+          <tr><td>\(\varepsilon_r\)</td><td>Relative permittivity</td><td>dimensionless</td></tr>
+          <tr><td>\(\mu_r\)</td><td>Relative permeability</td><td>dimensionless</td></tr>
         </tbody>
       </table>
 
@@ -392,28 +387,27 @@
           <tr>
             <th>Symbol</th>
             <th>Name</th>
-            <th>Meaning</th>
             <th>SI unit</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>\(f\)</td><td>Frequency</td><td>Oscillation rate of the field.</td><td>Hz</td></tr>
-          <tr><td>\(\omega\)</td><td>Angular frequency</td><td>Frequency in radian form, \(\omega = 2\pi f\).</td><td>rad/s</td></tr>
-          <tr><td>\(\lambda\)</td><td>Wavelength</td><td>Distance over which the phase advances by \(2\pi\).</td><td>m</td></tr>
-          <tr><td>\(k_0\)</td><td>Free-space wavenumber</td><td>Spatial phase rate in free space, \(k_0 = 2\pi/\lambda\).</td><td>rad/m</td></tr>
-          <tr><td>\(\eta\)</td><td>Wave impedance</td><td>Ratio between electric and magnetic field amplitudes in a propagating wave.</td><td>Ω</td></tr>
-          <tr><td>\(\mathbf{S}=\mathbf{E}\times\mathbf{H}\)</td><td>Poynting vector</td><td>Power-flow density carried by the electromagnetic field.</td><td>W/m²</td></tr>
-          <tr><td>\(R\)</td><td>Reflectance</td><td>Reflected power normalized by incident power.</td><td>dimensionless or %</td></tr>
-          <tr><td>\(T\)</td><td>Transmittance</td><td>Transmitted power normalized by incident power.</td><td>dimensionless or %</td></tr>
-          <tr><td>\(A\)</td><td>Absorptance</td><td>Absorbed power fraction; for a passive structure \(A=1-R-T\).</td><td>dimensionless or %</td></tr>
-          <tr><td>\(S_{11}, S_{12}, S_{21}, S_{22}\)</td><td>S-parameters</td><td>Two-port scattering coefficients: input reflection, reverse transmission, forward transmission, and output reflection.</td><td>complex ratio; often reported as magnitude, phase, or dB</td></tr>
-          <tr><td>\(Q\)</td><td>Quality factor</td><td>Ratio of stored energy to energy lost per cycle in a resonant system.</td><td>dimensionless</td></tr>
+          <tr><td>\(f\)</td><td>Frequency</td><td>Hz</td></tr>
+          <tr><td>\(\omega\)</td><td>Angular frequency</td><td>rad/s</td></tr>
+          <tr><td>\(\lambda\)</td><td>Wavelength</td><td>m</td></tr>
+          <tr><td>\(k_0\)</td><td>Free-space wavenumber</td><td>rad/m</td></tr>
+          <tr><td>\(\eta\)</td><td>Wave impedance</td><td>Ω</td></tr>
+          <tr><td>\(\mathbf{S}=\mathbf{E}\times\mathbf{H}\)</td><td>Poynting vector</td><td>W/m²</td></tr>
+          <tr><td>\(R\)</td><td>Reflectance</td><td>dimensionless or %</td></tr>
+          <tr><td>\(T\)</td><td>Transmittance</td><td>dimensionless or %</td></tr>
+          <tr><td>\(A\)</td><td>Absorptance</td><td>dimensionless or %</td></tr>
+          <tr><td>\(S_{11}, S_{12}, S_{21}, S_{22}\)</td><td>S-parameters</td><td>complex ratio; often magnitude, phase, or dB</td></tr>
+          <tr><td>\(Q\)</td><td>Quality factor</td><td>dimensionless</td></tr>
         </tbody>
       </table>
     </section>
 
     <section class="section-card" id="observables">
-      <h2>3. Engineering observables</h2>
+      <h2>2. Engineering observables</h2>
       <p>Use observables that connect directly to device performance.</p>
       <div class="three-col">
         <div class="mini-card">
@@ -444,8 +438,7 @@
             <li><strong>\(\mathbf{H}\)</strong>: magnetic field. Unit: A/m.</li>
             <li><strong>\(|\mathbf{E}|^2\)</strong>: electric-field intensity proxy. Unit: V²/m².</li>
             <li><strong>\(|\mathbf{H}|^2\)</strong>: magnetic-field intensity proxy. Unit: A²/m².</li>
-            <li><strong>\(\langle \mathbf{S} 
-angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
+            <li><strong>\(\langle \mathbf{S} \rangle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
           </ul>
         </div>
       </div>
@@ -455,7 +448,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="solver-map">
-      <h2>4. FDTD and FEM selection</h2>
+      <h2>3. FDTD and FEM selection</h2>
       <table class="quantity-table">
         <thead>
           <tr>
@@ -486,7 +479,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="fdtd1d">
-      <h2>5. 1D finite-difference time-domain (FDTD)</h2>
+      <h2>4. 1D finite-difference time-domain (FDTD)</h2>
       <div class="method-grid">
         <div class="method-label">Method idea</div>
         <div>Electric and magnetic fields are staggered in space and time. The update is explicit and physically transparent.</div>
@@ -508,7 +501,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="fem1d">
-      <h2>6. 1D finite element method (FEM)</h2>
+      <h2>5. 1D finite element method (FEM)</h2>
       <div class="method-grid">
         <div class="method-label">Method idea</div>
         <div>The differential equation is converted into a weak form and assembled into a sparse linear system.</div>
@@ -527,7 +520,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="fdtd2d">
-      <h2>7. 2D finite-difference time-domain (FDTD)</h2>
+      <h2>6. 2D finite-difference time-domain (FDTD)</h2>
       <div class="two-col">
         <div>
           <div class="method-grid">
@@ -556,7 +549,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="fem2d">
-      <h2>8. 2D finite element method (FEM)</h2>
+      <h2>7. 2D finite element method (FEM)</h2>
       <div class="method-grid">
         <div class="method-label">Method idea</div>
         <div>Triangular elements make geometry part of the discretization. This is the main reason FEM is attractive for irregular domains.</div>
@@ -575,7 +568,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="boundaries">
-      <h2>9. Sources and boundaries</h2>
+      <h2>8. Sources and boundaries</h2>
       <p>Boundaries are part of the mathematical model. They are not a cosmetic implementation detail.</p>
       <div class="two-col">
         <div>
@@ -606,7 +599,7 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
     </section>
 
     <section class="section-card" id="workflow">
-      <h2>10. Workflow and validation</h2>
+      <h2>9. Workflow and validation</h2>
       <div class="three-col">
         <div class="mini-card">
           <h4>Workflow</h4>
@@ -637,16 +630,27 @@ angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
           </ul>
         </div>
       </div>
-      <div class="formula-box" style="margin-top:16px;">
-        \[
-        \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
-        \]
+      
+      <div class="two-col" style="margin-top: 24px;">
+        <div>
+          <div class="formula-box" style="margin-top: 0;">
+            \[
+            \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
+            \]
+          </div>
+          <p>Use \(Q\) for any meaningful observable: reflected power, resonant frequency, transmission peak, or field energy. Convergence is defined on the observable, not on visual comfort.</p>
+          <p>As shown in the convergence curve, the observable value approaches a stable "converged value" as the mesh density increases. A proper mesh convergence check ensures that your computational results are grid-independent and physically defensible rather than an artifact of the discretization.</p>
+        </div>
+        <div class="figure-card" style="margin-top: 0;">
+          <div class="figure-title">Mesh convergence check</div>
+          <img src="mesh_covergence_check.jpg" alt="Mesh convergence check graph showing observable value stabilizing as mesh density increases">
+          <div class="figure-caption">Plotting an observable against mesh density. The simulation is considered converged when further mesh refinement produces negligible changes in the engineering observable of interest.</div>
+        </div>
       </div>
-      <p>Use \(Q\) for any meaningful observable: reflected power, resonant frequency, transmission peak, or field energy. Convergence is defined on the observable, not on visual comfort.</p>
     </section>
 
     <section class="section-card" id="codes">
-      <h2>11. Example codes</h2>
+      <h2>10. Example codes</h2>
       <div class="three-col code-list">
         <div class="mini-card">
           <h4>1D FDTD slab</h4>

@@ -33,7 +33,6 @@
       --shadow-soft: 0 3px 12px rgba(20, 40, 60, 0.06);
     }
     html { scroll-behavior: smooth; }
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 28px 0 60px 0;
@@ -43,9 +42,7 @@
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      overflow-x: hidden;
     }
-    img, svg { max-width: 100%; }
     a { color: var(--accent-dark); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .page-wrap {
@@ -75,7 +72,7 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+      grid-template-columns: 1.5fr 1fr;
       gap: 24px;
       align-items: start;
     }
@@ -97,7 +94,6 @@
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 14px;
       padding: 18px;
-      min-width: 0;
     }
     .hero-panel h3 {
       margin: 0 0 10px 0;
@@ -113,7 +109,6 @@
       padding: 28px 30px;
       margin-bottom: 22px;
       box-shadow: var(--shadow);
-      overflow: hidden;
     }
     .section-card h2 {
       color: var(--accent-dark);
@@ -151,7 +146,6 @@
       border-radius: 12px;
       padding: 14px 16px;
       margin: 14px 0;
-      min-width: 0;
     }
     .note-box {
       background: var(--accent-soft);
@@ -160,7 +154,6 @@
     .formula-box {
       background: #f8fbfe;
       border: 1px solid var(--line);
-      overflow-x: auto;
     }
 
     .two-col {
@@ -171,7 +164,7 @@
     }
     .three-col {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       align-items: start;
     }
@@ -182,29 +175,24 @@
       border-radius: 12px;
       padding: 16px;
       height: 100%;
-      min-width: 0;
     }
     .mini-card h4 {
       margin: 0 0 8px 0;
       font-size: 1rem;
       color: #163953;
     }
-    .mini-card p, .mini-card li { overflow-wrap: anywhere; }
 
     .quantity-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 8px;
-      font-size: 0.94rem;
-      table-layout: fixed;
+      font-size: 0.96rem;
     }
     .quantity-table th,
     .quantity-table td {
       border: 1px solid var(--line);
       padding: 10px 11px;
       vertical-align: top;
-      overflow-wrap: anywhere;
-      word-break: normal;
     }
     .quantity-table th {
       background: #f3f8fc;
@@ -212,35 +200,13 @@
       font-weight: 700;
     }
     .quantity-table td:first-child,
-    .quantity-table th:first-child {
-      width: 18%;
-      white-space: normal;
-    }
-    .quantity-table td:nth-child(2),
-    .quantity-table th:nth-child(2) {
-      width: 22%;
-      white-space: normal;
-    }
-
-    .observables-grid .quantity-table {
-      font-size: 0.89rem;
-    }
-    .observables-grid .quantity-table td:first-child,
-    .observables-grid .quantity-table th:first-child {
-      width: 24%;
-    }
-    .observables-grid .quantity-table td:nth-child(2),
-    .observables-grid .quantity-table th:nth-child(2) {
-      width: 54%;
-    }
-    .observables-grid .quantity-table td:nth-child(3),
-    .observables-grid .quantity-table th:nth-child(3) {
-      width: 22%;
+    .quantity-table td:nth-child(2) {
+      white-space: nowrap;
     }
 
     .method-grid {
       display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
+      grid-template-columns: 160px 1fr;
       gap: 12px 18px;
       margin-top: 10px;
       align-items: start;
@@ -260,7 +226,6 @@
       border-radius: 14px;
       padding: 14px;
       margin-top: 10px;
-      min-width: 0;
     }
     .figure-card img {
       width: 100%;
@@ -280,7 +245,6 @@
       color: var(--muted);
       margin-top: 10px;
       line-height: 1.55;
-      overflow-wrap: anywhere;
     }
 
     .code-list a {
@@ -318,24 +282,13 @@
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .two-col, .method-grid {
+      .hero-grid, .two-col, .three-col, .method-grid {
         grid-template-columns: 1fr;
       }
       .method-label { margin-bottom: -4px; }
       .section-card { padding: 24px 20px; }
       .hero { padding: 34px 24px 26px 24px; }
       .hero h1 { font-size: 2rem; }
-      .quantity-table { font-size: 0.9rem; }
-    }
-
-    @media (max-width: 640px) {
-      body { font-size: 15px; }
-      .page-wrap { padding: 0 12px; }
-      .section-card { padding: 20px 16px; }
-      .hero { border-radius: 14px; }
-      .section-card h2 { font-size: 1.38rem; }
-      .formula-box { padding: 12px 12px; }
-      .three-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -461,57 +414,43 @@
 
     <section class="section-card" id="observables">
       <h2>3. Engineering observables</h2>
-      <p>Field plots are intermediate data. Engineering decisions are made from defined observables.</p>
-      <div class="three-col observables-grid">
+      <p>Use observables that connect directly to device performance.</p>
+      <div class="three-col">
         <div class="mini-card">
           <h4>Reflection / transmission</h4>
-          <p>Used for slabs, coatings, filters, absorbers, and open-region scattering.</p>
+          <p>For slabs, coatings, filters, absorbers, and open-region scattering.</p>
           <div class="formula-box">\[ A = 1 - R - T \]</div>
-          <table class="quantity-table">
-            <thead>
-              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>\(R\)</td><td>Reflected power / incident power</td><td>dimensionless or %</td></tr>
-              <tr><td>\(T\)</td><td>Transmitted power / incident power</td><td>dimensionless or %</td></tr>
-              <tr><td>\(A\)</td><td>Absorbed power fraction</td><td>dimensionless or %</td></tr>
-            </tbody>
-          </table>
+          <ul>
+            <li><strong>\(R\)</strong>: reflected power ratio. Unit: dimensionless or %.</li>
+            <li><strong>\(T\)</strong>: transmitted power ratio. Unit: dimensionless or %.</li>
+            <li><strong>\(A\)</strong>: absorbed power ratio. Unit: dimensionless or %.</li>
+          </ul>
         </div>
         <div class="mini-card">
           <h4>S-parameters</h4>
-          <p>Standard observables for ports, feeds, RF packaging, antennas, and microwave components.</p>
-          <table class="quantity-table">
-            <thead>
-              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>\(S_{11}\)</td><td>Reflection at port 1</td><td>complex ratio; often dB</td></tr>
-              <tr><td>\(S_{21}\)</td><td>Forward transmission from port 1 to port 2</td><td>complex ratio; often dB</td></tr>
-              <tr><td>\(S_{12}\)</td><td>Reverse transmission from port 2 to port 1</td><td>complex ratio; often dB</td></tr>
-              <tr><td>\(S_{22}\)</td><td>Reflection at port 2</td><td>complex ratio; often dB</td></tr>
-            </tbody>
-          </table>
+          <p>For ports, feeds, antennas, RF packaging, and microwave components.</p>
+          <ul>
+            <li><strong>\(S_{11}\)</strong>: reflection seen at port 1. Unit: dimensionless complex ratio, often shown in dB.</li>
+            <li><strong>\(S_{21}\)</strong>: transmission from port 1 to port 2. Unit: dimensionless complex ratio, often shown in dB.</li>
+            <li><strong>\(S_{12}\)</strong>: transmission from port 2 to port 1. Unit: dimensionless complex ratio, often shown in dB.</li>
+            <li><strong>\(S_{22}\)</strong>: reflection seen at port 2. Unit: dimensionless complex ratio, often shown in dB.</li>
+          </ul>
         </div>
         <div class="mini-card">
           <h4>Field quantities</h4>
-          <p>Used for hot spots, mode shape, localization, power flow, and field enhancement.</p>
-          <table class="quantity-table">
-            <thead>
-              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>\(\mathbf{E}\)</td><td>Electric field amplitude</td><td>V/m</td></tr>
-              <tr><td>\(\mathbf{H}\)</td><td>Magnetic field amplitude</td><td>A/m</td></tr>
-              <tr><td>\(|\mathbf{E}|^2\)</td><td>Electric-field intensity proxy</td><td>V²/m²</td></tr>
-              <tr><td>\(|\mathbf{H}|^2\)</td><td>Magnetic-field intensity proxy</td><td>A²/m²</td></tr>
-              <tr><td>\(\langle \mathbf{S} \rangle\)</td><td>Time-averaged power-flow density</td><td>W/m²</td></tr>
-            </tbody>
-          </table>
+          <p>For hot spots, mode shape, localization, and power flow.</p>
+          <ul>
+            <li><strong>\(\mathbf{E}\)</strong>: electric field. Unit: V/m.</li>
+            <li><strong>\(\mathbf{H}\)</strong>: magnetic field. Unit: A/m.</li>
+            <li><strong>\(|\mathbf{E}|^2\)</strong>: electric-field intensity proxy. Unit: V²/m².</li>
+            <li><strong>\(|\mathbf{H}|^2\)</strong>: magnetic-field intensity proxy. Unit: A²/m².</li>
+            <li><strong>\(\langle \mathbf{S} 
+angle\)</strong>: time-averaged power-flow density. Unit: W/m².</li>
+          </ul>
         </div>
       </div>
       <div class="note-box">
-        A bright map is not automatically a good design. Use quantities that are normalized, comparable, and tied to the device function.
+        Field plots help diagnose behavior. Final design decisions should be made from normalized observables.
       </div>
     </section>
 
@@ -640,7 +579,7 @@
       <p>Boundaries are part of the mathematical model. They are not a cosmetic implementation detail.</p>
       <div class="two-col">
         <div>
-          <div class="three-col" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <div class="three-col" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
             <div class="mini-card">
               <h4>PEC / PMC</h4>
               <p>Ideal conductor or symmetry boundary. Good for closed or symmetry-reduced problems.</p>

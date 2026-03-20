@@ -12,1243 +12,758 @@
   <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
   <script>
     window.MathJax = {
-      tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]},
-      svg: {fontCache: 'global'}
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      svg: { fontCache: 'global' }
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
     :root {
+      --bg: #f7f9fb;
+      --card: #ffffff;
       --ink: #1c2733;
-      --muted: #5f6d78;
+      --muted: #61707d;
       --line: #d7e4f0;
-      --line-2: #e6eef5;
-      --soft: #f2f8fd;
+      --line-soft: #e6eef5;
       --accent: #1f6fa9;
       --accent-dark: #0f4d7d;
-      --warn: #9a3412;
-      --shadow: 0 6px 18px rgba(20, 40, 60, 0.08);
+      --accent-soft: #eef6fc;
+      --shadow: 0 7px 22px rgba(20, 40, 60, 0.08);
+      --shadow-soft: 0 3px 12px rgba(20, 40, 60, 0.06);
     }
     html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
     body {
-      background: #f7f9fb;
+      margin: 0;
+      padding: 28px 0 60px 0;
+      background: var(--bg);
       color: var(--ink);
-      line-height: 1.72;
-      font-size: 17px;
-      padding-top: 30px;
-      padding-bottom: 64px;
+      line-height: 1.68;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
-    .container {
-      max-width: 1000px;
+    img, svg { max-width: 100%; }
+    a { color: var(--accent-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page-wrap {
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 0 15px;
+      padding: 0 18px;
     }
-    h1, h2, h3, h4 {
-      color: #0f172a;
-      font-weight: 700;
-      letter-spacing: 0.1px;
-    }
-    h1 {
-      font-size: 2.7rem;
-      margin-bottom: 14px;
-    }
-    h2 {
-      color: var(--accent-dark);
-      font-size: 1.70rem;
-      margin-top: 0;
-      margin-bottom: 16px;
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-    h3 {
-      color: #244964;
-      font-size: 1.18rem;
-      margin-top: 22px;
-      margin-bottom: 12px;
-    }
-    p { margin-bottom: 12px; }
     .hero {
       background: linear-gradient(135deg, #0e4d7a 0%, #1f6fa9 100%);
       color: #fff;
-      border-radius: 14px;
-      padding: 40px 34px 30px 34px;
-      margin-bottom: 28px;
+      border-radius: 18px;
+      padding: 40px 38px 30px 38px;
+      margin-bottom: 24px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.10);
     }
-    .hero h1, .hero h2, .hero h3, .hero p, .hero li, .hero small { color: #fff; border: none; }
     .hero .tag {
       display: inline-block;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      background: rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.14);
       border: 1px solid rgba(255,255,255,0.20);
-      padding: 6px 10px;
       border-radius: 999px;
+      padding: 6px 11px;
       margin-bottom: 14px;
-      font-weight: 700;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.45fr 1fr;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
       gap: 24px;
       align-items: start;
     }
-    .hero-note {
-      background: rgba(255,255,255,0.10);
-      border-left: 4px solid #ffd166;
-      padding: 14px 16px;
-      border-radius: 8px;
-      margin-top: 16px;
+    .hero h1 {
+      margin: 0 0 12px 0;
+      font-size: 2.45rem;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: 0.2px;
+    }
+    .hero p {
+      margin: 0 0 12px 0;
+      color: rgba(255,255,255,0.96);
+      font-size: 1.02rem;
+      max-width: 760px;
     }
     .hero-panel {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.16);
       border-radius: 14px;
       padding: 18px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      min-width: 0;
     }
-    .hero-panel h4 {
+    .hero-panel h3 {
+      margin: 0 0 10px 0;
       font-size: 1rem;
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: #dff4ff;
+      color: #eaf7ff;
     }
-    .hero-panel ul {
-      padding-left: 18px;
-      margin-bottom: 0;
-    }
-    .section-block,
-    .toc {
-      background: #fff;
-      border-radius: 14px;
+    .hero-panel ul { margin: 0; padding-left: 18px; }
+    .hero-panel li { margin-bottom: 6px; }
+
+    .section-card {
+      background: var(--card);
+      border-radius: 16px;
       padding: 28px 30px;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
       box-shadow: var(--shadow);
-      border: none;
+      overflow: hidden;
     }
-    .toc-grid {
+    .section-card h2 {
+      color: var(--accent-dark);
+      font-size: 1.62rem;
+      margin: 0 0 16px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .section-card h3 {
+      color: #244964;
+      font-size: 1.08rem;
+      margin: 18px 0 10px 0;
+    }
+    .section-card p { margin: 0 0 12px 0; }
+    .section-card ul { margin: 0 0 0 18px; padding: 0; }
+    .section-card li { margin-bottom: 6px; }
+
+    .toc {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 4px 22px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
     }
     .toc a {
       display: block;
-      padding: 5px 0;
-      color: var(--accent-dark);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .toc a:hover { text-decoration: underline; }
-    .leadbox, .warningbox, .examplebox, .resourcebox, .methodbox {
-      border-radius: 10px;
-      padding: 16px 18px;
-      margin: 16px 0;
-    }
-    .leadbox {
-      background: var(--soft);
-      border-left: 5px solid var(--accent);
-    }
-    .warningbox {
-      background: #fff4eb;
-      border-left: 5px solid var(--warn);
-    }
-    .resourcebox {
-      background: #edf7ef;
-      border-left: 5px solid #2b8a3e;
-    }
-    .examplebox {
-      background: #f8fafc;
-      border: 1px solid #dbe4ec;
-    }
-    .methodbox,
-    .figure-card,
-    .metric-card,
-    .mini-card {
       background: #fff;
-      border: 1px solid #dfe8f0;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 11px 13px;
+      color: var(--accent-dark);
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .note-box, .formula-box {
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      padding: 14px 16px;
+      margin: 14px 0;
+      min-width: 0;
     }
-    .methodbox { padding: 18px 20px; }
-    .figure-card { padding: 16px; margin: 16px 0; }
-    .metric-card, .mini-card {
-      padding: 16px;
-      height: 100%;
+    .note-box {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
     }
-    .metric-card h4, .mini-card h4 {
-      font-size: 1rem;
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: #244964;
-    }
-    .formula {
+    .formula-box {
       background: #f8fbfe;
       border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 16px 18px;
-      margin: 18px 0;
       overflow-x: auto;
-      font-family: Georgia, serif;
-      font-size: 1.03rem;
     }
-    .figure-title {
-      font-weight: 700;
-      color: #244964;
-      margin-bottom: 10px;
-    }
-    .figure-caption {
-      color: var(--muted);
-      font-size: 0.93rem;
-      margin-top: 10px;
-      line-height: 1.55;
-    }
+
     .two-col {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
       align-items: start;
     }
     .three-col {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
+      align-items: start;
     }
-    .four-col {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .checklist li, .tight li { margin-bottom: 6px; }
-    .tight { padding-left: 18px; margin-bottom: 0; }
-    .pillrow {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0 0 0;
-    }
-    .pill {
-      border: 1px solid rgba(255,255,255,0.26);
-      background: rgba(255,255,255,0.10);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-    .decision-table th {
-      background: #f5f9fd;
-      color: #244964;
-      font-weight: 700;
-    }
-    .decision-table th,
-    .decision-table td {
-      border-color: var(--line-2) !important;
-      vertical-align: top !important;
-    }
-    .method-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .method-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      white-space: nowrap;
-    }
-    code, pre {
-      font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 0.94rem;
-    }
-    pre {
-      background: #101820;
-      color: #dfe8ee;
+
+    .mini-card {
+      background: #fbfdff;
+      border: 1px solid var(--line-soft);
       border-radius: 12px;
-      padding: 18px;
-      overflow-x: auto;
-      border: none;
-      line-height: 1.55;
-      margin-top: 14px;
-      margin-bottom: 14px;
+      padding: 16px;
+      height: 100%;
+      min-width: 0;
     }
-    .small-note {
-      color: var(--muted);
-      font-size: 0.93rem;
+    .mini-card h4 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+      color: #163953;
     }
+    .mini-card p, .mini-card li { overflow-wrap: anywhere; }
+
+    .quantity-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.94rem;
+      table-layout: fixed;
+    }
+    .quantity-table th,
+    .quantity-table td {
+      border: 1px solid var(--line);
+      padding: 10px 11px;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .quantity-table th {
+      background: #f3f8fc;
+      color: #163953;
+      font-weight: 700;
+    }
+    .quantity-table td:first-child,
+    .quantity-table th:first-child {
+      width: 18%;
+      white-space: normal;
+    }
+    .quantity-table td:nth-child(2),
+    .quantity-table th:nth-child(2) {
+      width: 22%;
+      white-space: normal;
+    }
+
+    .observables-grid .quantity-table {
+      font-size: 0.89rem;
+    }
+    .observables-grid .quantity-table td:first-child,
+    .observables-grid .quantity-table th:first-child {
+      width: 24%;
+    }
+    .observables-grid .quantity-table td:nth-child(2),
+    .observables-grid .quantity-table th:nth-child(2) {
+      width: 54%;
+    }
+    .observables-grid .quantity-table td:nth-child(3),
+    .observables-grid .quantity-table th:nth-child(3) {
+      width: 22%;
+    }
+
     .method-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .svg-wrap svg { width: 100%; height: auto; display: block; }
-    .footer-back {
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 12px 18px;
       margin-top: 10px;
+      align-items: start;
+    }
+    .method-label {
+      font-weight: 700;
+      color: #163953;
+      background: #f3f8fc;
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    .figure-card {
+      background: #fbfdff;
+      border: 1px solid var(--line-soft);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 10px;
+      min-width: 0;
+    }
+    .figure-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      box-shadow: var(--shadow-soft);
+    }
+    .figure-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #163953;
+      margin-bottom: 10px;
+    }
+    .figure-caption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .code-list a {
       font-weight: 600;
-      font-size: 1rem;
     }
-    .footer-back a {
-      color: var(--accent-dark);
-      text-decoration: none;
+
+    .footer-back {
+      text-align: center;
+      margin-top: 26px;
+      color: var(--muted);
     }
-    .footer-back a:hover { text-decoration: underline; }
+
     .back-to-top {
       position: fixed;
-      right: 24px;
-      bottom: 24px;
+      right: 20px;
+      bottom: 22px;
       width: 48px;
       height: 48px;
       border: none;
-      border-radius: 50%;
-      background: var(--accent-dark);
+      border-radius: 999px;
+      background: #0f4d7d;
       color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      font-size: 1.28rem;
+      line-height: 1;
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+      box-shadow: 0 10px 24px rgba(15,77,125,0.25);
+      cursor: pointer;
+      z-index: 999;
     }
     .back-to-top:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
+      background: #0b3c61;
+      transform: translateY(-1px);
     }
-    .back-to-top.show { display: flex; }
-    @media (max-width: 991px) {
-      .hero-grid, .two-col, .three-col, .four-col, .method-grid, .toc-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col, .method-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-label { margin-bottom: -4px; }
+      .section-card { padding: 24px 20px; }
       .hero { padding: 34px 24px 26px 24px; }
-      .section-block, .toc { padding: 24px 22px; }
+      .hero h1 { font-size: 2rem; }
+      .quantity-table { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 15px; }
+      .page-wrap { padding: 0 12px; }
+      .section-card { padding: 20px 16px; }
+      .hero { border-radius: 14px; }
+      .section-card h2 { font-size: 1.38rem; }
+      .formula-box { padding: 12px 12px; }
+      .three-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<div class="container">
-
-  <div class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="tag">Computational Electromagnetics</div>
-        <h1>Computational Electromagnetics: FDTD and FEM for Engineers</h1>
-        <p><b>A practical teaching page showing how I teach computational electromagnetics using FDTD and FEM for RF structures, photonic devices, metamaterials, and radar-absorber problems.</b></p>
-        <p>
-          It is written for <b>engineers, graduate students, and serious self-study learners</b>. The progression is deliberate:
-          <b>Maxwell equations → observables → 1D FDTD → 1D FEM → 2D FDTD → 2D FEM → validation</b>.
-          The emphasis is not on decorative field plots, but on solver logic, measurable outputs, and whether a result is physically defensible.
-        </p>
-        <div class="hero-note">
-          <b>Teaching emphasis.</b> I use this page to teach how engineers move from Maxwell equations to a usable simulation workflow,
-          and how self-study learners can build solver intuition without reducing the subject to software button pushing.
+  <div class="page-wrap">
+    <section class="hero" id="top">
+      <div class="tag">Engineering tutorial</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Computational Electromagnetics for Engineers</h1>
+          <p>FDTD and FEM for RF structures, photonics, metamaterials, radar absorbers, and open-region scattering.</p>
+          <p>This page is organized around four things: governing equations, physical quantities with units, solver choice, and extraction of defensible observables.</p>
         </div>
-        <div class="pillrow">
-          <span class="pill">Maxwell equations</span>
-          <span class="pill">FDTD</span>
-          <span class="pill">FEM</span>
-          <span class="pill">RF structures</span>
-          <span class="pill">Photonics</span>
-          <span class="pill">Metamaterials</span>
-          <span class="pill">Radar absorbers</span>
-          <span class="pill">Validation</span>
+        <div class="hero-panel">
+          <h3>Page focus</h3>
+          <ul>
+            <li>Maxwell equations in usable engineering form</li>
+            <li>Field, material, and observable quantities with SI units</li>
+            <li>1D to 2D progression for self-study</li>
+            <li>Open-region modeling with source injection and CPML</li>
+          </ul>
         </div>
       </div>
-      <div class="hero-panel">
-        <h4>Who this page is for</h4>
-        <ul>
-          <li>Engineers who need solver intuition, not just software operation.</li>
-          <li>Graduate students building a first rigorous foundation in computational EM.</li>
-          <li>Self-study learners who want a structured route from equations to usable output.</li>
-        </ul>
-        <hr style="border-color: rgba(255,255,255,0.14);">
-        <h4>What this page teaches</h4>
-        <ul>
-          <li>What FDTD and FEM actually approximate.</li>
-          <li>Why observables such as R, T, S-parameters, and resonance matter more than pretty plots.</li>
-          <li>How boundaries, mesh, normalization, and validation control credibility.</li>
-          <li>How classroom examples connect to RF, photonic, metamaterial, and absorber design.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="toc">
-    <h3 style="margin-top:0;">Contents</h3>
-    <div class="toc-grid">
-      <a href="#start-here">Start Here: How to use this page</a>
-      <a href="#foundations">1. Maxwell equations and constitutive relations</a>
-      <a href="#why-numerical">2. Why computational electromagnetics?</a>
-      <a href="#observables">3. Observables, not decorative field maps</a>
-      <a href="#solver-map">4. Numerical progression used in this page</a>
-      <a href="#applications">5. From numerical model to engineering application</a>
-      <a href="#fdtd1d">6. 1D finite-difference time-domain (FDTD)</a>
-      <a href="#fem1d">7. 1D finite element method (FEM)</a>
-      <a href="#fdtd2d">8. 2D finite-difference time-domain (FDTD)</a>
-      <a href="#fem2d">9. 2D finite element method (FEM)</a>
-      <a href="#boundaries">10. Boundary conditions and absorbing boundaries</a>
-      <a href="#workflow">11. Practical simulation workflow</a>
-      <a href="#validation">12. Validation and common failure modes</a>
-      <a href="#codes">13. Example codes and mini-projects</a>
-    </div>
-  </div>
+    <section class="section-card">
+      <h2>Contents</h2>
+      <div class="toc">
+        <a href="#foundations">1. Governing equations</a>
+        <a href="#quantities">2. Physical quantities and units</a>
+        <a href="#observables">3. Engineering observables</a>
+        <a href="#solver-map">4. FDTD and FEM selection</a>
+        <a href="#fdtd1d">5. 1D FDTD</a>
+        <a href="#fem1d">6. 1D FEM</a>
+        <a href="#fdtd2d">7. 2D FDTD</a>
+        <a href="#fem2d">8. 2D FEM</a>
+        <a href="#boundaries">9. Sources and boundaries</a>
+        <a href="#workflow">10. Workflow and validation</a>
+        <a href="#codes">11. Example codes</a>
+      </div>
+    </section>
 
-  <div class="section-block" id="start-here">
-    <h2>Start Here: How to Use This Page</h2>
-    <p>
-      This page is designed as both a <b>teaching page</b> and a <b>self-study roadmap</b>. You can read it linearly,
-      or you can use it as a solver-selection guide: what class of electromagnetic problem you have, what output matters,
-      and which formulation is more natural for that task.
-    </p>
-    <div class="leadbox">
-      <b>Recommended path.</b> Foundations → observables → 1D FDTD → 1D FEM → 2D FDTD → 2D FEM → workflow → validation.
-      That sequence builds numerical intuition before moving to more realistic engineering applications.
-    </div>
-    <div class="three-col">
-      <div class="mini-card">
-        <h4>Best for engineers</h4>
-        <p>Use the page to connect geometry, material assumptions, boundaries, and observables to a design decision.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Best for self-study</h4>
-        <p>Study the examples as small numerical models that reveal solver structure before scaling to real devices.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Expected outcome</h4>
-        <p>By the end, you should be able to explain what the solver is doing, what assumptions were made, and whether the reported EM response is defensible.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-block" id="foundations">
-    <h2>1. Maxwell equations and constitutive relations</h2>
-    <div class="two-col">
-      <div>
-        <p>
-          All computational electromagnetics starts from Maxwell’s equations. What changes from solver to solver is
-          <b>how these equations are approximated</b> and <b>what class of geometry or observable is targeted</b>.
-        </p>
-        <div class="formula">
-          \[
-          \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad
-          \nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t},
-          \]
-          \[
-          \nabla \cdot \mathbf{D} = \rho, \qquad
-          \nabla \cdot \mathbf{B} = 0.
-          \]
-        </div>
-        <p>For linear isotropic media:</p>
-        <div class="formula">
-          \[
-          \mathbf{D} = \varepsilon \mathbf{E}, \qquad
-          \mathbf{B} = \mu \mathbf{H}, \qquad
-          \mathbf{J} = \sigma \mathbf{E}.
-          \]
-        </div>
-        <p>
-          In optics and broadband RF, the medium is often <b>spatially inhomogeneous</b> and may also be <b>dispersive</b>,
-          so \(\varepsilon\) becomes either position-dependent, frequency-dependent, or both. This is precisely where
-          analytical solutions become restricted and numerical electromagnetics becomes necessary.
-        </p>
-      </div>
-      <div class="figure-card svg-wrap">
-        <div class="figure-title">Figure 1. Physics to prediction</div>
-        <svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Physics to prediction workflow">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0%" stop-color="#0b7285"/>
-              <stop offset="100%" stop-color="#0f172a"/>
-            </linearGradient>
-            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-              <path d="M0,0 L10,5 L0,10 z" fill="#557086"/>
-            </marker>
-          </defs>
-          <rect x="20" y="35" rx="18" ry="18" width="160" height="120" fill="#eaf7fa" stroke="#b8dce4"/>
-          <rect x="260" y="35" rx="18" ry="18" width="160" height="120" fill="#f4f7fa" stroke="#d5dee7"/>
-          <rect x="500" y="35" rx="18" ry="18" width="160" height="120" fill="#eef7ef" stroke="#cfe3d2"/>
-          <line x1="180" y1="95" x2="260" y2="95" stroke="#557086" stroke-width="4" marker-end="url(#arrow)"/>
-          <line x1="420" y1="95" x2="500" y2="95" stroke="#557086" stroke-width="4" marker-end="url(#arrow)"/>
-          <text x="100" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Physics</text>
-          <text x="100" y="102" text-anchor="middle" font-size="18" fill="#334155">Maxwell</text>
-          <text x="100" y="130" text-anchor="middle" font-size="18" fill="#334155">materials</text>
-          <text x="340" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Numerics</text>
-          <text x="340" y="102" text-anchor="middle" font-size="18" fill="#334155">mesh</text>
-          <text x="340" y="130" text-anchor="middle" font-size="18" fill="#334155">solver</text>
-          <text x="580" y="68" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Prediction</text>
-          <text x="580" y="102" text-anchor="middle" font-size="18" fill="#334155">R, T</text>
-          <text x="580" y="130" text-anchor="middle" font-size="18" fill="#334155">S, Q, fields</text>
-
-          <rect x="30" y="220" width="620" height="110" rx="18" ry="18" fill="url(#g1)" opacity="0.96"/>
-          <text x="340" y="260" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">From equations to engineering output</text>
-          <text x="340" y="294" text-anchor="middle" font-size="18" fill="#dceff3">governing equations → discretization → measurable response</text>
-        </svg>
-        <div class="figure-caption">
-          The same logic appears in industrial simulation workflows: model the physics, discretize it appropriately, and extract a response that informs design decisions.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-block" id="why-numerical">
-    <h2>2. Why computational electromagnetics?</h2>
-    <p>
-      Analytical solutions to Maxwell’s equations exist only for limited classes of geometry, material distribution,
-      and boundary condition. Once the structure becomes spatially inhomogeneous, temporally broadband, or geometrically
-      irregular, the electromagnetic problem must be approximated numerically.
-    </p>
-    <div class="leadbox">
-      Computational electromagnetics is not merely about obtaining a field plot. It is about converting a physical
-      boundary-value or initial-value problem into a discrete system whose numerical solution approximates a measurable
-      electromagnetic response.
-    </div>
-    <div class="three-col">
-      <div class="mini-card">
-        <h4>Start from 1D</h4>
-        <p>In 1D, the full structure of the numerical problem remains visible: the equations, the grid or elements, the boundary treatment, and the extracted response.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Move to 2D</h4>
-        <p>In 2D, the model begins to represent diffraction, scattering, wavefront distortion, and geometry-dependent field redistribution.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Compare FDTD and FEM</h4>
-        <p>The comparison makes clear how time-domain propagation and frequency-domain boundary-value analysis answer different classes of engineering questions.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-block" id="observables">
-    <h2>3. Observables, not decorative field maps</h2>
-    <p>
-      Raw fields are necessary, but they are almost never the final answer. The actual target is an <b>observable</b>
-      that can support interpretation, design, or validation.
-    </p>
-    <div class="four-col">
-      <div class="metric-card">
-        <h4>Reflection / Transmission</h4>
-        <p>Used in slab problems, coatings, filters, and waveguide interfaces.</p>
-      </div>
-      <div class="metric-card">
-        <h4>S-parameters</h4>
-        <p>Natural language of port-based devices in RF and microwave engineering.</p>
-      </div>
-      <div class="metric-card">
-        <h4>Resonance / Q</h4>
-        <p>Used for cavities, resonators, and geometry-dependent storage of energy.</p>
-      </div>
-      <div class="metric-card">
-        <h4>Field response</h4>
-        <p>Useful when the quantity of interest is local, but only when interpreted with proper normalization and geometry context.</p>
-      </div>
-    </div>
-    <div class="formula">
-      \[
-      A = 1 - R - T
-      \]
-    </div>
-    <div class="warningbox">
-      <b>Do not confuse visibility with validity.</b> A bright hot spot in \(|\mathbf{E}|\) may say little about matching,
-      efficiency, or loss unless the observable extraction is mathematically correct.
-    </div>
-    <div class="figure-card svg-wrap">
-      <div class="figure-title">Figure 2. Field map versus observable</div>
-      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Field map versus observable workflow">
-        <defs>
-          <linearGradient id="heat" x1="0" x2="1">
-            <stop offset="0%" stop-color="#0f172a"/>
-            <stop offset="35%" stop-color="#0b7285"/>
-            <stop offset="70%" stop-color="#f59e0b"/>
-            <stop offset="100%" stop-color="#ef4444"/>
-          </linearGradient>
-          <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
-          </marker>
-        </defs>
-        <rect x="30" y="40" width="210" height="220" rx="16" fill="#f8fafc" stroke="#dbe3ea"/>
-        <text x="135" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Raw field map</text>
-        <rect x="60" y="95" width="150" height="120" rx="12" fill="url(#heat)"/>
-        <circle cx="108" cy="150" r="18" fill="#fde68a" opacity="0.95"/>
-        <circle cx="160" cy="135" r="28" fill="#fb7185" opacity="0.75"/>
-        <circle cx="175" cy="185" r="16" fill="#f59e0b" opacity="0.8"/>
-        <text x="135" y="240" text-anchor="middle" font-size="16" fill="#475569">qualitative, local, cluttered</text>
-
-        <line x1="240" y1="150" x2="340" y2="150" stroke="#64748b" stroke-width="4" marker-end="url(#arrow2)"/>
-        <text x="290" y="135" text-anchor="middle" font-size="16" fill="#64748b">post-process</text>
-
-        <rect x="360" y="40" width="370" height="220" rx="16" fill="#ffffff" stroke="#dbe3ea"/>
-        <text x="545" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Observable</text>
-        <line x1="400" y1="220" x2="400" y2="105" stroke="#94a3b8" stroke-width="2"/>
-        <line x1="400" y1="220" x2="690" y2="220" stroke="#94a3b8" stroke-width="2"/>
-        <path d="M410,120 C440,90 490,100 520,150 C550,205 610,200 680,110" fill="none" stroke="#0b7285" stroke-width="5"/>
-        <path d="M410,180 C450,145 500,155 545,185 C590,212 640,205 685,160" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
-        <text x="675" y="100" font-size="15" fill="#0b7285">S21</text>
-        <text x="675" y="155" font-size="15" fill="#f59e0b">S11</text>
-        <text x="545" y="245" text-anchor="middle" font-size="16" fill="#475569">quantitative, comparable, defensible</text>
-      </svg>
-      <div class="figure-caption">
-        The student must learn to move from raw fields to a quantity that can be compared across meshes, methods, or experiments.
-      </div>
-    </div>
-  </div>
-
-  <div class="section-block" id="solver-map">
-    <h2>4. Numerical progression used in this page</h2>
-    <p>
-      The sequence below is intentionally narrow. The point is not to survey every electromagnetic solver, but to build
-      numerical understanding through a controlled progression.
-    </p>
-    <table class="table table-bordered decision-table">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>Domain formulation</th>
-          <th>Discretization</th>
-          <th>Main strength</th>
-          <th>Main limitation</th>
-          <th>Minimal example</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><b>1D FDTD</b></td>
-          <td>Time domain</td>
-          <td>Uniform staggered grid</td>
-          <td>Broadband response from one pulse; excellent physical intuition</td>
-          <td>Requires time stepping and absorbing boundaries for open problems</td>
-          <td>Plane wave incident on dielectric slab</td>
-        </tr>
-        <tr>
-          <td><b>1D FEM</b></td>
-          <td>Frequency domain</td>
-          <td>Element-based weak form</td>
-          <td>Clear boundary-value formulation; direct harmonic solution</td>
-          <td>Broadband response requires repeated solves</td>
-          <td>Layered dielectric interval</td>
-        </tr>
-        <tr>
-          <td><b>2D FDTD</b></td>
-          <td>Time domain</td>
-          <td>Structured Cartesian grid</td>
-          <td>Natural for transient propagation, scattering, and pulse excitation</td>
-          <td>Global meshing cost and CFL stability limit</td>
-          <td>TM-like pulse scattering with and without ABC</td>
-        </tr>
-        <tr>
-          <td><b>2D FEM</b></td>
-          <td>Frequency domain</td>
-          <td>Triangular mesh</td>
-          <td>Flexible geometry and local mesh refinement</td>
-          <td>Less natural for broadband transient intuition</td>
-          <td>2D Helmholtz problem with dielectric inclusion</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="leadbox">
-      This progression is useful in both academia and industry: the solver is selected from the structure of the problem, the output that matters, and the type of design decision that must be made.
-    </div>
-  </div>
-
-  <div class="section-block" id="applications">
-    <h2>5. From numerical model to engineering application</h2>
-    <p>
-      The practical value of computational electromagnetics lies in the link between the numerical model and an engineering decision.
-      A solver is used to estimate how a structure reflects, transmits, stores, radiates, concentrates, or suppresses electromagnetic energy.
-      That estimated response then guides design choices in materials, geometry, thickness, spacing, packaging, or shielding.
-    </p>
-    <div class="four-col">
-      <div class="metric-card">
-        <h4>RF and microwave</h4>
-        <p>Antennas, radomes, waveguide components, filters, radar scattering, and EMC performance.</p>
-      </div>
-      <div class="metric-card">
-        <h4>Electronics packaging</h4>
-        <p>Interconnect coupling, signal integrity, package resonances, and field leakage in high-speed systems.</p>
-      </div>
-      <div class="metric-card">
-        <h4>Optics and photonics</h4>
-        <p>Thin films, resonant structures, absorbers, sensors, integrated photonics, and optical materials.</p>
-      </div>
-      <div class="metric-card">
-        <h4>Materials and shielding</h4>
-        <p>Field attenuation, absorber design, impedance matching, thermal-loading estimates, and shielding effectiveness.</p>
-      </div>
-    </div>
-    <div class="leadbox">
-      In industrial work, the simulation is rarely the final product. The simulation supports a decision: which material stack to choose,
-      where to refine a geometry, how to reduce reflection, how to control coupling, or whether a design meets a required performance window.
-    </div>
-    <div class="warningbox">
-      A solver does not automatically create engineering value. The value appears only when the model, the boundary conditions, the material data,
-      and the extracted observable are all aligned with the real application.
-    </div>
-  </div>
-
-  <div class="section-block" id="fdtd1d">
-    <h2>6. 1D finite-difference time-domain (FDTD)</h2>
-    <div class="methodbox">
-      <div class="method-header">
-        <h3 style="margin:0;">Method idea</h3>
-        <div class="method-tag">Time domain • staggered grid</div>
-      </div>
-      <p>
-        In 1D FDTD, electric and magnetic field components are staggered in both space and time. This produces the
-        canonical leapfrog update scheme and makes wave propagation physically transparent to students at a very early stage.
-      </p>
-      <div class="formula">
+    <section class="section-card" id="foundations">
+      <h2>1. Governing equations</h2>
+      <p>Computational electromagnetics starts from Maxwell’s equations. The solver changes. The physics does not.</p>
+      <div class="formula-box">
         \[
-        H_{i+\frac{1}{2}}^{n+\frac{1}{2}} =
-        H_{i+\frac{1}{2}}^{n-\frac{1}{2}}
-        + \frac{\Delta t}{\mu \Delta x}\left(E_{i+1}^{n} - E_i^{n}\right),
+        \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad
+        \nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t}
         \]
         \[
-        E_i^{n+1} =
-        E_i^n +
-        \frac{\Delta t}{\varepsilon_i \Delta x}
-        \left(H_{i+\frac{1}{2}}^{n+\frac{1}{2}} - H_{i-\frac{1}{2}}^{n+\frac{1}{2}}\right).
+        \nabla \cdot \mathbf{D} = \rho, \qquad
+        \nabla \cdot \mathbf{B} = 0
         \]
       </div>
-      <div class="formula">
+      <p>For linear isotropic media:</p>
+      <div class="formula-box">
         \[
-        \Delta t \le \frac{\Delta x}{c}
+        \mathbf{D} = \varepsilon \mathbf{E}, \qquad
+        \mathbf{B} = \mu \mathbf{H}, \qquad
+        \mathbf{J} = \sigma \mathbf{E}
         \]
       </div>
+      <div class="note-box">
+        In practical RF and photonics work, \(\varepsilon\), \(\mu\), and \(\sigma\) may vary with position and may also depend on frequency. That is the point where numerical methods become necessary.
+      </div>
+    </section>
+
+    <section class="section-card" id="quantities">
+      <h2>2. Physical quantities and units</h2>
+      <p>Use SI units unless a project convention states otherwise. In optics, wavelength is often reported in nm; in RF, frequency is often reported in MHz or GHz. The underlying SI units remain the reference.</p>
+
+      <h3>Core field and material quantities</h3>
+      <table class="quantity-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Meaning</th>
+            <th>SI unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>\(\mathbf{E}\)</td><td>Electric field</td><td>Electric force per unit charge; primary field used to describe voltage-driven response.</td><td>V/m</td></tr>
+          <tr><td>\(\mathbf{D}\)</td><td>Electric flux density</td><td>Electric displacement; includes material polarization through \(\mathbf{D}=\varepsilon\mathbf{E}\).</td><td>C/m²</td></tr>
+          <tr><td>\(\mathbf{H}\)</td><td>Magnetic field</td><td>Magnetizing field associated with currents and time-varying electric fields.</td><td>A/m</td></tr>
+          <tr><td>\(\mathbf{B}\)</td><td>Magnetic flux density</td><td>Magnetic induction; the physical magnetic flux field through area.</td><td>T</td></tr>
+          <tr><td>\(\mathbf{J}\)</td><td>Current density</td><td>Conduction current per unit cross-sectional area.</td><td>A/m²</td></tr>
+          <tr><td>\(\rho\)</td><td>Charge density</td><td>Electric charge per unit volume.</td><td>C/m³</td></tr>
+          <tr><td>\(\varepsilon\)</td><td>Permittivity</td><td>Material parameter relating \(\mathbf{E}\) to \(\mathbf{D}\); controls capacitive response and wave speed.</td><td>F/m</td></tr>
+          <tr><td>\(\mu\)</td><td>Permeability</td><td>Material parameter relating \(\mathbf{H}\) to \(\mathbf{B}\); controls magnetic response.</td><td>H/m</td></tr>
+          <tr><td>\(\sigma\)</td><td>Conductivity</td><td>Material parameter relating \(\mathbf{E}\) to conduction current \(\mathbf{J}\).</td><td>S/m</td></tr>
+          <tr><td>\(\varepsilon_r\)</td><td>Relative permittivity</td><td>Permittivity normalized by vacuum permittivity \(\varepsilon_0\).</td><td>dimensionless</td></tr>
+          <tr><td>\(\mu_r\)</td><td>Relative permeability</td><td>Permeability normalized by vacuum permeability \(\mu_0\).</td><td>dimensionless</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Wave and observable quantities</h3>
+      <table class="quantity-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Meaning</th>
+            <th>SI unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>\(f\)</td><td>Frequency</td><td>Oscillation rate of the field.</td><td>Hz</td></tr>
+          <tr><td>\(\omega\)</td><td>Angular frequency</td><td>Frequency in radian form, \(\omega = 2\pi f\).</td><td>rad/s</td></tr>
+          <tr><td>\(\lambda\)</td><td>Wavelength</td><td>Distance over which the phase advances by \(2\pi\).</td><td>m</td></tr>
+          <tr><td>\(k_0\)</td><td>Free-space wavenumber</td><td>Spatial phase rate in free space, \(k_0 = 2\pi/\lambda\).</td><td>rad/m</td></tr>
+          <tr><td>\(\eta\)</td><td>Wave impedance</td><td>Ratio between electric and magnetic field amplitudes in a propagating wave.</td><td>Ω</td></tr>
+          <tr><td>\(\mathbf{S}=\mathbf{E}\times\mathbf{H}\)</td><td>Poynting vector</td><td>Power-flow density carried by the electromagnetic field.</td><td>W/m²</td></tr>
+          <tr><td>\(R\)</td><td>Reflectance</td><td>Reflected power normalized by incident power.</td><td>dimensionless or %</td></tr>
+          <tr><td>\(T\)</td><td>Transmittance</td><td>Transmitted power normalized by incident power.</td><td>dimensionless or %</td></tr>
+          <tr><td>\(A\)</td><td>Absorptance</td><td>Absorbed power fraction; for a passive structure \(A=1-R-T\).</td><td>dimensionless or %</td></tr>
+          <tr><td>\(S_{11}, S_{12}, S_{21}, S_{22}\)</td><td>S-parameters</td><td>Two-port scattering coefficients: input reflection, reverse transmission, forward transmission, and output reflection.</td><td>complex ratio; often reported as magnitude, phase, or dB</td></tr>
+          <tr><td>\(Q\)</td><td>Quality factor</td><td>Ratio of stored energy to energy lost per cycle in a resonant system.</td><td>dimensionless</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card" id="observables">
+      <h2>3. Engineering observables</h2>
+      <p>Field plots are intermediate data. Engineering decisions are made from defined observables.</p>
+      <div class="three-col observables-grid">
+        <div class="mini-card">
+          <h4>Reflection / transmission</h4>
+          <p>Used for slabs, coatings, filters, absorbers, and open-region scattering.</p>
+          <div class="formula-box">\[ A = 1 - R - T \]</div>
+          <table class="quantity-table">
+            <thead>
+              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>\(R\)</td><td>Reflected power / incident power</td><td>dimensionless or %</td></tr>
+              <tr><td>\(T\)</td><td>Transmitted power / incident power</td><td>dimensionless or %</td></tr>
+              <tr><td>\(A\)</td><td>Absorbed power fraction</td><td>dimensionless or %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mini-card">
+          <h4>S-parameters</h4>
+          <p>Standard observables for ports, feeds, RF packaging, antennas, and microwave components.</p>
+          <table class="quantity-table">
+            <thead>
+              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>\(S_{11}\)</td><td>Reflection at port 1</td><td>complex ratio; often dB</td></tr>
+              <tr><td>\(S_{21}\)</td><td>Forward transmission from port 1 to port 2</td><td>complex ratio; often dB</td></tr>
+              <tr><td>\(S_{12}\)</td><td>Reverse transmission from port 2 to port 1</td><td>complex ratio; often dB</td></tr>
+              <tr><td>\(S_{22}\)</td><td>Reflection at port 2</td><td>complex ratio; often dB</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mini-card">
+          <h4>Field quantities</h4>
+          <p>Used for hot spots, mode shape, localization, power flow, and field enhancement.</p>
+          <table class="quantity-table">
+            <thead>
+              <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>\(\mathbf{E}\)</td><td>Electric field amplitude</td><td>V/m</td></tr>
+              <tr><td>\(\mathbf{H}\)</td><td>Magnetic field amplitude</td><td>A/m</td></tr>
+              <tr><td>\(|\mathbf{E}|^2\)</td><td>Electric-field intensity proxy</td><td>V²/m²</td></tr>
+              <tr><td>\(|\mathbf{H}|^2\)</td><td>Magnetic-field intensity proxy</td><td>A²/m²</td></tr>
+              <tr><td>\(\langle \mathbf{S} \rangle\)</td><td>Time-averaged power-flow density</td><td>W/m²</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="note-box">
+        A bright map is not automatically a good design. Use quantities that are normalized, comparable, and tied to the device function.
+      </div>
+    </section>
+
+    <section class="section-card" id="solver-map">
+      <h2>4. FDTD and FEM selection</h2>
+      <table class="quantity-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Formulation</th>
+            <th>Main strength</th>
+            <th>Main limitation</th>
+            <th>Typical use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1D / 2D FDTD</td>
+            <td>Time domain, staggered grid</td>
+            <td>Broadband response from one pulse; good physical intuition</td>
+            <td>Time stepping cost; CFL limit; structured grid</td>
+            <td>Transient scattering, wideband spectra, source propagation</td>
+          </tr>
+          <tr>
+            <td>1D / 2D FEM</td>
+            <td>Frequency domain, weak form</td>
+            <td>Handles irregular geometry and boundary-value problems cleanly</td>
+            <td>Broadband response requires repeated frequency solves</td>
+            <td>Resonators, bounded domains, complex geometry, multiphysics coupling</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card" id="fdtd1d">
+      <h2>5. 1D finite-difference time-domain (FDTD)</h2>
+      <div class="method-grid">
+        <div class="method-label">Method idea</div>
+        <div>Electric and magnetic fields are staggered in space and time. The update is explicit and physically transparent.</div>
+        <div class="method-label">Update equations</div>
+        <div class="formula-box">
+          \[
+          H_{i+\frac{1}{2}}^{n+\frac{1}{2}} = H_{i+\frac{1}{2}}^{n-\frac{1}{2}} + \frac{\Delta t}{\mu \Delta x}\left(E_{i+1}^{n} - E_i^{n}\right)
+          \]
+          \[
+          E_i^{n+1} = E_i^n + \frac{\Delta t}{\varepsilon_i \Delta x}\left(H_{i+\frac{1}{2}}^{n+\frac{1}{2}} - H_{i-\frac{1}{2}}^{n+\frac{1}{2}}\right)
+          \]
+          \[
+          \Delta t \le \frac{\Delta x}{c}
+          \]
+        </div>
+        <div class="method-label">Minimal example</div>
+        <div>Gaussian pulse incident on a dielectric slab. Extract \(R(\omega)\) and \(T(\omega)\) from monitor signals.</div>
+      </div>
+    </section>
+
+    <section class="section-card" id="fem1d">
+      <h2>6. 1D finite element method (FEM)</h2>
+      <div class="method-grid">
+        <div class="method-label">Method idea</div>
+        <div>The differential equation is converted into a weak form and assembled into a sparse linear system.</div>
+        <div class="method-label">Governing form</div>
+        <div class="formula-box">
+          \[
+          \frac{d}{dx}\left(\frac{1}{\mu}\frac{dE}{dx}\right) + \omega^2 \varepsilon(x) E = f(x)
+          \]
+          \[
+          \int_{\Omega} \frac{d v}{d x}\frac{1}{\mu}\frac{dE}{d x}\,dx - \omega^2 \int_{\Omega} v\,\varepsilon(x)\,E\,dx = \int_{\Omega} v\,f\,dx
+          \]
+        </div>
+        <div class="method-label">Minimal example</div>
+        <div>Layered dielectric interval solved at a selected frequency. Useful for understanding weak form, assembly, and boundary conditions.</div>
+      </div>
+    </section>
+
+    <section class="section-card" id="fdtd2d">
+      <h2>7. 2D finite-difference time-domain (FDTD)</h2>
       <div class="two-col">
         <div>
-          <h3>Minimal example: dielectric slab</h3>
-          <ul class="tight">
-            <li>A Gaussian pulse is launched from the left.</li>
-            <li>The wave propagates through free space and meets a dielectric slab.</li>
-            <li>Part of the pulse reflects and part transmits.</li>
-            <li>Monitor signals are Fourier transformed to obtain \(R(\omega)\) and \(T(\omega)\), which are the same quantities used to assess layered devices, coatings, and material interfaces.</li>
-          </ul>
-          <div class="formula">
+          <div class="method-grid">
+            <div class="method-label">Method idea</div>
+            <div>Once the problem becomes 2D, diffraction, scattering, and boundary interaction appear explicitly.</div>
+            <div class="method-label">Field set</div>
+            <div>For a TM<sub>z</sub>-type case, the primary unknowns are \(E_z\), \(H_x\), and \(H_y\).</div>
+            <div class="method-label">Use case</div>
+            <div>Scattering from inclusions, apertures, dielectric objects, and open-region pulse problems.</div>
+          </div>
+          <div class="formula-box">
             \[
-            s(t) = \exp\left[-\left(\frac{t-t_0}{\tau}\right)^2\right]\sin(\omega_0 t)
+            H_x^{n+\frac{1}{2}} = H_x^{n-\frac{1}{2}} - \frac{\Delta t}{\mu \Delta y}\left(E_z^n(i,j+1)-E_z^n(i,j)\right)
+            \]
+            \[
+            H_y^{n+\frac{1}{2}} = H_y^{n-\frac{1}{2}} + \frac{\Delta t}{\mu \Delta x}\left(E_z^n(i+1,j)-E_z^n(i,j)\right)
             \]
           </div>
-          <div class="warningbox">
-            In FDTD, the mesh is not merely geometric. It controls phase error, dispersion, and the maximum stable time step.
-          </div>
         </div>
-        <div class="figure-card svg-wrap">
-          <div class="figure-title">Figure 3. 1D FDTD logic</div>
-          <svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1D FDTD slab example">
-            <defs>
-              <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
-              </marker>
-            </defs>
-            <line x1="50" y1="200" x2="650" y2="200" stroke="#94a3b8" stroke-width="3"/>
-            <rect x="390" y="110" width="90" height="90" fill="#dbeafe" stroke="#93c5fd"/>
-            <text x="435" y="225" text-anchor="middle" font-size="16" fill="#475569">slab</text>
-
-            <line x1="90" y1="140" x2="180" y2="140" stroke="#ef4444" stroke-width="5" marker-end="url(#arrow3)"/>
-            <text x="135" y="125" text-anchor="middle" font-size="15" fill="#ef4444">incident pulse</text>
-            <line x1="315" y1="105" x2="235" y2="75" stroke="#0b7285" stroke-width="4" marker-end="url(#arrow3)"/>
-            <text x="220" y="68" font-size="15" fill="#0b7285">reflected</text>
-            <line x1="500" y1="140" x2="590" y2="140" stroke="#2b8a3e" stroke-width="5" marker-end="url(#arrow3)"/>
-            <text x="548" y="125" text-anchor="middle" font-size="15" fill="#2b8a3e">transmitted</text>
-
-            <circle cx="250" cy="200" r="6" fill="#0b7285"/>
-            <circle cx="560" cy="200" r="6" fill="#2b8a3e"/>
-            <text x="250" y="228" text-anchor="middle" font-size="14" fill="#475569">monitor 1</text>
-            <text x="560" y="228" text-anchor="middle" font-size="14" fill="#475569">monitor 2</text>
-          </svg>
-          <div class="figure-caption">A pulse, a slab, two monitors, and FFT post-processing already contain the full FDTD logic.</div>
+        <div class="figure-card">
+          <div class="figure-title">TF/SF source injection</div>
+          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/TFSF.png" alt="Total-field scattered-field source injection schematic">
+          <div class="figure-caption">Total-field / scattered-field separation injects a plane wave into the useful region while keeping the outer region available for scattered-field extraction.</div>
         </div>
       </div>
-<pre>// 1D FDTD skeleton
-for (n = 0; n < Nt; ++n) {
-    update_H();
-    update_E();
-    inject_source();
-    apply_boundary_conditions();
-    record_monitors();
-}</pre>
-      <div class="small-note">
-        This type of model underlies practical work on dielectric stacks, transmission through layers, absorber concepts, and signal propagation through material interfaces.
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="section-block" id="fem1d">
-    <h2>7. 1D finite element method (FEM)</h2>
-    <div class="methodbox">
-      <div class="method-header">
-        <h3 style="margin:0;">Method idea</h3>
-        <div class="method-tag">Frequency domain • weak form</div>
-      </div>
-      <p>
-        In 1D FEM, the governing equation is converted into a weak form and then assembled element by element into a global
-        linear system. This is where students first see clearly that FEM is a boundary-value formulation rather than a time-marching scheme.
-      </p>
-      <div class="formula">
-        \[
-        \frac{d}{dx}\left(\frac{1}{\mu}\frac{dE}{dx}\right) + \omega^2 \varepsilon(x) E = f(x)
-        \]
-      </div>
-      <div class="formula">
-        \[
-        \int_{\Omega} \frac{d v}{d x}\frac{1}{\mu}\frac{dE}{d x}\,dx
-        - \omega^2 \int_{\Omega} v\,\varepsilon(x)\,E\,dx
-        = \int_{\Omega} v\,f\,dx
-        \]
-      </div>
-      <div class="two-col">
-        <div>
-          <h3>Minimal example: layered dielectric interval</h3>
-          <ul class="tight">
-            <li>The domain is discretized into line elements.</li>
-            <li>Each element carries its own material parameter.</li>
-            <li>The local matrices are assembled into a sparse global system.</li>
-            <li>Boundary conditions complete the problem statement.</li>
-          </ul>
-          <div class="leadbox">
-            The contrast with FDTD is especially useful in practice: FDTD is often chosen for broadband pulse behavior, while FEM is often chosen when one operating frequency, a resonant condition, or a geometrically irregular device is the main concern.
-          </div>
-        </div>
-        <div class="figure-card svg-wrap">
-          <div class="figure-title">Figure 4. 1D FEM logic</div>
-          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1D FEM element assembly">
-            <rect x="70" y="125" width="500" height="55" fill="#f8fafc" stroke="#dbe3ea"/>
-            <line x1="140" y1="125" x2="140" y2="180" stroke="#94a3b8" stroke-width="2"/>
-            <line x1="220" y1="125" x2="220" y2="180" stroke="#94a3b8" stroke-width="2"/>
-            <line x1="310" y1="125" x2="310" y2="180" stroke="#94a3b8" stroke-width="2"/>
-            <line x1="420" y1="125" x2="420" y2="180" stroke="#94a3b8" stroke-width="2"/>
-            <rect x="310" y="125" width="110" height="55" fill="#dbeafe" stroke="#93c5fd"/>
-            <text x="365" y="112" text-anchor="middle" font-size="16" fill="#475569">higher \(\varepsilon_r\)</text>
-
-            <rect x="590" y="70" width="70" height="170" rx="10" fill="#f8fafc" stroke="#dbe3ea"/>
-            <text x="625" y="95" text-anchor="middle" font-size="16" fill="#0f172a">global</text>
-            <text x="625" y="118" text-anchor="middle" font-size="16" fill="#0f172a">matrix</text>
-            <line x1="570" y1="152" x2="590" y2="152" stroke="#64748b" stroke-width="4"/>
-            <text x="320" y="230" text-anchor="middle" font-size="16" fill="#475569">element by element assembly</text>
-          </svg>
-          <div class="figure-caption">FEM teaches that the mesh carries basis functions, material assignments, and boundary information into the final algebraic system.</div>
-        </div>
-      </div>
-<pre>// 1D FEM frequency-domain skeleton
-assemble_global_matrix();
-assemble_source_vector();
-apply_boundary_conditions();
-solve_linear_system();
-postprocess_field();</pre>
-    </div>
-  </div>
-
-  <div class="section-block" id="fdtd2d">
-    <h2>8. 2D finite-difference time-domain (FDTD)</h2>
-    <div class="methodbox">
-      <div class="method-header">
-        <h3 style="margin:0;">Method idea</h3>
-        <div class="method-tag">2D time domain • propagation and scattering</div>
-      </div>
-      <p>
-        Once the problem becomes genuinely two-dimensional, propagation is no longer just left-to-right. Waves can diffract,
-        scatter from inclusions, and interact with the computational boundary in ways that are immediately visible.
-      </p>
-      <div class="formula">
-        \[
-        H_x^{n+\frac{1}{2}} = H_x^{n-\frac{1}{2}} - \frac{\Delta t}{\mu \Delta y}\left(E_z^n(i,j+1)-E_z^n(i,j)\right),
-        \]
-        \[
-        H_y^{n+\frac{1}{2}} = H_y^{n-\frac{1}{2}} + \frac{\Delta t}{\mu \Delta x}\left(E_z^n(i+1,j)-E_z^n(i,j)\right),
-        \]
-        \[
-        E_z^{n+1} = E_z^n +
-        \frac{\Delta t}{\varepsilon}\left[
-        \frac{H_y^{n+\frac{1}{2}}(i,j)-H_y^{n+\frac{1}{2}}(i-1,j)}{\Delta x}
-        -
-        \frac{H_x^{n+\frac{1}{2}}(i,j)-H_x^{n+\frac{1}{2}}(i,j-1)}{\Delta y}
-        \right].
-        \]
-      </div>
-      <div class="two-col">
-        <div>
-          <h3>Minimal example: pulse scattering in 2D</h3>
-          <ul class="tight">
-            <li>A compact Gaussian source launches a transient field.</li>
-            <li>A dielectric inclusion or PEC object scatters the pulse.</li>
-            <li>With no absorbing boundary, edge reflections return into the domain.</li>
-            <li>With a simple ABC or PML-type layer, outgoing waves are suppressed.</li>
-          </ul>
-          <div class="warningbox">
-            This is the point at which students must stop treating boundary conditions as a coding detail. In an open-region problem, the boundary is part of the model.
-          </div>
-        </div>
-        <div>
-          <div class="figure-card svg-wrap">
-            <div class="figure-title">Figure 5. 2D FDTD without ABC</div>
-            <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2D FDTD no absorbing boundary">
-              <rect x="70" y="35" width="280" height="190" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
-              <circle cx="150" cy="130" r="12" fill="#ef4444"/>
-              <circle cx="250" cy="130" r="28" fill="#dbeafe" stroke="#93c5fd"/>
-              <path d="M150,130 C185,105 220,105 250,130 C285,155 315,155 345,130" fill="none" stroke="#0b7285" stroke-width="5"/>
-              <path d="M345,130 C325,90 320,60 330,40" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
-              <path d="M345,130 C325,170 320,200 330,225" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
-              <text x="210" y="25" text-anchor="middle" font-size="16" fill="#475569">outgoing waves hit the boundary and return</text>
-
-              <rect x="410" y="35" width="220" height="190" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
-              <text x="520" y="72" text-anchor="middle" font-size="20" fill="#9a3412">What goes wrong</text>
-              <text x="430" y="108" font-size="16" fill="#7c2d12">• artificial standing waves</text>
-              <text x="430" y="138" font-size="16" fill="#7c2d12">• incorrect late-time energy</text>
-              <text x="430" y="168" font-size="16" fill="#7c2d12">• boundary reflections mistaken</text>
-              <text x="430" y="194" font-size="16" fill="#7c2d12">  for physical scattering</text>
-            </svg>
-            <div class="figure-caption">Students should see this failure mode before they are given an absorbing boundary.</div>
-          </div>
-
-          <div class="figure-card svg-wrap">
-            <div class="figure-title">Figure 6. 2D FDTD with absorbing boundary</div>
-            <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2D FDTD with absorbing boundary">
-              <rect x="70" y="35" width="280" height="190" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-              <rect x="70" y="35" width="280" height="18" fill="#e0f2fe"/>
-              <rect x="70" y="207" width="280" height="18" fill="#e0f2fe"/>
-              <rect x="70" y="35" width="18" height="190" fill="#e0f2fe"/>
-              <rect x="332" y="35" width="18" height="190" fill="#e0f2fe"/>
-              <circle cx="150" cy="130" r="12" fill="#ef4444"/>
-              <circle cx="250" cy="130" r="28" fill="#dbeafe" stroke="#93c5fd"/>
-              <path d="M150,130 C185,105 220,105 250,130 C285,155 315,155 345,130" fill="none" stroke="#0b7285" stroke-width="5"/>
-              <path d="M300,95 C320,80 336,68 344,60" fill="none" stroke="#2b8a3e" stroke-width="4"/>
-              <path d="M300,165 C320,180 336,192 344,200" fill="none" stroke="#2b8a3e" stroke-width="4"/>
-              <text x="210" y="25" text-anchor="middle" font-size="16" fill="#475569">outgoing energy leaves the useful domain</text>
-
-              <rect x="410" y="35" width="220" height="190" fill="#edf7ef" stroke="#2b8a3e" stroke-width="3"/>
-              <text x="520" y="72" text-anchor="middle" font-size="20" fill="#0f5132">What improves</text>
-              <text x="430" y="108" font-size="16" fill="#166534">• cleaner scattered field</text>
-              <text x="430" y="138" font-size="16" fill="#166534">• better late-time behavior</text>
-              <text x="430" y="168" font-size="16" fill="#166534">• boundary effects reduced</text>
-              <text x="430" y="194" font-size="16" fill="#166534">• open-space logic restored</text>
-            </svg>
-            <div class="figure-caption">A pedagogical ABC already shows the essential idea, even before introducing full PML or CPML.</div>
-          </div>
-        </div>
-      </div>
-<pre>// 2D TM-like FDTD skeleton
-for (n = 0; n < Nt; ++n) {
-    update_Hx_Hy();
-    update_Ez();
-    inject_source();
-    apply_boundary_conditions();   // none / Mur / PML-type
-    record_snapshots_or_monitors();
-}</pre>
-    </div>
-  </div>
-
-  <div class="section-block" id="fem2d">
-    <h2>9. 2D finite element method (FEM)</h2>
-    <div class="methodbox">
-      <div class="method-header">
-        <h3 style="margin:0;">Method idea</h3>
-        <div class="method-tag">2D frequency domain • triangular mesh</div>
-      </div>
-      <p>
-        In 2D FEM, the geometry can be represented by triangles rather than a uniform Cartesian grid. This is where
-        mesh flexibility becomes visible and students begin to understand why FEM is attractive for irregular geometries,
-        boundary-value problems, resonators, and multiphysics coupling.
-      </p>
-      <div class="formula">
-        \[
-        \nabla \cdot \left( \nabla u \right) + k_0^2 \varepsilon_r(x,y)\,u = f(x,y)
-        \]
-      </div>
-      <div class="formula">
-        \[
-        \int_{\Omega} \nabla v \cdot \nabla u\, d\Omega
-        - k_0^2 \int_{\Omega} \varepsilon_r(x,y)\, v u\, d\Omega
-        = \int_{\Omega} v f\, d\Omega
-        \]
-      </div>
-      <div class="two-col">
-        <div>
-          <h3>Minimal example: 2D Helmholtz problem with dielectric inclusion</h3>
-          <ul class="tight">
-            <li>The domain is split into triangles.</li>
-            <li>Material is assigned element by element from the element centroid.</li>
-            <li>A sparse linear system is assembled from local element matrices.</li>
-            <li>The solution reveals how geometry and material distribution shape the field.</li>
-          </ul>
-          <div class="leadbox">
-            The central lesson is not merely that FEM can solve the problem. It is that the geometry itself now participates in how the mesh is built and how the numerical error is distributed.
-          </div>
-        </div>
-        <div class="figure-card svg-wrap">
-          <div class="figure-title">Figure 7. 2D FEM mesh logic</div>
-          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2D FEM triangular mesh">
-            <rect x="70" y="55" width="300" height="210" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-            <g stroke="#94a3b8" stroke-width="1.2" fill="none">
-              <path d="M70,55 L145,110 L70,160 Z"/>
-              <path d="M145,110 L220,60 L230,145 Z"/>
-              <path d="M70,160 L145,110 L165,200 Z"/>
-              <path d="M145,110 L230,145 L165,200 Z"/>
-              <path d="M220,60 L310,85 L230,145 Z"/>
-              <path d="M230,145 L310,85 L335,170 Z"/>
-              <path d="M165,200 L230,145 L275,235 Z"/>
-              <path d="M230,145 L335,170 L275,235 Z"/>
-              <path d="M70,210 L165,200 L120,265 Z"/>
-              <path d="M165,200 L275,235 L200,265 Z"/>
-            </g>
-            <circle cx="235" cy="155" r="46" fill="#dbeafe" stroke="#60a5fa" stroke-width="2" opacity="0.85"/>
-            <text x="235" y="160" text-anchor="middle" font-size="16" fill="#0f172a">inclusion</text>
-
-            <line x1="395" y1="160" x2="655" y2="160" stroke="#94a3b8" stroke-width="2"/>
-            <line x1="395" y1="160" x2="395" y2="55" stroke="#94a3b8" stroke-width="2"/>
-            <path d="M410,145 C450,110 500,95 545,115 C590,132 620,160 650,150" fill="none" stroke="#0b7285" stroke-width="5"/>
-            <path d="M410,190 C455,175 500,145 548,170 C590,190 620,220 650,205" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
-            <text x="520" y="40" text-anchor="middle" font-size="18" fill="#0f172a">field response</text>
-            <text x="520" y="280" text-anchor="middle" font-size="16" fill="#475569">geometry and material are both embedded in the mesh</text>
-          </svg>
-          <div class="figure-caption">The triangular mesh is not decoration. It is the carrier of basis functions, material regions, and local approximation quality.</div>
-        </div>
-      </div>
-<pre>// 2D FEM skeleton
-generate_triangular_mesh();
-assemble_element_matrices();
-assemble_global_sparse_system();
-apply_boundary_conditions();
-solve_frequency_domain_problem();
-postprocess_field();</pre>
-    </div>
-  </div>
-
-  <div class="section-block" id="boundaries">
-    <h2>10. Boundary conditions and absorbing boundaries</h2>
-    <p>
-      Boundary conditions are not a secondary implementation detail. They are part of the mathematical statement of the
-      electromagnetic problem. A finite computational domain must represent either a closed system, a symmetry plane,
-      a periodic extension, or an approximation to open space.
-    </p>
-
-    <div class="three-col">
-      <div class="mini-card">
-        <h4>PEC / PMC</h4>
-        <p>Useful for ideal conductors or symmetry reductions, but physically inappropriate for open radiation problems.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Simple ABC</h4>
-        <p>Useful pedagogically in 1D or simple 2D examples to show how boundary reflections can be reduced, though not perfectly eliminated.</p>
-      </div>
-      <div class="mini-card">
-        <h4>PML / CPML</h4>
-        <p>The standard tool for truncating open domains. Its job is to absorb outgoing waves without sending them back into the useful physical region.</p>
-      </div>
-    </div>
-
-    <div class="warningbox">
-      <b>Critical point.</b> In engineering work, a poor boundary treatment can contaminate scattering, reflection, and radiation predictions.
-      Open-region behavior must be represented deliberately, not assumed.
-    </div>
-  </div>
-
-  <div class="section-block" id="workflow">
-    <h2>11. Practical simulation workflow</h2>
-    <div class="figure-card svg-wrap">
-      <div class="figure-title">Figure 8. Workflow from physics to defensible data</div>
-      <svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simulation workflow chart">
-        <defs>
-          <marker id="arrow5" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
-          </marker>
-        </defs>
-        <g font-family="Arial, sans-serif">
-          <rect x="20" y="45" width="150" height="110" rx="16" fill="#eef7fa" stroke="#b8dce4"/>
-          <rect x="195" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
-          <rect x="370" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
-          <rect x="545" y="45" width="150" height="110" rx="16" fill="#f7fafc" stroke="#dce5ec"/>
-          <rect x="720" y="45" width="160" height="110" rx="16" fill="#edf7ef" stroke="#cfe3d2"/>
-          <text x="95" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Geometry</text>
-          <text x="95" y="110" text-anchor="middle" font-size="16" fill="#475569">what is built?</text>
-          <text x="270" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Materials</text>
-          <text x="270" y="110" text-anchor="middle" font-size="16" fill="#475569">what is assumed?</text>
-          <text x="445" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Discretization</text>
-          <text x="445" y="110" text-anchor="middle" font-size="16" fill="#475569">how is it resolved?</text>
-          <text x="620" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Solver</text>
-          <text x="620" y="110" text-anchor="middle" font-size="16" fill="#475569">how is it solved?</text>
-          <text x="800" y="80" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Observable</text>
-          <text x="800" y="110" text-anchor="middle" font-size="16" fill="#475569">what is compared?</text>
-
-          <line x1="170" y1="100" x2="195" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
-          <line x1="345" y1="100" x2="370" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
-          <line x1="520" y1="100" x2="545" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
-          <line x1="695" y1="100" x2="720" y2="100" stroke="#64748b" stroke-width="4" marker-end="url(#arrow5)"/>
-
-          <rect x="150" y="185" width="600" height="34" rx="10" fill="#0f172a"/>
-          <text x="450" y="207" text-anchor="middle" font-size="17" fill="#ffffff">Errors in one stage propagate into the next stage</text>
-        </g>
-      </svg>
-      <div class="figure-caption">This is the workflow students should internalize: geometry → materials → discretization → solver → observable, with validation attached to the entire chain.</div>
-    </div>
-    <ol>
-      <li>Define geometry and its important scale hierarchy.</li>
-      <li>Assign physically justified material models.</li>
-      <li>Choose source, ports, and boundary conditions.</li>
-      <li>Select the formulation that matches the problem class.</li>
-      <li>Choose discretization consistent with wavelength and smallest critical geometric scale.</li>
-      <li>Run the solver and extract observables rather than only plotting fields.</li>
-      <li>Perform convergence, cross-checks, or analytical comparison.</li>
-    </ol>
-  </div>
-
-  <div class="section-block" id="validation">
-    <h2>12. Validation and common failure modes</h2>
-    <div class="leadbox">
-      Validation is not a decorative final slide. It is part of the method.
-    </div>
-    <div class="three-col">
-      <div class="mini-card">
-        <h4>Analytical checks</h4>
-        <ul class="tight">
-          <li>1D Fresnel reflection at a dielectric interface</li>
-          <li>Layered-medium intuition for the 1D slab</li>
-          <li>Mode or resonance checks in simple cavities</li>
-        </ul>
-      </div>
-      <div class="mini-card">
-        <h4>Convergence checks</h4>
-        <ul class="tight">
-          <li>mesh refinement</li>
-          <li>time-step sensitivity</li>
-          <li>domain-size sensitivity</li>
-          <li>boundary-distance sensitivity</li>
-        </ul>
-      </div>
-      <div class="mini-card">
-        <h4>Cross-validation</h4>
-        <ul class="tight">
-          <li>1D FDTD vs analytical interface result</li>
-          <li>1D FDTD vs 1D FEM for the same material profile</li>
-          <li>2D FDTD without ABC vs with ABC</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="method-grid" style="margin-top:16px;">
-      <div class="warningbox">
-        <b>Model failure.</b> Wrong \(\varepsilon\), ignored loss, unrealistic geometry, or a problem statement that does not match the intended experiment.
-      </div>
-      <div class="warningbox">
-        <b>Discretization failure.</b> Too coarse a mesh, unstable time step, poor element quality, or insufficient resolution at interfaces.
-      </div>
-      <div class="warningbox">
-        <b>Boundary failure.</b> Artificial reflection from truncated boundaries or a boundary condition that does not represent the physical setting.
-      </div>
-      <div class="warningbox">
-        <b>Post-processing failure.</b> Wrong normalization, early signal truncation, or comparing decorative field maps instead of observables.
-      </div>
-    </div>
-
-    <div class="two-col" style="margin-top:16px;">
-      <div>
-        <h3>Minimal convergence logic</h3>
-        <div class="formula">
+    <section class="section-card" id="fem2d">
+      <h2>8. 2D finite element method (FEM)</h2>
+      <div class="method-grid">
+        <div class="method-label">Method idea</div>
+        <div>Triangular elements make geometry part of the discretization. This is the main reason FEM is attractive for irregular domains.</div>
+        <div class="method-label">Helmholtz form</div>
+        <div class="formula-box">
           \[
-          \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
+          \nabla \cdot (\nabla u) + k_0^2\varepsilon_r(x,y)u = f(x,y)
+          \]
+          \[
+          \int_{\Omega} \nabla v \cdot \nabla u\, d\Omega - k_0^2 \int_{\Omega} \varepsilon_r(x,y)vu\, d\Omega = \int_{\Omega} vf\, d\Omega
           \]
         </div>
-        <p>
-          Replace \(Q\) by any meaningful observable: resonant frequency, transmission peak, reflected power, or local field norm.
-          The point is not endless refinement. The point is to show that the chosen discretization no longer changes the answer in a consequential way.
-        </p>
+        <div class="method-label">Minimal example</div>
+        <div>2D dielectric inclusion in a bounded domain. Useful for mesh generation, assembly, and geometry-dependent error control.</div>
       </div>
-      <div class="figure-card svg-wrap">
-        <div class="figure-title">Figure 9. Convergence behavior</div>
-        <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Convergence curve">
-          <line x1="80" y1="260" x2="640" y2="260" stroke="#94a3b8" stroke-width="2"/>
-          <line x1="80" y1="260" x2="80" y2="50" stroke="#94a3b8" stroke-width="2"/>
-          <text x="360" y="295" text-anchor="middle" font-size="16" fill="#475569">mesh density</text>
-          <text x="28" y="165" transform="rotate(-90 28,165)" text-anchor="middle" font-size="16" fill="#475569">observable value</text>
-          <path d="M120,90 C180,150 250,200 340,228 C430,243 520,247 620,248" fill="none" stroke="#0b7285" stroke-width="6"/>
-          <circle cx="120" cy="90" r="7" fill="#f59e0b"/>
-          <circle cx="220" cy="170" r="7" fill="#f59e0b"/>
-          <circle cx="320" cy="220" r="7" fill="#f59e0b"/>
-          <circle cx="430" cy="242" r="7" fill="#f59e0b"/>
-          <circle cx="520" cy="247" r="7" fill="#f59e0b"/>
-          <circle cx="620" cy="248" r="7" fill="#f59e0b"/>
-          <line x1="80" y1="248" x2="640" y2="248" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6"/>
-          <text x="575" y="236" font-size="15" fill="#ef4444">converged value</text>
-        </svg>
-        <div class="figure-caption">The student should learn to trust the plateau, not the first plausible plot.</div>
+    </section>
+
+    <section class="section-card" id="boundaries">
+      <h2>9. Sources and boundaries</h2>
+      <p>Boundaries are part of the mathematical model. They are not a cosmetic implementation detail.</p>
+      <div class="two-col">
+        <div>
+          <div class="three-col" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+            <div class="mini-card">
+              <h4>PEC / PMC</h4>
+              <p>Ideal conductor or symmetry boundary. Good for closed or symmetry-reduced problems.</p>
+            </div>
+            <div class="mini-card">
+              <h4>ABC</h4>
+              <p>Simple absorbing boundary. Useful for teaching; limited for demanding open-region work.</p>
+            </div>
+            <div class="mini-card">
+              <h4>PML / CPML</h4>
+              <p>Standard open-boundary truncation. Designed to absorb outgoing waves with minimal reflection.</p>
+            </div>
+          </div>
+          <div class="note-box">
+            In an open-region model, source placement, monitor placement, and boundary distance must be chosen together. A good solver cannot rescue a bad domain layout.
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-title">Simulation domain with CPML truncation</div>
+          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/simulation_domain.png" alt="Simulation domain showing total-field region, scattered-field region, and CPML boundary">
+          <div class="figure-caption">The useful physical region, the TF/SF connection surface, the scattered-field zone, and the CPML layer must be arranged deliberately. Open space is modeled, not automatic.</div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section-card" id="workflow">
+      <h2>10. Workflow and validation</h2>
+      <div class="three-col">
+        <div class="mini-card">
+          <h4>Workflow</h4>
+          <ul>
+            <li>Define geometry and critical length scales</li>
+            <li>Assign material model and units correctly</li>
+            <li>Choose source, ports, and boundaries</li>
+            <li>Select solver and discretization</li>
+            <li>Extract observables, not only field plots</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>Checks</h4>
+          <ul>
+            <li>Mesh refinement</li>
+            <li>Time-step sensitivity for FDTD</li>
+            <li>Domain-size and boundary-distance sensitivity</li>
+            <li>Analytical or reference comparison</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>Failure modes</h4>
+          <ul>
+            <li>Wrong material data or wrong unit conversion</li>
+            <li>Under-resolved interfaces or curved geometry</li>
+            <li>Boundary reflection contaminating the answer</li>
+            <li>Wrong normalization of \(R\), \(T\), or S-parameters</li>
+          </ul>
+        </div>
+      </div>
+      <div class="formula-box" style="margin-top:16px;">
+        \[
+        \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
+        \]
+      </div>
+      <p>Use \(Q\) for any meaningful observable: reflected power, resonant frequency, transmission peak, or field energy. Convergence is defined on the observable, not on visual comfort.</p>
+    </section>
+
+    <section class="section-card" id="codes">
+      <h2>11. Example codes</h2>
+      <div class="three-col code-list">
+        <div class="mini-card">
+          <h4>1D FDTD slab</h4>
+          <p>Gaussian pulse, dielectric slab, FFT-based \(R/T\) extraction.</p>
+          <p><a download href="codes/fdtd_1d_slab.py">Download fdtd_1d_slab.py</a></p>
+        </div>
+        <div class="mini-card">
+          <h4>1D FEM layered medium</h4>
+          <p>Linear elements, piecewise \(\varepsilon\), sparse solve.</p>
+          <p><a download href="codes/fem_1d_layered.py">Download fem_1d_layered.py</a></p>
+        </div>
+        <div class="mini-card">
+          <h4>2D FDTD without ABC</h4>
+          <p>Shows boundary reflection contamination in an open-region transient problem.</p>
+          <p><a download href="codes/fdtd_2d_no_abc.py">Download fdtd_2d_no_abc.py</a></p>
+        </div>
+      </div>
+      <div class="three-col code-list" style="margin-top:16px;">
+        <div class="mini-card">
+          <h4>2D FDTD with Mur ABC</h4>
+          <p>Simple absorbing boundary demonstration.</p>
+          <p><a download href="codes/fdtd_2d_mur_abc.py">Download fdtd_2d_mur_abc.py</a></p>
+        </div>
+        <div class="mini-card">
+          <h4>2D FEM Helmholtz</h4>
+          <p>Triangular mesh assembly for a dielectric inclusion.</p>
+          <p><a download href="codes/fem_2d_helmholtz.py">Download fem_2d_helmholtz.py</a></p>
+        </div>
+        <div class="mini-card">
+          <h4>Suggested self-study path</h4>
+          <ul>
+            <li>Reproduce \(R/T\) for a dielectric slab</li>
+            <li>Add loss and compare \(A\)</li>
+            <li>Move from ABC to CPML</li>
+            <li>Compare FDTD and FEM on one shared structure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-back"><a href="../../index.html#teaching">Back to Teaching</a></p>
   </div>
 
-  <div class="section-block" id="codes">
-    <h2>13. Example codes and mini-projects</h2>
-    <div class="resourcebox">
-      These example programs are intentionally compact. They show the numerical structure of each method clearly and can be used as a starting point for more realistic RF, microwave, photonics, EMC, shielding, sensing, and packaging problems.
-    </div>
-    <div class="three-col">
-      <div class="mini-card">
-        <h4>Code 1</h4>
-        <p><b>1D FDTD slab.</b> Gaussian pulse, dielectric slab, monitor signals, and FFT-based reflection/transmission extraction.</p>
-        <p><a href="codes/fdtd_1d_slab.py" download>Download fdtd_1d_slab.py</a></p>
-      </div>
-      <div class="mini-card">
-        <h4>Code 2</h4>
-        <p><b>1D FEM layered medium.</b> Linear elements, piecewise material profile, global sparse solve, and field visualization.</p>
-        <p><a href="codes/fem_1d_layered.py" download>Download fem_1d_layered.py</a></p>
-      </div>
-      <div class="mini-card">
-        <h4>Code 3</h4>
-        <p><b>2D FDTD without ABC.</b> Shows how edge reflection contaminates an open-region transient problem when no absorbing treatment is used.</p>
-        <p><a href="codes/fdtd_2d_no_abc.py" download>Download fdtd_2d_no_abc.py</a></p>
-      </div>
-    </div>
-    <div class="three-col" style="margin-top:16px;">
-      <div class="mini-card">
-        <h4>Code 4</h4>
-        <p><b>2D FDTD with Mur ABC.</b> A simple absorbing-boundary implementation that already shows the logic of open-region truncation.</p>
-        <p><a href="codes/fdtd_2d_mur_abc.py" download>Download fdtd_2d_mur_abc.py</a></p>
-      </div>
-      <div class="mini-card">
-        <h4>Code 5</h4>
-        <p><b>2D FEM Helmholtz.</b> Triangular-mesh assembly for a dielectric inclusion in a bounded domain.</p>
-        <p><a href="codes/fem_2d_helmholtz.py" download>Download fem_2d_helmholtz.py</a></p>
-      </div>
-      <div class="mini-card">
-        <h4>Suggested extensions</h4>
-        <ul class="tight">
-          <li>extract reflection and transmission</li>
-          <li>compare no-ABC and ABC results</li>
-          <li>change dielectric contrast</li>
-          <li>refine mesh or time step</li>
-          <li>connect the result to a device use case</li>
-        </ul>
-      </div>
-    </div>
-    <div class="leadbox">
-      These codes are small enough to study line by line, but they already map directly onto practical workflows used in absorber design, waveguide analysis, antenna environments, EMC studies, photonic components, and package-level field prediction.
-    </div>
-  </div>
-
-  <hr>
-  <p class="footer-back"><a href="../../index.html#teaching">← Back to Teaching</a></p>
-
-</div>
-
-<button id="backToTopBtn" class="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
-
-<script>
-  (function () {
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    function toggleBackToTopButton() {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
-    window.addEventListener('scroll', toggleBackToTopButton);
-    backToTopBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    toggleBackToTopButton();
-  })();
-</script>
+  <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+    (function() {
+      const btn = document.getElementById('backToTop');
+      const toggle = () => {
+        btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+      };
+      window.addEventListener('scroll', toggle, { passive: true });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      toggle();
+    })();
+  </script>
 </body>
 </html>

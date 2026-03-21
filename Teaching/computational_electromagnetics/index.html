@@ -119,8 +119,8 @@
     }
     .section-card h3 {
       color: #244964;
-      font-size: 1.08rem;
-      margin: 18px 0 10px 0;
+      font-size: 1.25rem;
+      margin: 24px 0 10px 0;
     }
     .section-card p { margin: 0 0 12px 0; }
     .section-card ul { margin: 0 0 0 18px; padding: 0; }
@@ -540,11 +540,6 @@
             \]
           </div>
         </div>
-        <div class="figure-card">
-          <div class="figure-title">TF/SF source injection</div>
-          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/TFSF.png" alt="Total-field scattered-field source injection schematic">
-          <div class="figure-caption">Total-field / scattered-field separation injects a plane wave into the useful region while keeping the outer region available for scattered-field extraction.</div>
-        </div>
       </div>
     </section>
 
@@ -569,31 +564,61 @@
 
     <section class="section-card" id="boundaries">
       <h2>8. Sources and boundaries</h2>
-      <p>Boundaries are part of the mathematical model. They are not a cosmetic implementation detail.</p>
+      <p>Boundaries define the edges of your mathematical model and drastically influence accuracy. They are not a cosmetic implementation detail. The choice of boundary depends entirely on the physics of your problem.</p>
+
+      <h3>Open Space / PML (Perfectly Matched Layer)</h3>
       <div class="two-col">
         <div>
-          <div class="three-col" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
-            <div class="mini-card">
-              <h4>PEC / PMC</h4>
-              <p>Ideal conductor or symmetry boundary. Good for closed or symmetry-reduced problems.</p>
-            </div>
-            <div class="mini-card">
-              <h4>ABC</h4>
-              <p>Simple absorbing boundary. Useful for teaching; limited for demanding open-region work.</p>
-            </div>
-            <div class="mini-card">
-              <h4>PML / CPML</h4>
-              <p>Standard open-boundary truncation. Designed to absorb outgoing waves with minimal reflection.</p>
-            </div>
-          </div>
-          <div class="note-box">
-            In an open-region model, source placement, monitor placement, and boundary distance must be chosen together. A good solver cannot rescue a bad domain layout.
-          </div>
+          <p><strong>What it is:</strong> PML is an artificial absorbing sponge placed at the edges of the simulation domain to absorb outgoing waves without causing reflections.</p>
+          <p><strong>When to use:</strong> Primarily used for modeling infinite free space, such as in scattering problems (e.g., radar cross-section, Mie scattering) or antenna propagation analysis.</p>
+          <p><strong>How to use:</strong> PMLs are often paired with a Total-Field Scattered-Field (TFSF) boundary. A plane wave is injected at the connecting surface. The innermost area (Region 1) calculates the total field (incident + scattered), while the outer area (Region 2) tracks only the scattered field before it is safely absorbed by the PML (Region 3).</p>
         </div>
-        <div class="figure-card">
-          <div class="figure-title">Simulation domain with CPML truncation</div>
-          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/simulation_domain.png" alt="Simulation domain showing total-field region, scattered-field region, and CPML boundary">
-          <div class="figure-caption">The useful physical region, the TF/SF connection surface, the scattered-field zone, and the CPML layer must be arranged deliberately. Open space is modeled, not automatic.</div>
+        <div class="figure-card" style="margin-top: 0;">
+          <div class="figure-title">TF/SF source injection with PML</div>
+          <img src="simulation_domain_TFSF.png" alt="Simulation domain showing Total Field, Scattered Field, and PML regions">
+          <div class="figure-caption">The interacting structure is enclosed by a connecting surface where the source is injected. The outer PML layer ensures no unphysical reflections return to the Scattered Field region.</div>
+        </div>
+      </div>
+
+      <hr style="border:0; border-top:1px solid var(--line-soft); margin: 32px 0;">
+
+      <h3>Periodic Boundary Conditions (PBC)</h3>
+      <div class="two-col">
+        <div>
+          <p><strong>What it is:</strong> PBCs wrap the fields from one side of the simulation domain to the opposite side, enforcing a periodic phase relationship.</p>
+          <p><strong>When to use:</strong> Indispensable for modeling infinitely repeating structures such as metamaterials, frequency selective surfaces, and optical periodic gratings.</p>
+          <p><strong>How to use:</strong> The simulation domain should cover exactly one unit cell of your structure. Apply a soft-source excitation to inject the wave. The transverse boundaries are set to PBC to maintain the infinite lateral extent, while the propagation axis is terminated with PML to absorb transmission and reflection.</p>
+        </div>
+        <div class="figure-card" style="margin-top: 0;">
+          <div class="figure-title">Periodic Boundary Condition</div>
+          <img src="simulation_domain_PBC.png" alt="Simulation domain showing Periodic Boundary Conditions">
+          <div class="figure-caption">A single unit cell representing an infinite array. The incident wave propagates longitudinally, while PBCs explicitly map the fields horizontally.</div>
+        </div>
+      </div>
+
+      <hr style="border:0; border-top:1px solid var(--line-soft); margin: 32px 0;">
+
+      <h3>Symmetry Boundaries (PEC / PMC)</h3>
+      <p>Symmetry boundary conditions are optimization tools that can significantly reduce the required simulation volume and computation time by factors of 2, 4, or 8.</p>
+      
+      <div class="two-col">
+        <div>
+          <p><strong>What it is:</strong> Perfect Electric Conductor (Symmetric) or Perfect Magnetic Conductor (Anti-Symmetric) boundaries force specific field components to zero along the plane of symmetry.</p>
+          <p><strong>When to use:</strong> You can only use these when both the electromagnetic fields and the physical structure have a true plane of symmetry directly through the middle of the simulation region.</p>
+          <p><strong>How to use:</strong> The correct option depends on your source polarization:</p>
+          <ul>
+              <li>If the source polarization is <strong>tangential</strong> to the plane of symmetry, select the symmetry option (PEC / Symmetric).</li>
+              <li>If the source polarization is <strong>normal</strong> to the plane of symmetry, select the anti-symmetry option (PMC / Anti-Symmetric).</li>
+          </ul>
+        </div>
+        <div>
+          <div class="note-box" style="margin-top: 0;">
+            <strong>Important Limitations and Rules:</strong>
+            <ul style="margin-top: 8px; margin-bottom: 0;">
+              <li><strong>No warnings for wrong settings:</strong> It is easy to accidentally select the wrong symmetry option. The software will not display a warning, but the simulation results will be completely incorrect. Always verify by running a full non-symmetric model first.</li>
+              <li><strong>Do not manually shrink the domain:</strong> Keep the original dimensions of the simulation region. If selected correctly, the solver will automatically shade the portion that isn't directly simulated and will automatically unfold the field data during analysis.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

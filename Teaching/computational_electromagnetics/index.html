@@ -154,6 +154,7 @@
     .formula-box {
       background: #f8fbfe;
       border: 1px solid var(--line);
+      overflow-x: auto;
     }
 
     .two-col {
@@ -554,27 +555,27 @@
         <div class="method-label">Method idea</div>
         <div>In 2D, Maxwell's equations split into TM and TE modes. The grid is staggered in both \(x\) and \(y\) directions (Yee Cell).</div>
         <div class="method-label">Field Set</div>
-        <div>For **TM<sub>z</sub>** mode: primary components are \(E_z\), \(H_x\), and \(H_y\).</div>
+        <div>For **TE<sub>z</sub>** mode: primary components are \(E_x\), \(E_y\), and \(H_z\).</div>
         <div class="method-label">Use case</div>
         <div>Scattering from pillars, waveguides, and 2D photonic crystals.</div>
       </div>
 
       <div class="formula-box">
         \[
-        H_x^{n+\frac{1}{2}}(i, j+\frac{1}{2}) = H_x^{n-\frac{1}{2}}(i, j+\frac{1}{2}) - \frac{\Delta t}{\mu \Delta y}\left[E_z^n(i, j+1) - E_z^n(i, j)\right]
+        E_x^{n+1}(i+\frac{1}{2}, j) = E_x^n(i+\frac{1}{2}, j) + \frac{\Delta t}{\varepsilon \Delta y} \left[ H_z^{n+\frac{1}{2}}(i+\frac{1}{2}, j+\frac{1}{2}) - H_z^{n+\frac{1}{2}}(i+\frac{1}{2}, j-\frac{1}{2}) \right]
         \]
         \[
-        H_y^{n+\frac{1}{2}}(i+\frac{1}{2}, j) = H_y^{n-\frac{1}{2}}(i+\frac{1}{2}, j) + \frac{\Delta t}{\mu \Delta x}\left[E_z^n(i+1, j) - E_z^n(i, j)\right]
+        E_y^{n+1}(i, j+\frac{1}{2}) = E_y^n(i, j+\frac{1}{2}) - \frac{\Delta t}{\varepsilon \Delta x} \left[ H_z^{n+\frac{1}{2}}(i+\frac{1}{2}, j+\frac{1}{2}) - H_z^{n+\frac{1}{2}}(i-\frac{1}{2}, j+\frac{1}{2}) \right]
         \]
         \[
-        E_z^{n+1}(i, j) = E_z^n(i, j) + \frac{\Delta t}{\varepsilon \Delta x}\left[H_y^{n+\frac{1}{2}}(i+\frac{1}{2}, j) - H_y^{n+\frac{1}{2}}(i-\frac{1}{2}, j)\right] - \frac{\Delta t}{\varepsilon \Delta y}\left[H_x^{n+\frac{1}{2}}(i, j+\frac{1}{2}) - H_x^{n+\frac{1}{2}}(i, j-\frac{1}{2})\right]
+        H_z^{n+\frac{1}{2}}(i+\frac{1}{2}, j+\frac{1}{2}) = H_z^{n-\frac{1}{2}}(i+\frac{1}{2}, j+\frac{1}{2}) + \frac{\Delta t}{\mu \Delta y} \left[ E_x^n(i+\frac{1}{2}, j+1) - E_x^n(i+\frac{1}{2}, j) \right] - \frac{\Delta t}{\mu \Delta x} \left[ E_y^n(i+1, j+\frac{1}{2}) - E_y^n(i, j+\frac{1}{2}) \right]
         \]
       </div>
       
-      <div class="figure-card">
+      <div class="figure-card" style="max-width: 450px; margin-left: auto; margin-right: auto;">
         <div class="figure-title">2D Yee Cell Staggered Grid</div>
         <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/yee_cell_2d.png" alt="Diagram showing the staggered placement of E and H field components in a 2D FDTD grid">
-        <div class="figure-caption">Spatial discretization in 2D FDTD. Magnetic field components (Hx, Hy) are offset by half a grid cell from the Electric field (Ez), enabling second-order accurate central difference updates.</div>
+        <div class="figure-caption">Spatial discretization in 2D FDTD. Field components are offset by half a grid cell, enabling second-order accurate central difference updates.</div>
       </div>
     </section>
 

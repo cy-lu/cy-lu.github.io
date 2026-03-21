@@ -281,6 +281,35 @@
       transform: translateY(-1px);
     }
 
+    .workflow-step {
+      display: flex;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 16px;
+      margin-top: 2px;
+    }
+    .step-content h4 {
+      margin: 0 0 6px 0;
+      color: var(--accent-dark);
+      font-size: 1.1rem;
+    }
+    .step-content p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
     @media (max-width: 900px) {
       .hero-grid, .two-col, .three-col, .method-grid {
         grid-template-columns: 1fr;
@@ -324,8 +353,8 @@
         <a href="#fem1d">5. 1D FEM</a>
         <a href="#fdtd2d">6. 2D FDTD</a>
         <a href="#fem2d">7. 2D FEM</a>
-        <a href="#boundaries">8. Sources and boundaries</a>
-        <a href="#workflow">9. Workflow and validation</a>
+        <a href="#workflow">8. Workflow and validation</a>
+        <a href="#boundaries">9. Sources and boundaries</a>
         <a href="#codes">10. Example codes</a>
       </div>
     </section>
@@ -562,8 +591,97 @@
       </div>
     </section>
 
+    <section class="section-card" id="workflow">
+      <h2>8. Workflow and validation</h2>
+      <p>Before writing code or running a model, it is crucial to understand the overarching simulation pipeline. A rigorous workflow is the only way to prevent "garbage in, garbage out" and ensure your results represent reality.</p>
+
+      <div class="two-col" style="margin-bottom: 24px;">
+        <div class="mini-card" style="background: #fdfdfd;">
+          <h4 style="margin-bottom: 18px; border-bottom: 2px solid var(--line-soft); padding-bottom: 8px;">The Standard Simulation Pipeline</h4>
+          
+          <div class="workflow-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Define Geometry & Materials</h4>
+              <p>Set up the physical structure and critical length scales. Assign correct material properties (\(\varepsilon, \mu, \sigma\)) and verify unit conversions.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Select Discretization (Mesh)</h4>
+              <p>Choose the appropriate solver (FDTD/FEM) and generate a grid or mesh that adequately resolves all structural features and wavelengths.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Apply Boundaries & Sources</h4>
+              <p>Define how energy enters the system (ports, plane waves) and how the simulation edges behave. <strong>(This is heavily detailed in Section 9)</strong>.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Solve & Extract Observables</h4>
+              <p>Run the simulation and extract engineering observables (S-parameters, Reflectance) rather than relying solely on visual field plots.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Validation & Convergence</h4>
+              <p>Ensure the extracted observables are independent of the mesh density and boundary distances.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-card" style="margin-bottom: 16px;">
+            <h4>Critical Checks</h4>
+            <ul>
+              <li>Mesh refinement sensitivity.</li>
+              <li>Time-step (CFL) limits for FDTD.</li>
+              <li>Domain-size and boundary-distance sensitivity.</li>
+              <li>Comparison against analytical reference models.</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h4>Common Failure Modes</h4>
+            <ul>
+              <li>Under-resolved interfaces or curved geometry.</li>
+              <li>Boundary reflection contaminating the answer.</li>
+              <li>Wrong normalization of \(R\), \(T\), or S-parameters.</li>
+              <li>Incorrect material data or unit scales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="two-col">
+        <div>
+          <div class="formula-box" style="margin-top: 0;">
+            \[
+            \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
+            \]
+          </div>
+          <p>Use \(Q\) for any meaningful observable: reflected power, resonant frequency, transmission peak, or field energy. Convergence is defined on the observable, not on visual comfort.</p>
+          <p>As shown in the convergence curve, the observable value approaches a stable "converged value" as the mesh density increases. A proper mesh convergence check ensures that your computational results are grid-independent and physically defensible rather than an artifact of the discretization.</p>
+        </div>
+        <div class="figure-card" style="margin-top: 0;">
+          <div class="figure-title">Mesh convergence check</div>
+          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/mesh_covergence_check.jpg" alt="Mesh convergence check graph showing observable value stabilizing as mesh density increases">
+          <div class="figure-caption">Plotting an observable against mesh density. The simulation is considered converged when further mesh refinement produces negligible changes in the engineering observable of interest.</div>
+        </div>
+      </div>
+      
+      <div class="note-box">
+        <strong>Transitioning to Boundaries:</strong> Now that the pipeline is clear, it's vital to recognize that Step 3—Sources and Boundaries—is often where simulations fail. The mathematical edges of your simulation must correctly mimic the physical setup. Section 9 explores exactly how to do this.
+      </div>
+    </section>
+
     <section class="section-card" id="boundaries">
-      <h2>8. Sources and boundaries</h2>
+      <h2>9. Sources and boundaries</h2>
       <p>Boundaries define the edges of your mathematical model and drastically influence accuracy. They are not a cosmetic implementation detail. The choice of boundary depends entirely on the physics of your problem.</p>
 
       <h3>Open Space / PML (Perfectly Matched Layer)</h3>
@@ -619,57 +737,6 @@
               <li><strong>Do not manually shrink the domain:</strong> Keep the original dimensions of the simulation region. If selected correctly, the solver will automatically shade the portion that isn't directly simulated and will automatically unfold the field data during analysis.</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-card" id="workflow">
-      <h2>9. Workflow and validation</h2>
-      <div class="three-col">
-        <div class="mini-card">
-          <h4>Workflow</h4>
-          <ul>
-            <li>Define geometry and critical length scales</li>
-            <li>Assign material model and units correctly</li>
-            <li>Choose source, ports, and boundaries</li>
-            <li>Select solver and discretization</li>
-            <li>Extract observables, not only field plots</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>Checks</h4>
-          <ul>
-            <li>Mesh refinement</li>
-            <li>Time-step sensitivity for FDTD</li>
-            <li>Domain-size and boundary-distance sensitivity</li>
-            <li>Analytical or reference comparison</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>Failure modes</h4>
-          <ul>
-            <li>Wrong material data or wrong unit conversion</li>
-            <li>Under-resolved interfaces or curved geometry</li>
-            <li>Boundary reflection contaminating the answer</li>
-            <li>Wrong normalization of \(R\), \(T\), or S-parameters</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="two-col" style="margin-top: 24px;">
-        <div>
-          <div class="formula-box" style="margin-top: 0;">
-            \[
-            \delta_Q^{(k)} = \frac{|Q_{k+1}-Q_k|}{|Q_{k+1}| + 10^{-16}}
-            \]
-          </div>
-          <p>Use \(Q\) for any meaningful observable: reflected power, resonant frequency, transmission peak, or field energy. Convergence is defined on the observable, not on visual comfort.</p>
-          <p>As shown in the convergence curve, the observable value approaches a stable "converged value" as the mesh density increases. A proper mesh convergence check ensures that your computational results are grid-independent and physically defensible rather than an artifact of the discretization.</p>
-        </div>
-        <div class="figure-card" style="margin-top: 0;">
-          <div class="figure-title">Mesh convergence check</div>
-          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/mesh_covergence_check.jpg" alt="Mesh convergence check graph showing observable value stabilizing as mesh density increases">
-          <div class="figure-caption">Plotting an observable against mesh density. The simulation is considered converged when further mesh refinement produces negligible changes in the engineering observable of interest.</div>
         </div>
       </div>
     </section>

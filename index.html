@@ -1,23 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Chun-Yu Lu's Homepage</title>
-
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-<link rel="icon" type="image/png" href="icon.png">
-<link rel="apple-touch-icon" type="image/png" href="icon-192.png">
-
-
+<link href="css/custom.css" rel="stylesheet"/>
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<link href="icon.png" rel="icon" type="image/png"/>
+<link href="icon-192.png" rel="apple-touch-icon" type="image/png"/>
 <style>
 @media (min-width: 1200px) {
   .container {
@@ -40,453 +35,427 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+
+#publication p,
+#researchnotes p {
+  line-height: 1.65;
+}
+
+.publication-lead,
+.research-notes-lead {
+  max-width: 980px;
+}
+
+.research-area-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 20px;
+  margin: 18px 0 8px 0;
+}
+
+.research-area-card {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 300px;
+  background: #ffffff;
+  border: 1px solid #dfe5eb;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.research-area-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.research-area-card p:last-of-type {
+  margin-bottom: 12px;
+}
+
+.research-area-card img {
+  display: block;
+  width: 88%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.research-notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.research-note-card {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 300px;
+  background: #ffffff;
+  border: 1px solid #dfe5eb;
+  border-top: 4px solid #17a2b8;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.research-note-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .research-area-card,
+  .research-note-card {
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+
+  .research-area-card img {
+    width: 100%;
+    max-width: none;
+  }
+}
 </style>
-
 </head>
-
 <!-- body -->
 <body>
-
 <div class="container">
-
 <div class="row">
-  <div class="col-md-2 col-sm-2 vertical-align">
-    <p>
-    <div style="max-width: 130px; text-align: center;">
-      <img src="img/pic3.jpg" style="width: 112%;">
-    </div>
-    </p>
-  </div>
-  
-  <div class="col-md-10 col-sm-10">
-    <p><h2>Lu, Chun-Yu (Jin-You)</h2>
-    <p>
-      Computational Physicist | Multiphysics and Structural Modeling<br>
-      Abu Dhabi, UAE<br>
-      BS (<a href="http://www2.phy.ntnu.edu.tw/en/" target="_blank" rel="noopener noreferrer">NTNU-Physics</a>), 
-      PhD (<a href="https://www.phys.ntu.edu.tw/webeng/APHome.aspx" target="_blank" rel="noopener noreferrer">NTU-Physics</a>)&nbsp;
-      <a href="https://github.com/cy-lu" target="_blank" rel="noopener noreferrer"><img src="img/logo-github.jpg" height="25" alt="GitHub"></a>&nbsp;
-      <a href="https://scholar.google.ae/citations?hl=zh-TW&user=4TeTmKkAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer"><img src="img/logo-scholar.jpg" height="25" alt="Google Scholar"></a>&nbsp;
-      <a href="https://www.researchgate.net/profile/Jin_You_Lu" target="_blank" rel="noopener noreferrer"><img src="img/logo-rg.png" height="25" alt="ResearchGate"></a>&nbsp;
-      <a href="https://www.linkedin.com/in/chun-yu-jin-you-lu-07053874/" target="_blank" rel="noopener noreferrer"><img src="img/logo-in.png" height="25" alt="LinkedIn"></a>&nbsp;
-      <a href="mailto:jiyo721014@hotmail.com"><img src="img/logo-email.png" height="25" alt="Email"></a>
-    </p>
-  </div>
-
+<div class="col-md-2 col-sm-2 vertical-align">
+<p>
+<div style="max-width: 130px; text-align: center;">
+<img src="img/pic3.jpg" style="width: 112%;"/>
 </div>
-
+</p>
+</div>
+<div class="col-md-10 col-sm-10">
+<p><h2>Lu, Chun-Yu (Jin-You)</h2>
+<p>
+      Computational Physicist | Multiphysics and Structural Modeling<br/>
+      Abu Dhabi, UAE<br/>
+      BS (<a href="http://www2.phy.ntnu.edu.tw/en/" rel="noopener noreferrer" target="_blank">NTNU-Physics</a>), 
+      PhD (<a href="https://www.phys.ntu.edu.tw/webeng/APHome.aspx" rel="noopener noreferrer" target="_blank">NTU-Physics</a>) 
+      <a href="https://github.com/cy-lu" rel="noopener noreferrer" target="_blank"><img alt="GitHub" height="25" src="img/logo-github.jpg"/></a> 
+      <a href="https://scholar.google.ae/citations?hl=zh-TW&amp;user=4TeTmKkAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" rel="noopener noreferrer" target="_blank"><img alt="Google Scholar" height="25" src="img/logo-scholar.jpg"/></a> 
+      <a href="https://www.researchgate.net/profile/Jin_You_Lu" rel="noopener noreferrer" target="_blank"><img alt="ResearchGate" height="25" src="img/logo-rg.png"/></a> 
+      <a href="https://www.linkedin.com/in/chun-yu-jin-you-lu-07053874/" rel="noopener noreferrer" target="_blank"><img alt="LinkedIn" height="25" src="img/logo-in.png"/></a> 
+      <a href="mailto:jiyo721014@hotmail.com"><img alt="Email" height="25" src="img/logo-email.png"/></a>
+</p>
+</p></div>
+</div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#teaching">Teaching</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#publication">Publication</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#researchnotes">Research Notes</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#acknowledgement">Acknowledgement</a>
-  </li>
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#teaching">Teaching</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#publication">Publication</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#researchnotes">Research Notes</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#acknowledgement">Acknowledgement</a>
+</li>
 </ul>
-
 <!-- Tab panes -->
 <div class="tab-content">
-
 <!-- begin of home -->
-<div id="home" class="container tab-pane active"><br>
-
+<div class="container tab-pane active" id="home"><br/>
 <p>
 I am a <b>computational physicist</b> with a strong interest in turning physical models into practical
 simulation workflows. My work spans <b>first-principles calculations</b>, computational electromagnetics,
 and <b>multiphysics structural modeling</b> for heterogeneous and multiscale systems.
 </p>
-
 <p>
 I am particularly interested in combining <b>analytical modeling</b>, <b>finite element simulation</b>,
 and computation-driven interpretation to connect material-level mechanisms with measurable device
 and structural behavior.
 </p>
-
-
-
-<hr>  
+<hr/>
 <h2 id="highlights">Recent Highlights</h2>
-
 <p></p>
-
 <div class="row">
-  <div class="col-md-3 col-sm-3 vertical-align">
-  <figure class="figure">
-  <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/NTUT_19.jpg"><img src="img/NTUT_19.jpg" class="figure-img img-fluid rounded"></a>
-  <figcaption class="figure-caption"><center>Presentation @ NTUT 19</center></figcaption>
-  </figure>
-  </div>
-  
-  <div class="col-md-3 col-sm-3 vertical-align">
-  <figure class="figure">
-  <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/KU_18.jpg"><img src="img/KU_18.jpg" class="figure-img img-fluid rounded"></a>
-  <figcaption class="figure-caption"><center>Invited talk @ KU Seminar 18</center></figcaption>
-  </figure>
-  </div>
-
-  <div class="col-md-3 col-sm-3 vertical-align">
-  <figure class="figure">
-  <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/ESG_17.jpg"><img src="img/ESG_17.jpg" class="figure-img img-fluid rounded"></a>
-  <figcaption class="figure-caption"><center>Invited talk @ ESG 17</center></figcaption>
-  </figure>
-  </div>
-  
-  <div class="col-md-3 col-sm-3 vertical-align">
-  <figure class="figure">
-  <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/SolarPACES_17.jpg"><img src="img/SolarPACES_17.jpg" class="figure-img img-fluid rounded"></a>
-  <figcaption class="figure-caption"><center>Presentation @ SolarPACES 17</center></figcaption>
-  </figure>
-  </div>
-
+<div class="col-md-3 col-sm-3 vertical-align">
+<figure class="figure">
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/NTUT_19.jpg"><img class="figure-img img-fluid rounded" src="img/NTUT_19.jpg"/></a>
+<figcaption class="figure-caption"><center>Presentation @ NTUT 19</center></figcaption>
+</figure>
 </div>
-
-<hr>
+<div class="col-md-3 col-sm-3 vertical-align">
+<figure class="figure">
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/KU_18.jpg"><img class="figure-img img-fluid rounded" src="img/KU_18.jpg"/></a>
+<figcaption class="figure-caption"><center>Invited talk @ KU Seminar 18</center></figcaption>
+</figure>
+</div>
+<div class="col-md-3 col-sm-3 vertical-align">
+<figure class="figure">
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/ESG_17.jpg"><img class="figure-img img-fluid rounded" src="img/ESG_17.jpg"/></a>
+<figcaption class="figure-caption"><center>Invited talk @ ESG 17</center></figcaption>
+</figure>
+</div>
+<div class="col-md-3 col-sm-3 vertical-align">
+<figure class="figure">
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/SolarPACES_17.jpg"><img class="figure-img img-fluid rounded" src="img/SolarPACES_17.jpg"/></a>
+<figcaption class="figure-caption"><center>Presentation @ SolarPACES 17</center></figcaption>
+</figure>
+</div>
+</div>
+<hr/>
 <h2 id="recent-news">Recent News</h2>
 <ul>
-  <li>Nov 17–20, 2025: Keynote Speaker (Industrial Forum), “Accelerating Innovation in Advanced Materials” Summit, Abu Dhabi, UAE</li>
-  <li>2025: Technical Program Committee Member (SC2: Metamaterials, Plasmonics and Complex Media), PIERS 2025, Abu Dhabi, UAE
-      (<a href="https://abdb2025.piers.org/home/organization.html" target="_blank" rel="noopener noreferrer">Organization</a>)</li>
-  <li>2019: Won the IEEE Nanotechnology Council NMDC Best Poster Award</li>
-  <li>2017: Research highlighted in <a href="https://www.thenational.ae/uae/science/near-pefect-solar-absorber-highlights-bright-outlook-for-uae-s-sun-powered-future-1.622901" target="_blank" rel="noopener noreferrer">The National</a>
-      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/UAE_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
-  <li>2016: Research highlighted in <a href="http://news.mit.edu/2016/solar-absorber-improve-efficiency-solar-thermal-technology-0614" target="_blank" rel="noopener noreferrer">MIT News</a>
-      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/MIT_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
+<li>Nov 17–20, 2025: Keynote Speaker (Industrial Forum), “Accelerating Innovation in Advanced Materials” Summit, Abu Dhabi, UAE</li>
+<li>2025: Technical Program Committee Member (SC2: Metamaterials, Plasmonics and Complex Media), PIERS 2025, Abu Dhabi, UAE
+      (<a href="https://abdb2025.piers.org/home/organization.html" rel="noopener noreferrer" target="_blank">Organization</a>)</li>
+<li>2019: Won the IEEE Nanotechnology Council NMDC Best Poster Award</li>
+<li>2017: Research highlighted in <a href="https://www.thenational.ae/uae/science/near-pefect-solar-absorber-highlights-bright-outlook-for-uae-s-sun-powered-future-1.622901" rel="noopener noreferrer" target="_blank">The National</a>
+      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/UAE_News.pdf" rel="noopener noreferrer" target="_blank">PDF</a>)</li>
+<li>2016: Research highlighted in <a href="http://news.mit.edu/2016/solar-absorber-improve-efficiency-solar-thermal-technology-0614" rel="noopener noreferrer" target="_blank">MIT News</a>
+      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/MIT_News.pdf" rel="noopener noreferrer" target="_blank">PDF</a>)</li>
 </ul>
-<hr>
-
+<hr/>
 <h2 id="recent-talks">Recent Talks</h2>
-
 <p></p>
-
 <ul>
-  <li>"Density Functional Theory Simulation in Material Science," Invited Talk, Summer Lecture, National Taipei University of Technology, July, 2019</li>
-  <li>"Use of Density Functional Theory in the Design and Fabrication of Materials," Invited Talk, PhD Seminar, Khalifa University, December, 2018</li>
-  <li>"In Depth Wettability Nano Scale Investigation: Interesting Carbonate Case Study in Society of Petroleum Engineers," Invited Talk, ESG monthly meeting, December 2017</li>
+<li>"Density Functional Theory Simulation in Material Science," Invited Talk, Summer Lecture, National Taipei University of Technology, July, 2019</li>
+<li>"Use of Density Functional Theory in the Design and Fabrication of Materials," Invited Talk, PhD Seminar, Khalifa University, December, 2018</li>
+<li>"In Depth Wettability Nano Scale Investigation: Interesting Carbonate Case Study in Society of Petroleum Engineers," Invited Talk, ESG monthly meeting, December 2017</li>
 </ul>
-
-</div>  <!-- end of home tab -->
-
+</div> <!-- end of home tab -->
 <!-- begin of publication  -->
-<div id="publication" class="container tab-pane fade"><br>
+<div class="container tab-pane fade" id="publication"><br/>
 <h2>Selected Research Areas</h2>
-
-<h2>2D Materials Studies</h2>
-<p>An ultra-clean interface between graphene and the III-V substrate is required to maintain lattice match for the growth of the single-crystalline of MOCVD deposition, which
-enables the substrate to be still “observable” from the top thin film deposition. Here, we propose combining bimodal AFM, micro-Raman spectroscopy, and DFT AFM to locally
-probe surface energy properties on the graphene-coated substrate. In addition to providing quantitative insight into the surface interactions of complicated graphene coatings, this
-work demonstrates a new route to nondestructively monitor the interface between graphene and coated substrates. The related work has been published in "Nanoscale," which could be accessed <a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">here</a>.</p>
+<p class="publication-lead">
+These selected research areas highlight the physical problems, modeling approaches, and representative systems
+that connect my work in first-principles simulation, multiscale materials modeling, optics, and multiphysics analysis.
+</p>
+<div class="research-area-grid">
+<div class="research-area-card">
+<h3>2D Materials Studies</h3>
+<p>An ultra-clean interface between graphene and the III-V substrate is required to maintain lattice match for the growth of the single-crystalline of MOCVD deposition, which enables the substrate to be still “observable” from the top thin film deposition. Here, we propose combining bimodal AFM, micro-Raman spectroscopy, and DFT AFM to locally probe surface energy properties on the graphene-coated substrate. In addition to providing quantitative insight into the surface interactions of complicated graphene coatings, this work demonstrates a new route to nondestructively monitor the interface between graphene and coated substrates. The related work has been published in <i>Nanoscale</i>, which could be accessed <a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">here</a>.</p>
 <p>The following figure shows that the surface energy of graphene coated substrate produced through exfoliation of natural graphite flakes and chemical vapor deposition are different.</p>
-<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/2D_materials_studies.jpg" target="_blank"><img src="img/2D_materials_studies.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
-
-  <hr>
-    <h2>Surface Wettability Studies</h2>
-    <p>A general quantum mechanical approach to predict the macroscopic wettability of any solid crystal surfaces for different liquids directly through atomic-level density functional simulation. As a benchmark, the wetting characteristics of calcite crystal (10.4) under different types of fluids (water, hexane, and mercury), including either contact angle or spreading coefficient, are predicted and further validated with experimental measurements. This approach has been extended to liquid/liquid/solid multiphase systems, several physics quantities, such as the macroscopic contact angles, the work of adhesion at the solid-liquid interface, and the interfacial tension at the liquid-liquid interfaces, can be simultaneously predicted through density functional theory simulation. This opens a new avenue to probe the mechanism of sophisticated wetting phenomena in multiphase systems with direct quantum mechanical simulation. to provides insightful and quantitative predictions of complicated surface wettability alteration problems and wetting behaviors of liquid/liquid/solid triphase systems. The related work has been published in "Journal of Physical Chemistry Letter," which could be accessed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">here</a>.</p>
-    <p>The following figure shows that an atomic methodology to directly predict macroscopic contact angle of liquid droplet on crystal substrates.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Surface_Wettability_Studies.jpg" target="_blank"><img src="img/Surface_Wettability_Studies.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
-
-  <hr>
-    <h2>Interfacial Solar Vapor Generators</h2>
-    <p>For solar steam generation application, the solar absorber coating needs to be integrated into devices for maximizing their efficiency, the structure design can be utilized with Multiphysics solar/thermal simulations. In this work, we analyze the structural designs and evaluate how much environmental energy can be exploited to enhance the performance of an interfacial solar vapor generation device, under various light intensities. This realization has direct implications in various important processes, particularly for wastewater treatment. The related work has been published in "Joule," which could be accessed <a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">here</a>.</p>
-    <p>The following figure shows that Measured and simulated temperature distributions of the vapor generator under three different light intensities.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Interfacial_Solar_Vapor_Generators.jpg" target="_blank"><img src="img/Interfacial_Solar_Vapor_Generators.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
-
-  <hr>
-    <h2>Plasmonic Nanocomposite Solar Absorbers</h2>
-    <p>Finite difference time domain optical simulation method can provide a guide to design the nanohole and nanocomposite structures, which is potentially an absorptive coating for the high-performance solar absorber. In combination with optical simulation results, a class of scalable ultrathin silver/SiO2 nanocomposite films with self-formed topping plasmonic nanoparticles is designed and fabricated. We experimentally and theoretically demonstrate that just by controlling the high throughput co-sputtering process, the nanocomposite absorbers can achieve near 100% light absorption in the wavelength ranges from 300 to 800 nm. The related work has been published in "Advanced Optical Materials," which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">here</a>. </p>
-    <p>The following figure shows that Nanocomposites, consisting of metallic nanoparticles embedding in a dielectric host, can significantly enhance light-matter interactions in solar energy conversion and optical applications.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmonic_nanocomposite_solar_absorbers.jpg" target="_blank"><img src="img/Plasmonic_nanocomposite_solar_absorbers.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
-  
-  <hr>
-    <h2>Plasmon Enhanced Nanoporous Absorbers</h2>
-    <p>Ultrathin semiconductor films have attracted much attention due to their strong interference persisting inside the lossy dielectric film on a reflective substrate. We proposed a plasmon-enhanced ultrathin film broadband absorber by combining the ultrathin film absorber with localized surface plasmon resonances. This concept can be realized by patterning nanoholes on an absorber comprised of an absorptive ultrathin Ge film and a reflective Au layer, where the localized surface plasmon mode is activated by metallic pore-shaped holes. The related work has been published in "Advanced Optical Materials," which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">here</a>. The proposed plasmonic broadband ultrathin film absorber can be applied in many applications, such as solar vapor generation,photovoltaics, and solar water splitting.</p>
-    <p>The following figure shows that a plasmon-enhanced ultrathin film broadband absorber is proposed by combining the ultrathin lossy film absorber with localized surface plasmon resonances, which are activated by pore-shape plasmon resonances.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmon_enhanced_nanoporous_absorbers.jpg" target="_blank"><img src="img/Plasmon_enhanced_nanoporous_absorbers.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
-
-<hr>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/2D_materials_studies.jpg" target="_blank"><img class="figure-img img-fluid rounded" src="img/2D_materials_studies.jpg"/></a>
+</div>
+<div class="research-area-card">
+<h3>Surface Wettability Studies</h3>
+<p>A general quantum mechanical approach to predict the macroscopic wettability of any solid crystal surfaces for different liquids directly through atomic-level density functional simulation. As a benchmark, the wetting characteristics of calcite crystal (10.4) under different types of fluids (water, hexane, and mercury), including either contact angle or spreading coefficient, are predicted and further validated with experimental measurements. This approach has been extended to liquid/liquid/solid multiphase systems, and several physical quantities, such as macroscopic contact angles, the work of adhesion at the solid-liquid interface, and the interfacial tension at liquid-liquid interfaces, can be simultaneously predicted through density functional theory simulation. The related work has been published in <i>Journal of Physical Chemistry Letters</i>, which could be accessed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">here</a>.</p>
+<p>The following figure shows an atomic methodology to directly predict the macroscopic contact angle of liquid droplets on crystal substrates.</p>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Surface_Wettability_Studies.jpg" target="_blank"><img class="figure-img img-fluid rounded" src="img/Surface_Wettability_Studies.jpg"/></a>
+</div>
+<div class="research-area-card">
+<h3>Interfacial Solar Vapor Generators</h3>
+<p>For solar steam generation applications, the solar absorber coating needs to be integrated into devices for maximizing efficiency, and the structure design can be analyzed using multiphysics solar-thermal simulations. In this work, we evaluate how much environmental energy can be exploited to enhance the performance of an interfacial solar vapor generation device under various light intensities. This realization has direct implications for practical processes such as wastewater treatment. The related work has been published in <i>Joule</i>, which could be accessed <a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">here</a>.</p>
+<p>The following figure shows measured and simulated temperature distributions of the vapor generator under three different light intensities.</p>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Interfacial_Solar_Vapor_Generators.jpg" target="_blank"><img class="figure-img img-fluid rounded" src="img/Interfacial_Solar_Vapor_Generators.jpg"/></a>
+</div>
+<div class="research-area-card">
+<h3>Plasmonic Nanocomposite Solar Absorbers</h3>
+<p>Finite-difference time-domain optical simulation can guide the design of nanohole and nanocomposite structures for high-performance solar absorber coatings. In combination with optical simulation, a class of scalable ultrathin silver/SiO2 nanocomposite films with self-formed topping plasmonic nanoparticles is designed and fabricated. We experimentally and theoretically demonstrate that, by controlling a high-throughput co-sputtering process, the nanocomposite absorbers can achieve near 100% light absorption in the wavelength range from 300 to 800 nm. The related work has been published in <i>Advanced Optical Materials</i>, which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">here</a>.</p>
+<p>The following figure shows that nanocomposites, consisting of metallic nanoparticles embedded in a dielectric host, can significantly enhance light-matter interactions in solar energy conversion and optical applications.</p>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmonic_nanocomposite_solar_absorbers.jpg" target="_blank"><img class="figure-img img-fluid rounded" src="img/Plasmonic_nanocomposite_solar_absorbers.jpg"/></a>
+</div>
+<div class="research-area-card">
+<h3>Plasmon-Enhanced Nanoporous Absorbers</h3>
+<p>Ultrathin semiconductor films have attracted much attention because strong interference can persist inside a lossy dielectric film on a reflective substrate. We proposed a plasmon-enhanced ultrathin-film broadband absorber by combining the ultrathin-film absorber with localized surface plasmon resonances. This concept can be realized by patterning nanoholes on an absorber comprised of an absorptive ultrathin Ge film and a reflective Au layer, where the localized surface plasmon mode is activated by metallic pore-shaped holes. The related work has been published in <i>Advanced Optical Materials</i>, which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">here</a>.</p>
+<p>The following figure shows a plasmon-enhanced ultrathin-film broadband absorber that combines the lossy film absorber with localized surface plasmon resonances activated by pore-shaped metallic features.</p>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmon_enhanced_nanoporous_absorbers.jpg" target="_blank"><img class="figure-img img-fluid rounded" src="img/Plasmon_enhanced_nanoporous_absorbers.jpg"/></a>
+</div>
+</div>
+<hr/>
 <h2>Highlight Publications</h2>
-  <ol>
-      <li>S. R. Tamalampudi,<u>J.-Y. Lu*</u>, N. Rajput, C. Y. Lai, B. Alfakes, R. Sankar, ... & M. Chiesa*, 
+<ol>
+<li>S. R. Tamalampudi,<u>J.-Y. Lu*</u>, N. Rajput, C. Y. Lai, B. Alfakes, R. Sankar, ... &amp; M. Chiesa*, 
      "<a href="https://www.nature.com/articles/s41699-020-0158-7" target="_blank">Superposition of Semiconductor and Semi-metal Properties of Self-assembled 2D SnTiS3 Heterostructures</a>," 
      <i>npj 2D Materials and Applications</i>, vol. 4, no. 23, July. 2020 (<b>IF ~ 9.324</b>)</li>
-  
-     <li><u>J.-Y. Lu</u>, Q. Ge, A. Raza, and T. J. Zhang*, 
+<li><u>J.-Y. Lu</u>, Q. Ge, A. Raza, and T. J. Zhang*, 
      "<a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpcc.9b00937" target="_blank">Quantum Mechanical Prediction of Wettability of Multiphase Fluids–Solid Systems at Elevated Temperature</a>," 
      <i>Journal of Physical Chemistry C</i>, vol. 123, no. 20, pp. 12753-12761, May. 2019 (<b>IF ~ 4.309</b>)(highlighted in <a href="https://www.ku.ac.ae/quantum-predictions-of-flow-may-be-key-to-freeing-up-more-oil/" target="_blank">Emirates News</a>)</li>
-        
-    <li><u>J.-Y. Lu</u>, T. A. Olukan, S. R. Tamalampudi, A. Al-Hagri, C.-Y. Lai, M. A. Almahri, H. Apostoleris, I. Almansouri, and M. Chiesa*, 
+<li><u>J.-Y. Lu</u>, T. A. Olukan, S. R. Tamalampudi, A. Al-Hagri, C.-Y. Lai, M. A. Almahri, H. Apostoleris, I. Almansouri, and M. Chiesa*, 
      "<a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">Insights into Graphene Wettability Transparency by Locally Probing its Surface Free Energy</a>," 
-      <i>Nanoscale</i>, 11, pp. 7944-7951, Mar. 2019 (<b>IF ~ 6.98</b>)</li> 
-    
-    <li>X. Q. Li, J. L. Li, <u>J.-Y. Lu</u>, N. Xu, C. L. Chen, X. Z. Min, B. Zhu, H. X. Li, L. Zhou, S. N. Zhu, T. J. Zhang, and J. Zhu*, 
+      <i>Nanoscale</i>, 11, pp. 7944-7951, Mar. 2019 (<b>IF ~ 6.98</b>)</li>
+<li>X. Q. Li, J. L. Li, <u>J.-Y. Lu</u>, N. Xu, C. L. Chen, X. Z. Min, B. Zhu, H. X. Li, L. Zhou, S. N. Zhu, T. J. Zhang, and J. Zhu*, 
      "<a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">Enhancement of Interfacial Solar Vapor Generation by Environmental Energy</a>,"
       <i>Joule</i>, vol. 2, no. 7, pp. 1331-1338, Jul. 2018 (<b>IF ~ 15.04</b>)</li>
-    
-    <li><u>J.-Y. Lu</u>, Q. Ge, H. Li, A. Raza, and T. J. Zhang*, 
+<li><u>J.-Y. Lu</u>, Q. Ge, H. Li, A. Raza, and T. J. Zhang*, 
       "<a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">Direct Prediction of Calcite Surface Wettability with First-Principles Quantum Simulation</a>," 
       <i>Journal of Physical Chemistry Letters</i>, vol. 8, no. 21, pp. 5309-5316, Oct. 2017 (<b>IF ~ 7.33</b>)(highlighted in <a href="https://www.emirates247.com/news/emirates/research-from-khalifa-university-may-help-abu-dhabi-achieve-70-oil-recovery-goal-2017-11-05-1.661321" target="_blank">Emirates News</a>)</li>
-    
-    <li><u>J.-Y. Lu</u>, A. Raza, S. Noorulla, Afra S. Alketbi, N. X. Fang, G. Chen, and T. J. Zhang*, 
+<li><u>J.-Y. Lu</u>, A. Raza, S. Noorulla, Afra S. Alketbi, N. X. Fang, G. Chen, and T. J. Zhang*, 
       "<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">Near-Perfect Ultrathin Nanocomposite Absorber with Self-Formed Topping Plasmonic Nanoparticles</a>," 
       <i>Advanced Optical Materials</i>, 5, 1700222, Jul. 2017 (<b>IF ~ 7.12</b>)(highted in <a href="https://www.thenational.ae/uae/science/near-pefect-solar-absorber-highlights-bright-outlook-for-uae-s-sun-powered-future-1.622901" target="_blank">UAE News</a>)</li>
-    
-    <li><u>J.-Y. Lu</u>, S. H. Nam, K. Wilke, A. Raza, Y. K. Lee, A. A. Ghaferi, N. X. Fang, and T. J. Zhang*, 
+<li><u>J.-Y. Lu</u>, S. H. Nam, K. Wilke, A. Raza, Y. K. Lee, A. A. Ghaferi, N. X. Fang, and T. J. Zhang*, 
     "<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">Localized Surface Plasmon Enhanced Ultrathin Film Broad-Band Nanoporous Absorbers</a>," 
       <i>Advanced Optical Materials</i>, vol. 4, no. 8, pp. 1255-1264, May 2016 (<b>IF ~ 7.12</b>)(highlighted in <a href="http://news.mit.edu/2016/solar-absorber-improve-efficiency-solar-thermal-technology-0614" target="_blank">MIT News</a>)</li>
-  </ol> 
-<hr>
+</ol>
+<hr/>
 <p>The following are the full list of publications</p>
 <details><summary class="badge badge-news">Click to expand</summary><p></p>
 <h2>Journal Papers</h2>
 <ol>
-    <li>B. Alfakes, J. E. Villegas, H. Apostoleris, R. S. Devarapalli, S. R. Tamalampudi, <u>J.-Y. Lu</u>, J. Viegas, I. Almansouri, and M. Chiesa,
+<li>B. Alfakes, J. E. Villegas, H. Apostoleris, R. S. Devarapalli, S. R. Tamalampudi, <u>J.-Y. Lu</u>, J. Viegas, I. Almansouri, and M. Chiesa,
     "<a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.9b02253" target="_blank">Optoelectronic Tunability of Hf Doped ZnO for Photovoltaic Applications</a>,"
-      <i>Journal of Physical Chemistry C</i>, vol. 123, no. 24, pp. 15258-15266, May 2019</li> 
-  
-    <li>A. Al-Hagri, R. Li, N. S. Rajput, <u>J.-Y. Lu</u>, S. C., K. Sloyan, M. A. Almahri, S. R. Tamalampudi, M. Chiesa, and A. A. Ghaferi,
+      <i>Journal of Physical Chemistry C</i>, vol. 123, no. 24, pp. 15258-15266, May 2019</li>
+<li>A. Al-Hagri, R. Li, N. S. Rajput, <u>J.-Y. Lu</u>, S. C., K. Sloyan, M. A. Almahri, S. R. Tamalampudi, M. Chiesa, and A. A. Ghaferi,
       "<a href="https://www.sciencedirect.com/science/article/pii/S0008622319308796" target="_blank">Direct growth of single-layer terminated vertical graphene array on germanium by plasma-enhanced chemical vapor deposition</a>,"
       <i>Carbon</i>, vol. 155, pp. 320-325, Dec. 2019</li>
-  
-    <li><u>J.-Y. Lu</u>, Q. Ge, A. Raza, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, Q. Ge, A. Raza, and T. J. Zhang, 
       "<a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.9b00937" target="_blank">Quantum Mechanical Prediction of Wettability of Multiphase Fluids-Solid Systems at Elevated Temperature</a>," 
       <i>Journal of Physical Chemistry C</i>, vol. 123, no. 20, pp. 12753-12761, May 2019 (highlighted in <a href="https://www.ku.ac.ae/quantum-predictions-of-flow-may-be-key-to-freeing-up-more-oil/" target="_blank">KU Times</a>)</li>
-  
-    <li>S. R. Tamalampudi, R. Sankar, H. Apostoleris, M. A. AlMahri, B. Alfakes, A. Al-Hagri, R. Li, A. Gougam, I. Almansouri, M. Chiesa, and <u>J.-Y. Lu*</u>, 
+<li>S. R. Tamalampudi, R. Sankar, H. Apostoleris, M. A. AlMahri, B. Alfakes, A. Al-Hagri, R. Li, A. Gougam, I. Almansouri, M. Chiesa, and <u>J.-Y. Lu*</u>, 
       "<a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.9b03457" target="_blank">Thickness-Dependent Resonant Raman and E Photoluminescence Spectra of Indium Selenide and Indium Selenide\Graphene Heterostructures</a>," 
       <i>Journal of Physical Chemistry C</i>, vol. 123, no. 24, pp. 15345-15353, May 2019.</li>
-  
-    <li>Md. M. Rahman, A. Raza, H. Younes, A. AlGhaferi, M. Chiesa, and <u>J.-Y. Lu*</u>, 
+<li>Md. M. Rahman, A. Raza, H. Younes, A. AlGhaferi, M. Chiesa, and <u>J.-Y. Lu*</u>, 
       "<a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-27-18-24866" target="_blank">Hybrid graphene metasurface for near-infrared absorbers</a>," 
       <i>Optics Express</i>, vol. 27, no. 18, pp. 24866-24876, 2019</li>
-  
-    <li>S. R. Tamalampudi, S. Patole, B. Alfakes, R. Sankar, I. Almansouri, M. Chiesa, and <u>J.-Y. Lu*</u>, 
+<li>S. R. Tamalampudi, S. Patole, B. Alfakes, R. Sankar, I. Almansouri, M. Chiesa, and <u>J.-Y. Lu*</u>, 
       "<a href="https://www.researchgate.net/publication/332006839_High_Temperature_Defect-Induced_Hopping_Conduction_in_Multi-Layered_Germanium_Sulfide_for_Optoelectronics_Applications_in_Harsh_Environments" target="_blank">High Temperature Defect-Induced Hopping Conduction in Multi-Layered Germanium Sulfide for Optoelectronics Applications in Harsh Environments</a>," 
-      <i>ACS Applied Nano Materials</i>, vol. 2, no. 4, pp. 2169-2175, Mar. 2019.</li>   
-  
-    <li><u>J.-Y. Lu</u>, T. A. Olukan, S. R. Tamalampudi, A. Al-Hagri, C.-Y. Lai, M. A. Almahri, H. Apostoleris, I. Almansouri, and M. Chiesa, 
+      <i>ACS Applied Nano Materials</i>, vol. 2, no. 4, pp. 2169-2175, Mar. 2019.</li>
+<li><u>J.-Y. Lu</u>, T. A. Olukan, S. R. Tamalampudi, A. Al-Hagri, C.-Y. Lai, M. A. Almahri, H. Apostoleris, I. Almansouri, and M. Chiesa, 
      "<a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">Insights into Graphene Wettability Transparency by Locally Probing its Surface Free Energy</a>," 
       <i>Nanoscale</i>, 11, pp. 7944-7951, Mar. 2019</li>
-  
-    <li>Afra S. Alketbi, B. Yang, A. Raza, M. Zhang, <u>J.-Y. Lu</u>, Z. Wang, and T. J. Zhang, 
+<li>Afra S. Alketbi, B. Yang, A. Raza, M. Zhang, <u>J.-Y. Lu</u>, Z. Wang, and T. J. Zhang, 
       "<a href="https://www.spiedigitallibrary.org/journals/Journal-of-Photonics-for-Energy/volume-9/issue-3/032703/Sputtered-SiC-coatings-for-radiative-cooling-and-light-absorption/10.1117/1.JPE.9.032703.short?SSO=1" target="_blank">Sputtered SiC coatings for radiative cooling and light absorption</a>," 
       <i>Journal of Photonics for Energy</i>, 9(3), 032703, Dec. 2018</li>
-  
-    <li>K. Sloyan, C.-Y. Lai, <u>J.-Y. Lu</u>, B. Alfakes, S. A. Hassan, I. Almansouri, M. S. Dahlem, and M. Chiesa,
+<li>K. Sloyan, C.-Y. Lai, <u>J.-Y. Lu</u>, B. Alfakes, S. A. Hassan, I. Almansouri, M. S. Dahlem, and M. Chiesa,
       "<a href="https://pubs.acs.org/doi/10.1021/acs.jpca.8b04197" target="_blank">Discerning the Contribution of Morphology and Chemistry in Wettability Studies</a>," 
       <i>The Journal of Physical Chemistry A</i>, vol. 122, no. 38, pp. 7768-7773, Jul. 2018</li>
-  
-    <li>Y.-C. Chiou, T. A. Olukan, M. A. Almahri, H. Apostoleris, C.-H. Chiu, C.-Y. Lai, <u>J.-Y. Lu</u>, S. Santos, I. Almansouri, and M. Chiesa,
+<li>Y.-C. Chiou, T. A. Olukan, M. A. Almahri, H. Apostoleris, C.-H. Chiu, C.-Y. Lai, <u>J.-Y. Lu</u>, S. Santos, I. Almansouri, and M. Chiesa,
     "<a href="https://pubs.acs.org/doi/10.1021/acs.langmuir.8b02802" target="_blank">Direct Measurement of the Magnitude of van der Waals interaction of Single and Multilayer Graphene</a>,"
     <i>Langmuir</i>, vol. 34, no. 41, pp. 12335-12343, Sep. 2018</li>
-
-    <li><u>J.-Y. Lu</u>, C.-Y. Lai, I. Almansour, and M. Chiesa, 
+<li><u>J.-Y. Lu</u>, C.-Y. Lai, I. Almansour, and M. Chiesa, 
     "<a href="https://pubs.rsc.org/en/content/articlelanding/2018/cp/c8cp03633k#!divAbstract" target="_blank">The evolution in graphitic surface wettability with first-principles quantum simulations: the counterintuitive role of water</a>," 
       <i>Physical Chemistry Chemical Physics</i>, 20, pp. 22636-22644, 2018</li>
-  
-    <li>X. Q. Li, J. L. Li, <u>J.-Y. Lu</u>, N. Xu, C. L. Chen, X. Z. Min, B. Zhu, H. X. Li, L. Zhou, S. N. Zhu, T. J. Zhang, and J. Zhu, 
+<li>X. Q. Li, J. L. Li, <u>J.-Y. Lu</u>, N. Xu, C. L. Chen, X. Z. Min, B. Zhu, H. X. Li, L. Zhou, S. N. Zhu, T. J. Zhang, and J. Zhu, 
      "<a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">Enhancement of Interfacial Solar Vapor Generation by Environmental Energy</a>,"
       <i>Joule</i>, vol. 2, no. 7, pp. 1331-1338, Jul. 2018</li>
-  
-    <li>A. Raza, <u>J.-Y. Lu</u>, S. Alzaim, H. Li, and T. J. Zhang, 
+<li>A. Raza, <u>J.-Y. Lu</u>, S. Alzaim, H. Li, and T. J. Zhang, 
       "<a href="https://www.mdpi.com/1996-1073/11/1/253" target="_blank">Novel Receiver-Enhanced Solar Vapor Generation: Review and Perspectives</a>," 
       <i>Energies</i>, vol. 11, no. 1, pp. 253, Jan. 2018 (Invited review)</li>
-  
-    <li><u>J.-Y. Lu</u>, Q. Ge, H. Li, A. Raza, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, Q. Ge, H. Li, A. Raza, and T. J. Zhang, 
       "<a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">Direct Prediction of Calcite Surface Wettability with First-Principles Quantum Simulation</a>," 
       <i>Journal of Physical Chemistry Letters</i>, vol. 8, no. 21, pp. 5309-5316, Oct. 2017</li>
-  
-    <li><u>J.-Y. Lu</u>, A. Raza, S. Noorulla, Afra S. Alketbi, N. X. Fang, G. Chen, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, A. Raza, S. Noorulla, Afra S. Alketbi, N. X. Fang, G. Chen, and T. J. Zhang, 
       "<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">Near-Perfect Ultrathin Nanocomposite Absorber with Self-Formed Topping Plasmonic Nanoparticles</a>," 
       <i>Advanced Optical Materials</i>, 5, 1700222, Jul. 2017</li>
-  
-    <li><u>J.-Y. Lu</u>, A. Raza, N. X. Fang, G. Chen, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, A. Raza, N. X. Fang, G. Chen, and T. J. Zhang, 
       "<a href="https://aip.scitation.org/doi/10.1063/1.4966119" target="_blank">Effective dielectric constants and spectral density analysis of plasmonic nanocomposites<a>," 
-      <i>Journal of Applied Physics</i>, vol. 120, no. 16, 163103, Oct. 2016</li>
-      
-    <li>Md. M. Rahman, H. Younes, <u>J.-Y. Lu</u>, G. W. Ni, S. J. Yuan, N. X. Fang, T. J. Zhang, and A. AlGhaferi,
+      <i>Journal of Applied Physics</i>, vol. 120, no. 16, 163103, Oct. 2016</a></a></li>
+<li>Md. M. Rahman, H. Younes, <u>J.-Y. Lu</u>, G. W. Ni, S. J. Yuan, N. X. Fang, T. J. Zhang, and A. AlGhaferi,
     "<a href="https://pubs.rsc.org/en/content/articlelanding/2016/ra/c6ra24052f#!divAbstract" target="_blank">Broadband Light Absorption by Silver Nanoparticles Decorated Silica Nanospheres</a>," 
       <i>RSC Advance</i>, 6, pp. 107951-107959, Nov. 2016</li>
-    
-    <li><u>J.-Y. Lu</u>, S. H. Nam, K. Wilke, A. Raza, Y. K. Lee, A. A. Ghaferi, N. X. Fang, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, S. H. Nam, K. Wilke, A. Raza, Y. K. Lee, A. A. Ghaferi, N. X. Fang, and T. J. Zhang, 
     "<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">Localized Surface Plasmon Enhanced Ultrathin Film Broad-Band Nanoporous Absorbers</a>," 
       <i>Advanced Optical Materials</i>, vol. 4, no. 8, pp. 1255-1264, May 2016</li>
-    
-    <li>H. R. Liu, A. Raza, A. Aili, <u>J.-Y. Lu</u>, A. AlGhaferi, and T. J. Zhang, 
+<li>H. R. Liu, A. Raza, A. Aili, <u>J.-Y. Lu</u>, A. AlGhaferi, and T. J. Zhang, 
      "<a href="https://www.nature.com/articles/srep25414" target="_blank">Sunlight-Sensitive Anti-Fouling Nanostructured TiO2 coated Cu Meshes for Ultrafast Oily Water Treatment</a>," 
       <i>Scientific Reports</i>, 6, 25414, May 2016</li>
-      
-    <li>Y. W. Lin, W. J. Chen, <u>J.-Y. Lu</u>, Y. H. Chang, C. T. Liang, Y. F. Chen, and J. Y. Lu, 
+<li>Y. W. Lin, W. J. Chen, <u>J.-Y. Lu</u>, Y. H. Chang, C. T. Liang, Y. F. Chen, and J. Y. Lu, 
      "<a href="https://www.researchgate.net/publication/229159147_Growth_and_characterization_of_ZnOZnTe_coreshell_nanowire_arrays_on_transparent_conducting_oxide_glass_substrates" target="_blank">Growth and characterization of ZnO/ZnTe core/shell nanowire arrays on transparent conducting oxide glass substrates</a>,"
       <i>Nanoscale Research Letters</i>, 7:401, Jul. 2012</li>
-      
-    <li><u>J.-Y. Lu</u>, H. Y. Chao, J. C. Wu, S. Y. Wei, and Y. H. Chang, 
+<li><u>J.-Y. Lu</u>, H. Y. Chao, J. C. Wu, S. Y. Wei, and Y. H. Chang, 
       "<a href="" target="_blank">Metallic-shell nanocylinder arrays for surface-enhanced spectroscopies</a>," 
       <i>Nanoscale Research Letters</i>, 6:173, Feb. 2011</li>
-      
-    <li>H. Y. Chao, S. H. You, <u>J. Y. Lu</u>, J. H. Cheng, Y. H. Chang, and C. T. Wu, 
+<li>H. Y. Chao, S. H. You, <u>J. Y. Lu</u>, J. H. Cheng, Y. H. Chang, and C. T. Wu, 
       "<a href="https://www.researchgate.net/publication/50934988_The_Growth_and_Characterization_of_ZnOZnTe_Core-Shell_Nanowires_and_the_Electrical_Properties_of_ZnOZnTe_Core-Shell_Nanowire_Field_Effect_Transistor" target="_blank">The growth and characterization of ZnO/ZnTe core-shell nanowires and the electrical properties of ZnO/ZnTe core-shell nanowires field-effect transistor</a>," 
       <i>Journal of Nanoscience and Nanotechnology</i>, vol. 11, no. 3, pp. 2042-2046, Mar. 2011</li>
-      
-     <li><u>J.-Y. Lu</u> and Y. H. Chang, 
+<li><u>J.-Y. Lu</u> and Y. H. Chang, 
       "<a href="https://www.researchgate.net/publication/252190600_The_lightning-rod_mode_in_a_core_shell_nanocylinder_dimer" target="_blank">The lightening-rod mode in a core-shell nanocylinder dimer</a>," 
       <i>Optics Communications</i>, vol. 283, no. 12, pp. 2627-2630, Jun. 2010</li>
-      
-    <li><u>J.-Y. Lu</u>, H. Y. Chao, J. C. Wu, S. Y. Wei, Y. H. Chang, and S. C. Chen, 
+<li><u>J.-Y. Lu</u>, H. Y. Chao, J. C. Wu, S. Y. Wei, Y. H. Chang, and S. C. Chen, 
       "<a href="https://www.researchgate.net/publication/229096348_Retardation-effect-induced_plasmon_modes_in_a_silica-core_gold-shell_nanocylinder_pair" target="_blank">Retardation-induced plasmon modes in silica-core gold-shell nanocylinder pair</a>," 
       <i>Physica E</i>, 42, pp. 2583-2587, Sep. 2010</li>
-      
-    <li><u>J.-Y. Lu</u> and Y. H. Chang, 
+<li><u>J.-Y. Lu</u> and Y. H. Chang, 
       "<a href="https://www.sciencedirect.com/science/article/pii/S074960360900144X" target="_blank">Implementation of an efficient dielectric function into the finite difference time domain method for simulating the coupling between localized surface plasmons of nanostructures</a>,"
       <i>Superlattices and Microstructures</i>, vol. 47, no. 1, pp. 60-65, Jan. 2010</li>
-      
-    <li>H. Y. Chao, J. H. Cheng, <u>J.-Y. Lu</u>, Y. H. Chang, C. L. Cheng, Y. F. Chen, and C. T. Wu, 
+<li>H. Y. Chao, J. H. Cheng, <u>J.-Y. Lu</u>, Y. H. Chang, C. L. Cheng, Y. F. Chen, and C. T. Wu, 
       "<a href="https://www.sciencedirect.com/science/article/pii/S074960360900130X" target="_blank">Growth and characterization of type-II ZnO/ZnTe core-shell nanowire arrays for solar cell applications</a>," 
       <i>Superlattices and Microstructures</i>, vol. 47, no. 1, pp. 160-164, Jan. 2010</li>
-      
-    <li><u>J.-Y. Lu</u> and Y. H. Chang, 
+<li><u>J.-Y. Lu</u> and Y. H. Chang, 
      "<a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-17-22-19451" target="_blank">Optical singularities associated with the energy flow of two closely spaced core-shell nanocylinders, Optics Communications</a>," 
       <i>Optics Express</i>, vol. 17, no. 22, pp. 19451-19458, 2009</li>
-      
-   </ol>
+</ol>
 <h2>Conference Presentations</h2>
-
-  <ol>
-  
-    <li><u>J.-Y. Lu</u>, Md. M. Rahman, and M. Chiesa, 
+<ol>
+<li><u>J.-Y. Lu</u>, Md. M. Rahman, and M. Chiesa, 
       "<a href="http://meetings.aps.org/Meeting/APR19/Session/Z11.6" target="_blank">Amorphous Graphene-Based Plasmonic Metasurface for Near-Infrared Absorbers</a>," 
       <i>American Physical Society</i>, Apr. 16-19, 2019, Denver, USA
     </li>
-    
-    <li><u>J.-Y. Lu</u>, C.-Y. Lai, M. A. Almahri, T. Olukan, H. Apostoleris, I. Almansouri, and M. Chiesa, 
+<li><u>J.-Y. Lu</u>, C.-Y. Lai, M. A. Almahri, T. Olukan, H. Apostoleris, I. Almansouri, and M. Chiesa, 
       "<a href="" target="_blank">Prediction of Surface Wettability of Fresh and Aged Graphite Surfaces from First-Principles Density Functional Theory Simulations</a>," 
       <i>Material Research Society Fall</i>, Nov. 25-30, 2018, USA</li>
-    
-    <li><u>J.-Y. Lu</u>, S. Noorulla, N. X. Fang, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, S. Noorulla, N. X. Fang, and T. J. Zhang, 
       "<a href="" target="_blank">Design of Broadband Ultrathin Film Nanoporous Solar Absorbers</a>," 
-      <i>Micro/Nanoscale Heat & Mass Transfer International Conference</i>, Jan. 1-4, 2016, Biopolis, Singapore</li>
-    
-    <li><u>J.-Y. Lu</u>, A. Raza, N. X. Fang, G. Chen, and T. J. Zhang, 
+      <i>Micro/Nanoscale Heat &amp; Mass Transfer International Conference</i>, Jan. 1-4, 2016, Biopolis, Singapore</li>
+<li><u>J.-Y. Lu</u>, A. Raza, N. X. Fang, G. Chen, and T. J. Zhang, 
       "<a href="" target="_blank">Optical Characterizations of Plasmonic Nanocomposites</a>," 
       <i>The 8th Annual International Workshop on Advanced Materials</i>, Feb. 21-23, 2016, Ras Al Khamiah, UAE</li>
-    
-    <li>S. Noorulla, <u>J.-Y. Lu</u>, S. H. Nam, N. X. Fang, and T. J. Zhang, 
+<li>S. Noorulla, <u>J.-Y. Lu</u>, S. H. Nam, N. X. Fang, and T. J. Zhang, 
       "<a href="" target="_blank">Plasmon-Enhanced Solar Absorbers</a>,"
       <i>The 8th Annual International Workshop on Advanced Materials</i>, Feb. 21-23, 2016, Ras Al Khamiah, UAE</li>
-      
-    <li>A. Alketbi, <u>J.-Y. Lu</u>, and T. J. Zhang, 
+<li>A. Alketbi, <u>J.-Y. Lu</u>, and T. J. Zhang, 
       "<a href="" target="_blank">Design and Performance of Passive Radiative Cooler under Direct Sunlight</a>," 
-      <i>The Graduate Students Research Conference</i>, Mar. 20-22, 2016, Al Ain, UAE</li> 
-    
-    <li>S. Noorulla, <u>J.-Y. Lu</u>, A. Raza, and T. J. Zhang, 
+      <i>The Graduate Students Research Conference</i>, Mar. 20-22, 2016, Al Ain, UAE</li>
+<li>S. Noorulla, <u>J.-Y. Lu</u>, A. Raza, and T. J. Zhang, 
       "<a href="" target="_blank">Near Perfect Broadband Absorber Based on Random Metal Nanoparticles with Varied Spacer layers</a>," 
       <i>The Graduate Students Research Conference</i>, Mar. 20-22, 2016, Al Ain, UAE</li>
-      
-    <li><u>J.-Y. Lu</u>, D. Liu, K. Wilke, S. Noorulla, N. X. Fang, and T. J. Zhang, 
+<li><u>J.-Y. Lu</u>, D. Liu, K. Wilke, S. Noorulla, N. X. Fang, and T. J. Zhang, 
       "<a href="" target="_blank">Plasmon-Enhanced Ultrathin Film Broad-Band Nanoporous Absorber</a>," 
       <i>American Physics meeting (ASP)</i>, Mar. 2-6, 2015, San Antonio, USA</li>
-      
-    <li><u>J.-Y. Lu</u>, and Y. H. Chang, 
+<li><u>J.-Y. Lu</u>, and Y. H. Chang, 
       "<a href="" target="_blank"></a>," 
       <i>The 14th International Conference on Modulated Semiconductor structures (MSS-14)</i>, 2011, Florida, USA</li>
-    
-    <li><u>J.-Y. Lu</u>, H. Y. Chou, J. C. Wu, S. Y. Wei, and Y. H. Chang, 
+<li><u>J.-Y. Lu</u>, H. Y. Chou, J. C. Wu, S. Y. Wei, and Y. H. Chang, 
       "<a href="" target="_blank"></a>," 
       <i>The 16th International Conference on Superlattices, Nanostructures and Nanodevices</i>, 2010, Beijing, China</li>
-    
-    <li><u>J.-Y. Lu</u> and Y. H. Chang, 
+<li><u>J.-Y. Lu</u> and Y. H. Chang, 
       "<a href="" target="_blank"></a>," 
       <i>The 9th International Conference on Physics of Light-Matter Coupling in Nanostructures</i>, 2009, Leece, Italy</li>
-      
-  </ol>
-  </details> 
-</div> 
-<!-- end of publication -->
-
-
-  
-<!-- begin of research notes -->
-<div id="researchnotes" class="container tab-pane fade"><br>
-<h2>Research Notes</h2>
-
-<p>
-This section collects working notes that sit between the publication list and the teaching modules.
-The emphasis is on how physical models are formulated, validated, and translated into defensible
-computational workflows for materials, devices, and engineered structures.
-</p>
-
-<p>
-Rather than serving as course notes or a blog, these pages are intended to document the modeling logic,
-physical interpretation, and research methodology behind multiscale simulation, first-principles analysis,
-and engineering-oriented computational design.
-</p>
-
-<hr>
-
-<h3>Effective Medium Theory and Composite Response</h3>
-<p>
-Notes on homogenization, Maxwell&ndash;Garnett theory, Bergman spectral representation, and the interpretation
-of microstructure-dependent effective response in heterogeneous media.
-</p>
-<p>
-This stream also includes revisiting classical formulations beyond the basic dipolar Maxwell&ndash;Garnett limit,
-including PRB 1992-type treatments of interaction effects, spectral response, and the physically meaningful
-reconstruction of published composite-medium results.
-</p>
-
-<hr>
-
-<h3>First-Principles Modeling and Materials Discovery</h3>
-<p>
-Notes on DFT-based workflows, descriptor selection, structure&ndash;property mapping, and physically grounded
-strategies for computational materials screening and accelerated materials discovery.
-</p>
-
-<hr>
-
-<h3>Physics-Guided AI and Inverse Design</h3>
-<p>
-Methodological notes on combining simulation, optimization, and machine-learning-assisted search for
-functional materials and engineered structures, with emphasis on interpretable design logic rather than
-black-box prediction alone.
-</p>
-
-<hr>
-
-<h3>Multiphysics Modeling for Functional Materials and Structures</h3>
-<p>
-Notes linking analytical models, finite element simulation, and engineering observables across structural,
-thermal, electromagnetic, and heterogeneous material systems, with attention to scale bridging and
-physically meaningful performance metrics.
-</p>
-
-<hr>
-
-<h3>Validation, Benchmarking, and Physical Interpretation</h3>
-<p>
-Notes on convergence assessment, analytical benchmarking, code verification, and physics-based interpretation
-across electromagnetic, mechanical, and atomistic simulation workflows.
-</p>
-
+</ol>
+</details>
 </div>
-<!-- end of research notes --> 
-
+<!-- end of publication -->
+<!-- begin of research notes -->
+<div class="container tab-pane fade" id="researchnotes"><br/>
+<h2>Research Notes</h2>
+<p class="research-notes-lead">
+These notes sit between the publication list and the teaching modules. They emphasize how physical models are formulated,
+validated, and translated into defensible computational workflows for materials, devices, and engineered structures.
+</p>
+<div class="research-notes-grid">
+<div class="research-note-card">
+<h3>Effective Medium Theory and Composite Response</h3>
+<p>Notes on homogenization, Maxwell–Garnett theory, Bergman spectral representation, and the interpretation of microstructure-dependent effective response in heterogeneous media.</p>
+<p>This stream also includes revisiting classical formulations beyond the basic dipolar Maxwell–Garnett limit, including PRB 1992-type treatments of interaction effects, spectral response, and the physically meaningful reconstruction of published composite-medium results.</p>
+</div>
+<div class="research-note-card">
+<h3>First-Principles Modeling and Materials Discovery</h3>
+<p>Notes on DFT-based workflows, descriptor selection, structure–property mapping, and physically grounded strategies for computational materials screening and accelerated materials discovery.</p>
+</div>
+<div class="research-note-card">
+<h3>Physics-Guided AI and Inverse Design</h3>
+<p>Methodological notes on combining simulation, optimization, and machine-learning-assisted search for functional materials and engineered structures, with emphasis on interpretable design logic rather than black-box prediction alone.</p>
+</div>
+<div class="research-note-card">
+<h3>Multiphysics Modeling for Functional Materials and Structures</h3>
+<p>Notes linking analytical models, finite element simulation, and engineering observables across structural, thermal, electromagnetic, and heterogeneous material systems, with attention to scale bridging and physically meaningful performance metrics.</p>
+</div>
+<div class="research-note-card">
+<h3>Validation, Benchmarking, and Physical Interpretation</h3>
+<p>Notes on model validation, convergence assessment, analytical benchmarking, code verification, and physics-based interpretation across electromagnetic, mechanical, and atomistic simulation workflows.</p>
+</div>
+</div>
+</div>
+<!-- end of research notes -->
 <!-- begin of acknowledgement -->
-<div id="acknowledgement" class="container tab-pane fade"><br>
+<div class="container tab-pane fade" id="acknowledgement"><br/>
 <h2 id="acknowledgement-list">THANK YOU ALL!</h2>
-  
 <ul>
-<li>My beloved family</li>  
+<li>My beloved family</li>
 </ul>
-  
 <p>Thank you for all the supports during my postdoc career:</p>
 <ul>
 <li>Prof. TieJun Zhang, Khalifa University</li>
@@ -511,7 +480,6 @@ across electromagnetic, mechanical, and atomistic simulation workflows.
 <li>Mr. Cheng-Hsiang Chiu, UiT</li>
 <li>Ms Shabnam Ranny, Aspen Heights School</li>
 </ul>
-
 <p>Thank you for the supports during my PhD:</p>
 <ul>
 <li>Prof. Yuan-Huei Chang, my PhD advisor</li>
@@ -524,8 +492,7 @@ across electromagnetic, mechanical, and atomistic simulation workflows.
 <li>Dr. Husan-Yi Chao, SCIENTEK</li>
 <li>Dr. Hung-Ji Huang, Instrument Technology Research Center</li>
 <li>Dr. Ryan Cheng, senior member at my lab
-</ul>
-  
+</li></ul>
 <p>Thank you for the supports during my career at TSMC:</p>
 <ul>
 <li>Dr. Lu-Hsing Tsai, TSMC</li>
@@ -537,140 +504,107 @@ across electromagnetic, mechanical, and atomistic simulation workflows.
 <li>Dr. Ju-Ying Chen, TSMC</li>
 </ul>
 </div>
-<!-- end of acknowledgement -->  
-
-
-<!-- begin of teaching --> 
-<div id="teaching" class="container tab-pane fade"><br>
-
+<!-- end of acknowledgement -->
+<!-- begin of teaching -->
+<div class="container tab-pane fade" id="teaching"><br/>
 <h2>Teaching &amp; Technical Tutorials</h2>
 <p>
 This section collects selected teaching modules and technical tutorials in computational mechanics,
 computational electromagnetics, scientific computing, and materials modeling.
 </p>
-
-<hr>
-
+<hr/>
 <h3>Computational Mechanics</h3>
 <div class="card-columns">
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text">
-        <a href="Teaching/computational_structural_mechanics/index.html" class="text-white">
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text">
+<a class="text-white" href="Teaching/computational_structural_mechanics/index.html">
           Computational Structural Mechanics
         </a>
-      </p>
-      <p class="small text-white">
+</p>
+<p class="small text-white">
         Analytical modeling, CLT, COMSOL simulation, and simulation-oriented structural notes.
       </p>
-    </div>
-  </div>
-
 </div>
-
-<hr>
-
+</div>
+</div>
+<hr/>
 <h3>Computational Electromagnetics</h3>
 <div class="card-columns">
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text">
-        <a href="Teaching/computational_electromagnetics/computational_electromagnetics_teaching.html" class="text-white">
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text">
+<a class="text-white" href="Teaching/computational_electromagnetics/computational_electromagnetics_teaching.html">
           Computational Electromagnetics
         </a>
-      </p>
-      <p class="small text-white">
+</p>
+<p class="small text-white">
         TMM, FDTD, wave propagation, scattering, and simulation-oriented electromagnetic notes.
       </p>
-    </div>
-  </div>
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text">
-        <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/Teaching/Fresnel_Transfer_Matrix.pdf" class="text-white bg-blue mb-2">
+</div>
+</div>
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text">
+<a class="text-white bg-blue mb-2" href="https://github.com/cy-lu/cy-lu.github.io/blob/master/Teaching/Fresnel_Transfer_Matrix.pdf">
           Multilayer Transfer Matrix Calculations
         </a>
-      </p>
-      <p class="small text-white">
+</p>
+<p class="small text-white">
         Fresnel coefficients, transfer matrices, multilayer reflectance and transmittance.
       </p>
-    </div>
-  </div>
-
 </div>
-
-<hr>
-
+</div>
+</div>
+<hr/>
 <h3>Scientific Computing</h3>
 <div class="card-columns">
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text">
-        <a href="Teaching/cuda_tutorial.html" class="text-white bg-blue mb-2">
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text">
+<a class="text-white bg-blue mb-2" href="Teaching/cuda_tutorial.html">
           CUDA Tutorial for Scientific Computing
         </a>
-      </p>
-      <p class="small text-white">
+</p>
+<p class="small text-white">
         GPU computing, kernel design, memory access, and performance-oriented numerical workflows.
       </p>
-    </div>
-  </div>
-
 </div>
-
-<hr>
-
+</div>
+</div>
+<hr/>
 <h3>Electronic Structure and Materials Modeling</h3>
 <div class="card-columns">
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text">
-        <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/Teaching/Si_Bandstrcture.pdf" class="text-white bg-blue mb-2">
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text">
+<a class="text-white bg-blue mb-2" href="https://github.com/cy-lu/cy-lu.github.io/blob/master/Teaching/Si_Bandstrcture.pdf">
           QuantumEspresso Si Bandstructure
         </a>
-      </p>
-      <p class="small text-white">
+</p>
+<p class="small text-white">
         Plane-wave DFT workflow, Brillouin-zone path, and basic electronic-structure analysis.
       </p>
-    </div>
-  </div>
-
 </div>
-
-<hr>
-
+</div>
+</div>
+<hr/>
 <h3>Experimental and Characterization Methods</h3>
 <div class="card-columns">
-
-  <div class="card bg-info">
-    <div class="card-body text-center">
-      <p class="card-text"><span class="text-white">Filmmetric F40 Equipment Measurements</span></p>
-      <p class="small text-white">
+<div class="card bg-info">
+<div class="card-body text-center">
+<p class="card-text"><span class="text-white">Filmmetric F40 Equipment Measurements</span></p>
+<p class="small text-white">
         Thickness measurement, optical fitting, and thin-film characterization basics.
       </p>
-    </div>
-  </div>
-
 </div>
-
+</div>
+</div>
 </div>
 <!-- end of teaching -->
-
 </div>
-
-
-
-
-<hr>
+<hr/>
 <footer>Last updated: March 2026</footer>
-
 </div>
-
 </body>
-
 </html>

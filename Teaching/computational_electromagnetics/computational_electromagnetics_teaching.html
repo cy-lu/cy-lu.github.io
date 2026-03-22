@@ -434,6 +434,10 @@
           <tr><td>\(Q\)</td><td>Quality factor</td><td>dimensionless</td></tr>
         </tbody>
       </table>
+      <div class="mini-card" style="margin-top: 18px;">
+        <p><strong>FDTD in context.</strong> FDTD traces back to Yee’s 1966 staggered-grid formulation and became a practical mainstream tool after absorbing boundary treatments such as PML made open-region simulations reliable. Its historical strength is direct time-domain treatment of wave propagation, transients, and broadband scattering.</p>
+        <p style="margin-bottom: 0;"><strong>FEM in context.</strong> FEM grew out of variational and structural analysis methods and was established earlier in computational mechanics before becoming a standard electromagnetic tool. Its historical advantage is the weak-form framework, which naturally supports irregular geometries, boundary-value problems, and later multiphysics coupling.</p>
+      </div>
     </section>
 
     <section class="section-card" id="observables">
@@ -788,22 +792,76 @@
           </ul>
         </div>
       </div>
-      <div class="note-box" style="margin-top: 24px;">
-        <strong>Integrated from the homepage module:</strong> The original homepage entry for Computational Electromagnetics highlighted this area as a bridge between multilayer transfer-matrix analysis, wave propagation, scattering, and simulation-oriented numerical modeling. The summary is retained here so that the teaching page carries the full context directly.
+      <h3 style="margin-top: 28px;">Selected engineering examples and validation notes</h3>
+
+      <div class="mini-card" style="margin-top: 16px;">
+        <h4>Finite-Difference Time-Domain (FDTD) Method</h4>
+
+        <h5>What this example demonstrates</h5>
+
+        <p>Below I provide a two-dimensional TE FDTD implementation that includes:</p>
+        <ul>
+          <li><b>Yee-grid time stepping</b> for TE polarization in 2D</li>
+          <li><b>Total-field / scattered-field (TF/SF)</b> formulation to inject an incident wave while separating scattered fields</li>
+          <li><b>PML absorbing boundaries</b> to approximate an open domain</li>
+        </ul>
+
+        <p>
+        The demonstration problem is electromagnetic scattering from a core–shell nanocylinder. The relative permittivities of the shell and core are set to 4 and 1, respectively. The simulation domain is divided into a total-field region, a scattered-field region, and surrounding PML layers. The animation visualizes the time evolution of the field (Ey) and provides an intuitive view of how the incident wave interacts with the core–shell structure and generates scattered waves.
+        </p>
+
+        <p>
+        The MATLAB implementation can be accessed
+        <a href="https://github.com/cy-lu/2D_FDTD/tree/master/matlab_code" target="_blank" rel="noopener noreferrer">here</a>.
+        </p>
+
+        <h5>Notes on interpretation</h5>
+        <ul>
+          <li><b>Why time-domain?</b> In frequency-domain solvers you typically solve one frequency per run; in FDTD, a broadband pulse can reveal a wide spectral response from a single transient simulation.</li>
+          <li><b>Why TF/SF?</b> TF/SF allows clean separation between incident and scattered fields, which is particularly useful for scattering and extinction calculations.</li>
+          <li><b>Why PML matters?</b> Boundary reflections can contaminate scattering signatures; a properly configured PML reduces this artifact and improves the reliability of near- and far-field observables.</li>
+        </ul>
+
+        <ol>
+          <li>Kane Yee (1966). “Numerical solution of initial boundary value problems involving Maxwell's equations in isotropic media”. <i>IEEE Transactions on Antennas and Propagation</i>, 14(3), 302–307.</li>
+          <li>Allen Taflove and Susan C. Hagness (2005). <i>Computational Electrodynamics: The Finite-Difference Time-Domain Method</i>, 3rd ed. Artech House Publishers. ISBN 978-1-58053-832-9.</li>
+        </ol>
+
+        <video controls loop autoplay muted playsinline style="width:100%; max-width:900px; border-radius: 12px; box-shadow: var(--shadow-soft); display:block; margin-top:12px;">
+          <source src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/2dfdtd_Ey_movie.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <h3 style="margin-top: 28px;">Related computational electromagnetics notes</h3>
-      <div class="two-col" style="margin-top: 16px;">
-        <div class="mini-card" style="margin-top: 0;">
-          <h4>Computational Electromagnetics overview</h4>
-          <p>This teaching page consolidates the core topics previously highlighted on the homepage: multilayer optics, FDTD, FEM, wave propagation, scattering, and simulation-oriented electromagnetic modeling.</p>
-          <p>It is intended as a structured engineering note rather than a software-specific tutorial, with emphasis on governing equations, observables, solver choice, validation logic, and physically defensible interpretation.</p>
+      <div class="mini-card" style="margin-top: 20px;">
+        <h4>Plasmonic Metal Nanoparticles</h4>
+
+        <p>
+        Over the last two decades, plasmon resonances in metallic nanoparticles have been studied extensively because metallic nanostructures can strongly absorb and scatter light through localized surface plasmon resonances. This behavior underpins a broad range of applications, including optical sensing, photothermal heating and solar vapor generation, and bio-imaging.
+        </p>
+
+        <p>
+        Here I provide a 2D-TE FDTD code to compute extinction, scattering, and absorption efficiencies for a gold-shell dielectric-core nanocylinder. The Fortran implementation can be accessed
+        <a href="https://github.com/cy-lu/2D_FDTD/tree/master/Fortran" target="_blank" rel="noopener noreferrer">here</a>.
+        </p>
+
+        <h5>Analytical benchmark for verification</h5>
+
+        <p>
+        For 2D scattering problems with cylindrical symmetry, it is valuable to have an analytical solution as a reference for verifying numerical results. For this reason, I also provide an analytical code to calculate the extinction spectrum of a core–shell nanocylinder. As an example, results for a gold-shell dielectric-core nanocylinder with outer radius 50 nm and inner radius 40 nm are compared against the corresponding FDTD simulations in the figure below. The analytical implementation can be accessed
+        <a href="https://github.com/cy-lu/2D_FDTD/tree/master/Analytical_solution" target="_blank" rel="noopener noreferrer">here</a>.
+        </p>
+
+        <div class="figure-card">
+          <img src="https://raw.githubusercontent.com/cy-lu/cy-lu.github.io/master/img/full_comparison_FDTD_analytical.jpg" alt="Comparison between FDTD and analytical results for a core-shell nanocylinder">
+          <div class="figure-caption">
+            Comparison between FDTD and analytical results for a core–shell nanocylinder.
+          </div>
         </div>
-        <div class="mini-card" style="margin-top: 0;">
-          <h4>Multilayer Transfer Matrix Calculations</h4>
-          <p>Fresnel coefficients, transfer matrices, and multilayer reflectance / transmittance remain an important entry point for electromagnetic modeling, especially before moving to full-wave numerical solvers.</p>
-          <p><a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/Teaching/Fresnel_Transfer_Matrix.pdf" target="_blank" rel="noopener">Open the transfer-matrix note</a></p>
-        </div>
+
+        <ul style="margin-top: 14px;">
+          <li><b>Why this comparison is useful:</b> matching peak positions and spectral trends provides a practical sanity check on discretization, TF/SF injection, and boundary absorption settings.</li>
+          <li><b>What can differ:</b> small deviations may arise from finite grid resolution, numerical dispersion, PML configuration, and the time-window / Fourier-transform settings used to extract spectra from transient fields.</li>
+        </ul>
       </div>
     </section>
 

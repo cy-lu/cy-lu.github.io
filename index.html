@@ -21,114 +21,24 @@
 <style>
 @media (min-width: 1200px) {
   .container {
-    width: 94%;
-    max-width: 1500px;
+    width: 1240px;
   }
 }
-@media (min-width: 1600px) {
-  .container {
-    width: 92%;
-    max-width: 1640px;
-  }
+
+body {
+  line-height: 1.6;
 }
-.tab-content > .tab-pane.container {
-  width: 100%;
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
+
+#home .figure,
+#publication .figure {
+  margin-bottom: 1rem;
 }
-#home p, #publication p, #researchnotes p, #teaching p {
-  line-height: 1.65;
-}
-.nav-tabs {
-  margin-top: 12px;
-}
-.card-columns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-}
-.card-columns .card {
-  flex: 1 1 calc(50% - 11px);
-  min-width: 280px;
-  margin-bottom: 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.research-area-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 26px 24px;
-  margin: 20px 0 8px 0;
-}
-.research-area-card {
-  flex: 1 1 calc(50% - 12px);
-  min-width: 320px;
-  background: #ffffff;
-  border: 1px solid #dfe5eb;
-  border-radius: 8px;
-  padding: 22px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-.research-area-card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
-}
-.research-area-card p:last-of-type {
-  margin-bottom: 14px;
-}
-.research-area-card img {
-  width: 100%;
+
+#publication img.figure-img,
+#researchnotes img.figure-img,
+#teaching img.figure-img {
+  max-width: 100%;
   height: auto;
-  border-radius: 4px;
-}
-.research-notes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 20px;
-}
-.research-note-card {
-  flex: 1 1 calc(50% - 12px);
-  min-width: 320px;
-  background: #ffffff;
-  border: 1px solid #dfe5eb;
-  border-top: 4px solid #17a2b8;
-  border-radius: 8px;
-  padding: 22px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-.research-note-card h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-.publication-lead,
-.research-notes-lead {
-  max-width: 1180px;
-}
-.two-column-home {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: flex-start;
-}
-.two-column-home .home-column {
-  flex: 1 1 calc(50% - 12px);
-  min-width: 320px;
-}
-.two-column-home h2 {
-  margin-top: 0;
-}
-@media (max-width: 991px) {
-  .card-columns .card,
-  .research-area-card,
-  .research-note-card,
-  .two-column-home .home-column {
-    flex-basis: 100%;
-    min-width: 100%;
-  }
 }
 </style>
 
@@ -143,7 +53,7 @@
   <div class="col-md-2 col-sm-2 vertical-align">
     <p>
     <div style="max-width: 130px; text-align: center;">
-      <img src="img/pic3.jpg" style="width: 130%;">
+      <img src="img/pic3.jpg" style="width: 112%;">
     </div>
     </p>
   </div>
@@ -241,78 +151,68 @@ and structural behavior.
 </div>
 
 <hr>
-<div class="two-column-home">
-  <div class="home-column">
-    <h2 id="recent-news">Recent News</h2>
-    <ul>
-      <li>Nov 17–20, 2025: Keynote Speaker (Industrial Forum), “Accelerating Innovation in Advanced Materials” Summit, Abu Dhabi, UAE</li>
-      <li>2025: Technical Program Committee Member (SC2: Metamaterials, Plasmonics and Complex Media), PIERS 2025, Abu Dhabi, UAE (<a href="https://abdb2025.piers.org/home/organization.html" target="_blank" rel="noopener noreferrer">Organization</a>)</li>
-      <li>2019: Won the IEEE Nanotechnology Council NMDC Best Poster Award</li>
-      <li>2017: Research highlighted in <a href="https://www.thenational.ae/uae/science/near-pefect-solar-absorber-highlights-bright-outlook-for-uae-s-sun-powered-future-1.622901" target="_blank" rel="noopener noreferrer">The National</a> (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/UAE_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
-      <li>2016: Research highlighted in <a href="http://news.mit.edu/2016/solar-vapor-generator-water-desalination-0713" target="_blank" rel="noopener noreferrer">MIT News</a> (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/MIT_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
-    </ul>
-  </div>
-  <div class="home-column">
-    <h2 id="recent-talks">Recent Talks</h2>
-    <ul>
-      <li>"Density Functional Theory Simulation in Material Science," Invited Talk, Summer Lecture, National Taipei University of Technology, July, 2019</li>
-      <li>"Use of Density Functional Theory in the Design and Fabrication of Materials," Invited Talk, PhD Seminar, Khalifa University, December, 2018</li>
-      <li>"In Depth Wettability Nano Scale Investigation: Interesting Carbonate Case Study in Society of Petroleum Engineers," Invited Talk, ESG monthly meeting, December 2017</li>
-    </ul>
-  </div>
-</div>
+<h2 id="recent-news">Recent News</h2>
+<ul>
+  <li>Nov 17–20, 2025: Keynote Speaker (Industrial Forum), “Accelerating Innovation in Advanced Materials” Summit, Abu Dhabi, UAE</li>
+  <li>2025: Technical Program Committee Member (SC2: Metamaterials, Plasmonics and Complex Media), PIERS 2025, Abu Dhabi, UAE
+      (<a href="https://abdb2025.piers.org/home/organization.html" target="_blank" rel="noopener noreferrer">Organization</a>)</li>
+  <li>2019: Won the IEEE Nanotechnology Council NMDC Best Poster Award</li>
+  <li>2017: Research highlighted in <a href="https://www.thenational.ae/uae/science/near-pefect-solar-absorber-highlights-bright-outlook-for-uae-s-sun-powered-future-1.622901" target="_blank" rel="noopener noreferrer">The National</a>
+      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/UAE_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
+  <li>2016: Research highlighted in <a href="http://news.mit.edu/2016/solar-absorber-improve-efficiency-solar-thermal-technology-0614" target="_blank" rel="noopener noreferrer">MIT News</a>
+      (<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/news/MIT_News.pdf" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
+</ul>
+<hr>
+
+<h2 id="recent-talks">Recent Talks</h2>
+
+<p></p>
+
+<ul>
+  <li>"Density Functional Theory Simulation in Material Science," Invited Talk, Summer Lecture, National Taipei University of Technology, July, 2019</li>
+  <li>"Use of Density Functional Theory in the Design and Fabrication of Materials," Invited Talk, PhD Seminar, Khalifa University, December, 2018</li>
+  <li>"In Depth Wettability Nano Scale Investigation: Interesting Carbonate Case Study in Society of Petroleum Engineers," Invited Talk, ESG monthly meeting, December 2017</li>
+</ul>
 
 </div>  <!-- end of home tab -->
 
 <!-- begin of publication  -->
 <div id="publication" class="container tab-pane fade"><br>
 <h2>Selected Research Areas</h2>
-<p class="publication-lead">
-These selected research areas highlight the physical problems, modeling approaches, and representative systems
-that connect my work in first-principles simulation, multiscale materials modeling, optics, and multiphysics analysis.
-</p>
 
-<div class="research-area-grid">
+<h2>2D Materials Studies</h2>
+<p>An ultra-clean interface between graphene and the III-V substrate is required to maintain lattice match for the growth of the single-crystalline of MOCVD deposition, which
+enables the substrate to be still “observable” from the top thin film deposition. Here, we propose combining bimodal AFM, micro-Raman spectroscopy, and DFT AFM to locally
+probe surface energy properties on the graphene-coated substrate. In addition to providing quantitative insight into the surface interactions of complicated graphene coatings, this
+work demonstrates a new route to nondestructively monitor the interface between graphene and coated substrates. The related work has been published in "Nanoscale," which could be accessed <a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">here</a>.</p>
+<p>The following figure shows that the surface energy of graphene coated substrate produced through exfoliation of natural graphite flakes and chemical vapor deposition are different.</p>
+<a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/2D_materials_studies.jpg" target="_blank"><img src="img/2D_materials_studies.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
 
-  <div class="research-area-card">
-    <h3>2D Materials Studies</h3>
-    <p>An ultra-clean interface between graphene and the III-V substrate is required to maintain lattice match for the growth of the single-crystalline of MOCVD deposition, which enables the substrate to be still “observable” from the top thin film deposition. Here, we propose combining bimodal AFM, micro-Raman spectroscopy, and DFT AFM to locally probe surface energy properties on the graphene-coated substrate. In addition to providing quantitative insight into the surface interactions of complicated graphene coatings, this work demonstrates a new route to nondestructively monitor the interface between graphene and coated substrates. The related work has been published in <i>Nanoscale</i>, which could be accessed <a href="https://pubs.rsc.org/en/content/articlelanding/2019/nr/c9nr00155g#!divAbstract" target="_blank">here</a>.</p>
-    <p>The following figure shows that the surface energy of graphene coated substrate produced through exfoliation of natural graphite flakes and chemical vapor deposition are different.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/2D_materials_studies.jpg" target="_blank"><img src="img/2D_materials_studies.jpg" class="figure-img img-fluid rounded"></a>
-  </div>
+  <hr>
+    <h2>Surface Wettability Studies</h2>
+    <p>A general quantum mechanical approach to predict the macroscopic wettability of any solid crystal surfaces for different liquids directly through atomic-level density functional simulation. As a benchmark, the wetting characteristics of calcite crystal (10.4) under different types of fluids (water, hexane, and mercury), including either contact angle or spreading coefficient, are predicted and further validated with experimental measurements. This approach has been extended to liquid/liquid/solid multiphase systems, several physics quantities, such as the macroscopic contact angles, the work of adhesion at the solid-liquid interface, and the interfacial tension at the liquid-liquid interfaces, can be simultaneously predicted through density functional theory simulation. This opens a new avenue to probe the mechanism of sophisticated wetting phenomena in multiphase systems with direct quantum mechanical simulation. to provides insightful and quantitative predictions of complicated surface wettability alteration problems and wetting behaviors of liquid/liquid/solid triphase systems. The related work has been published in "Journal of Physical Chemistry Letter," which could be accessed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">here</a>.</p>
+    <p>The following figure shows that an atomic methodology to directly predict macroscopic contact angle of liquid droplet on crystal substrates.</p>
+    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Surface_Wettability_Studies.jpg" target="_blank"><img src="img/Surface_Wettability_Studies.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
 
-  <div class="research-area-card">
-    <h3>Surface Wettability Studies</h3>
-    <p>A general quantum mechanical approach to predict the macroscopic wettability of any solid crystal surfaces for different liquids directly through atomic-level density functional simulation. As a benchmark, the wetting characteristics of calcite crystal (10.4) under different types of fluids (water, hexane, and mercury), including either contact angle or spreading coefficient, are predicted and further validated with experimental measurements. This approach has been extended to liquid/liquid/solid multiphase systems, and several physical quantities, such as macroscopic contact angles, the work of adhesion at the solid-liquid interface, and the interfacial tension at liquid-liquid interfaces, can be simultaneously predicted through density functional theory simulation. The related work has been published in <i>Journal of Physical Chemistry Letters</i>, which could be accessed <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b02270" target="_blank">here</a>.</p>
-    <p>The following figure shows an atomic methodology to directly predict the macroscopic contact angle of liquid droplets on crystal substrates.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Surface_Wettability_Studies.jpg" target="_blank"><img src="img/Surface_Wettability_Studies.jpg" class="figure-img img-fluid rounded"></a>
-  </div>
+  <hr>
+    <h2>Interfacial Solar Vapor Generators</h2>
+    <p>For solar steam generation application, the solar absorber coating needs to be integrated into devices for maximizing their efficiency, the structure design can be utilized with Multiphysics solar/thermal simulations. In this work, we analyze the structural designs and evaluate how much environmental energy can be exploited to enhance the performance of an interfacial solar vapor generation device, under various light intensities. This realization has direct implications in various important processes, particularly for wastewater treatment. The related work has been published in "Joule," which could be accessed <a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">here</a>.</p>
+    <p>The following figure shows that Measured and simulated temperature distributions of the vapor generator under three different light intensities.</p>
+    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Interfacial_Solar_Vapor_Generators.jpg" target="_blank"><img src="img/Interfacial_Solar_Vapor_Generators.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
 
-  <div class="research-area-card">
-    <h3>Interfacial Solar Vapor Generators</h3>
-    <p>For solar steam generation applications, the solar absorber coating needs to be integrated into devices for maximizing efficiency, and the structure design can be analyzed using multiphysics solar-thermal simulations. In this work, we evaluate how much environmental energy can be exploited to enhance the performance of an interfacial solar vapor generation device under various light intensities. This realization has direct implications for practical processes such as wastewater treatment. The related work has been published in <i>Joule</i>, which could be accessed <a href="https://www.sciencedirect.com/science/article/pii/S2542435118301417" target="_blank">here</a>.</p>
-    <p>The following figure shows measured and simulated temperature distributions of the vapor generator under three different light intensities.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Interfacial_Solar_Vapor_Generators.jpg" target="_blank"><img src="img/Interfacial_Solar_Vapor_Generators.jpg" class="figure-img img-fluid rounded"></a>
-  </div>
-
-  <div class="research-area-card">
-    <h3>Plasmonic Nanocomposite Solar Absorbers</h3>
-    <p>Finite-difference time-domain optical simulation can guide the design of nanohole and nanocomposite structures for high-performance solar absorber coatings. In combination with optical simulation, a class of scalable ultrathin silver/SiO2 nanocomposite films with self-formed topping plasmonic nanoparticles is designed and fabricated. We experimentally and theoretically demonstrate that, by controlling a high-throughput co-sputtering process, the nanocomposite absorbers can achieve near 100% light absorption in the wavelength range from 300 to 800 nm. The related work has been published in <i>Advanced Optical Materials</i>, which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">here</a>.</p>
-    <p>The following figure shows that nanocomposites, consisting of metallic nanoparticles embedded in a dielectric host, can significantly enhance light-matter interactions in solar energy conversion and optical applications.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmonic_nanocomposite_solar_absorbers.jpg" target="_blank"><img src="img/Plasmonic_nanocomposite_solar_absorbers.jpg" class="figure-img img-fluid rounded"></a>
-  </div>
-
-  <div class="research-area-card">
-    <h3>Plasmon-Enhanced Nanoporous Absorbers</h3>
-    <p>Ultrathin semiconductor films have attracted much attention because strong interference can persist inside a lossy dielectric film on a reflective substrate. We proposed a plasmon-enhanced ultrathin-film broadband absorber by combining the ultrathin-film absorber with localized surface plasmon resonances. This concept can be realized by patterning nanoholes on an absorber comprised of an absorptive ultrathin Ge film and a reflective Au layer, where the localized surface plasmon mode is activated by metallic pore-shaped holes. The related work has been published in <i>Advanced Optical Materials</i>, which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">here</a>.</p>
-    <p>The following figure shows a plasmon-enhanced ultrathin-film broadband absorber that combines the lossy film absorber with localized surface plasmon resonances activated by pore-shaped metallic features.</p>
-    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmon_enhanced_nanoporous_absorbers.jpg" target="_blank"><img src="img/Plasmon_enhanced_nanoporous_absorbers.jpg" class="figure-img img-fluid rounded"></a>
-  </div>
-
-</div>
+  <hr>
+    <h2>Plasmonic Nanocomposite Solar Absorbers</h2>
+    <p>Finite difference time domain optical simulation method can provide a guide to design the nanohole and nanocomposite structures, which is potentially an absorptive coating for the high-performance solar absorber. In combination with optical simulation results, a class of scalable ultrathin silver/SiO2 nanocomposite films with self-formed topping plasmonic nanoparticles is designed and fabricated. We experimentally and theoretically demonstrate that just by controlling the high throughput co-sputtering process, the nanocomposite absorbers can achieve near 100% light absorption in the wavelength ranges from 300 to 800 nm. The related work has been published in "Advanced Optical Materials," which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201700222" target="_blank">here</a>. </p>
+    <p>The following figure shows that Nanocomposites, consisting of metallic nanoparticles embedding in a dielectric host, can significantly enhance light-matter interactions in solar energy conversion and optical applications.</p>
+    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmonic_nanocomposite_solar_absorbers.jpg" target="_blank"><img src="img/Plasmonic_nanocomposite_solar_absorbers.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
+  
+  <hr>
+    <h2>Plasmon Enhanced Nanoporous Absorbers</h2>
+    <p>Ultrathin semiconductor films have attracted much attention due to their strong interference persisting inside the lossy dielectric film on a reflective substrate. We proposed a plasmon-enhanced ultrathin film broadband absorber by combining the ultrathin film absorber with localized surface plasmon resonances. This concept can be realized by patterning nanoholes on an absorber comprised of an absorptive ultrathin Ge film and a reflective Au layer, where the localized surface plasmon mode is activated by metallic pore-shaped holes. The related work has been published in "Advanced Optical Materials," which could be accessed <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adom.201600078" target="_blank">here</a>. The proposed plasmonic broadband ultrathin film absorber can be applied in many applications, such as solar vapor generation,photovoltaics, and solar water splitting.</p>
+    <p>The following figure shows that a plasmon-enhanced ultrathin film broadband absorber is proposed by combining the ultrathin lossy film absorber with localized surface plasmon resonances, which are activated by pore-shape plasmon resonances.</p>
+    <a href="https://github.com/cy-lu/cy-lu.github.io/blob/master/img/Plasmon_enhanced_nanoporous_absorbers.jpg" target="_blank"><img src="img/Plasmon_enhanced_nanoporous_absorbers.jpg" style="width: 60%;" class="figure-img img-fluid rounded"></a>
 
 <hr>
-
 <h2>Highlight Publications</h2>
   <ol>
       <li>S. R. Tamalampudi,<u>J.-Y. Lu*</u>, N. Rajput, C. Y. Lai, B. Alfakes, R. Sankar, ... & M. Chiesa*, 
@@ -517,43 +417,128 @@ that connect my work in first-principles simulation, multiscale materials modeli
 <div id="researchnotes" class="container tab-pane fade"><br>
 <h2>Research Notes</h2>
 
-<p class="research-notes-lead">
-These notes sit between the publication list and the teaching modules. They emphasize how physical models are formulated,
-validated, and translated into defensible computational workflows for materials, devices, and engineered structures.
+<p>
+This section collects working notes that sit between the publication list and the teaching modules.
+The emphasis is on how physical models are formulated, validated, and translated into defensible
+computational workflows for materials, devices, and engineered structures.
 </p>
 
-<div class="research-notes-grid">
+<p>
+Rather than serving as course notes or a blog, these pages are intended to document the modeling logic,
+physical interpretation, and research methodology behind multiscale simulation, first-principles analysis,
+and engineering-oriented computational design.
+</p>
 
-  <div class="research-note-card">
-    <h3>Effective Medium Theory and Composite Response</h3>
-    <p>Notes on homogenization, Maxwell&ndash;Garnett theory, Bergman spectral representation, and the interpretation of microstructure-dependent effective response in heterogeneous media.</p>
-    <p>This stream also includes revisiting classical formulations beyond the basic dipolar Maxwell&ndash;Garnett limit, including PRB 1992-type treatments of interaction effects, spectral response, and the physically meaningful reconstruction of published composite-medium results.</p>
-  </div>
+<hr>
 
-  <div class="research-note-card">
-    <h3>First-Principles Modeling and Materials Discovery</h3>
-    <p>Notes on DFT-based workflows, descriptor selection, structure&ndash;property mapping, and physically grounded strategies for computational materials screening and accelerated materials discovery.</p>
-  </div>
+<h3>Effective Medium Theory and Composite Response</h3>
+<p>
+Notes on homogenization, Maxwell&ndash;Garnett theory, Bergman spectral representation, and the interpretation
+of microstructure-dependent effective response in heterogeneous media.
+</p>
+<p>
+This stream also includes revisiting classical formulations beyond the basic dipolar Maxwell&ndash;Garnett limit,
+including PRB 1992-type treatments of interaction effects, spectral response, and the physically meaningful
+reconstruction of published composite-medium results.
+</p>
 
-  <div class="research-note-card">
-    <h3>Physics-Guided AI and Inverse Design</h3>
-    <p>Methodological notes on combining simulation, optimization, and machine-learning-assisted search for functional materials and engineered structures, with emphasis on interpretable design logic rather than black-box prediction alone.</p>
-  </div>
+<hr>
 
-  <div class="research-note-card">
-    <h3>Multiphysics Modeling for Functional Materials and Structures</h3>
-    <p>Notes linking analytical models, finite element simulation, and engineering observables across structural, thermal, electromagnetic, and heterogeneous material systems, with attention to scale bridging and physically meaningful performance metrics.</p>
-  </div>
+<h3>First-Principles Modeling and Materials Discovery</h3>
+<p>
+Notes on DFT-based workflows, descriptor selection, structure&ndash;property mapping, and physically grounded
+strategies for computational materials screening and accelerated materials discovery.
+</p>
 
-  <div class="research-note-card">
-    <h3>Validation, Benchmarking, and Physical Interpretation</h3>
-    <p>Notes on model validation, convergence assessment, analytical benchmarking, code verification, and physics-based interpretation across electromagnetic, mechanical, and atomistic simulation workflows.</p>
-  </div>
+<hr>
 
-</div>
+<h3>Physics-Guided AI and Inverse Design</h3>
+<p>
+Methodological notes on combining simulation, optimization, and machine-learning-assisted search for
+functional materials and engineered structures, with emphasis on interpretable design logic rather than
+black-box prediction alone.
+</p>
+
+<hr>
+
+<h3>Multiphysics Modeling for Functional Materials and Structures</h3>
+<p>
+Notes linking analytical models, finite element simulation, and engineering observables across structural,
+thermal, electromagnetic, and heterogeneous material systems, with attention to scale bridging and
+physically meaningful performance metrics.
+</p>
+
+<hr>
+
+<h3>Validation, Benchmarking, and Physical Interpretation</h3>
+<p>
+Notes on convergence assessment, analytical benchmarking, code verification, and physics-based interpretation
+across electromagnetic, mechanical, and atomistic simulation workflows.
+</p>
 
 </div>
 <!-- end of research notes --> 
+
+<!-- begin of acknowledgement -->
+<div id="acknowledgement" class="container tab-pane fade"><br>
+<h2 id="acknowledgement-list">THANK YOU ALL!</h2>
+  
+<ul>
+<li>My beloved family</li>  
+</ul>
+  
+<p>Thank you for all the supports during my postdoc career:</p>
+<ul>
+<li>Prof. TieJun Zhang, Khalifa University</li>
+<li>Prof. Daniel Choi, Khalifa University</li>
+<li>Prof. Matteo Chiesa, Khalifa University</li>
+<li>Prof. Ibraheem Almansouri, Abu Dhabi Future Energy Company</li>
+<li>Prof. Nicholas Xuanlai Fang, MIT</li>
+<li>Prof. Gang Chen, MIT</li>
+<li>Prof. Thomas C.-K, Yang, National Taipei University of Technology</li>
+<li>Prof. Weilin Yang, Jiangnan University</li>
+<li>Dr. Aikifa Raza, Khalifa University</li>
+<li>Dr. Hongxia Li, Khalifa University</li>
+<li>Dr. Srinivasa Reddy Tamalampudi, Khalifa University</li>
+<li>Dr. Nitul S Rajput, Khalifa University</li>
+<li>Dr. Shih-Wen Chen, National Taipei University of Technology</li>
+<li>Mr. Boulos Fakes, Khalifa University</li>
+<li>Mr. Abdulrahman Al-Hagri, Khalifa University</li>
+<li>Ms Chia-Yun Lai, Khalifa University</li>
+<li>Ms Mariam Ali Almahri, Khalifa University</li>
+<li>Mr. Harry Apostoleris, Khalifa University</li>
+<li>Mr. Yu-Cheng Chiou, UiT</li>
+<li>Mr. Cheng-Hsiang Chiu, UiT</li>
+<li>Ms Shabnam Ranny, Aspen Heights School</li>
+</ul>
+
+<p>Thank you for the supports during my PhD:</p>
+<ul>
+<li>Prof. Yuan-Huei Chang, my PhD advisor</li>
+<li>Prof. Chi-Te Liang, Nationa Taiwan University</li>
+<li>Prof. Yang-Fang Chen, National Taiwan University</li>
+<li>Prof. Kuo-PIn Chiu, CYCU</li>
+<li>Prof. Chih-Ming Wang, NCU</li>
+<li>Prof. Din-Pin Tsai, Academia Sinica</li>
+<li>Prof. Wei Chih Liu, NTNU</li>
+<li>Dr. Husan-Yi Chao, SCIENTEK</li>
+<li>Dr. Hung-Ji Huang, Instrument Technology Research Center</li>
+<li>Dr. Ryan Cheng, senior member at my lab
+</ul>
+  
+<p>Thank you for the supports during my career at TSMC:</p>
+<ul>
+<li>Dr. Lu-Hsing Tsai, TSMC</li>
+<li>Dr. Chung-Liang Cheng, TSMC</li>
+<li>Mr. Wilson Liu, ASML</li>
+<li>Ms. Ya-Ling Huang, TSMC</li>
+<li>Mr. Che-Chih Hsu, TSMC</li>
+<li>Dr. San-Yi Huang, TSMC</li>
+<li>Dr. Ju-Ying Chen, TSMC</li>
+</ul>
+</div>
+<!-- end of acknowledgement -->  
+
 
 <!-- begin of teaching --> 
 <div id="teaching" class="container tab-pane fade"><br>
@@ -675,69 +660,6 @@ computational electromagnetics, scientific computing, and materials modeling.
 
 </div>
 <!-- end of teaching -->
-
-<!-- begin of acknowledgement -->
-<div id="acknowledgement" class="container tab-pane fade"><br>
-<h2 id="acknowledgement-list">THANK YOU ALL!</h2>
-  
-<ul>
-<li>My beloved family</li>  
-</ul>
-  
-<p>Thank you for all the supports during my postdoc career:</p>
-<ul>
-<li>Prof. TieJun Zhang, Khalifa University</li>
-<li>Prof. Daniel Choi, Khalifa University</li>
-<li>Prof. Matteo Chiesa, Khalifa University</li>
-<li>Prof. Ibraheem Almansouri, Abu Dhabi Future Energy Company</li>
-<li>Prof. Nicholas Xuanlai Fang, MIT</li>
-<li>Prof. Gang Chen, MIT</li>
-<li>Prof. Thomas C.-K, Yang, National Taipei University of Technology</li>
-<li>Prof. Weilin Yang, Jiangnan University</li>
-<li>Dr. Aikifa Raza, Khalifa University</li>
-<li>Dr. Hongxia Li, Khalifa University</li>
-<li>Dr. Srinivasa Reddy Tamalampudi, Khalifa University</li>
-<li>Dr. Nitul S Rajput, Khalifa University</li>
-<li>Dr. Shih-Wen Chen, National Taipei University of Technology</li>
-<li>Mr. Boulos Fakes, Khalifa University</li>
-<li>Mr. Abdulrahman Al-Hagri, Khalifa University</li>
-<li>Ms Chia-Yun Lai, Khalifa University</li>
-<li>Ms Mariam Ali Almahri, Khalifa University</li>
-<li>Mr. Harry Apostoleris, Khalifa University</li>
-<li>Mr. Yu-Cheng Chiou, UiT</li>
-<li>Mr. Cheng-Hsiang Chiu, UiT</li>
-<li>Ms Shabnam Ranny, Aspen Heights School</li>
-</ul>
-
-<p>Thank you for the supports during my PhD:</p>
-<ul>
-<li>Prof. Yuan-Huei Chang, my PhD advisor</li>
-<li>Prof. Chi-Te Liang, Nationa Taiwan University</li>
-<li>Prof. Yang-Fang Chen, National Taiwan University</li>
-<li>Prof. Kuo-PIn Chiu, CYCU</li>
-<li>Prof. Chih-Ming Wang, NCU</li>
-<li>Prof. Din-Pin Tsai, Academia Sinica</li>
-<li>Prof. Wei Chih Liu, NTNU</li>
-<li>Dr. Husan-Yi Chao, SCIENTEK</li>
-<li>Dr. Hung-Ji Huang, Instrument Technology Research Center</li>
-<li>Dr. Ryan Cheng, senior member at my lab
-</ul>
-  
-<p>Thank you for the supports during my career at TSMC:</p>
-<ul>
-<li>Dr. Lu-Hsing Tsai, TSMC</li>
-<li>Dr. Chung-Liang Cheng, TSMC</li>
-<li>Mr. Wilson Liu, ASML</li>
-<li>Ms. Ya-Ling Huang, TSMC</li>
-<li>Mr. Che-Chih Hsu, TSMC</li>
-<li>Dr. San-Yi Huang, TSMC</li>
-<li>Dr. Ju-Ying Chen, TSMC</li>
-</ul>
-</div>
-<!-- end of acknowledgement -->  
-
-
-
 
 </div>
 

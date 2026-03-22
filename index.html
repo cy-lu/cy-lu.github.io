@@ -16,7 +16,7 @@
 <style>
 @media (min-width: 1200px) {
   .container {
-    width: 1240px;
+    width: 1210px;
   }
 }
 
@@ -36,74 +36,76 @@ body {
   height: auto;
 }
 
-
 #publication p,
 #researchnotes p {
-  line-height: 1.65;
+  line-height: 1.62;
 }
 
 .publication-lead,
 .research-notes-lead {
-  max-width: 980px;
+  max-width: 930px;
+  margin-bottom: 22px;
 }
 
-.research-area-grid {
+.research-area-grid,
+.research-notes-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px 20px;
-  margin: 18px 0 8px 0;
+  gap: 24px 22px;
+  margin: 22px 0 12px 0;
+}
+
+.research-area-card,
+.research-note-card {
+  flex: 1 1 calc(50% - 11px);
+  min-width: 300px;
+  background: #ffffff;
+  border: 1px solid #e5e7ea;
+  border-radius: 4px;
+  padding: 18px 18px 20px 18px;
+  box-shadow: none;
 }
 
 .research-area-card {
-  flex: 1 1 calc(50% - 10px);
-  min-width: 300px;
-  background: #ffffff;
-  border: 1px solid #dfe5eb;
-  border-top: 4px solid #d98b2b;
-  border-radius: 8px;
-  padding: 18px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border-top: 3px solid #c9822b;
 }
 
-.research-area-card h3 {
+.research-note-card {
+  border-top: 3px solid #198fa1;
+}
+
+.research-area-card h3,
+.research-note-card h3 {
   margin-top: 0;
   margin-bottom: 12px;
 }
 
-.research-area-card p:last-of-type {
-  margin-bottom: 12px;
+.research-area-card p:last-of-type,
+.research-note-card p:last-of-type {
+  margin-bottom: 10px;
 }
 
 .research-area-card img {
   display: block;
-  width: 88%;
-  max-width: 420px;
+  width: 74%;
+  max-width: 340px;
   height: auto;
-  margin: 0 auto;
-  border-radius: 4px;
+  margin: 8px auto 0 auto;
+  border-radius: 0;
 }
 
-.research-notes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 18px;
-}
-
-.research-note-card {
-  flex: 1 1 calc(50% - 10px);
-  min-width: 300px;
-  background: #ffffff;
-  border: 1px solid #dfe5eb;
-  border-top: 4px solid #17a2b8;
-  border-radius: 8px;
-  padding: 18px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-
-.research-note-card h3 {
-  margin-top: 0;
+.research-note-card p {
   margin-bottom: 10px;
+}
+
+#publication h2,
+#researchnotes h2 {
+  margin-bottom: 8px;
+}
+
+#publication hr,
+#researchnotes hr {
+  border-top: 1px solid #e7e7e7;
 }
 
 @media (max-width: 991px) {
@@ -114,8 +116,8 @@ body {
   }
 
   .research-area-card img {
-    width: 100%;
-    max-width: none;
+    width: 88%;
+    max-width: 360px;
   }
 }
 </style>
@@ -170,11 +172,11 @@ body {
 <div class="container tab-pane active" id="home"><br/>
 <p>
 I am a <b>computational physicist</b> with a strong interest in turning physical models into practical
-simulation workflows. My work spans <b>first-principles calculations</b>, <b>computational electromagnetics</b>,
+simulation workflows. My work spans <b>first-principles calculations</b>, computational electromagnetics,
 and <b>multiphysics structural modeling</b> for heterogeneous and multiscale systems.
 </p>
 <p>
-I am particularly interested in combining <b>analytical modeling</b>, <b>numerical simulation</b>,
+I am particularly interested in combining <b>analytical modeling</b>, <b>finite element simulation</b>,
 and computation-driven interpretation to connect material-level mechanisms with measurable device
 and structural behavior.
 </p>

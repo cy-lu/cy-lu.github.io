@@ -27,7 +27,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M1",
+          "public_name": "RP_M1",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -39,7 +43,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 24.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M1",
+          "public_name": "CP_M1",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -51,7 +59,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 50.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M1",
+          "public_name": "CP_M1",
+          "model_curve": ""
         }
       },
       "selected": {
@@ -64,7 +76,10 @@
         "FDTD_status": "FDTD_READY",
         "FDTD_ready": true,
         "seed": 24.0,
-        "model_json": ""
+        "model_json": "",
+        "public_family": "CP",
+        "public_model_code": "CP_M1",
+        "model_curve": ""
       },
       "quality_label": "poor"
     },
@@ -81,7 +96,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M2",
+          "public_name": "RP_M2",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -93,7 +112,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 24.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M2",
+          "public_name": "CP_M2",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -105,7 +128,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 47.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M2",
+          "public_name": "CP_M2",
+          "model_curve": ""
         }
       },
       "selected": {
@@ -118,7 +145,10 @@
         "FDTD_status": "FDTD_READY",
         "FDTD_ready": true,
         "seed": 47.0,
-        "model_json": ""
+        "model_json": "",
+        "public_family": "CP",
+        "public_model_code": "CP_M2",
+        "model_curve": ""
       },
       "quality_label": "poor"
     },
@@ -135,7 +165,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M3",
+          "public_name": "RP_M3",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -147,7 +181,11 @@
           "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
           "FDTD_ready": false,
           "seed": 31.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M3",
+          "public_name": "CP_M3",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -159,7 +197,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 41.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M3",
+          "public_name": "CP_M3",
+          "model_curve": ""
         }
       },
       "selected": null,
@@ -178,7 +220,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M4",
+          "public_name": "RP_M4",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -190,7 +236,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 30.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M4",
+          "public_name": "CP_M4",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -202,7 +252,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 27.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M4",
+          "public_name": "CP_M4",
+          "model_curve": ""
         }
       },
       "selected": {
@@ -215,7 +269,10 @@
         "FDTD_status": "FDTD_READY",
         "FDTD_ready": true,
         "seed": 27.0,
-        "model_json": ""
+        "model_json": "",
+        "public_family": "CP",
+        "public_model_code": "CP_M4",
+        "model_curve": ""
       },
       "quality_label": "excellent"
     },
@@ -232,7 +289,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M5",
+          "public_name": "RP_M5",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -244,7 +305,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 30.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M5",
+          "public_name": "CP_M5",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -256,7 +321,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 31.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M5",
+          "public_name": "CP_M5",
+          "model_curve": ""
         }
       },
       "selected": {
@@ -269,7 +338,10 @@
         "FDTD_status": "FDTD_READY",
         "FDTD_ready": true,
         "seed": 31.0,
-        "model_json": ""
+        "model_json": "",
+        "public_family": "CP",
+        "public_model_code": "CP_M5",
+        "model_curve": ""
       },
       "quality_label": "excellent"
     }
@@ -283,6 +355,8 @@
     "G_rho": 1.0,
     "FDTD_status": "FDTD_READY",
     "quality_label": "excellent",
-    "model_json": ""
+    "model_json": "",
+    "public_family": "CP",
+    "public_model_code": "CP_M4"
   }
 }

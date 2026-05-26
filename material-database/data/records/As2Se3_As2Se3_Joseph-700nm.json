@@ -27,7 +27,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M1",
+          "public_name": "RP_M1",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -39,7 +43,11 @@
           "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
           "FDTD_ready": false,
           "seed": 9.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M1",
+          "public_name": "CP_M1",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -51,7 +59,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 50.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M1",
+          "public_name": "CP_M1",
+          "model_curve": ""
         }
       },
       "selected": null,
@@ -70,7 +82,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M2",
+          "public_name": "RP_M2",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -82,7 +98,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 7.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M2",
+          "public_name": "CP_M2",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -94,7 +114,11 @@
           "FDTD_status": "FDTD_READY",
           "FDTD_ready": true,
           "seed": 20.0,
-          "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json"
+          "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json",
+          "public_family": "CP",
+          "public_model_code": "CP_M2",
+          "public_name": "CP_M2",
+          "model_curve": ""
         }
       },
       "selected": {
@@ -107,7 +131,10 @@
         "FDTD_status": "FDTD_READY",
         "FDTD_ready": true,
         "seed": 20.0,
-        "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json"
+        "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json",
+        "public_family": "CP",
+        "public_model_code": "CP_M2",
+        "model_curve": ""
       },
       "quality_label": "poor"
     },
@@ -124,7 +151,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M3",
+          "public_name": "RP_M3",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -136,7 +167,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 34.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M3",
+          "public_name": "CP_M3",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -148,7 +183,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 30.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M3",
+          "public_name": "CP_M3",
+          "model_curve": ""
         }
       },
       "selected": null,
@@ -167,7 +206,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M4",
+          "public_name": "RP_M4",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -179,7 +222,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 9.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M4",
+          "public_name": "CP_M4",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -191,7 +238,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 8.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M4",
+          "public_name": "CP_M4",
+          "model_curve": ""
         }
       },
       "selected": null,
@@ -210,7 +261,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": null,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "RP",
+          "public_model_code": "RP_M5",
+          "public_name": "RP_M5",
+          "model_curve": ""
         },
         "CP": {
           "family": "CP",
@@ -222,7 +277,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 9.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M5",
+          "public_name": "CP_M5",
+          "model_curve": ""
         },
         "SCP": {
           "family": "CP",
@@ -234,7 +293,11 @@
           "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
           "FDTD_ready": false,
           "seed": 7.0,
-          "model_json": ""
+          "model_json": "",
+          "public_family": "CP",
+          "public_model_code": "CP_M5",
+          "public_name": "CP_M5",
+          "model_curve": ""
         }
       },
       "selected": null,
@@ -250,6 +313,8 @@
     "G_rho": 1.0000000000000016,
     "FDTD_status": "FDTD_READY",
     "quality_label": "poor",
-    "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json"
+    "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json",
+    "public_family": "CP",
+    "public_model_code": "CP_M2"
   }
 }

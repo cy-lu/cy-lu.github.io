@@ -1,18 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FDTD-Ready Optical Material Model Database</title>
-  <link rel="stylesheet" href="style.css?v=20260526_2" />
+  <link rel="stylesheet" href="style.css?v=20260526_4" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <main class="page">
@@ -20,8 +13,8 @@
       <p class="eyebrow">Optical Material Models</p>
       <h1>FDTD-Ready Optical Material Model Database</h1>
       <p class="lead">
-        This page lists compact analytic dielectric-function models for use in time-domain electromagnetic simulations.
-        Two model families are shown: the rational-pole model and the critical-point model.
+        This page lists compact analytic dielectric-function models for time-domain electromagnetic simulations.
+        The two model families are rational-pole (RP) models and critical-point (CP) models.
       </p>
       <p><a href="../index.html">← Back to Chun-Yu Lu's homepage</a></p>
     </header>
@@ -30,45 +23,28 @@
       <h2>Mathematical model definitions</h2>
       <div class="definition-grid">
         <div class="definition-card rp-card">
-          <h3>Rational-pole model</h3>
-          <p>The rational-pole representation is written as</p>
-          <div class="equation">
-            \[
-            \varepsilon_{\mathrm{RP}}(z)=\varepsilon_{\infty}
-            +\sum_{j=1}^{N}\left[
-            \frac{r_j}{z-p_j}+\frac{r_j^{\ast}}{z-p_j^{\ast}}
-            \right].
-            \]
-          </div>
+          <h3>Rational-pole (RP) model</h3>
+          <p>The RP representation is</p>
+          <div class="equation-text">ε<sub>RP</sub>(z) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>[ r<sub>j</sub>/(z − p<sub>j</sub>) + r<sub>j</sub><sup>*</sup>/(z − p<sub>j</sub><sup>*</sup>) ].</div>
           <p>
-            Here \(z\) is the normalized complex-frequency variable, \(p_j\) is a complex pole,
-            \(r_j\) is the corresponding complex residue, and \(N\) is the number of pole pairs.
-            The conjugate-pair structure gives a real-valued time-domain response for real fields.
+            Here <i>z</i> is the normalized complex-frequency variable,
+            <i>p</i><sub>j</sub> is a complex pole, <i>r</i><sub>j</sub> is the corresponding residue,
+            and <i>N</i> is the number of pole pairs.
           </p>
         </div>
         <div class="definition-card cp-card">
-          <h3>Critical-point model</h3>
-          <p>The critical-point representation is written as</p>
-          <div class="equation">
-            \[
-            \varepsilon_{\mathrm{CP}}(\omega)=\varepsilon_{\infty}
-            +\sum_{j=1}^{N}\left[
-            \frac{c_j\Omega_j}{\Omega_j-\omega-i\Gamma_j}
-            +\frac{c_j^{\ast}\Omega_j}{\Omega_j+\omega+i\Gamma_j}
-            \right],
-            \qquad \Omega_j>0,\;\Gamma_j>0.
-            \]
-          </div>
+          <h3>Critical-point (CP) model</h3>
+          <p>The CP representation is</p>
+          <div class="equation-text">ε<sub>CP</sub>(ω) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>[ c<sub>j</sub>Ω<sub>j</sub>/(Ω<sub>j</sub> − ω − iΓ<sub>j</sub>) + c<sub>j</sub><sup>*</sup>Ω<sub>j</sub>/(Ω<sub>j</sub> + ω + iΓ<sub>j</sub>) ], with Ω<sub>j</sub> &gt; 0 and Γ<sub>j</sub> &gt; 0.</div>
           <p>
-            Here \(\Omega_j\) is the transition frequency, \(\Gamma_j\) is the damping rate,
-            \(c_j\) is a complex coefficient, and \(N\) is the number of critical-point terms.
-            CP-family entries use this same analytic form.
+            Here Ω<sub>j</sub> is the transition frequency, Γ<sub>j</sub> is the damping rate,
+            <i>c</i><sub>j</sub> is a complex coefficient, and <i>N</i> is the number of CP terms.
           </p>
         </div>
       </div>
       <p class="note">
-        For each selected order \(N\), the table reports the model family, the RMS error, the FDTD-readiness status,
-        and the available PoleResidue JSON file.
+        For each selected order <i>N</i>, the table reports the model family, RMS error,
+        FDTD-readiness status, and the available PoleResidue JSON file.
       </p>
     </section>
 
@@ -90,21 +66,22 @@
         <div id="recommendationBox" class="recommendation"></div>
       </div>
       <div class="panel">
-        <h2>Rational-pole vs critical-point model</h2>
+        <h2>RP vs CP model</h2>
         <div id="modelTable"></div>
       </div>
     </section>
 
     <section class="panel">
-      <h2>Optical constants</h2>
+      <h2>Optical constants and model response</h2>
       <div id="nkPlot" class="plot"></div>
+      <p class="plot-note" id="plotNote"></p>
     </section>
 
     <section class="panel">
-      <h2>Selected record</h2>
+      <h2>Record metadata</h2>
       <pre id="metadataBox"></pre>
     </section>
   </main>
-  <script src="app.js?v=20260526_2"></script>
+  <script src="app.js?v=20260526_4"></script>
 </body>
 </html>

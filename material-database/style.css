@@ -97,3 +97,20 @@ pre { white-space: pre-wrap; font-size: 0.86rem; background: #fafafa; padding: 1
 @media (max-width: 900px) {
   .grid, .definition-grid { grid-template-columns: 1fr; }
 }
+
+
+.equation-text {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #eeeeea;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.55;
+}
+.plot-note {
+  color: #666;
+  font-size: 0.88rem;
+  margin: 8px 0 0;
+}

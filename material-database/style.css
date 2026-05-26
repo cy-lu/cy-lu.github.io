@@ -152,3 +152,18 @@ pre { white-space: pre-wrap; font-size: 0.86rem; background: #fafafa; padding: 1
   margin-left: 6px;
 }
 /* UI_V7_MARKERS_AND_CURVES_END */
+
+
+.warning-note {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-left: 4px solid #b7791f;
+  background: #fffaf0;
+  color: #744210;
+  font-size: 0.92rem;
+}
+.muted {
+  color: #666;
+  font-size: 0.92rem;
+}
+

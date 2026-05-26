@@ -2,6 +2,9 @@ let INDEX = [];
 let RECORD_CACHE = {};
 let JSON_CACHE = {};
 
+const APP_VERSION = '20260526_6';
+const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
+
 async function loadJson(path) {
   if (!path) return null;
   if (JSON_CACHE[path]) return JSON_CACHE[path];
@@ -25,7 +28,7 @@ function addOption(sel, value, text) {
 function unique(arr) { return [...new Set(arr)]; }
 
 async function init() {
-  INDEX = await loadJson('data/materials_index.json?v=20260526_5');
+  INDEX = await loadJson(`data/materials_index.json?v=${APP_VERSION}`);
   const materialSelect = document.getElementById('materialSelect');
   const materials = unique(INDEX.map(x => x.material)).sort();
   clearSelect(materialSelect);
@@ -33,7 +36,30 @@ async function init() {
   materialSelect.addEventListener('change', updateRecords);
   document.getElementById('recordSelect').addEventListener('change', updateNs);
   document.getElementById('nSelect').addEventListener('change', renderCurrent);
+  ensurePlotControls();
   updateRecords();
+}
+
+function ensurePlotControls() {
+  if (document.getElementById('plotModelSelect')) return;
+  const plotDiv = document.getElementById('nkPlot');
+  if (!plotDiv || !plotDiv.parentElement) return;
+
+  const controls = document.createElement('div');
+  controls.className = 'plot-controls';
+  controls.innerHTML = `
+    <label>Displayed model curve
+      <select id="plotModelSelect">
+        <option value="recommended">Recommended model</option>
+        <option value="CP">CP model only</option>
+        <option value="RP">RP model only</option>
+        <option value="both">RP and CP models</option>
+      </select>
+    </label>
+    <span class="plot-range-label" id="plotRangeLabel"></span>
+  `;
+  plotDiv.parentElement.insertBefore(controls, plotDiv);
+  document.getElementById('plotModelSelect').addEventListener('change', renderCurrent);
 }
 
 function recordsForMaterial(material) {
@@ -48,7 +74,7 @@ function updateRecords() {
 }
 async function getRecord(recordKey) {
   if (!RECORD_CACHE[recordKey]) {
-    RECORD_CACHE[recordKey] = await loadJson(`data/records/${recordKey}.json?v=20260526_5`);
+    RECORD_CACHE[recordKey] = await loadJson(`data/records/${recordKey}.json?v=${APP_VERSION}`);
   }
   return RECORD_CACHE[recordKey];
 }
@@ -80,10 +106,6 @@ function publicCode(m, n) {
   if (!m) return '--';
   return m.family === 'RP' ? `RP_M${n}` : `CP_M${n}`;
 }
-function publicCurve(m, n) {
-  if (!m) return '';
-  return m.model_curve || '';
-}
 function modelRow(displayName, m, n) {
   const ready = m && m.FDTD_ready ? '<span class="badge good">FDTD-ready</span>' : '<span class="badge bad">not ready</span>';
   const link = m && m.model_json ? `<a href="${m.model_json}" target="_blank">download</a>` : '--';
@@ -93,6 +115,16 @@ function badgeForQuality(q) {
   if (q === 'excellent' || q === 'acceptable') return 'good';
   if (q === 'warning') return 'warn';
   return 'bad';
+}
+function fitRange(rec) {
+  const r = rec && Array.isArray(rec.wavelength_range_um) ? rec.wavelength_range_um : DEFAULT_FIT_RANGE_UM;
+  const lo = Number(r[0]);
+  const hi = Number(r[1]);
+  if (Number.isFinite(lo) && Number.isFinite(hi) && hi > lo) return [lo, hi];
+  return DEFAULT_FIT_RANGE_UM;
+}
+function rangeText(range) {
+  return `${range[0].toFixed(3)}-${range[1].toFixed(3)} µm`;
 }
 
 async function renderCurrent() {
@@ -109,7 +141,7 @@ async function renderCurrent() {
     const q = entry.quality_label;
     box.innerHTML = `
       <div class="family">${familyDisplayName(sel)}</div>
-      <p><span class="badge ${badgeForQuality(q)}">${q}</span><span class="badge">${publicCode(sel, n)}</span></p>
+      <p><span class="badge ${badgeForQuality(q)}">${q}</span> <span class="badge">${publicCode(sel, n)}</span></p>
       <p><b>ε RMS:</b> ${fmt(sel.epsilon_rms)}<br><b>G ρ:</b> ${fmt(sel.G_rho)}<br><b>Status:</b> ${sel.FDTD_status || '--'}</p>
       ${sel.model_json ? `<p><a href="${sel.model_json}" target="_blank">Download PoleResidue JSON</a></p>` : ''}
     `;
@@ -137,17 +169,48 @@ async function renderCurrent() {
   await renderNkPlot(rec, entry, Number(n));
 }
 
-function addNkTraces(traces, payload, label, mode, dash) {
+function getWavelengthArray(points) {
+  return points.wavelength_um || points.wavelength || points.lambda_um || points.wl_um || [];
+}
+function filterXY(wl, y, range) {
+  const xOut = [];
+  const yOut = [];
+  if (!Array.isArray(wl) || !Array.isArray(y)) return {x: xOut, y: yOut};
+  for (let i = 0; i < wl.length && i < y.length; i++) {
+    const x = Number(wl[i]);
+    const yy = Number(y[i]);
+    if (Number.isFinite(x) && Number.isFinite(yy) && x >= range[0] && x <= range[1]) {
+      xOut.push(x);
+      yOut.push(yy);
+    }
+  }
+  return {x: xOut, y: yOut};
+}
+
+function addNkTraces(traces, payload, label, mode, dash, range) {
   if (!payload || !payload.points) return;
   const pts = payload.points;
-  const wl = pts.wavelength_um || [];
+  const wl = getWavelengthArray(pts);
   if (!wl.length) return;
+
   if (pts.n) {
-    traces.push({x: wl, y: pts.n, mode: mode, name: `${label}: n`, line: dash ? {dash: dash} : undefined, marker: {size: 5}});
+    const s = filterXY(wl, pts.n, range);
+    if (s.x.length) traces.push({x: s.x, y: s.y, mode: mode, name: `${label}: n`, line: dash ? {dash: dash} : undefined, marker: {size: 5}});
   }
   if (pts.k) {
-    traces.push({x: wl, y: pts.k, mode: mode, name: `${label}: k`, yaxis: 'y2', line: dash ? {dash: dash} : undefined, marker: {size: 5}});
+    const s = filterXY(wl, pts.k, range);
+    if (s.x.length) traces.push({x: s.x, y: s.y, mode: mode, name: `${label}: k`, yaxis: 'y2', line: dash ? {dash: dash} : undefined, marker: {size: 5}});
   }
+}
+
+function modelForPlotChoice(entry, choice) {
+  const cpBest = cpFamilyBest(entry);
+  const rp = entry.models.RP;
+  const sel = entry.selected;
+  if (choice === 'RP') return [rp].filter(Boolean);
+  if (choice === 'CP') return [cpBest].filter(Boolean);
+  if (choice === 'both') return [rp, cpBest].filter(Boolean);
+  return [sel].filter(Boolean);
 }
 
 async function renderNkPlot(rec, entry, n) {
@@ -155,47 +218,51 @@ async function renderNkPlot(rec, entry, n) {
   const note = document.getElementById('plotNote');
   const traces = [];
   const notes = [];
+  const range = fitRange(rec);
+  const selector = document.getElementById('plotModelSelect');
+  const choice = selector ? selector.value : 'recommended';
+  const rangeLabel = document.getElementById('plotRangeLabel');
+  if (rangeLabel) rangeLabel.textContent = `Displayed wavelength range: ${rangeText(range)}`;
 
   try {
-    const raw = rec.raw_database_points ? await loadJson(`${rec.raw_database_points}?v=20260526_5`) : null;
-    const fit = rec.fitting_grid_points ? await loadJson(`${rec.fitting_grid_points}?v=20260526_5`) : null;
-    addNkTraces(traces, raw, 'raw data', 'markers', null);
-    addNkTraces(traces, fit, 'fit grid', 'lines', null);
+    const raw = rec.raw_database_points ? await loadJson(`${rec.raw_database_points}?v=${APP_VERSION}`) : null;
+    const fit = rec.fitting_grid_points ? await loadJson(`${rec.fitting_grid_points}?v=${APP_VERSION}`) : null;
+    addNkTraces(traces, raw, 'raw data', 'markers', null, range);
+    addNkTraces(traces, fit, 'fit grid', 'lines', null, range);
 
-    const sel = entry.selected;
-    if (sel && sel.model_curve) {
-      const curve = await loadJson(`${sel.model_curve}?v=20260526_5`);
-      addNkTraces(traces, curve, `${publicCode(sel, n)} model`, 'lines', 'dash');
-    }
-    const cpBest = cpFamilyBest(entry);
-    if (cpBest && cpBest !== sel && cpBest.model_curve) {
-      const cpCurve = await loadJson(`${cpBest.model_curve}?v=20260526_5`);
-      addNkTraces(traces, cpCurve, `CP_M${n} model`, 'lines', 'dot');
-    }
-    const rp = entry.models.RP;
-    if (rp && rp !== sel && rp.model_curve) {
-      const rpCurve = await loadJson(`${rp.model_curve}?v=20260526_5`);
-      addNkTraces(traces, rpCurve, `RP_M${n} model`, 'lines', 'dot');
+    const models = modelForPlotChoice(entry, choice);
+    for (const m of models) {
+      if (m && m.model_curve) {
+        const curve = await loadJson(`${m.model_curve}?v=${APP_VERSION}`);
+        const dash = m.family === 'RP' ? 'dash' : 'dot';
+        addNkTraces(traces, curve, `${publicCode(m, n)} model`, 'lines', dash, range);
+      } else if (m) {
+        notes.push(`${publicCode(m, n)} model curve is not available.`);
+      }
     }
 
     if (!rec.raw_database_points) notes.push('Raw optical-constant JSON was not found in the copied database.');
     if (!rec.fitting_grid_points) notes.push('Fitting-grid optical-constant JSON was not found in the copied database.');
-    if (sel && !sel.model_curve) notes.push('Selected model curve is not available; the PoleResidue JSON may use a schema that this static browser cannot evaluate.');
 
     if (!traces.length) {
-      plotDiv.innerHTML = 'No optical-constant or model-curve data available for this record.';
+      plotDiv.innerHTML = 'No optical-constant or model-curve data available for this record within the fitted wavelength window.';
       note.textContent = notes.join(' ');
       return;
     }
 
     Plotly.newPlot(plotDiv, traces, {
-      margin: {l: 60, r: 60, t: 20, b: 55},
-      xaxis: {title: 'Wavelength (µm)'},
-      yaxis: {title: 'n'},
-      yaxis2: {title: 'k', overlaying: 'y', side: 'right'},
-      legend: {orientation: 'h', y: -0.25},
+      margin: {l: 60, r: 70, t: 20, b: 60},
+      xaxis: {
+        title: `Wavelength, λ (µm)`,
+        range: range,
+        zeroline: false,
+        automargin: true
+      },
+      yaxis: {title: 'n', automargin: true, zeroline: false},
+      yaxis2: {title: 'k', overlaying: 'y', side: 'right', automargin: true, zeroline: false},
+      legend: {orientation: 'h', y: -0.28},
       hovermode: 'x unified'
-    }, {responsive: true});
+    }, {responsive: true, displaylogo: false});
     note.textContent = notes.join(' ');
   } catch (err) {
     plotDiv.innerHTML = `Could not render optical constants: ${err}`;

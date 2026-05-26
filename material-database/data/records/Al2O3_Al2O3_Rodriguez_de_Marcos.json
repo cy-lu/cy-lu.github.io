@@ -1,0 +1,299 @@
+{
+  "record_key": "Al2O3_Al2O3_Rodriguez_de_Marcos",
+  "material": "Al2O3",
+  "material_class": "transparent_dielectric_oxide",
+  "book": "Al2O3",
+  "page": "Rodriguez de Marcos",
+  "record_label": "Al2O3 / Rodriguez de Marcos",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0013419242472326,
+          "absolute_rms": 0.0037448700557686,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/RP_M1.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0012929371286157,
+          "absolute_rms": 0.0036095703934709,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 31.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0009541971918973,
+          "absolute_rms": 0.0026395470125526,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0009541971918973,
+        "absolute_rms": 0.0026395470125526,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 2.0,
+        "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M1.json"
+      },
+      "quality_label": "excellent"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0016941882590235,
+          "absolute_rms": 0.0047497684060523,
+          "G_rho": 1.000109813792001,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 7.649428191488836e-05,
+          "absolute_rms": 0.0002171497891028,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 32.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 4.827107294775935e-06,
+          "absolute_rms": 1.38238710892332e-05,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 48.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 4.827107294775935e-06,
+        "absolute_rms": 1.38238710892332e-05,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 48.0,
+        "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 4.905923465078424e-05,
+          "absolute_rms": 0.000139001366027,
+          "G_rho": 1.0000309018745668,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 5.284982180703309e-05,
+          "absolute_rms": 0.0001500158581509,
+          "G_rho": 1.000000894465206,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 9.036898748322584e-07,
+          "absolute_rms": 2.5627883576997774e-06,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 47.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 9.036898748322584e-07,
+        "absolute_rms": 2.5627883576997774e-06,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 47.0,
+        "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 6.773800885141273e-05,
+          "absolute_rms": 0.0001921498530564,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 5.284039649000025e-05,
+          "absolute_rms": 0.0001499942501883,
+          "G_rho": 1.0000009681547963,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 7.358978213601562e-07,
+          "absolute_rms": 2.082574589523958e-06,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 32.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 7.358978213601562e-07,
+        "absolute_rms": 2.082574589523958e-06,
+        "G_rho": 1.000000000000001,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 32.0,
+        "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 5.956444492236157e-05,
+          "absolute_rms": 0.0001688661758137,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 5.266667399203349e-05,
+          "absolute_rms": 0.0001494843368023,
+          "G_rho": 1.0000009212623613,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 1.0684163020487271e-06,
+          "absolute_rms": 3.041691332531329e-06,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 53.0,
+          "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 1.0684163020487271e-06,
+        "absolute_rms": 3.041691332531329e-06,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 53.0,
+        "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 1,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0009541971918973,
+    "absolute_rms": 0.0026395470125526,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/Al2O3_Al2O3_Rodriguez_de_Marcos/SemiCP_M1.json"
+  }
+}

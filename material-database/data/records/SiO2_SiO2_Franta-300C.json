@@ -1,0 +1,299 @@
+{
+  "record_key": "SiO2_SiO2_Franta-300C",
+  "material": "SiO2",
+  "material_class": "transparent_dielectric_oxide",
+  "book": "SiO2",
+  "page": "Franta-300C",
+  "record_label": "SiO2 / Franta-300C",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0009576783284061,
+          "absolute_rms": 0.0020771719619441,
+          "G_rho": 1.0000000412364012,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/RP_M1.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0008022086955477,
+          "absolute_rms": 0.0017362864466845,
+          "G_rho": 1.0000000192055647,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 25.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0007783390621376,
+          "absolute_rms": 0.0016751253480584,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0007783390621376,
+        "absolute_rms": 0.0016751253480584,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 2.0,
+        "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M1.json"
+      },
+      "quality_label": "excellent"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0011814130479099,
+          "absolute_rms": 0.0025693441210498,
+          "G_rho": 1.0000000546464274,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/RP_M2.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 3.420446738268367e-05,
+          "absolute_rms": 7.43132874682178e-05,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 22.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 2.0556256873206192e-05,
+          "absolute_rms": 4.569947129655235e-05,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 23.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 2.0556256873206192e-05,
+        "absolute_rms": 4.569947129655235e-05,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 23.0,
+        "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 2.247268602051145e-05,
+          "absolute_rms": 4.904216442262144e-05,
+          "G_rho": 1.0001916483669608,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 2.150752496334013e-05,
+          "absolute_rms": 4.6837136246155775e-05,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 11.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 1.1619793452598307e-05,
+          "absolute_rms": 2.536813218901338e-05,
+          "G_rho": 1.0000001216526797,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 16.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 1.1619793452598307e-05,
+        "absolute_rms": 2.536813218901338e-05,
+        "G_rho": 1.0000001216526797,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 16.0,
+        "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 8.767367845216205e-06,
+          "absolute_rms": 1.8982688893237857e-05,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 5.753980153031269e-06,
+          "absolute_rms": 1.2612284755597085e-05,
+          "G_rho": 1.0000000418975596,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 12.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 5.720493162711047e-06,
+          "absolute_rms": 1.2543991599524664e-05,
+          "G_rho": 1.0000000880628732,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 12.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 5.720493162711047e-06,
+        "absolute_rms": 1.2543991599524664e-05,
+        "G_rho": 1.0000000880628732,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 12.0,
+        "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 8.528663428176162e-06,
+          "absolute_rms": 1.8457041642038453e-05,
+          "G_rho": 1.0000000032910454,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 8.663569308289747e-06,
+          "absolute_rms": 1.893169046237476e-05,
+          "G_rho": 1.0000000274674996,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 54.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 3.927880189658888e-06,
+          "absolute_rms": 8.622320332044854e-06,
+          "G_rho": 1.0000001465627637,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 19.0,
+          "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 3.927880189658888e-06,
+        "absolute_rms": 8.622320332044854e-06,
+        "G_rho": 1.0000001465627637,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 19.0,
+        "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 1,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0007783390621376,
+    "absolute_rms": 0.0016751253480584,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/SiO2_SiO2_Franta-300C/SemiCP_M1.json"
+  }
+}

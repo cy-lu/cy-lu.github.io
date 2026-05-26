@@ -1,0 +1,234 @@
+{
+  "record_key": "WSe2_WSe2_Munkhbat-e",
+  "material": "WSe2",
+  "material_class": "chalcogenide_or_2D",
+  "book": "WSe2",
+  "page": "Munkhbat-e",
+  "record_label": "WSe2 / Munkhbat-e",
+  "data_class": "tabulated_n_only_assume_k0",
+  "k_source": "assumed_zero_missing_k",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0119421806889456,
+          "absolute_rms": 0.1203819058659346,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 146.79449759878366,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 1.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 175.44181378078144,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 1.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 1.890038534053333e-07,
+          "absolute_rms": 1.6184379836043824e-06,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 2.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 2.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 1.9119649159450402e-07,
+          "absolute_rms": 1.6339140191291914e-06,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 8.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.4899022188002706,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 37.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 1.9725795154823465e-07,
+          "absolute_rms": 1.6607082124705403e-06,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 8.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 3.645534720176197,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 12.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 1.9145386266635165e-07,
+          "absolute_rms": 1.6199421109322913e-06,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 8.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_REJECTED_OR_NONPASSIVE",
+          "FDTD_ready": false,
+          "seed": 12.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    }
+  },
+  "final_recommendation": null
+}

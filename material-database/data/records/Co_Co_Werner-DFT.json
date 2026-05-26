@@ -1,0 +1,288 @@
+{
+  "record_key": "Co_Co_Werner-DFT",
+  "material": "Co",
+  "material_class": "metal",
+  "book": "Co",
+  "page": "Werner-DFT",
+  "record_label": "Co / Werner-DFT",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.1598553215412198,
+          "absolute_rms": 4.29819619348658,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 5.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 19.99122187455027,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 6.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.2621066135726235,
+          "absolute_rms": 7.323982965790747,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 38.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0547226590634997,
+          "absolute_rms": 1.8923286740363203,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0547226590634997,
+        "absolute_rms": 1.8923286740363203,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M2.json"
+      },
+      "quality_label": "poor"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.2800534772590329,
+          "absolute_rms": 6.412167608946793,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 46.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0412599305451012,
+          "absolute_rms": 1.818033899552768,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 19.0,
+          "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0412599305451012,
+        "absolute_rms": 1.818033899552768,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 19.0,
+        "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M3.json"
+      },
+      "quality_label": "warning"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.2200631139178947,
+          "absolute_rms": 4.835250064785425,
+          "G_rho": 5.121821366722696,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 40.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0142927529410384,
+          "absolute_rms": 0.6345778859167246,
+          "G_rho": 1.0000000000000024,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 51.0,
+          "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.0142927529410384,
+        "absolute_rms": 0.6345778859167246,
+        "G_rho": 1.0000000000000024,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 51.0,
+        "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M4.json"
+      },
+      "quality_label": "warning"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.1270315034694679,
+          "absolute_rms": 3.101115042771691,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0816783897351381,
+          "absolute_rms": 3.389911280246274,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 13.0,
+          "model_json": "data/models/Co_Co_Werner-DFT/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0164676880185633,
+          "absolute_rms": 0.68560943235307,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 10.0,
+          "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.0164676880185633,
+        "absolute_rms": 0.68560943235307,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 10.0,
+        "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M5.json"
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0142927529410384,
+    "absolute_rms": 0.6345778859167246,
+    "G_rho": 1.0000000000000024,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": "data/models/Co_Co_Werner-DFT/SemiCP_M4.json"
+  }
+}

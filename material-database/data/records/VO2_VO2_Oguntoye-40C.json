@@ -1,0 +1,299 @@
+{
+  "record_key": "VO2_VO2_Oguntoye-40C",
+  "material": "VO2",
+  "material_class": "lossy_transition_metal_oxide",
+  "book": "VO2",
+  "page": "Oguntoye-40C",
+  "record_label": "VO2 / Oguntoye-40C",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.1173994318679524,
+          "absolute_rms": 0.8422848715250415,
+          "G_rho": 1.119742418635719,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.1777799950216252,
+          "absolute_rms": 1.2722553989193734,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 3.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.111344444760851,
+          "absolute_rms": 0.8208351959697096,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.111344444760851,
+        "absolute_rms": 0.8208351959697096,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 7.0,
+        "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0125265108818246,
+          "absolute_rms": 0.0885604665313951,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/RP_M2.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0125724612129864,
+          "absolute_rms": 0.0910048536621503,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.008133126658315,
+          "absolute_rms": 0.0573916063611984,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 33.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.008133126658315,
+        "absolute_rms": 0.0573916063611984,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 33.0,
+        "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M2.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.005762191698507,
+          "absolute_rms": 0.0352353595133787,
+          "G_rho": 1.0000054756010373,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0104510165507625,
+          "absolute_rms": 0.080608677699922,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.004031259546519,
+          "absolute_rms": 0.0263804731018656,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.004031259546519,
+        "absolute_rms": 0.0263804731018656,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 4.0,
+        "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0046049330100024,
+          "absolute_rms": 0.0343997574938954,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0049987761625837,
+          "absolute_rms": 0.0376767692158511,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0061265115466484,
+          "absolute_rms": 0.0446187979048932,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 13.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 4,
+        "epsilon_rms": 0.0046049330100024,
+        "absolute_rms": 0.0343997574938954,
+        "G_rho": 1.0,
+        "FDTD_status": "SELECTED_FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/VO2_VO2_Oguntoye-40C/RP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.000831032473156,
+          "absolute_rms": 0.0061045262173392,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0050617972628722,
+          "absolute_rms": 0.0376031760753758,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 17.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0009317597736622,
+          "absolute_rms": 0.0063278348979147,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 5,
+        "epsilon_rms": 0.000831032473156,
+        "absolute_rms": 0.0061045262173392,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/VO2_VO2_Oguntoye-40C/RP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 3,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.004031259546519,
+    "absolute_rms": 0.0263804731018656,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/VO2_VO2_Oguntoye-40C/SemiCP_M3.json"
+  }
+}

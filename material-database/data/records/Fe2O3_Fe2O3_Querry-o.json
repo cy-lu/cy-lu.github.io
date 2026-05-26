@@ -1,0 +1,299 @@
+{
+  "record_key": "Fe2O3_Fe2O3_Querry-o",
+  "material": "Fe2O3",
+  "material_class": "lossy_transition_metal_oxide",
+  "book": "Fe2O3",
+  "page": "Querry-o",
+  "record_label": "Fe2O3 / Querry-o",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.1741473755005044,
+          "absolute_rms": 1.4804428891955528,
+          "G_rho": 1.0000720356469772,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.000019955611016,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 3.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0985741429481061,
+          "absolute_rms": 0.9108772322488614,
+          "G_rho": 1.0000007082806186,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 30.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0985741429481061,
+        "absolute_rms": 0.9108772322488614,
+        "G_rho": 1.0000007082806186,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 30.0,
+        "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.1146591005255647,
+          "absolute_rms": 0.8760113836792232,
+          "G_rho": 1.0000463881598922,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0537418014824172,
+          "absolute_rms": 0.5686632618716506,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0391761561643707,
+          "absolute_rms": 0.3655982022382302,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 43.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0391761561643707,
+        "absolute_rms": 0.3655982022382302,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 43.0,
+        "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M2.json"
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.010634905230629,
+          "absolute_rms": 0.0886168700168839,
+          "G_rho": 1.000037375988971,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0203766757505643,
+          "absolute_rms": 0.1561219981823915,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 50.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0000011716946788,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 50.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.0203766757505643,
+        "absolute_rms": 0.1561219981823915,
+        "G_rho": 1.000000000000001,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 50.0,
+        "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M3.json"
+      },
+      "quality_label": "warning"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0074881926167019,
+          "absolute_rms": 0.0640925234172752,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0079870340025223,
+          "absolute_rms": 0.0695736454653448,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0151972988149662,
+          "absolute_rms": 0.1201309627745488,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 48.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 4,
+        "epsilon_rms": 0.0074881926167019,
+        "absolute_rms": 0.0640925234172752,
+        "G_rho": 1.0,
+        "FDTD_status": "SELECTED_FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/RP_M4.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0060342907244782,
+          "absolute_rms": 0.0523917765148202,
+          "G_rho": 1.090190815292709,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0058595989923419,
+          "absolute_rms": 0.0573482237642946,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 42.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0058789299551069,
+          "absolute_rms": 0.0571893647717585,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 42.0,
+          "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0058595989923419,
+        "absolute_rms": 0.0573482237642946,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 42.0,
+        "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/CP_M5.json"
+      },
+      "quality_label": "acceptable"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "RP",
+    "specific_model": "RP",
+    "epsilon_rms": 0.0074881926167019,
+    "absolute_rms": 0.0640925234172752,
+    "G_rho": 1.0,
+    "FDTD_status": "SELECTED_FDTD_READY",
+    "quality_label": "acceptable",
+    "model_json": "data/models/Fe2O3_Fe2O3_Querry-o/RP_M4.json"
+  }
+}

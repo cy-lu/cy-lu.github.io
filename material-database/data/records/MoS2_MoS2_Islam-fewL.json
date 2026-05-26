@@ -1,0 +1,299 @@
+{
+  "record_key": "MoS2_MoS2_Islam-fewL",
+  "material": "MoS2",
+  "material_class": "chalcogenide_or_2D",
+  "book": "MoS2",
+  "page": "Islam-fewL",
+  "record_label": "MoS2 / Islam-fewL",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.390975642764432,
+          "absolute_rms": 2.5717138732683984,
+          "G_rho": 1.0144057644512188,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.3918185088252199,
+          "absolute_rms": 4.087288250195247,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.005151155881989,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 9.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 1,
+        "epsilon_rms": 0.3918185088252199,
+        "absolute_rms": 4.087288250195247,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 7.0,
+        "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.2250201124425283,
+          "absolute_rms": 1.8221982379753616,
+          "G_rho": 1.0014741362416806,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.2281055746836247,
+          "absolute_rms": 2.285343080462935,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 26.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.1881901994595269,
+          "absolute_rms": 1.395644687446031,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 3.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.1881901994595269,
+        "absolute_rms": 1.395644687446031,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 3.0,
+        "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M2.json"
+      },
+      "quality_label": "poor"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.1303569988927584,
+          "absolute_rms": 0.7264163567548492,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.1180393874764461,
+          "absolute_rms": 0.8543984882556904,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0004455586141858,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 35.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.1180393874764461,
+        "absolute_rms": 0.8543984882556904,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M3.json"
+      },
+      "quality_label": "poor"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.1174616077290787,
+          "absolute_rms": 0.7520428593998567,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0469858825386653,
+          "absolute_rms": 0.4234438124536537,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0389333814123753,
+          "absolute_rms": 0.3960244690621821,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 26.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.0389333814123753,
+        "absolute_rms": 0.3960244690621821,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 26.0,
+        "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M4.json"
+      },
+      "quality_label": "warning"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.14667811979599,
+          "absolute_rms": 1.1745834913458342,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0800425006508742,
+          "absolute_rms": 0.5635747867774705,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 27.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.022954495336057,
+          "absolute_rms": 0.221307189365178,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 24.0,
+          "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.022954495336057,
+        "absolute_rms": 0.221307189365178,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 24.0,
+        "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M5.json"
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 5,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.022954495336057,
+    "absolute_rms": 0.221307189365178,
+    "G_rho": 1.0000000000000002,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": "data/models/MoS2_MoS2_Islam-fewL/SemiCP_M5.json"
+  }
+}

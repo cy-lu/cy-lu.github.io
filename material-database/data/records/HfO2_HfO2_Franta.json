@@ -1,0 +1,299 @@
+{
+  "record_key": "HfO2_HfO2_Franta",
+  "material": "HfO2",
+  "material_class": "high_k_oxide",
+  "book": "HfO2",
+  "page": "Franta",
+  "record_label": "HfO2 / Franta",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0027125552040553,
+          "absolute_rms": 0.0124401856168331,
+          "G_rho": 1.00000016077924,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/HfO2_HfO2_Franta/RP_M1.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0007224210977304,
+          "absolute_rms": 0.0032540353259375,
+          "G_rho": 1.0000000838907466,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0007232931866352,
+          "absolute_rms": 0.0032497888336989,
+          "G_rho": 1.000000083810232,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 1,
+        "epsilon_rms": 0.0007224210977304,
+        "absolute_rms": 0.0032540353259375,
+        "G_rho": 1.0000000838907466,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/HfO2_HfO2_Franta/CP_M1.json"
+      },
+      "quality_label": "excellent"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0026289595841475,
+          "absolute_rms": 0.0120541525100957,
+          "G_rho": 1.0000012376905794,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0002703510841743,
+          "absolute_rms": 0.0012283866815066,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0004341201142898,
+          "absolute_rms": 0.0019333333960652,
+          "G_rho": 1.0000000396503803,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 2,
+        "epsilon_rms": 0.0002703510841743,
+        "absolute_rms": 0.0012283866815066,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/HfO2_HfO2_Franta/CP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0020270490871011,
+          "absolute_rms": 0.0092558457807509,
+          "G_rho": 1.0001046300470045,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 9.028085291901388e-05,
+          "absolute_rms": 0.0004298026723193,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 35.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 8.951952022954131e-05,
+          "absolute_rms": 0.0004259646336903,
+          "G_rho": 1.0000009049538725,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 31.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 8.951952022954131e-05,
+        "absolute_rms": 0.0004259646336903,
+        "G_rho": 1.0000009049538725,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 31.0,
+        "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0009645429211728,
+          "absolute_rms": 0.0043740888244733,
+          "G_rho": 1.0024986515221106,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 6.819000235040188e-05,
+          "absolute_rms": 0.0003118230340955,
+          "G_rho": 1.0000003292544175,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 20.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 6.837361696359351e-05,
+          "absolute_rms": 0.0003109534556485,
+          "G_rho": 1.0000003950993288,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 20.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 6.819000235040188e-05,
+        "absolute_rms": 0.0003118230340955,
+        "G_rho": 1.0000003292544175,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 20.0,
+        "model_json": "data/models/HfO2_HfO2_Franta/CP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 7.998682872824406e-05,
+          "absolute_rms": 0.000364103957883,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/HfO2_HfO2_Franta/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 2.7419973502390296e-05,
+          "absolute_rms": 0.0001262953854669,
+          "G_rho": 1.0000000032296756,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 20.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 2.6503551182068635e-05,
+          "absolute_rms": 0.000120971378851,
+          "G_rho": 1.000000814279386,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 27.0,
+          "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 2.6503551182068635e-05,
+        "absolute_rms": 0.000120971378851,
+        "G_rho": 1.000000814279386,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 27.0,
+        "model_json": "data/models/HfO2_HfO2_Franta/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 1,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0007224210977304,
+    "absolute_rms": 0.0032540353259375,
+    "G_rho": 1.0000000838907466,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/HfO2_HfO2_Franta/CP_M1.json"
+  }
+}

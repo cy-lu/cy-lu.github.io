@@ -1,0 +1,299 @@
+{
+  "record_key": "Ag_Ag_McPeak",
+  "material": "Ag",
+  "material_class": "metal",
+  "book": "Ag",
+  "page": "McPeak",
+  "record_label": "Ag / McPeak",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.846090399600843,
+          "absolute_rms": 1.3345630073364656,
+          "G_rho": 1.0005097735691253,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.208058889540857,
+          "absolute_rms": 4.465906886817154,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.173955007812246,
+          "absolute_rms": 2.412563275246431,
+          "G_rho": 1.0000000901674413,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.173955007812246,
+        "absolute_rms": 2.412563275246431,
+        "G_rho": 1.0000000901674413,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 6.0,
+        "model_json": ""
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.5028040325578692,
+          "absolute_rms": 1.1581984928366025,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0696756035565025,
+          "absolute_rms": 2.399828526451274,
+          "G_rho": 1.0000000000000022,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0193288469789889,
+          "absolute_rms": 0.155368642249919,
+          "G_rho": 1.0000000851209816,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0193288469789889,
+        "absolute_rms": 0.155368642249919,
+        "G_rho": 1.0000000851209816,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 2.0,
+        "model_json": ""
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.1269396176564477,
+          "absolute_rms": 0.4075800625204954,
+          "G_rho": 1.0017420727921822,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0615315996323213,
+          "absolute_rms": 2.119035439333659,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 12.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0160049843550832,
+          "absolute_rms": 0.0705018297429367,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 48.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0160049843550832,
+        "absolute_rms": 0.0705018297429367,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 48.0,
+        "model_json": ""
+      },
+      "quality_label": "warning"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.2812532466143251,
+          "absolute_rms": 0.9144148952509358,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0511497142461507,
+          "absolute_rms": 1.893857226919368,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 52.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0146735309522689,
+          "absolute_rms": 0.0631072261571962,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.0146735309522689,
+        "absolute_rms": 0.0631072261571962,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 18.0,
+        "model_json": ""
+      },
+      "quality_label": "warning"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.2575446799091812,
+          "absolute_rms": 0.8428368270632087,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_EXPORTED_OR_AUDIT_REJECTED",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0451253416537028,
+          "absolute_rms": 1.480140776650193,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 14.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0146530657001646,
+          "absolute_rms": 0.056098010417316,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 19.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.0146530657001646,
+        "absolute_rms": 0.056098010417316,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 19.0,
+        "model_json": ""
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 5,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0146530657001646,
+    "absolute_rms": 0.056098010417316,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": ""
+  }
+}

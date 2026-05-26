@@ -1,0 +1,299 @@
+{
+  "record_key": "Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650",
+  "material": "Ta2O5",
+  "material_class": "high_k_oxide",
+  "book": "Ta2O5",
+  "page": "Cheikh-crystalline-3.28-8-650",
+  "record_label": "Ta2O5 / Cheikh-crystalline-3.28-8-650",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0082452392274173,
+          "absolute_rms": 0.0465684469629925,
+          "G_rho": 1.0000018853728834,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0082101150940347,
+          "absolute_rms": 0.0467642463765087,
+          "G_rho": 1.0000009533074352,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 1.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0063799970068346,
+          "absolute_rms": 0.0333437819262308,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0063799970068346,
+        "absolute_rms": 0.0333437819262308,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 2.0,
+        "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M1.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0018577641149854,
+          "absolute_rms": 0.0093864149746217,
+          "G_rho": 1.0097387989047386,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0006363549974932,
+          "absolute_rms": 0.0031912849450359,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 28.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0006390744179657,
+          "absolute_rms": 0.0031744918959953,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 28.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 2,
+        "epsilon_rms": 0.0006363549974932,
+        "absolute_rms": 0.0031912849450359,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 28.0,
+        "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0002028966258061,
+          "absolute_rms": 0.0010226378330662,
+          "G_rho": 1.0096491348768009,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0002010781649252,
+          "absolute_rms": 0.0010125680451805,
+          "G_rho": 1.000000438031671,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0001359417212238,
+          "absolute_rms": 0.0006994108069349,
+          "G_rho": 1.0000000962567626,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 30.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0001359417212238,
+        "absolute_rms": 0.0006994108069349,
+        "G_rho": 1.0000000962567626,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 30.0,
+        "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 4.836349676622611e-05,
+          "absolute_rms": 0.0002410501963596,
+          "G_rho": 1.000000409201418,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 3.92561580276253e-05,
+          "absolute_rms": 0.0002123964128275,
+          "G_rho": 1.000000155248625,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 10.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 3.944541696333889e-05,
+          "absolute_rms": 0.0002114035065688,
+          "G_rho": 1.0000001576847863,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 10.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 3.92561580276253e-05,
+        "absolute_rms": 0.0002123964128275,
+        "G_rho": 1.000000155248625,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 10.0,
+        "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 5.408042949742848e-05,
+          "absolute_rms": 0.0002735639954116,
+          "G_rho": 1.0015707411723187,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 3.579863576147997e-05,
+          "absolute_rms": 0.0001946642746727,
+          "G_rho": 1.000000151758464,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 11.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 3.410061675575276e-05,
+          "absolute_rms": 0.0001722550506353,
+          "G_rho": 1.0000001660001048,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 3.410061675575276e-05,
+        "absolute_rms": 0.0001722550506353,
+        "G_rho": 1.0000001660001048,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 2,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0006363549974932,
+    "absolute_rms": 0.0031912849450359,
+    "G_rho": 1.0000000000000004,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650/CP_M2.json"
+  }
+}

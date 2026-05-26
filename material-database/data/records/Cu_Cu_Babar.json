@@ -1,0 +1,299 @@
+{
+  "record_key": "Cu_Cu_Babar",
+  "material": "Cu",
+  "material_class": "metal",
+  "book": "Cu",
+  "page": "Babar",
+  "record_label": "Cu / Babar",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.5075053447537409,
+          "absolute_rms": 5.05474094013358,
+          "G_rho": 1.0030420600423018,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.333206583288922,
+          "absolute_rms": 6.396742913452983,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": "data/models/Cu_Cu_Babar/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.3338513593101339,
+          "absolute_rms": 5.899157806068916,
+          "G_rho": 1.000000867098462,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 23.0,
+          "model_json": "data/models/Cu_Cu_Babar/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 1,
+        "epsilon_rms": 0.333206583288922,
+        "absolute_rms": 6.396742913452983,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 18.0,
+        "model_json": "data/models/Cu_Cu_Babar/CP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.2419060334040067,
+          "absolute_rms": 2.0047383034255497,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Cu_Cu_Babar/RP_M2.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.1337951595796505,
+          "absolute_rms": 3.1870782348052424,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": "data/models/Cu_Cu_Babar/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0704453491543783,
+          "absolute_rms": 1.1194274729608371,
+          "G_rho": 1.0000004344583493,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": "data/models/Cu_Cu_Babar/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0704453491543783,
+        "absolute_rms": 1.1194274729608371,
+        "G_rho": 1.0000004344583493,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 18.0,
+        "model_json": "data/models/Cu_Cu_Babar/SemiCP_M2.json"
+      },
+      "quality_label": "poor"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.1669499833905572,
+          "absolute_rms": 1.6096284279332866,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0403875155669484,
+          "absolute_rms": 1.2584892511873025,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 30.0,
+          "model_json": "data/models/Cu_Cu_Babar/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0327136654767253,
+          "absolute_rms": 1.0083209593602231,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 39.0,
+          "model_json": "data/models/Cu_Cu_Babar/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0327136654767253,
+        "absolute_rms": 1.0083209593602231,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 39.0,
+        "model_json": "data/models/Cu_Cu_Babar/SemiCP_M3.json"
+      },
+      "quality_label": "warning"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.1606938252888256,
+          "absolute_rms": 1.570931087712136,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0228824956316808,
+          "absolute_rms": 0.677363969284804,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 14.0,
+          "model_json": "data/models/Cu_Cu_Babar/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0075270628975116,
+          "absolute_rms": 0.0574773162371748,
+          "G_rho": 1.0000002742765943,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 20.0,
+          "model_json": "data/models/Cu_Cu_Babar/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.0075270628975116,
+        "absolute_rms": 0.0574773162371748,
+        "G_rho": 1.0000002742765943,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 20.0,
+        "model_json": "data/models/Cu_Cu_Babar/SemiCP_M4.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.1558735876669595,
+          "absolute_rms": 1.532200107822667,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0227699781697782,
+          "absolute_rms": 0.6798996722395845,
+          "G_rho": 1.0000000000000016,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 14.0,
+          "model_json": "data/models/Cu_Cu_Babar/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0074793744328638,
+          "absolute_rms": 0.0628432906928115,
+          "G_rho": 1.0000001340886382,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": "data/models/Cu_Cu_Babar/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.0074793744328638,
+        "absolute_rms": 0.0628432906928115,
+        "G_rho": 1.0000001340886382,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 18.0,
+        "model_json": "data/models/Cu_Cu_Babar/SemiCP_M5.json"
+      },
+      "quality_label": "acceptable"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0075270628975116,
+    "absolute_rms": 0.0574773162371748,
+    "G_rho": 1.0000002742765943,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "acceptable",
+    "model_json": "data/models/Cu_Cu_Babar/SemiCP_M4.json"
+  }
+}

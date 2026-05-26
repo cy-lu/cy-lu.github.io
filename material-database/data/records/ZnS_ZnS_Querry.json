@@ -1,0 +1,299 @@
+{
+  "record_key": "ZnS_ZnS_Querry",
+  "material": "ZnS",
+  "material_class": "semiconductor",
+  "book": "ZnS",
+  "page": "Querry",
+  "record_label": "ZnS / Querry",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0593777893893174,
+          "absolute_rms": 0.421040515627227,
+          "G_rho": 1.000006733702509,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0290545382290158,
+          "absolute_rms": 0.2127421417492308,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0292167153824534,
+          "absolute_rms": 0.2029417991360706,
+          "G_rho": 1.0000000682605727,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 1,
+        "epsilon_rms": 0.0290545382290158,
+        "absolute_rms": 0.2127421417492308,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 2.0,
+        "model_json": "data/models/ZnS_ZnS_Querry/CP_M1.json"
+      },
+      "quality_label": "warning"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0086943832962949,
+          "absolute_rms": 0.0573192179847876,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/ZnS_ZnS_Querry/RP_M2.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0112246999053282,
+          "absolute_rms": 0.0745396726389998,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0115874934605422,
+          "absolute_rms": 0.0753398307662137,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 2,
+        "epsilon_rms": 0.0086943832962949,
+        "absolute_rms": 0.0573192179847876,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/ZnS_ZnS_Querry/RP_M2.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0060463027530609,
+          "absolute_rms": 0.0380014540555267,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/ZnS_ZnS_Querry/RP_M3.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0054636917282037,
+          "absolute_rms": 0.0357870257134637,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 25.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0055904445663575,
+          "absolute_rms": 0.0349546537850429,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 25.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.0054636917282037,
+        "absolute_rms": 0.0357870257134637,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 25.0,
+        "model_json": "data/models/ZnS_ZnS_Querry/CP_M3.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.005101938177373,
+          "absolute_rms": 0.0322470815163051,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0023989421078501,
+          "absolute_rms": 0.0163154385100607,
+          "G_rho": 1.0000000000000018,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 36.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0024141290012904,
+          "absolute_rms": 0.0162279344798143,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 36.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 0.0023989421078501,
+        "absolute_rms": 0.0163154385100607,
+        "G_rho": 1.0000000000000018,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 36.0,
+        "model_json": "data/models/ZnS_ZnS_Querry/CP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0021876172172414,
+          "absolute_rms": 0.0145617078767392,
+          "G_rho": 1.2735310049985582,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.002062495413711,
+          "absolute_rms": 0.0136700474253697,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 36.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.002065767505704,
+          "absolute_rms": 0.0136516100567228,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 36.0,
+          "model_json": "data/models/ZnS_ZnS_Querry/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.002062495413711,
+        "absolute_rms": 0.0136700474253697,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 36.0,
+        "model_json": "data/models/ZnS_ZnS_Querry/CP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0023989421078501,
+    "absolute_rms": 0.0163154385100607,
+    "G_rho": 1.0000000000000018,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/ZnS_ZnS_Querry/CP_M4.json"
+  }
+}

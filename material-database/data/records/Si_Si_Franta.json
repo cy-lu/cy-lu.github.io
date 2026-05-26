@@ -1,0 +1,288 @@
+{
+  "record_key": "Si_Si_Franta",
+  "material": "Si",
+  "material_class": "semiconductor",
+  "book": "Si",
+  "page": "Franta",
+  "record_label": "Si / Franta",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0441562957007692,
+          "absolute_rms": 0.8198664972867471,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 1.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 6.894474251303681,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 14.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0168188538223341,
+          "absolute_rms": 0.3027448913709075,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0228091177722403,
+          "absolute_rms": 0.4168865348754497,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 31.0,
+          "model_json": "data/models/Si_Si_Franta/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.023288405167707,
+          "absolute_rms": 0.3980359048367731,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 32.0,
+          "model_json": "data/models/Si_Si_Franta/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 2,
+        "epsilon_rms": 0.0228091177722403,
+        "absolute_rms": 0.4168865348754497,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 31.0,
+        "model_json": "data/models/Si_Si_Franta/CP_M2.json"
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0015359095976959,
+          "absolute_rms": 0.0323474612486422,
+          "G_rho": 2.8127850220505657,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.000011150304498,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 13.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0019969085876237,
+          "absolute_rms": 0.0335965012318165,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 15.0,
+          "model_json": "data/models/Si_Si_Franta/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0019969085876237,
+        "absolute_rms": 0.0335965012318165,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 15.0,
+        "model_json": "data/models/Si_Si_Franta/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0014662190614713,
+          "absolute_rms": 0.0295682105740235,
+          "G_rho": 2.655201352736268,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0016260321825994,
+          "absolute_rms": 0.0411023233567199,
+          "G_rho": 1.000000380727329,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 51.0,
+          "model_json": "data/models/Si_Si_Franta/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0015295947955566,
+          "absolute_rms": 0.0338731150857047,
+          "G_rho": 1.0000000003650285,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 45.0,
+          "model_json": "data/models/Si_Si_Franta/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.0015295947955566,
+        "absolute_rms": 0.0338731150857047,
+        "G_rho": 1.0000000003650285,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 45.0,
+        "model_json": "data/models/Si_Si_Franta/SemiCP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0036773409441509,
+          "absolute_rms": 0.0586466655064822,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/Si_Si_Franta/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0006228665211471,
+          "absolute_rms": 0.0148483475411673,
+          "G_rho": 1.0000000020088973,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 52.0,
+          "model_json": "data/models/Si_Si_Franta/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0006635874687624,
+          "absolute_rms": 0.0141289813006064,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 52.0,
+          "model_json": "data/models/Si_Si_Franta/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0006228665211471,
+        "absolute_rms": 0.0148483475411673,
+        "G_rho": 1.0000000020088973,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 52.0,
+        "model_json": "data/models/Si_Si_Franta/CP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 3,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0019969085876237,
+    "absolute_rms": 0.0335965012318165,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/Si_Si_Franta/SemiCP_M3.json"
+  }
+}

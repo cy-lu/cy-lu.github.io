@@ -1,0 +1,299 @@
+{
+  "record_key": "WSe2_WSe2_Munkhbat-o",
+  "material": "WSe2",
+  "material_class": "chalcogenide_or_2D",
+  "book": "WSe2",
+  "page": "Munkhbat-o",
+  "record_label": "WSe2 / Munkhbat-o",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.5319168583309939,
+          "absolute_rms": 11.258212467577977,
+          "G_rho": 1.000064501159063,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.1433899981131341,
+          "absolute_rms": 3.1782476968184987,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.5477814023473951,
+          "absolute_rms": 11.698016618025749,
+          "G_rho": 1.000000002585227,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 1,
+        "epsilon_rms": 0.1433899981131341,
+        "absolute_rms": 3.1782476968184987,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 6.0,
+        "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0716075415411657,
+          "absolute_rms": 1.5716283611246575,
+          "G_rho": 1.0001957585885943,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.1197412121073773,
+          "absolute_rms": 2.792758051751338,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.1128042267223339,
+          "absolute_rms": 2.532219059814417,
+          "G_rho": 1.0000003061163651,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.1128042267223339,
+        "absolute_rms": 2.532219059814417,
+        "G_rho": 1.0000003061163651,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 6.0,
+        "model_json": "data/models/WSe2_WSe2_Munkhbat-o/SemiCP_M2.json"
+      },
+      "quality_label": "poor"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0489797889798994,
+          "absolute_rms": 0.9978679565421628,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.1019659146312596,
+          "absolute_rms": 2.347923954099932,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_EXPORT_REJECTED",
+          "FDTD_ready": false,
+          "seed": 3.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.1019659146312596,
+        "absolute_rms": 2.347923954099932,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 6.0,
+        "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M3.json"
+      },
+      "quality_label": "poor"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0264091771924031,
+          "absolute_rms": 0.5977036729527155,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.1056471979544297,
+          "absolute_rms": 2.413257928991814,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.7379411642593956,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 4.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 4,
+        "epsilon_rms": 0.0264091771924031,
+        "absolute_rms": 0.5977036729527155,
+        "G_rho": 1.000000000000001,
+        "FDTD_status": "SELECTED_FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/WSe2_WSe2_Munkhbat-o/RP_M4.json"
+      },
+      "quality_label": "warning"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0185142368100365,
+          "absolute_rms": 0.393124690790994,
+          "G_rho": 1.0527659475154925,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0211081922844363,
+          "absolute_rms": 0.4752841892201466,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 8.120553327322257,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 5.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0211081922844363,
+        "absolute_rms": 0.4752841892201466,
+        "G_rho": 1.000000000000001,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M5.json"
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 5,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0211081922844363,
+    "absolute_rms": 0.4752841892201466,
+    "G_rho": 1.000000000000001,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": "data/models/WSe2_WSe2_Munkhbat-o/CP_M5.json"
+  }
+}

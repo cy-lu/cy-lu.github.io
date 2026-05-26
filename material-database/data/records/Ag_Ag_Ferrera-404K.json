@@ -1,0 +1,299 @@
+{
+  "record_key": "Ag_Ag_Ferrera-404K",
+  "material": "Ag",
+  "material_class": "metal",
+  "book": "Ag",
+  "page": "Ferrera-404K",
+  "record_label": "Ag / Ferrera-404K",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.7863057562384399,
+          "absolute_rms": 1.568431264609942,
+          "G_rho": 1.002634628109314,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.2247316481987104,
+          "absolute_rms": 4.064537609302412,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 18.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.2051947318941275,
+          "absolute_rms": 3.05766925666108,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 47.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.2051947318941275,
+        "absolute_rms": 3.05766925666108,
+        "G_rho": 1.0000000000000002,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 47.0,
+        "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.2982569216237168,
+          "absolute_rms": 1.0783250320484576,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0730160796328074,
+          "absolute_rms": 2.143078322737524,
+          "G_rho": 1.0000000414588106,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.02921852527477,
+          "absolute_rms": 0.5458273633101567,
+          "G_rho": 1.0000002501886651,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 24.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.02921852527477,
+        "absolute_rms": 0.5458273633101567,
+        "G_rho": 1.0000002501886651,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 24.0,
+        "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M2.json"
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.6386114927876048,
+          "absolute_rms": 1.8583035254605584,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.1118278040543312,
+          "absolute_rms": 3.5993412598142456,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 3.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.1878340040249417,
+          "absolute_rms": 3.13128197943896,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 24.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.1118278040543312,
+        "absolute_rms": 3.5993412598142456,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 3.0,
+        "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M3.json"
+      },
+      "quality_label": "poor"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.6168301083605595,
+          "absolute_rms": 1.7994866220627583,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0643625097428109,
+          "absolute_rms": 1.8441805675304188,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 19.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.3001271273409828,
+          "absolute_rms": 1.0339610500848468,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 44.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 0.0643625097428109,
+        "absolute_rms": 1.8441805675304188,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 19.0,
+        "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M4.json"
+      },
+      "quality_label": "poor"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.2623052469830016,
+          "absolute_rms": 0.6899698958492334,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0451556690358397,
+          "absolute_rms": 1.3646379066762593,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.1738693640293866,
+          "absolute_rms": 1.9807885701129244,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 29.0,
+          "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0451556690358397,
+        "absolute_rms": 1.3646379066762593,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 7.0,
+        "model_json": "data/models/Ag_Ag_Ferrera-404K/CP_M5.json"
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 2,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.02921852527477,
+    "absolute_rms": 0.5458273633101567,
+    "G_rho": 1.0000002501886651,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": "data/models/Ag_Ag_Ferrera-404K/SemiCP_M2.json"
+  }
+}

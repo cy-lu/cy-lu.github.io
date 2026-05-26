@@ -1,0 +1,277 @@
+{
+  "record_key": "GaAs_GaAs_Papatryfonos",
+  "material": "GaAs",
+  "material_class": "semiconductor",
+  "book": "GaAs",
+  "page": "Papatryfonos",
+  "record_label": "GaAs / Papatryfonos",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.2145102336663213,
+          "absolute_rms": 3.658942537126576,
+          "G_rho": 1.000013280152927,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.1830007555257714,
+          "absolute_rms": 3.8184456736425454,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 47.0,
+          "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.1345363861360387,
+          "absolute_rms": 2.7698215234852777,
+          "G_rho": 1.0000009722050658,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 38.0,
+          "model_json": "data/models/GaAs_GaAs_Papatryfonos/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.1345363861360387,
+        "absolute_rms": 2.7698215234852777,
+        "G_rho": 1.0000009722050658,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 38.0,
+        "model_json": "data/models/GaAs_GaAs_Papatryfonos/SemiCP_M1.json"
+      },
+      "quality_label": "poor"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0707484164922631,
+          "absolute_rms": 1.3744157616391983,
+          "G_rho": 1.0000746298802643,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.1087579152674367,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 4.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 12.97547130413503,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 13.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0530376102396013,
+          "absolute_rms": 0.8929647453589953,
+          "G_rho": 1.2674569642057445,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 6.23532831534827,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 17.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0201878872587895,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 7.0,
+          "model_json": ""
+        }
+      },
+      "selected": null,
+      "quality_label": "no_model"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0594338035661049,
+          "absolute_rms": 0.990158222868451,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0326568919777785,
+          "absolute_rms": 0.742849888764359,
+          "G_rho": 1.00000078733905,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 24.0,
+          "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0000445838669203,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 6.0,
+          "model_json": ""
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 0.0326568919777785,
+        "absolute_rms": 0.742849888764359,
+        "G_rho": 1.00000078733905,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 24.0,
+        "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M4.json"
+      },
+      "quality_label": "warning"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0517007172194467,
+          "absolute_rms": 0.8740376089400449,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0299053150491849,
+          "absolute_rms": 0.6706978243439373,
+          "G_rho": 1.0000001622375676,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0335455250633851,
+          "absolute_rms": 0.672325971016532,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 47.0,
+          "model_json": "data/models/GaAs_GaAs_Papatryfonos/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0299053150491849,
+        "absolute_rms": 0.6706978243439373,
+        "G_rho": 1.0000001622375676,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M5.json"
+      },
+      "quality_label": "warning"
+    }
+  },
+  "final_recommendation": {
+    "N": 5,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0299053150491849,
+    "absolute_rms": 0.6706978243439373,
+    "G_rho": 1.0000001622375676,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "warning",
+    "model_json": "data/models/GaAs_GaAs_Papatryfonos/CP_M5.json"
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "record_key": "AlAs_AlAs_Rakic",
+  "material": "AlAs",
+  "material_class": "semiconductor",
+  "book": "AlAs",
+  "page": "Rakic",
+  "record_label": "AlAs / Rakic",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0742150635828872,
+          "absolute_rms": 1.4383660275983203,
+          "G_rho": 1.000007895374393,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0752499613659421,
+          "absolute_rms": 1.8713235706168003,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 26.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0469279975519343,
+          "absolute_rms": 0.9563501220938684,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 34.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0469279975519343,
+        "absolute_rms": 0.9563501220938684,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 34.0,
+        "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M1.json"
+      },
+      "quality_label": "warning"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0585072528679876,
+          "absolute_rms": 1.0373790335597723,
+          "G_rho": 1.000007029029452,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0000040251441344,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 3.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0285577833918656,
+          "absolute_rms": 0.5748713309325493,
+          "G_rho": 1.0000006477073295,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 30.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0285577833918656,
+        "absolute_rms": 0.5748713309325493,
+        "G_rho": 1.0000006477073295,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 30.0,
+        "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M2.json"
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0188637164080168,
+          "absolute_rms": 0.2662123320139621,
+          "G_rho": 1.000006492190619,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.018703835412626,
+          "absolute_rms": 0.4648644366944208,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 22.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0181280914571606,
+          "absolute_rms": 0.2931791019171474,
+          "G_rho": 1.0000000000000004,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.0181280914571606,
+        "absolute_rms": 0.2931791019171474,
+        "G_rho": 1.0000000000000004,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M3.json"
+      },
+      "quality_label": "warning"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0065331365496453,
+          "absolute_rms": 0.0808767300267932,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/AlAs_AlAs_Rakic/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0057368586851068,
+          "absolute_rms": 0.0967198735349403,
+          "G_rho": 1.0000003228202363,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0065382866727013,
+          "absolute_rms": 0.081512695847872,
+          "G_rho": 1.0000000366944402,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 4.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 4,
+        "epsilon_rms": 0.0057368586851068,
+        "absolute_rms": 0.0967198735349403,
+        "G_rho": 1.0000003228202363,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/AlAs_AlAs_Rakic/CP_M4.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0064881145017517,
+          "absolute_rms": 0.0802483738700406,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/AlAs_AlAs_Rakic/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0057361328072147,
+          "absolute_rms": 0.0967634326545312,
+          "G_rho": 1.000000322858938,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.006555099189936,
+          "absolute_rms": 0.0822440049202849,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 5.0,
+          "model_json": "data/models/AlAs_AlAs_Rakic/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 5,
+        "epsilon_rms": 0.0057361328072147,
+        "absolute_rms": 0.0967634326545312,
+        "G_rho": 1.000000322858938,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 5.0,
+        "model_json": "data/models/AlAs_AlAs_Rakic/CP_M5.json"
+      },
+      "quality_label": "acceptable"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "CP",
+    "specific_model": "CP",
+    "epsilon_rms": 0.0057368586851068,
+    "absolute_rms": 0.0967198735349403,
+    "G_rho": 1.0000003228202363,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "acceptable",
+    "model_json": "data/models/AlAs_AlAs_Rakic/CP_M4.json"
+  }
+}

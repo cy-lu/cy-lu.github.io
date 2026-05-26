@@ -1,0 +1,6626 @@
+[
+  {
+    "record_key": "Ag_Ag_Babar",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Babar",
+    "record_label": "Ag / Babar",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Babar.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0100493917517415,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Ciesielski",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ciesielski",
+    "record_label": "Ag / Ciesielski",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ciesielski.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.003517228224677,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Ciesielski-Ge",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ciesielski-Ge",
+    "record_label": "Ag / Ciesielski-Ge",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ciesielski-Ge.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0020474164095391,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Ciesielski-Ni",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ciesielski-Ni",
+    "record_label": "Ag / Ciesielski-Ni",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ciesielski-Ni.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0037957736334946,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Ferrera-298K",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ferrera-298K",
+    "record_label": "Ag / Ferrera-298K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ferrera-298K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0397976611640384,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Ferrera-404K",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ferrera-404K",
+    "record_label": "Ag / Ferrera-404K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ferrera-404K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.02921852527477,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Ferrera-501K",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ferrera-501K",
+    "record_label": "Ag / Ferrera-501K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ferrera-501K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.021977405941958,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Ferrera-600K",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Ferrera-600K",
+    "record_label": "Ag / Ferrera-600K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Ferrera-600K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0160079299098117,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Hagemann",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Hagemann",
+    "record_label": "Ag / Hagemann",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Hagemann.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0104443609636023,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Jiang",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Jiang",
+    "record_label": "Ag / Jiang",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Jiang.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035896730684492,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Johnson",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Johnson",
+    "record_label": "Ag / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0254852896402148,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_McPeak",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "McPeak",
+    "record_label": "Ag / McPeak",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_McPeak.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0146530657001646,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Rakic-BB",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Rakic-BB",
+    "record_label": "Ag / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0017377409089628,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Rakic-LD",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Rakic-LD",
+    "record_label": "Ag / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0025660531064581,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Werner",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Werner",
+    "record_label": "Ag / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016325747628449,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ag_Ag_Werner-DFT",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Werner-DFT",
+    "record_label": "Ag / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0147363132640264,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ag_Ag_Yang",
+    "material": "Ag",
+    "material_class": "metal",
+    "book": "Ag",
+    "page": "Yang",
+    "record_label": "Ag / Yang",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ag_Ag_Yang.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0118140678876368,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Al_Al_Hagemann",
+    "material": "Al",
+    "material_class": "metal",
+    "book": "Al",
+    "page": "Hagemann",
+    "record_label": "Al / Hagemann",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al_Al_Hagemann.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0099049071037261,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Al_Al_McPeak",
+    "material": "Al",
+    "material_class": "metal",
+    "book": "Al",
+    "page": "McPeak",
+    "record_label": "Al / McPeak",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al_Al_McPeak.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015054820520643,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al_Al_Rakic",
+    "material": "Al",
+    "material_class": "metal",
+    "book": "Al",
+    "page": "Rakic",
+    "record_label": "Al / Rakic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al_Al_Rakic.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.00282718315662,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al_Al_Rakic-BB",
+    "material": "Al",
+    "material_class": "metal",
+    "book": "Al",
+    "page": "Rakic-BB",
+    "record_label": "Al / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al_Al_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015819284549765,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al_Al_Rakic-LD",
+    "material": "Al",
+    "material_class": "metal",
+    "book": "Al",
+    "page": "Rakic-LD",
+    "record_label": "Al / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al_Al_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0010324510102676,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Boidin",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Boidin",
+    "record_label": "Al2O3 / Boidin",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Boidin.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0004513952683689,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Franta",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Franta",
+    "record_label": "Al2O3 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0005651844190725,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Querry",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Querry",
+    "record_label": "Al2O3 / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0014062860075767,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Querry-e",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Querry-e",
+    "record_label": "Al2O3 / Querry-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Querry-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0031583728942603,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Querry-o",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Querry-o",
+    "record_label": "Al2O3 / Querry-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Querry-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035127389482023,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Rodriguez_de_Marcos",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Rodriguez de Marcos",
+    "record_label": "Al2O3 / Rodriguez de Marcos",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Rodriguez_de_Marcos.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0009541971918973,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Al2O3_Al2O3_Zhukovsky",
+    "material": "Al2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Al2O3",
+    "page": "Zhukovsky",
+    "record_label": "Al2O3 / Zhukovsky",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Al2O3_Al2O3_Zhukovsky.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 1.9431042932392536e-05,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "AlAs_AlAs_Rakic",
+    "material": "AlAs",
+    "material_class": "semiconductor",
+    "book": "AlAs",
+    "page": "Rakic",
+    "record_label": "AlAs / Rakic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/AlAs_AlAs_Rakic.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0057368586851068,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "AlN_AlN_Beliaev1",
+    "material": "AlN",
+    "material_class": "nitride_or_carbide",
+    "book": "AlN",
+    "page": "Beliaev1",
+    "record_label": "AlN / Beliaev1",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/AlN_AlN_Beliaev1.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0005997300635804,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "As2S3_As2S3_Slavich-abinitio-alpha",
+    "material": "As2S3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2S3",
+    "page": "Slavich-abinitio-alpha",
+    "record_label": "As2S3 / Slavich-abinitio-alpha",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2S3_As2S3_Slavich-abinitio-alpha.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.003159263292805,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "As2S3_As2S3_Slavich-abinitio-beta",
+    "material": "As2S3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2S3",
+    "page": "Slavich-abinitio-beta",
+    "record_label": "As2S3 / Slavich-abinitio-beta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2S3_As2S3_Slavich-abinitio-beta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035979860906328,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "As2S3_As2S3_Slavich-abinitio-gamma",
+    "material": "As2S3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2S3",
+    "page": "Slavich-abinitio-gamma",
+    "record_label": "As2S3 / Slavich-abinitio-gamma",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2S3_As2S3_Slavich-abinitio-gamma.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.003028757260441,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "As2S3_As2S3_Synowicki",
+    "material": "As2S3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2S3",
+    "page": "Synowicki",
+    "record_label": "As2S3 / Synowicki",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2S3_As2S3_Synowicki.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0019118889499631,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "As2Se3_As2Se3_Joseph-400nm",
+    "material": "As2Se3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2Se3",
+    "page": "Joseph-400nm",
+    "record_label": "As2Se3 / Joseph-400nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2Se3_As2Se3_Joseph-400nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.028813863488475,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "As2Se3_As2Se3_Joseph-700nm",
+    "material": "As2Se3",
+    "material_class": "chalcogenide_or_2D",
+    "book": "As2Se3",
+    "page": "Joseph-700nm",
+    "record_label": "As2Se3 / Joseph-700nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/As2Se3_As2Se3_Joseph-700nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.4729176857157428,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "Au_Au_Babar",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Babar",
+    "record_label": "Au / Babar",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Babar.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.007489863539836,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Au_Au_Ciesielski",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Ciesielski",
+    "record_label": "Au / Ciesielski",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Ciesielski.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016316256229314,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Ciesielski-Ge",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Ciesielski-Ge",
+    "record_label": "Au / Ciesielski-Ge",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Ciesielski-Ge.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0010325657948689,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Hagemann",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Hagemann",
+    "record_label": "Au / Hagemann",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Hagemann.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0119937962419519,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Au_Au_Johnson",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Johnson",
+    "record_label": "Au / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0276491722584691,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Au_Au_Magnozzi-225C",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Magnozzi-225C",
+    "record_label": "Au / Magnozzi-225C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Magnozzi-225C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0039316220742721,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Magnozzi-25C",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Magnozzi-25C",
+    "record_label": "Au / Magnozzi-25C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Magnozzi-25C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0039314038117389,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Magnozzi-350C",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Magnozzi-350C",
+    "record_label": "Au / Magnozzi-350C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Magnozzi-350C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0041014939409566,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_McPeak",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "McPeak",
+    "record_label": "Au / McPeak",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_McPeak.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016816665960043,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Olmon-ev",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Olmon-ev",
+    "record_label": "Au / Olmon-ev",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Olmon-ev.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015245983428957,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Olmon-sc",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Olmon-sc",
+    "record_label": "Au / Olmon-sc",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Olmon-sc.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0017313262513336,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Olmon-ts",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Olmon-ts",
+    "record_label": "Au / Olmon-ts",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Olmon-ts.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015106187372145,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Rakic-BB",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Rakic-BB",
+    "record_label": "Au / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.043997452367803,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Au_Au_Rakic-LD",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Rakic-LD",
+    "record_label": "Au / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0009968898631541,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Rosenblatt-11nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Rosenblatt-11nm",
+    "record_label": "Au / Rosenblatt-11nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Rosenblatt-11nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0013275407628616,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Rosenblatt-21nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Rosenblatt-21nm",
+    "record_label": "Au / Rosenblatt-21nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Rosenblatt-21nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0008048715180665,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Rosenblatt-44nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Rosenblatt-44nm",
+    "record_label": "Au / Rosenblatt-44nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Rosenblatt-44nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007073216985015,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Werner",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Werner",
+    "record_label": "Au / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0033442193503221,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Werner-DFT",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Werner-DFT",
+    "record_label": "Au / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0090446212975277,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-117nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-117nm",
+    "record_label": "Au / Yakubovsky-117nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-117nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0021710510680331,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-25nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-25nm",
+    "record_label": "Au / Yakubovsky-25nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-25nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0023808612433724,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-4nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-4nm",
+    "record_label": "Au / Yakubovsky-4nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-4nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0640063860199064,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-53nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-53nm",
+    "record_label": "Au / Yakubovsky-53nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-53nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0021078503058876,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-6nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-6nm",
+    "record_label": "Au / Yakubovsky-6nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-6nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0421730276709207,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Au_Au_Yakubovsky-9nm",
+    "material": "Au",
+    "material_class": "metal",
+    "book": "Au",
+    "page": "Yakubovsky-9nm",
+    "record_label": "Au / Yakubovsky-9nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Au_Au_Yakubovsky-9nm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0159889902156572,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "BaF2_BaF2_Querry",
+    "material": "BaF2",
+    "material_class": "fluoride",
+    "book": "BaF2",
+    "page": "Querry",
+    "record_label": "BaF2 / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/BaF2_BaF2_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016100764098536,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Djurisic-o",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Djurisic-o",
+    "record_label": "C / Djurisic-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Djurisic-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016642823278494,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Ermolaev",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Ermolaev",
+    "record_label": "C / Ermolaev",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Ermolaev.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0017521872890753,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Ermolaev-SWCNT-e",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Ermolaev-SWCNT-e",
+    "record_label": "C / Ermolaev-SWCNT-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Ermolaev-SWCNT-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0001490971647197,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Ermolaev-SWCNT-o",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Ermolaev-SWCNT-o",
+    "record_label": "C / Ermolaev-SWCNT-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Ermolaev-SWCNT-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0005561529454009,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Hagemann",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Hagemann",
+    "record_label": "C / Hagemann",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Hagemann.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0031972900778046,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Larruquert",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Larruquert",
+    "record_label": "C / Larruquert",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Larruquert.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0048392748163631,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Phillip",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Phillip",
+    "record_label": "C / Phillip",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Phillip.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0017942450723246,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-Asbury3222",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-Asbury3222",
+    "record_label": "C / Querry-Asbury3222",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-Asbury3222.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0031808103970784,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-AsburyMicro260",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-AsburyMicro260",
+    "record_label": "C / Querry-AsburyMicro260",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-AsburyMicro260.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0034033379657769,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-Dixon1102",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-Dixon1102",
+    "record_label": "C / Querry-Dixon1102",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-Dixon1102.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0021655717924257,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-Dixon200-10",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-Dixon200-10",
+    "record_label": "C / Querry-Dixon200-10",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-Dixon200-10.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0045320838075435,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-DixonHPN2",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-DixonHPN2",
+    "record_label": "C / Querry-DixonHPN2",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-DixonHPN2.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0028638126403958,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-DixonKS2",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-DixonKS2",
+    "record_label": "C / Querry-DixonKS2",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-DixonKS2.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0027421123884377,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Querry-Pyrolytic",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Querry-Pyrolytic",
+    "record_label": "C / Querry-Pyrolytic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Querry-Pyrolytic.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0039622999057835,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Song",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Song",
+    "record_label": "C / Song",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Song.json",
+    "final_family": "none",
+    "final_specific_model": "none",
+    "final_epsilon_rms": null,
+    "quality_label": "no_model"
+  },
+  {
+    "record_key": "C_C_Song-cHOPG-e",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Song-cHOPG-e",
+    "record_label": "C / Song-cHOPG-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Song-cHOPG-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.001088437961269,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Song-cHOPG-o",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Song-cHOPG-o",
+    "record_label": "C / Song-cHOPG-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Song-cHOPG-o.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0010678661393963,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Song-sHOPG-e",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Song-sHOPG-e",
+    "record_label": "C / Song-sHOPG-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Song-sHOPG-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0074213948173937,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "C_C_Song-sHOPG-o",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Song-sHOPG-o",
+    "record_label": "C / Song-sHOPG-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Song-sHOPG-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0150200155080849,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "C_C_Taylor",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Taylor",
+    "record_label": "C / Taylor",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Taylor.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 1.4096304104580478e-05,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "C_C_Tikuisis",
+    "material": "C",
+    "material_class": "carbon",
+    "book": "C",
+    "page": "Tikuisis",
+    "record_label": "C / Tikuisis",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/C_C_Tikuisis.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0012734864980782,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "CdTe_CdTe_Adachi",
+    "material": "CdTe",
+    "material_class": "semiconductor",
+    "book": "CdTe",
+    "page": "Adachi",
+    "record_label": "CdTe / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/CdTe_CdTe_Adachi.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0053066025602807,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Co_Co_Johnson",
+    "material": "Co",
+    "material_class": "metal",
+    "book": "Co",
+    "page": "Johnson",
+    "record_label": "Co / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Co_Co_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0090582991952042,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Co_Co_Werner",
+    "material": "Co",
+    "material_class": "metal",
+    "book": "Co",
+    "page": "Werner",
+    "record_label": "Co / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Co_Co_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0039813318170572,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Co_Co_Werner-DFT",
+    "material": "Co",
+    "material_class": "metal",
+    "book": "Co",
+    "page": "Werner-DFT",
+    "record_label": "Co / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Co_Co_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0142927529410384,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Cr_Cr_Johnson",
+    "material": "Cr",
+    "material_class": "metal",
+    "book": "Cr",
+    "page": "Johnson",
+    "record_label": "Cr / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cr_Cr_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0397581749833584,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Cr_Cr_Rakic-BB",
+    "material": "Cr",
+    "material_class": "metal",
+    "book": "Cr",
+    "page": "Rakic-BB",
+    "record_label": "Cr / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cr_Cr_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0005933223988476,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Cr_Cr_Rakic-LD",
+    "material": "Cr",
+    "material_class": "metal",
+    "book": "Cr",
+    "page": "Rakic-LD",
+    "record_label": "Cr / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cr_Cr_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015214404537129,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Cr_Cr_Sytchkova",
+    "material": "Cr",
+    "material_class": "metal",
+    "book": "Cr",
+    "page": "Sytchkova",
+    "record_label": "Cr / Sytchkova",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cr_Cr_Sytchkova.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.000942746402567,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Cu_Cu_Babar",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Babar",
+    "record_label": "Cu / Babar",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Babar.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0075270628975116,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Cu_Cu_Hagemann",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Hagemann",
+    "record_label": "Cu / Hagemann",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Hagemann.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0054674341517973,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Cu_Cu_Johnson",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Johnson",
+    "record_label": "Cu / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0126305867535319,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Cu_Cu_McPeak",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "McPeak",
+    "record_label": "Cu / McPeak",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_McPeak.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0409908475293525,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Cu_Cu_Querry",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Querry",
+    "record_label": "Cu / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0032169227405623,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Cu_Cu_Rakic-BB",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Rakic-BB",
+    "record_label": "Cu / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0185507690342746,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Cu_Cu_Rakic-LD",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Rakic-LD",
+    "record_label": "Cu / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.000243593391511,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Cu_Cu_Werner",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Werner",
+    "record_label": "Cu / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0080497604813751,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Cu_Cu_Werner-DFT",
+    "material": "Cu",
+    "material_class": "metal",
+    "book": "Cu",
+    "page": "Werner-DFT",
+    "record_label": "Cu / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Cu_Cu_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0077827208922983,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Fe_Fe_Johnson",
+    "material": "Fe",
+    "material_class": "metal",
+    "book": "Fe",
+    "page": "Johnson",
+    "record_label": "Fe / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe_Fe_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0240863002580888,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Fe_Fe_Querry",
+    "material": "Fe",
+    "material_class": "metal",
+    "book": "Fe",
+    "page": "Querry",
+    "record_label": "Fe / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe_Fe_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0047096775825711,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Fe_Fe_Werner",
+    "material": "Fe",
+    "material_class": "metal",
+    "book": "Fe",
+    "page": "Werner",
+    "record_label": "Fe / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe_Fe_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.018833387429605,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Fe_Fe_Werner-DFT",
+    "material": "Fe",
+    "material_class": "metal",
+    "book": "Fe",
+    "page": "Werner-DFT",
+    "record_label": "Fe / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe_Fe_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0045356066649988,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Fe2O3_Fe2O3_Querry-e",
+    "material": "Fe2O3",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "Fe2O3",
+    "page": "Querry-e",
+    "record_label": "Fe2O3 / Querry-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe2O3_Fe2O3_Querry-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0027166877069367,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Fe2O3_Fe2O3_Querry-o",
+    "material": "Fe2O3",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "Fe2O3",
+    "page": "Querry-o",
+    "record_label": "Fe2O3 / Querry-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe2O3_Fe2O3_Querry-o.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0074881926167019,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Fe3O4_Fe3O4_Querry",
+    "material": "Fe3O4",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "Fe3O4",
+    "page": "Querry",
+    "record_label": "Fe3O4 / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Fe3O4_Fe3O4_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035787120542199,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GaAs_GaAs_Adachi",
+    "material": "GaAs",
+    "material_class": "semiconductor",
+    "book": "GaAs",
+    "page": "Adachi",
+    "record_label": "GaAs / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaAs_GaAs_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0531661189502353,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "GaAs_GaAs_Papatryfonos",
+    "material": "GaAs",
+    "material_class": "semiconductor",
+    "book": "GaAs",
+    "page": "Papatryfonos",
+    "record_label": "GaAs / Papatryfonos",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaAs_GaAs_Papatryfonos.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0299053150491849,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "GaAs_GaAs_Rakic",
+    "material": "GaAs",
+    "material_class": "semiconductor",
+    "book": "GaAs",
+    "page": "Rakic",
+    "record_label": "GaAs / Rakic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaAs_GaAs_Rakic.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0165693785514687,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "GaP_GaP_Adachi",
+    "material": "GaP",
+    "material_class": "semiconductor",
+    "book": "GaP",
+    "page": "Adachi",
+    "record_label": "GaP / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaP_GaP_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0402477079531135,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "GaP_GaP_Khmelevskaia",
+    "material": "GaP",
+    "material_class": "semiconductor",
+    "book": "GaP",
+    "page": "Khmelevskaia",
+    "record_label": "GaP / Khmelevskaia",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaP_GaP_Khmelevskaia.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0046498184769314,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GaSb_GaSb_Adachi",
+    "material": "GaSb",
+    "material_class": "semiconductor",
+    "book": "GaSb",
+    "page": "Adachi",
+    "record_label": "GaSb / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaSb_GaSb_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0769515214848408,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "GaSb_GaSb_Djurisic",
+    "material": "GaSb",
+    "material_class": "semiconductor",
+    "book": "GaSb",
+    "page": "Djurisic",
+    "record_label": "GaSb / Djurisic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GaSb_GaSb_Djurisic.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0019382339877703,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ge_Ge_Ciesielski-20nm",
+    "material": "Ge",
+    "material_class": "semiconductor",
+    "book": "Ge",
+    "page": "Ciesielski-20nm",
+    "record_label": "Ge / Ciesielski-20nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ge_Ge_Ciesielski-20nm.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0023902260628127,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ge_Ge_Ciesielski-2nm",
+    "material": "Ge",
+    "material_class": "semiconductor",
+    "book": "Ge",
+    "page": "Ciesielski-2nm",
+    "record_label": "Ge / Ciesielski-2nm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ge_Ge_Ciesielski-2nm.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0026263534148194,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ge_Ge_Nunley",
+    "material": "Ge",
+    "material_class": "semiconductor",
+    "book": "Ge",
+    "page": "Nunley",
+    "record_label": "Ge / Nunley",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ge_Ge_Nunley.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0359863514974525,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-abinitio-alpha",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-abinitio-alpha",
+    "record_label": "GeS2 / Slavich-abinitio-alpha",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-abinitio-alpha.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0029786598064166,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-abinitio-beta",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-abinitio-beta",
+    "record_label": "GeS2 / Slavich-abinitio-beta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-abinitio-beta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0022953987057828,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-abinitio-gamma",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-abinitio-gamma",
+    "record_label": "GeS2 / Slavich-abinitio-gamma",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-abinitio-gamma.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0016330231931553,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-alpha",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-alpha",
+    "record_label": "GeS2 / Slavich-alpha",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-alpha.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0036447664418419,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-beta",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-beta",
+    "record_label": "GeS2 / Slavich-beta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-beta.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0028744278039132,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "GeS2_GeS2_Slavich-gamma",
+    "material": "GeS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "GeS2",
+    "page": "Slavich-gamma",
+    "record_label": "GeS2 / Slavich-gamma",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/GeS2_GeS2_Slavich-gamma.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0053652481074105,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "HfO2_HfO2_Franta",
+    "material": "HfO2",
+    "material_class": "high_k_oxide",
+    "book": "HfO2",
+    "page": "Franta",
+    "record_label": "HfO2 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/HfO2_HfO2_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0007224210977304,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "InAs_InAs_Adachi",
+    "material": "InAs",
+    "material_class": "semiconductor",
+    "book": "InAs",
+    "page": "Adachi",
+    "record_label": "InAs / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/InAs_InAs_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.1244443375789024,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "InP_InP_Adachi",
+    "material": "InP",
+    "material_class": "semiconductor",
+    "book": "InP",
+    "page": "Adachi",
+    "record_label": "InP / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/InP_InP_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.087436844679493,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "InSb_InSb_Adachi",
+    "material": "InSb",
+    "material_class": "semiconductor",
+    "book": "InSb",
+    "page": "Adachi",
+    "record_label": "InSb / Adachi",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/InSb_InSb_Adachi.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.1034363910715858,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "InSb_InSb_Djurisic",
+    "material": "InSb",
+    "material_class": "semiconductor",
+    "book": "InSb",
+    "page": "Djurisic",
+    "record_label": "InSb / Djurisic",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/InSb_InSb_Djurisic.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0075626619412251,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MgF2_MgF2_Franta",
+    "material": "MgF2",
+    "material_class": "fluoride",
+    "book": "MgF2",
+    "page": "Franta",
+    "record_label": "MgF2 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MgF2_MgF2_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0003795299870673,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MgF2_MgF2_Rodriguez-de_Marcos",
+    "material": "MgF2",
+    "material_class": "fluoride",
+    "book": "MgF2",
+    "page": "Rodriguez-de Marcos",
+    "record_label": "MgF2 / Rodriguez-de Marcos",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MgF2_MgF2_Rodriguez-de_Marcos.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 3.411593581790129e-05,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MgO_MgO_Synowicki",
+    "material": "MgO",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "MgO",
+    "page": "Synowicki",
+    "record_label": "MgO / Synowicki",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MgO_MgO_Synowicki.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 3.290137080657388e-05,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Mo_Mo_Kirillova",
+    "material": "Mo",
+    "material_class": "metal",
+    "book": "Mo",
+    "page": "Kirillova",
+    "record_label": "Mo / Kirillova",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Mo_Mo_Kirillova.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0150454171550821,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Mo_Mo_Querry",
+    "material": "Mo",
+    "material_class": "metal",
+    "book": "Mo",
+    "page": "Querry",
+    "record_label": "Mo / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Mo_Mo_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0030748641592311,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Mo_Mo_Werner",
+    "material": "Mo",
+    "material_class": "metal",
+    "book": "Mo",
+    "page": "Werner",
+    "record_label": "Mo / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Mo_Mo_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0073069897850861,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Mo_Mo_Werner-DFT",
+    "material": "Mo",
+    "material_class": "metal",
+    "book": "Mo",
+    "page": "Werner-DFT",
+    "record_label": "Mo / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Mo_Mo_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0116835970752826,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoO3_MoO3_Lajaunie-alpha",
+    "material": "MoO3",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "MoO3",
+    "page": "Lajaunie-alpha",
+    "record_label": "MoO3 / Lajaunie-alpha",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoO3_MoO3_Lajaunie-alpha.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0028177236023737,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MoO3_MoO3_Lajaunie-beta",
+    "material": "MoO3",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "MoO3",
+    "page": "Lajaunie-beta",
+    "record_label": "MoO3 / Lajaunie-beta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoO3_MoO3_Lajaunie-beta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0026783448532883,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MoO3_MoO3_Lajaunie-gamma",
+    "material": "MoO3",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "MoO3",
+    "page": "Lajaunie-gamma",
+    "record_label": "MoO3 / Lajaunie-gamma",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoO3_MoO3_Lajaunie-gamma.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0022661686153322,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MoS2_MoS2_Beal",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Beal",
+    "record_label": "MoS2 / Beal",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Beal.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0756669701625952,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "MoS2_MoS2_Ermolaev-1L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Ermolaev-1L",
+    "record_label": "MoS2 / Ermolaev-1L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Ermolaev-1L.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.03644666551197,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Ermolaev-o",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Ermolaev-o",
+    "record_label": "MoS2 / Ermolaev-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Ermolaev-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0076629510595101,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MoS2_MoS2_Islam-1L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Islam-1L",
+    "record_label": "MoS2 / Islam-1L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Islam-1L.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0431228221058281,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Islam-fewL",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Islam-fewL",
+    "record_label": "MoS2 / Islam-fewL",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Islam-fewL.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.022954495336057,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Islam-o",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Islam-o",
+    "record_label": "MoS2 / Islam-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Islam-o.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0080775952506156,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MoS2_MoS2_Munkhbat-e",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Munkhbat-e",
+    "record_label": "MoS2 / Munkhbat-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Munkhbat-e.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 6.098832545983248e-07,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MoS2_MoS2_Munkhbat-o",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Munkhbat-o",
+    "record_label": "MoS2 / Munkhbat-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Munkhbat-o.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0201807840863301,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-10L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-10L",
+    "record_label": "MoS2 / Song-10L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-10L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0270387616444864,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-13L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-13L",
+    "record_label": "MoS2 / Song-13L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-13L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0087319200417365,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-1L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-1L",
+    "record_label": "MoS2 / Song-1L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-1L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0073926986368386,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-3L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-3L",
+    "record_label": "MoS2 / Song-3L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-3L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0178740928318083,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-4L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-4L",
+    "record_label": "MoS2 / Song-4L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-4L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0170175994015248,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-6L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-6L",
+    "record_label": "MoS2 / Song-6L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-6L.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0295636837214278,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-8L",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-8L",
+    "record_label": "MoS2 / Song-8L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-8L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0152090631480601,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Song-bulk",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Song-bulk",
+    "record_label": "MoS2 / Song-bulk",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Song-bulk.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0273264629369757,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoS2_MoS2_Ullberg",
+    "material": "MoS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoS2",
+    "page": "Ullberg",
+    "record_label": "MoS2 / Ullberg",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoS2_MoS2_Ullberg.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0286413970540419,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoSe2_MoSe2_Beal",
+    "material": "MoSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoSe2",
+    "page": "Beal",
+    "record_label": "MoSe2 / Beal",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoSe2_MoSe2_Beal.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0266008229873102,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoSe2_MoSe2_Munkhbat-e",
+    "material": "MoSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoSe2",
+    "page": "Munkhbat-e",
+    "record_label": "MoSe2 / Munkhbat-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoSe2_MoSe2_Munkhbat-e.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0051200721661472,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "MoSe2_MoSe2_Munkhbat-o",
+    "material": "MoSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoSe2",
+    "page": "Munkhbat-o",
+    "record_label": "MoSe2 / Munkhbat-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoSe2_MoSe2_Munkhbat-o.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.020726083668809,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "MoSe2_MoSe2_Pruszynska-Karbownik-e",
+    "material": "MoSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoSe2",
+    "page": "Pruszynska-Karbownik-e",
+    "record_label": "MoSe2 / Pruszynska-Karbownik-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoSe2_MoSe2_Pruszynska-Karbownik-e.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0003126632366317,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "MoSe2_MoSe2_Pruszynska-Karbownik-o",
+    "material": "MoSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "MoSe2",
+    "page": "Pruszynska-Karbownik-o",
+    "record_label": "MoSe2 / Pruszynska-Karbownik-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/MoSe2_MoSe2_Pruszynska-Karbownik-o.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0123011906623464,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Nb2O5_Nb2O5_Franta",
+    "material": "Nb2O5",
+    "material_class": "high_k_oxide",
+    "book": "Nb2O5",
+    "page": "Franta",
+    "record_label": "Nb2O5 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Nb2O5_Nb2O5_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0034596527728313,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Nb2O5_Nb2O5_Lemarchand",
+    "material": "Nb2O5",
+    "material_class": "high_k_oxide",
+    "book": "Nb2O5",
+    "page": "Lemarchand",
+    "record_label": "Nb2O5 / Lemarchand",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Nb2O5_Nb2O5_Lemarchand.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0044223919814993,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ni_Ni_Johnson",
+    "material": "Ni",
+    "material_class": "metal",
+    "book": "Ni",
+    "page": "Johnson",
+    "record_label": "Ni / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ni_Ni_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0192211234437147,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ni_Ni_Rakic-BB",
+    "material": "Ni",
+    "material_class": "metal",
+    "book": "Ni",
+    "page": "Rakic-BB",
+    "record_label": "Ni / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ni_Ni_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.002931742251802,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ni_Ni_Rakic-LD",
+    "material": "Ni",
+    "material_class": "metal",
+    "book": "Ni",
+    "page": "Rakic-LD",
+    "record_label": "Ni / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ni_Ni_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 2.183441458962553e-05,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ni_Ni_Werner",
+    "material": "Ni",
+    "material_class": "metal",
+    "book": "Ni",
+    "page": "Werner",
+    "record_label": "Ni / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ni_Ni_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0095905082720313,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Ni_Ni_Werner-DFT",
+    "material": "Ni",
+    "material_class": "metal",
+    "book": "Ni",
+    "page": "Werner-DFT",
+    "record_label": "Ni / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ni_Ni_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0087110698240201,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Pd_Pd_Johnson",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Johnson",
+    "record_label": "Pd / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0264428869936192,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Pd_Pd_Palm",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Palm",
+    "record_label": "Pd / Palm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Palm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0040278627011863,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pd_Pd_Rakic-BB",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Rakic-BB",
+    "record_label": "Pd / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0003955692602751,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pd_Pd_Rakic-LD",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Rakic-LD",
+    "record_label": "Pd / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0002540052764597,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pd_Pd_Werner",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Werner",
+    "record_label": "Pd / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0021012423680042,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pd_Pd_Werner-DFT",
+    "material": "Pd",
+    "material_class": "metal",
+    "book": "Pd",
+    "page": "Werner-DFT",
+    "record_label": "Pd / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pd_Pd_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0033633890889335,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pt_Pt_Rakic-BB",
+    "material": "Pt",
+    "material_class": "metal",
+    "book": "Pt",
+    "page": "Rakic-BB",
+    "record_label": "Pt / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pt_Pt_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0041798738496418,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pt_Pt_Rakic-LD",
+    "material": "Pt",
+    "material_class": "metal",
+    "book": "Pt",
+    "page": "Rakic-LD",
+    "record_label": "Pt / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pt_Pt_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0027962601145936,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pt_Pt_Tselin",
+    "material": "Pt",
+    "material_class": "metal",
+    "book": "Pt",
+    "page": "Tselin",
+    "record_label": "Pt / Tselin",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pt_Pt_Tselin.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.001204606234022,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pt_Pt_Werner",
+    "material": "Pt",
+    "material_class": "metal",
+    "book": "Pt",
+    "page": "Werner",
+    "record_label": "Pt / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pt_Pt_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.004701377029167,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Pt_Pt_Werner-DFT",
+    "material": "Pt",
+    "material_class": "metal",
+    "book": "Pt",
+    "page": "Werner-DFT",
+    "record_label": "Pt / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Pt_Pt_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0030015284865931,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Sc2O3_Sc2O3_Belosludtsev",
+    "material": "Sc2O3",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "Sc2O3",
+    "page": "Belosludtsev",
+    "record_label": "Sc2O3 / Belosludtsev",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Sc2O3_Sc2O3_Belosludtsev.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0004101230767338,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta",
+    "record_label": "Si / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0019969085876237,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-100K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-100K",
+    "record_label": "Si / Franta-100K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-100K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.002151731679515,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-10K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-10K",
+    "record_label": "Si / Franta-10K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-10K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0029295794698612,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-150K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-150K",
+    "record_label": "Si / Franta-150K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-150K.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0033918246988492,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-200K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-200K",
+    "record_label": "Si / Franta-200K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-200K.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0027606968096748,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-20C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-20C",
+    "record_label": "Si / Franta-20C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-20C.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.003744900465554,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-250K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-250K",
+    "record_label": "Si / Franta-250K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-250K.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0012937632760889,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-25C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-25C",
+    "record_label": "Si / Franta-25C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-25C.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0024962323283377,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-300K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-300K",
+    "record_label": "Si / Franta-300K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-300K.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0031200452188509,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-350K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-350K",
+    "record_label": "Si / Franta-350K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-350K.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0037829769143021,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-400K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-400K",
+    "record_label": "Si / Franta-400K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-400K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0028212404958763,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-450K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-450K",
+    "record_label": "Si / Franta-450K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-450K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035005079558709,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-500K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-500K",
+    "record_label": "Si / Franta-500K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-500K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0037085264251182,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Franta-50K",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Franta-50K",
+    "record_label": "Si / Franta-50K",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Franta-50K.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0020942583742182,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Green-1995",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Green-1995",
+    "record_label": "Si / Green-1995",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Green-1995.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.1490307499944543,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "Si_Si_Green-2008",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Green-2008",
+    "record_label": "Si / Green-2008",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Green-2008.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0046139069133356,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Karaman-120C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Karaman-120C",
+    "record_label": "Si / Karaman-120C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Karaman-120C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0041975731133937,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Karaman-170C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Karaman-170C",
+    "record_label": "Si / Karaman-170C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Karaman-170C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0040385849862702,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Karaman-20C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Karaman-20C",
+    "record_label": "Si / Karaman-20C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Karaman-20C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0040726201846828,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Karaman-220C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Karaman-220C",
+    "record_label": "Si / Karaman-220C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Karaman-220C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0025507440694532,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Karaman-70C",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Karaman-70C",
+    "record_label": "Si / Karaman-70C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Karaman-70C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0040819957788903,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Pierce",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Pierce",
+    "record_label": "Si / Pierce",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Pierce.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0035179101544554,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si_Si_Schinke",
+    "material": "Si",
+    "material_class": "semiconductor",
+    "book": "Si",
+    "page": "Schinke",
+    "record_label": "Si / Schinke",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si_Si_Schinke.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0047431027949224,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si3N4_Si3N4_Beliaev",
+    "material": "Si3N4",
+    "material_class": "nitride_or_carbide",
+    "book": "Si3N4",
+    "page": "Beliaev",
+    "record_label": "Si3N4 / Beliaev",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si3N4_Si3N4_Beliaev.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0001165326612554,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si3N4_Si3N4_Vogt-1",
+    "material": "Si3N4",
+    "material_class": "nitride_or_carbide",
+    "book": "Si3N4",
+    "page": "Vogt-1",
+    "record_label": "Si3N4 / Vogt-1",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si3N4_Si3N4_Vogt-1.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0018117401268094,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si3N4_Si3N4_Vogt-2",
+    "material": "Si3N4",
+    "material_class": "nitride_or_carbide",
+    "book": "Si3N4",
+    "page": "Vogt-2",
+    "record_label": "Si3N4 / Vogt-2",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si3N4_Si3N4_Vogt-2.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015399114165572,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Si3N4_Si3N4_Vogt-3",
+    "material": "Si3N4",
+    "material_class": "nitride_or_carbide",
+    "book": "Si3N4",
+    "page": "Vogt-3",
+    "record_label": "Si3N4 / Vogt-3",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Si3N4_Si3N4_Vogt-3.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0036393353557687,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiC_SiC_Larruquert",
+    "material": "SiC",
+    "material_class": "nitride_or_carbide",
+    "book": "SiC",
+    "page": "Larruquert",
+    "record_label": "SiC / Larruquert",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiC_SiC_Larruquert.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007631713072377,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Franta",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Franta",
+    "record_label": "SiO2 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007271958877213,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Franta-25C",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Franta-25C",
+    "record_label": "SiO2 / Franta-25C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Franta-25C.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0009580779799072,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Franta-300C",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Franta-300C",
+    "record_label": "SiO2 / Franta-300C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Franta-300C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007783390621376,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Gao",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Gao",
+    "record_label": "SiO2 / Gao",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Gao.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0004537897336495,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Lemarchand",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Lemarchand",
+    "record_label": "SiO2 / Lemarchand",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Lemarchand.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0005207066394578,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "SiO2_SiO2_Rodriguez-de_Marcos",
+    "material": "SiO2",
+    "material_class": "transparent_dielectric_oxide",
+    "book": "SiO2",
+    "page": "Rodriguez-de Marcos",
+    "record_label": "SiO2 / Rodriguez-de Marcos",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/SiO2_SiO2_Rodriguez-de_Marcos.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0001159746145995,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta_Ta_Werner",
+    "material": "Ta",
+    "material_class": "metal",
+    "book": "Ta",
+    "page": "Werner",
+    "record_label": "Ta / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta_Ta_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.000360835150147,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta_Ta_Werner-DFT",
+    "material": "Ta",
+    "material_class": "metal",
+    "book": "Ta",
+    "page": "Werner-DFT",
+    "record_label": "Ta / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta_Ta_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0090430439739593,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-12-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-12-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-12-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-12-25.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.004484962903482,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-16-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-16-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-16-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-16-25.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007429998470309,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-4-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-4-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-4-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-4-25.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007613246874339,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-8-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-8-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-25.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0007495339293955,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-450",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-8-450",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-8-450",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-450.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0006509808603358,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-550",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-3.28-8-550",
+    "record_label": "Ta2O5 / Cheikh-amorphous-3.28-8-550",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-3.28-8-550.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0006599492907541,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-4.38-12-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-4.38-12-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-4.38-12-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-4.38-12-25.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0020223375826169,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-5.48-12-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-5.48-12-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-5.48-12-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-5.48-12-25.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0039622784984654,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-amorphous-6.75-12-25",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-amorphous-6.75-12-25",
+    "record_label": "Ta2O5 / Cheikh-amorphous-6.75-12-25",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-amorphous-6.75-12-25.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0008056906743963,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-crystalline-3.28-8-650",
+    "record_label": "Ta2O5 / Cheikh-crystalline-3.28-8-650",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-650.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0006363549974932,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-750",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-crystalline-3.28-8-750",
+    "record_label": "Ta2O5 / Cheikh-crystalline-3.28-8-750",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-750.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.001023885076798,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-850",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Cheikh-crystalline-3.28-8-850",
+    "record_label": "Ta2O5 / Cheikh-crystalline-3.28-8-850",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Cheikh-crystalline-3.28-8-850.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0042728648296133,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Franta-2015",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Franta-2015",
+    "record_label": "Ta2O5 / Franta-2015",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Franta-2015.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0013621094836865,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Franta-2025",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Franta-2025",
+    "record_label": "Ta2O5 / Franta-2025",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Franta-2025.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0013460290391023,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ta2O5_Ta2O5_Rodriguez-de_Marcos",
+    "material": "Ta2O5",
+    "material_class": "high_k_oxide",
+    "book": "Ta2O5",
+    "page": "Rodriguez-de Marcos",
+    "record_label": "Ta2O5 / Rodriguez-de Marcos",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ta2O5_Ta2O5_Rodriguez-de_Marcos.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0012620144589616,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ti_Ti_Johnson",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Johnson",
+    "record_label": "Ti / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.025634150740388,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "Ti_Ti_Palm",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Palm",
+    "record_label": "Ti / Palm",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Palm.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0009813505320361,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ti_Ti_Rakic-BB",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Rakic-BB",
+    "record_label": "Ti / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0013119525595746,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ti_Ti_Rakic-LD",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Rakic-LD",
+    "record_label": "Ti / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0003781459730425,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ti_Ti_Werner",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Werner",
+    "record_label": "Ti / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0039147181621151,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "Ti_Ti_Werner-DFT",
+    "material": "Ti",
+    "material_class": "metal",
+    "book": "Ti",
+    "page": "Werner-DFT",
+    "record_label": "Ti / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/Ti_Ti_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0132182983010915,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "TiN_TiN_Beliaev-sputtering",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Beliaev-sputtering",
+    "record_label": "TiN / Beliaev-sputtering",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Beliaev-sputtering.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0175713235261552,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "TiN_TiN_Pfluger",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Pfluger",
+    "record_label": "TiN / Pfluger",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Pfluger.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0194096710819349,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "TiN_TiN_Shkondin",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Shkondin",
+    "record_label": "TiN / Shkondin",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Shkondin.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0022424823692196,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiN_TiN_Shkondin-700",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Shkondin-700",
+    "record_label": "TiN / Shkondin-700",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Shkondin-700.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0029997376261676,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiN_TiN_Shkondin-800",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Shkondin-800",
+    "record_label": "TiN / Shkondin-800",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Shkondin-800.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0011719947641959,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiN_TiN_Shkondin-900",
+    "material": "TiN",
+    "material_class": "nitride_or_carbide",
+    "book": "TiN",
+    "page": "Shkondin-900",
+    "record_label": "TiN / Shkondin-900",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiN_TiN_Shkondin-900.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0013042016805378,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiO2_TiO2_Franta",
+    "material": "TiO2",
+    "material_class": "high_k_oxide",
+    "book": "TiO2",
+    "page": "Franta",
+    "record_label": "TiO2 / Franta",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiO2_TiO2_Franta.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0044502993209513,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiO2_TiO2_Sarkar",
+    "material": "TiO2",
+    "material_class": "high_k_oxide",
+    "book": "TiO2",
+    "page": "Sarkar",
+    "record_label": "TiO2 / Sarkar",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiO2_TiO2_Sarkar.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0018837667657116,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiO2_TiO2_Siefke",
+    "material": "TiO2",
+    "material_class": "high_k_oxide",
+    "book": "TiO2",
+    "page": "Siefke",
+    "record_label": "TiO2 / Siefke",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiO2_TiO2_Siefke.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0015852489349911,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "TiO2_TiO2_Zhukovsky",
+    "material": "TiO2",
+    "material_class": "high_k_oxide",
+    "book": "TiO2",
+    "page": "Zhukovsky",
+    "record_label": "TiO2 / Zhukovsky",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/TiO2_TiO2_Zhukovsky.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0029989929799633,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "V_V_Johnson",
+    "material": "V",
+    "material_class": "metal",
+    "book": "V",
+    "page": "Johnson",
+    "record_label": "V / Johnson",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/V_V_Johnson.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0551959967815854,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "V_V_Werner",
+    "material": "V",
+    "material_class": "metal",
+    "book": "V",
+    "page": "Werner",
+    "record_label": "V / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/V_V_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0012794261595382,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "V_V_Werner-DFT",
+    "material": "V",
+    "material_class": "metal",
+    "book": "V",
+    "page": "Werner-DFT",
+    "record_label": "V / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/V_V_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0175388931841403,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-20C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-20C",
+    "record_label": "VO2 / Oguntoye-20C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-20C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.004488908126694,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-30C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-30C",
+    "record_label": "VO2 / Oguntoye-30C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-30C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0043287309209869,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-40C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-40C",
+    "record_label": "VO2 / Oguntoye-40C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-40C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.004031259546519,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-50C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-50C",
+    "record_label": "VO2 / Oguntoye-50C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-50C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0038475623525767,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-55C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-55C",
+    "record_label": "VO2 / Oguntoye-55C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-55C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.003316050541066,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-60C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-60C",
+    "record_label": "VO2 / Oguntoye-60C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-60C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0015751745679824,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-70C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-70C",
+    "record_label": "VO2 / Oguntoye-70C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-70C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0036774628398734,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "VO2_VO2_Oguntoye-80C",
+    "material": "VO2",
+    "material_class": "lossy_transition_metal_oxide",
+    "book": "VO2",
+    "page": "Oguntoye-80C",
+    "record_label": "VO2 / Oguntoye-80C",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/VO2_VO2_Oguntoye-80C.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0034134816639971,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "W_W_Rakic-BB",
+    "material": "W",
+    "material_class": "metal",
+    "book": "W",
+    "page": "Rakic-BB",
+    "record_label": "W / Rakic-BB",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/W_W_Rakic-BB.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0416432761358639,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "W_W_Rakic-LD",
+    "material": "W",
+    "material_class": "metal",
+    "book": "W",
+    "page": "Rakic-LD",
+    "record_label": "W / Rakic-LD",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/W_W_Rakic-LD.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0180819477113279,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "W_W_Weaver",
+    "material": "W",
+    "material_class": "metal",
+    "book": "W",
+    "page": "Weaver",
+    "record_label": "W / Weaver",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/W_W_Weaver.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0233042005969718,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "W_W_Werner",
+    "material": "W",
+    "material_class": "metal",
+    "book": "W",
+    "page": "Werner",
+    "record_label": "W / Werner",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/W_W_Werner.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0132358401664221,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "W_W_Werner-DFT",
+    "material": "W",
+    "material_class": "metal",
+    "book": "W",
+    "page": "Werner-DFT",
+    "record_label": "W / Werner-DFT",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/W_W_Werner-DFT.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0074396190884032,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "WS2_WS2_Munkhbat-e",
+    "material": "WS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WS2",
+    "page": "Munkhbat-e",
+    "record_label": "WS2 / Munkhbat-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WS2_WS2_Munkhbat-e.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0080258274747573,
+    "quality_label": "acceptable"
+  },
+  {
+    "record_key": "WS2_WS2_Munkhbat-o",
+    "material": "WS2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WS2",
+    "page": "Munkhbat-o",
+    "record_label": "WS2 / Munkhbat-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WS2_WS2_Munkhbat-o.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.1033443042842927,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "WSe2_WSe2_Gu-1L",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Gu-1L",
+    "record_label": "WSe2 / Gu-1L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Gu-1L.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.1436796607599962,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "WSe2_WSe2_Gu-2L",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Gu-2L",
+    "record_label": "WSe2 / Gu-2L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Gu-2L.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0337067503769461,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "WSe2_WSe2_Gu-3L",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Gu-3L",
+    "record_label": "WSe2 / Gu-3L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Gu-3L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.096336067383983,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "WSe2_WSe2_Gu-4L",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Gu-4L",
+    "record_label": "WSe2 / Gu-4L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Gu-4L.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.1013687835578784,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "WSe2_WSe2_Gu-5L",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Gu-5L",
+    "record_label": "WSe2 / Gu-5L",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Gu-5L.json",
+    "final_family": "RP",
+    "final_specific_model": "RP",
+    "final_epsilon_rms": 0.0782950697834055,
+    "quality_label": "poor"
+  },
+  {
+    "record_key": "WSe2_WSe2_Munkhbat-e",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Munkhbat-e",
+    "record_label": "WSe2 / Munkhbat-e",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Munkhbat-e.json",
+    "final_family": "none",
+    "final_specific_model": "none",
+    "final_epsilon_rms": null,
+    "quality_label": "no_model"
+  },
+  {
+    "record_key": "WSe2_WSe2_Munkhbat-o",
+    "material": "WSe2",
+    "material_class": "chalcogenide_or_2D",
+    "book": "WSe2",
+    "page": "Munkhbat-o",
+    "record_label": "WSe2 / Munkhbat-o",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/WSe2_WSe2_Munkhbat-o.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0211081922844363,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "ZnO_ZnO_Aguilar",
+    "material": "ZnO",
+    "material_class": "TCO_or_semiconducting_oxide",
+    "book": "ZnO",
+    "page": "Aguilar",
+    "record_label": "ZnO / Aguilar",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/ZnO_ZnO_Aguilar.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.0021932249462828,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "ZnO_ZnO_Querry",
+    "material": "ZnO",
+    "material_class": "TCO_or_semiconducting_oxide",
+    "book": "ZnO",
+    "page": "Querry",
+    "record_label": "ZnO / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/ZnO_ZnO_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "SemiCP",
+    "final_epsilon_rms": 0.044675797087864,
+    "quality_label": "warning"
+  },
+  {
+    "record_key": "ZnS_ZnS_Querry",
+    "material": "ZnS",
+    "material_class": "semiconductor",
+    "book": "ZnS",
+    "page": "Querry",
+    "record_label": "ZnS / Querry",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/ZnS_ZnS_Querry.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 0.0023989421078501,
+    "quality_label": "excellent"
+  },
+  {
+    "record_key": "ZrO2_ZrO2_Synowicki",
+    "material": "ZrO2",
+    "material_class": "high_k_oxide",
+    "book": "ZrO2",
+    "page": "Synowicki",
+    "record_label": "ZrO2 / Synowicki",
+    "wavelength_range_um": [
+      0.3,
+      1.1
+    ],
+    "available_N": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "record_json": "data/records/ZrO2_ZrO2_Synowicki.json",
+    "final_family": "CP",
+    "final_specific_model": "CP",
+    "final_epsilon_rms": 6.838533628032604e-05,
+    "quality_label": "excellent"
+  }
+]

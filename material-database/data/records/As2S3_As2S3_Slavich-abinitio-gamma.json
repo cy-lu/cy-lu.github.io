@@ -1,0 +1,299 @@
+{
+  "record_key": "As2S3_As2S3_Slavich-abinitio-gamma",
+  "material": "As2S3",
+  "material_class": "chalcogenide_or_2D",
+  "book": "As2S3",
+  "page": "Slavich-abinitio-gamma",
+  "record_label": "As2S3 / Slavich-abinitio-gamma",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0515579222311016,
+          "absolute_rms": 0.7095030823209016,
+          "G_rho": 1.0000048204293122,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0503569232662324,
+          "absolute_rms": 0.7701508170546534,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 3.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0330617913601421,
+          "absolute_rms": 0.4517132784958114,
+          "G_rho": 1.000000524759348,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 32.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0330617913601421,
+        "absolute_rms": 0.4517132784958114,
+        "G_rho": 1.000000524759348,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 32.0,
+        "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M1.json"
+      },
+      "quality_label": "warning"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0599428026525519,
+          "absolute_rms": 0.8485147864098342,
+          "G_rho": 1.0000062805486218,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0223394936001682,
+          "absolute_rms": 0.3423548345513518,
+          "G_rho": 1.0000000000000018,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 28.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0133363739053415,
+          "absolute_rms": 0.2225932376811569,
+          "G_rho": 1.0000001539311398,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0133363739053415,
+        "absolute_rms": 0.2225932376811569,
+        "G_rho": 1.0000001539311398,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M2.json"
+      },
+      "quality_label": "warning"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.0175481391155222,
+          "absolute_rms": 0.2282058978596571,
+          "G_rho": 1.0000044860098654,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0122049274096564,
+          "absolute_rms": 0.1865786156080216,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 15.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.008905768036549,
+          "absolute_rms": 0.1257079378046349,
+          "G_rho": 1.0000000454391196,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 12.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 0.008905768036549,
+        "absolute_rms": 0.1257079378046349,
+        "G_rho": 1.0000000454391196,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 12.0,
+        "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M3.json"
+      },
+      "quality_label": "acceptable"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0088208839782876,
+          "absolute_rms": 0.1140878301938259,
+          "G_rho": 1.0000010792198386,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0067559989556199,
+          "absolute_rms": 0.0995405111967878,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 14.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.003028757260441,
+          "absolute_rms": 0.0447490405877752,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 12.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 0.003028757260441,
+        "absolute_rms": 0.0447490405877752,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 12.0,
+        "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0078268570686743,
+          "absolute_rms": 0.0974455048370906,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.0057282737852539,
+          "absolute_rms": 0.0826935940726456,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 13.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0023815365226967,
+          "absolute_rms": 0.0375608019034358,
+          "G_rho": 1.0000000000000016,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 10.0,
+          "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.0023815365226967,
+        "absolute_rms": 0.0375608019034358,
+        "G_rho": 1.0000000000000016,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 10.0,
+        "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 4,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.003028757260441,
+    "absolute_rms": 0.0447490405877752,
+    "G_rho": 1.0,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/As2S3_As2S3_Slavich-abinitio-gamma/SemiCP_M4.json"
+  }
+}

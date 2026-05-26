@@ -1,0 +1,299 @@
+{
+  "record_key": "TiO2_TiO2_Franta",
+  "material": "TiO2",
+  "material_class": "high_k_oxide",
+  "book": "TiO2",
+  "page": "Franta",
+  "record_label": "TiO2 / Franta",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0539054763340447,
+          "absolute_rms": 0.4622850190372507,
+          "G_rho": 1.0000051118187927,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.0000025981277076,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 1.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0384011698839222,
+          "absolute_rms": 0.3083916111618011,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 45.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0384011698839222,
+        "absolute_rms": 0.3083916111618011,
+        "G_rho": 1.0000000000000009,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 45.0,
+        "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M1.json"
+      },
+      "quality_label": "warning"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 0.0045652675761533,
+          "absolute_rms": 0.0334792552151379,
+          "G_rho": 1.0,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/TiO2_TiO2_Franta/RP_M2.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0046647831181148,
+          "absolute_rms": 0.0384119292408459,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 2.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 0.0044502993209513,
+          "absolute_rms": 0.0339698084094585,
+          "G_rho": 1.000000273596992,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 30.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 0.0044502993209513,
+        "absolute_rms": 0.0339698084094585,
+        "G_rho": 1.000000273596992,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 30.0,
+        "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 0.001199324356595,
+          "absolute_rms": 0.0070782233567034,
+          "G_rho": 1.0350666590317683,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": 0.0010837777590492,
+          "absolute_rms": 0.0072342682468937,
+          "G_rho": 1.0000000073101727,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 49.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/CP_M3.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 0.0011378523699936,
+          "absolute_rms": 0.0067169601897347,
+          "G_rho": 1.0000000000000002,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 49.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "CP",
+        "N": 3,
+        "epsilon_rms": 0.0010837777590492,
+        "absolute_rms": 0.0072342682468937,
+        "G_rho": 1.0000000073101727,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 49.0,
+        "model_json": "data/models/TiO2_TiO2_Franta/CP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 0.0008106056728686,
+          "absolute_rms": 0.0046325108884996,
+          "G_rho": 1.0,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/TiO2_TiO2_Franta/RP_M4.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 0.0009262104732299,
+          "absolute_rms": 0.006237229594645,
+          "G_rho": 1.0000000000000022,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 51.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 0.0009897217219601,
+          "absolute_rms": 0.0059576492217442,
+          "G_rho": 1.0000000127364264,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "RP",
+        "specific_model": "RP",
+        "N": 4,
+        "epsilon_rms": 0.0008106056728686,
+        "absolute_rms": 0.0046325108884996,
+        "G_rho": 1.0,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": null,
+        "model_json": "data/models/TiO2_TiO2_Franta/RP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 0.0008789326130949,
+          "absolute_rms": 0.0051363185399623,
+          "G_rho": 1.0000000000000009,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/TiO2_TiO2_Franta/RP_M5.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 0.000918150770358,
+          "absolute_rms": 0.0061841454267666,
+          "G_rho": 1.000000057462893,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 6.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 0.0007913181973934,
+          "absolute_rms": 0.0044412111670663,
+          "G_rho": 1.0000001735669526,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 0.0007913181973934,
+        "absolute_rms": 0.0044412111670663,
+        "G_rho": 1.0000001735669526,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 7.0,
+        "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 2,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0044502993209513,
+    "absolute_rms": 0.0339698084094585,
+    "G_rho": 1.000000273596992,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/TiO2_TiO2_Franta/SemiCP_M2.json"
+  }
+}

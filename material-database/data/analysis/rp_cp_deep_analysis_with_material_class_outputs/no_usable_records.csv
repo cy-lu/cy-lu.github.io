@@ -1,0 +1,3 @@
+record_id,material_query,book,page,record_index,record_label,material_class,final_family,final_specific_model,final_N,final_RMS,final_abs_RMS,final_G_rho,final_model_json,final_selection_mode,final_quality_band,final_meets_primary_target,final_meets_secondary_target
+C|C|Song|8,C,C,Song,8,C / C / Song / rec8,carbon,none,,,,,,,no_usable_model,no_usable,False,False
+WSe2|WSe2|Munkhbat-e|7,WSe2,WSe2,Munkhbat-e,7,WSe2 / WSe2 / Munkhbat-e / rec7,chalcogenide_or_2D,none,,,,,,,no_usable_model,no_usable,False,False

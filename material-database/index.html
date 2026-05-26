@@ -1,22 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FDTD-ready RP/CP Material Fit Database</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FDTD-Ready Optical Material Model Database</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>FDTD-ready RP/CP Material Fit Database</h1>
-      <p class="subtitle">Precomputed rational-pole and CP-family fits with passivity and G(theta) readiness gates.</p>
-    </div>
-    <div class="badge">Static GitHub Pages database</div>
-  </header>
+  <main class="page">
+    <header>
+      <p class="eyebrow">Optical Material Models</p>
+      <h1>FDTD-Ready Optical Material Model Database</h1>
+      <p class="lead">
+        This page lists compact analytic dielectric-function models for use in time-domain electromagnetic simulations.
+        Two model families are shown: the rational-pole model and the critical-point model.
+      </p>
+      <p><a href="../index.html">← Back to Chun-Yu Lu's homepage</a></p>
+    </header>
 
-  <main>
+    <section class="panel model-definitions">
+      <h2>Mathematical model definitions</h2>
+      <div class="definition-grid">
+        <div class="definition-card rp-card">
+          <h3>Rational-pole model</h3>
+          <p>The rational-pole representation is written as</p>
+          <div class="equation">
+            \[
+            \varepsilon_{\mathrm{RP}}(z)=\varepsilon_{\infty}
+            +\sum_{j=1}^{N}\left[
+            \frac{r_j}{z-p_j}+\frac{r_j^{\ast}}{z-p_j^{\ast}}
+            \right].
+            \]
+          </div>
+          <p>
+            Here \(z\) is the normalized complex-frequency variable, \(p_j\) is a complex pole,
+            \(r_j\) is the corresponding complex residue, and \(N\) is the number of pole pairs.
+            The conjugate-pair structure gives a real-valued time-domain response for real fields.
+          </p>
+        </div>
+        <div class="definition-card cp-card">
+          <h3>Critical-point model</h3>
+          <p>The critical-point representation is written as</p>
+          <div class="equation">
+            \[
+            \varepsilon_{\mathrm{CP}}(\omega)=\varepsilon_{\infty}
+            +\sum_{j=1}^{N}\left[
+            \frac{c_j\Omega_j}{\Omega_j-\omega-i\Gamma_j}
+            +\frac{c_j^{\ast}\Omega_j}{\Omega_j+\omega+i\Gamma_j}
+            \right],
+            \qquad \Omega_j>0,\;\Gamma_j>0.
+            \]
+          </div>
+          <p>
+            Here \(\Omega_j\) is the transition frequency, \(\Gamma_j\) is the damping rate,
+            \(c_j\) is a complex coefficient, and \(N\) is the number of critical-point terms.
+            CP-family entries use this same analytic form.
+          </p>
+        </div>
+      </div>
+      <p class="note">
+        For each selected order \(N\), the table reports the model family, the RMS error, the FDTD-readiness status,
+        and the available PoleResidue JSON file.
+      </p>
+    </section>
+
     <section class="panel controls">
       <label>Material
         <select id="materialSelect"></select>
@@ -24,43 +79,32 @@
       <label>Record
         <select id="recordSelect"></select>
       </label>
-      <label>N
+      <label>Model order
         <select id="nSelect"></select>
       </label>
-      <label class="checkboxLine">
-        <input type="checkbox" id="showFitCurve" checked /> show selected fit curve
-      </label>
     </section>
 
-    <section class="grid2">
-      <div class="panel" id="recordSummary"></div>
-      <div class="panel" id="finalSummary"></div>
-    </section>
-
-    <section class="panel">
-      <h2>Model decision at selected N</h2>
-      <div id="modelTable"></div>
-    </section>
-
-    <section class="panel">
-      <h2>Optical data and selected fit</h2>
-      <p class="smallText">Dots are database/fitting-grid values. Lines are evaluated from the selected Tidy3D PoleResidue JSON when the JSON file is available.</p>
-      <div class="plotGrid">
-        <div id="plotNK"></div>
-        <div id="plotEps"></div>
+    <section class="grid">
+      <div class="panel">
+        <h2>Recommended model</h2>
+        <div id="recommendationBox" class="recommendation"></div>
+      </div>
+      <div class="panel">
+        <h2>Rational-pole vs critical-point model</h2>
+        <div id="modelTable"></div>
       </div>
     </section>
 
     <section class="panel">
-      <h2>Class-level warning</h2>
-      <div id="classWarning"></div>
+      <h2>Optical constants</h2>
+      <div id="nkPlot" class="plot"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Selected record</h2>
+      <pre id="metadataBox"></pre>
     </section>
   </main>
-
-  <footer>
-    Generated from precomputed RP / CP / SemiCP outputs. No fitting is performed in the browser.
-  </footer>
-
   <script src="app.js"></script>
 </body>
 </html>

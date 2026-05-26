@@ -1,0 +1,299 @@
+{
+  "record_key": "SiO2_SiO2_Lemarchand",
+  "material": "SiO2",
+  "material_class": "transparent_dielectric_oxide",
+  "book": "SiO2",
+  "page": "Lemarchand",
+  "record_label": "SiO2 / Lemarchand",
+  "data_class": "tabulated_nk",
+  "k_source": "database",
+  "wavelength_range_um": [
+    0.3,
+    1.1
+  ],
+  "raw_database_points": "",
+  "fitting_grid_points": "",
+  "models_by_N": {
+    "1": {
+      "N": 1,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 1,
+          "epsilon_rms": 0.0009184368102589,
+          "absolute_rms": 0.002021802206576,
+          "G_rho": 1.0000000146807828,
+          "FDTD_status": "SELECTED_FDTD_READY",
+          "FDTD_ready": true,
+          "seed": null,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/RP_M1.json"
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 1,
+          "epsilon_rms": 0.0009070297859446,
+          "absolute_rms": 0.0020157850569631,
+          "G_rho": 1.0000001265446137,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 10.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/CP_M1.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 1,
+          "epsilon_rms": 0.0005207066394578,
+          "absolute_rms": 0.0011422112440087,
+          "G_rho": 1.0000000018605275,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 1.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M1.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 1,
+        "epsilon_rms": 0.0005207066394578,
+        "absolute_rms": 0.0011422112440087,
+        "G_rho": 1.0000000018605275,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 1.0,
+        "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M1.json"
+      },
+      "quality_label": "excellent"
+    },
+    "2": {
+      "N": 2,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 2,
+          "epsilon_rms": 1.8421590852151065e-05,
+          "absolute_rms": 4.056881167611451e-05,
+          "G_rho": NaN,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 2,
+          "epsilon_rms": 0.0002836615589248,
+          "absolute_rms": 0.0006259185728954,
+          "G_rho": 1.000000054747578,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 34.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/CP_M2.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 2,
+          "epsilon_rms": 2.4511394261459525e-05,
+          "absolute_rms": 5.4552925144666816e-05,
+          "G_rho": 1.0000000040555106,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M2.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 2,
+        "epsilon_rms": 2.4511394261459525e-05,
+        "absolute_rms": 5.4552925144666816e-05,
+        "G_rho": 1.0000000040555106,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M2.json"
+      },
+      "quality_label": "excellent"
+    },
+    "3": {
+      "N": 3,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 3,
+          "epsilon_rms": 5.9112465038421805e-05,
+          "absolute_rms": 0.0001301409540714,
+          "G_rho": 1.803390580974476,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 3,
+          "epsilon_rms": NaN,
+          "absolute_rms": NaN,
+          "G_rho": 1.997277396383601,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": 8.0,
+          "model_json": ""
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 3,
+          "epsilon_rms": 1.8608032186390216e-05,
+          "absolute_rms": 4.1373541437072414e-05,
+          "G_rho": 1.0000000040286106,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M3.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 3,
+        "epsilon_rms": 1.8608032186390216e-05,
+        "absolute_rms": 4.1373541437072414e-05,
+        "G_rho": 1.0000000040286106,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M3.json"
+      },
+      "quality_label": "excellent"
+    },
+    "4": {
+      "N": 4,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 4,
+          "epsilon_rms": 3.320972122335656e-05,
+          "absolute_rms": 7.347040514268971e-05,
+          "G_rho": 1.5651313721840534,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 4,
+          "epsilon_rms": 1.9662164155799847e-05,
+          "absolute_rms": 4.3609980634926976e-05,
+          "G_rho": 1.0000000025524902,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/CP_M4.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 4,
+          "epsilon_rms": 1.802278883467236e-05,
+          "absolute_rms": 4.0025706299378105e-05,
+          "G_rho": 1.000000003126042,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 8.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M4.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 4,
+        "epsilon_rms": 1.802278883467236e-05,
+        "absolute_rms": 4.0025706299378105e-05,
+        "G_rho": 1.000000003126042,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 8.0,
+        "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M4.json"
+      },
+      "quality_label": "excellent"
+    },
+    "5": {
+      "N": 5,
+      "models": {
+        "RP": {
+          "family": "RP",
+          "specific_model": "RP",
+          "N": 5,
+          "epsilon_rms": 3.116377764372906e-05,
+          "absolute_rms": 6.900222623923607e-05,
+          "G_rho": 1.8055790970129608,
+          "FDTD_status": "NOT_FDTD_READY_G_UNSTABLE",
+          "FDTD_ready": false,
+          "seed": null,
+          "model_json": ""
+        },
+        "CP": {
+          "family": "CP",
+          "specific_model": "CP",
+          "N": 5,
+          "epsilon_rms": 2.665571415554025e-05,
+          "absolute_rms": 5.943948427652073e-05,
+          "G_rho": 1.000000000000001,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 9.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/CP_M5.json"
+        },
+        "SCP": {
+          "family": "CP",
+          "specific_model": "SemiCP",
+          "N": 5,
+          "epsilon_rms": 1.6451280968259837e-05,
+          "absolute_rms": 3.655601306144681e-05,
+          "G_rho": 1.000000002719301,
+          "FDTD_status": "FDTD_READY",
+          "FDTD_ready": true,
+          "seed": 7.0,
+          "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M5.json"
+        }
+      },
+      "selected": {
+        "family": "CP",
+        "specific_model": "SemiCP",
+        "N": 5,
+        "epsilon_rms": 1.6451280968259837e-05,
+        "absolute_rms": 3.655601306144681e-05,
+        "G_rho": 1.000000002719301,
+        "FDTD_status": "FDTD_READY",
+        "FDTD_ready": true,
+        "seed": 7.0,
+        "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M5.json"
+      },
+      "quality_label": "excellent"
+    }
+  },
+  "final_recommendation": {
+    "N": 1,
+    "family": "CP",
+    "specific_model": "SemiCP",
+    "epsilon_rms": 0.0005207066394578,
+    "absolute_rms": 0.0011422112440087,
+    "G_rho": 1.0000000018605275,
+    "FDTD_status": "FDTD_READY",
+    "quality_label": "excellent",
+    "model_json": "data/models/SiO2_SiO2_Lemarchand/SemiCP_M1.json"
+  }
+}

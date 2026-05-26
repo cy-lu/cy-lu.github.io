@@ -1,0 +1,34 @@
+{
+  "attrs": {},
+  "name": "CP_M2",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 2.5947371318306502,
+  "poles": [
+    [
+      {
+        "real": -513831353465905.3,
+        "imag": -5073599201606911.0
+      },
+      {
+        "real": 1106702061887079.4,
+        "imag": 565173573288625.6
+      }
+    ],
+    [
+      {
+        "real": -1173011004094401.2,
+        "imag": -7083885125016274.0
+      },
+      {
+        "real": 1236288615248498.2,
+        "imag": 9423410349551036.0
+      }
+    ]
+  ]
+}

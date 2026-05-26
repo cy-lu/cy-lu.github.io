@@ -11,8 +11,8 @@
     0.3,
     1.1
   ],
-  "raw_database_points": "",
-  "fitting_grid_points": "",
+  "raw_database_points": "data/experimental/Fe_Fe_Werner-DFT/raw_database_points.json",
+  "fitting_grid_points": "data/experimental/Fe_Fe_Werner-DFT/fitting_grid_points.json",
   "models_by_N": {
     "1": {
       "N": 1,
@@ -86,7 +86,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M2",
           "public_name": "RP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/RP_M2.json"
         },
         "CP": {
           "family": "CP",
@@ -102,7 +102,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M2.json"
         },
         "SCP": {
           "family": "CP",
@@ -118,7 +118,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M2.json"
         }
       },
       "selected": {
@@ -134,7 +134,7 @@
         "model_json": "data/models/Fe_Fe_Werner-DFT/SemiCP_M2.json",
         "public_family": "CP",
         "public_model_code": "CP_M2",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M2.json"
       },
       "quality_label": "warning"
     },
@@ -171,7 +171,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M3.json"
         },
         "SCP": {
           "family": "CP",
@@ -187,7 +187,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M3.json"
         }
       },
       "selected": {
@@ -203,7 +203,7 @@
         "model_json": "data/models/Fe_Fe_Werner-DFT/SemiCP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M3.json"
       },
       "quality_label": "acceptable"
     },
@@ -224,7 +224,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M4",
           "public_name": "RP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/RP_M4.json"
         },
         "CP": {
           "family": "CP",
@@ -240,7 +240,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M4.json"
         },
         "SCP": {
           "family": "CP",
@@ -256,7 +256,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M4.json"
         }
       },
       "selected": {
@@ -272,7 +272,7 @@
         "model_json": "data/models/Fe_Fe_Werner-DFT/SemiCP_M4.json",
         "public_family": "CP",
         "public_model_code": "CP_M4",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M4.json"
       },
       "quality_label": "acceptable"
     },
@@ -293,7 +293,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M5",
           "public_name": "RP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/RP_M5.json"
         },
         "CP": {
           "family": "CP",
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M5.json"
         },
         "SCP": {
           "family": "CP",
@@ -325,7 +325,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M5.json"
         }
       },
       "selected": {
@@ -341,7 +341,7 @@
         "model_json": "data/models/Fe_Fe_Werner-DFT/SemiCP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Fe_Fe_Werner-DFT/CP_M5.json"
       },
       "quality_label": "excellent"
     }

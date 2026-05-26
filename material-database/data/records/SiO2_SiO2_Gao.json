@@ -11,8 +11,8 @@
     0.3,
     1.1
   ],
-  "raw_database_points": "",
-  "fitting_grid_points": "",
+  "raw_database_points": "data/experimental/SiO2_SiO2_Gao/raw_database_points.json",
+  "fitting_grid_points": "data/experimental/SiO2_SiO2_Gao/fitting_grid_points.json",
   "models_by_N": {
     "1": {
       "N": 1,
@@ -31,7 +31,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M1",
           "public_name": "RP_M1",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/RP_M1.json"
         },
         "CP": {
           "family": "CP",
@@ -47,7 +47,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M1.json"
         },
         "SCP": {
           "family": "CP",
@@ -63,7 +63,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M1.json"
         }
       },
       "selected": {
@@ -79,7 +79,7 @@
         "model_json": "data/models/SiO2_SiO2_Gao/CP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": ""
+        "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M1.json"
       },
       "quality_label": "excellent"
     },
@@ -100,7 +100,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M2",
           "public_name": "RP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/RP_M2.json"
         },
         "CP": {
           "family": "CP",
@@ -116,7 +116,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M2.json"
         },
         "SCP": {
           "family": "CP",
@@ -132,7 +132,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M2.json"
         }
       },
       "selected": {
@@ -148,7 +148,7 @@
         "model_json": "data/models/SiO2_SiO2_Gao/RP_M2.json",
         "public_family": "RP",
         "public_model_code": "RP_M2",
-        "model_curve": ""
+        "model_curve": "data/model_curves/SiO2_SiO2_Gao/RP_M2.json"
       },
       "quality_label": "excellent"
     },
@@ -201,7 +201,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M3.json"
         }
       },
       "selected": {
@@ -217,7 +217,7 @@
         "model_json": "data/models/SiO2_SiO2_Gao/SemiCP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": ""
+        "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M3.json"
       },
       "quality_label": "excellent"
     },
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M5.json"
         },
         "SCP": {
           "family": "CP",
@@ -341,7 +341,7 @@
         "model_json": "data/models/SiO2_SiO2_Gao/CP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": ""
+        "model_curve": "data/model_curves/SiO2_SiO2_Gao/CP_M5.json"
       },
       "quality_label": "excellent"
     }

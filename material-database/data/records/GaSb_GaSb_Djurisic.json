@@ -11,8 +11,8 @@
     0.3,
     1.1
   ],
-  "raw_database_points": "",
-  "fitting_grid_points": "",
+  "raw_database_points": "data/experimental/GaSb_GaSb_Djurisic/raw_database_points.json",
+  "fitting_grid_points": "data/experimental/GaSb_GaSb_Djurisic/fitting_grid_points.json",
   "models_by_N": {
     "1": {
       "N": 1,
@@ -47,7 +47,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1.json"
         },
         "SCP": {
           "family": "CP",
@@ -79,7 +79,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/CP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": ""
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1.json"
       },
       "quality_label": "poor"
     },
@@ -171,7 +171,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3.json"
         },
         "SCP": {
           "family": "CP",
@@ -203,7 +203,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/CP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": ""
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3.json"
       },
       "quality_label": "poor"
     },
@@ -224,7 +224,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M4",
           "public_name": "RP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/RP_M4.json"
         },
         "CP": {
           "family": "CP",
@@ -240,7 +240,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
         },
         "SCP": {
           "family": "CP",
@@ -256,7 +256,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
         }
       },
       "selected": {
@@ -272,7 +272,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/SemiCP_M4.json",
         "public_family": "CP",
         "public_model_code": "CP_M4",
-        "model_curve": ""
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
       },
       "quality_label": "acceptable"
     },
@@ -293,7 +293,7 @@
           "public_family": "RP",
           "public_model_code": "RP_M5",
           "public_name": "RP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/RP_M5.json"
         },
         "CP": {
           "family": "CP",
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
         },
         "SCP": {
           "family": "CP",
@@ -325,7 +325,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
         }
       },
       "selected": {
@@ -341,7 +341,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/SemiCP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": ""
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
       },
       "quality_label": "excellent"
     }

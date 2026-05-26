@@ -11,8 +11,8 @@
     0.3,
     1.1
   ],
-  "raw_database_points": "",
-  "fitting_grid_points": "",
+  "raw_database_points": "data/experimental/MoS2_MoS2_Munkhbat-e/raw_database_points.json",
+  "fitting_grid_points": "data/experimental/MoS2_MoS2_Munkhbat-e/fitting_grid_points.json",
   "models_by_N": {
     "1": {
       "N": 1,

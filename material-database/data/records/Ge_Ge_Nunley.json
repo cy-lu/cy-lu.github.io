@@ -11,8 +11,8 @@
     0.3,
     1.1
   ],
-  "raw_database_points": "",
-  "fitting_grid_points": "",
+  "raw_database_points": "data/experimental/Ge_Ge_Nunley/raw_database_points.json",
+  "fitting_grid_points": "data/experimental/Ge_Ge_Nunley/fitting_grid_points.json",
   "models_by_N": {
     "1": {
       "N": 1,
@@ -63,7 +63,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M1.json"
         }
       },
       "selected": {
@@ -79,7 +79,7 @@
         "model_json": "data/models/Ge_Ge_Nunley/SemiCP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M1.json"
       },
       "quality_label": "poor"
     },
@@ -171,7 +171,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M3.json"
         },
         "SCP": {
           "family": "CP",
@@ -203,7 +203,7 @@
         "model_json": "data/models/Ge_Ge_Nunley/CP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M3.json"
       },
       "quality_label": "warning"
     },
@@ -240,7 +240,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M4.json"
         },
         "SCP": {
           "family": "CP",
@@ -272,7 +272,7 @@
         "model_json": "data/models/Ge_Ge_Nunley/CP_M4.json",
         "public_family": "CP",
         "public_model_code": "CP_M4",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M4.json"
       },
       "quality_label": "warning"
     },
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": ""
+          "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M5.json"
         },
         "SCP": {
           "family": "CP",
@@ -341,7 +341,7 @@
         "model_json": "data/models/Ge_Ge_Nunley/CP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": ""
+        "model_curve": "data/model_curves/Ge_Ge_Nunley/CP_M5.json"
       },
       "quality_label": "warning"
     }

@@ -25,7 +25,7 @@ function addOption(sel, value, text) {
 function unique(arr) { return [...new Set(arr)]; }
 
 async function init() {
-  INDEX = await loadJson('data/materials_index.json?v=20260526_4');
+  INDEX = await loadJson('data/materials_index.json?v=20260526_5');
   const materialSelect = document.getElementById('materialSelect');
   const materials = unique(INDEX.map(x => x.material)).sort();
   clearSelect(materialSelect);
@@ -48,7 +48,7 @@ function updateRecords() {
 }
 async function getRecord(recordKey) {
   if (!RECORD_CACHE[recordKey]) {
-    RECORD_CACHE[recordKey] = await loadJson(`data/records/${recordKey}.json?v=20260526_4`);
+    RECORD_CACHE[recordKey] = await loadJson(`data/records/${recordKey}.json?v=20260526_5`);
   }
   return RECORD_CACHE[recordKey];
 }
@@ -157,24 +157,24 @@ async function renderNkPlot(rec, entry, n) {
   const notes = [];
 
   try {
-    const raw = rec.raw_database_points ? await loadJson(`${rec.raw_database_points}?v=20260526_4`) : null;
-    const fit = rec.fitting_grid_points ? await loadJson(`${rec.fitting_grid_points}?v=20260526_4`) : null;
+    const raw = rec.raw_database_points ? await loadJson(`${rec.raw_database_points}?v=20260526_5`) : null;
+    const fit = rec.fitting_grid_points ? await loadJson(`${rec.fitting_grid_points}?v=20260526_5`) : null;
     addNkTraces(traces, raw, 'raw data', 'markers', null);
     addNkTraces(traces, fit, 'fit grid', 'lines', null);
 
     const sel = entry.selected;
     if (sel && sel.model_curve) {
-      const curve = await loadJson(`${sel.model_curve}?v=20260526_4`);
+      const curve = await loadJson(`${sel.model_curve}?v=20260526_5`);
       addNkTraces(traces, curve, `${publicCode(sel, n)} model`, 'lines', 'dash');
     }
     const cpBest = cpFamilyBest(entry);
     if (cpBest && cpBest !== sel && cpBest.model_curve) {
-      const cpCurve = await loadJson(`${cpBest.model_curve}?v=20260526_4`);
+      const cpCurve = await loadJson(`${cpBest.model_curve}?v=20260526_5`);
       addNkTraces(traces, cpCurve, `CP_M${n} model`, 'lines', 'dot');
     }
     const rp = entry.models.RP;
     if (rp && rp !== sel && rp.model_curve) {
-      const rpCurve = await loadJson(`${rp.model_curve}?v=20260526_4`);
+      const rpCurve = await loadJson(`${rp.model_curve}?v=20260526_5`);
       addNkTraces(traces, rpCurve, `RP_M${n} model`, 'lines', 'dot');
     }
 

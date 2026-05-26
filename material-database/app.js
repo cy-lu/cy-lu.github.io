@@ -2,7 +2,7 @@ let INDEX = [];
 let RECORD_CACHE = {};
 let JSON_CACHE = {};
 
-const APP_VERSION = '20260526_7';
+const APP_VERSION = '20260526_8';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 
 async function loadJson(path) {

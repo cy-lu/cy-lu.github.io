@@ -63,7 +63,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M1.json"
+          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M1_B.json"
         }
       },
       "selected": {
@@ -79,7 +79,7 @@
         "model_json": "data/models/MoS2_MoS2_Beal/SemiCP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M1.json"
+        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M1_B.json"
       },
       "quality_label": "poor"
     },
@@ -132,7 +132,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M2.json"
+          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M2_B.json"
         }
       },
       "selected": {
@@ -148,7 +148,7 @@
         "model_json": "data/models/MoS2_MoS2_Beal/SemiCP_M2.json",
         "public_family": "CP",
         "public_model_code": "CP_M2",
-        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M2.json"
+        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M2_B.json"
       },
       "quality_label": "poor"
     },
@@ -185,7 +185,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3.json"
+          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -201,7 +201,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3.json"
+          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3_B.json"
         }
       },
       "selected": {
@@ -217,7 +217,7 @@
         "model_json": "data/models/MoS2_MoS2_Beal/SemiCP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3.json"
+        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M3_B.json"
       },
       "quality_label": "poor"
     },
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M5.json"
+          "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M5_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -341,7 +341,7 @@
         "model_json": "data/models/MoS2_MoS2_Beal/CP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M5.json"
+        "model_curve": "data/model_curves/MoS2_MoS2_Beal/CP_M5_A.json"
       },
       "quality_label": "poor"
     }

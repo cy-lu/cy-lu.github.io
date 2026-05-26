@@ -47,7 +47,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -79,7 +79,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/CP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1.json"
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M1_A.json"
       },
       "quality_label": "poor"
     },
@@ -171,7 +171,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M3",
           "public_name": "CP_M3",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -203,7 +203,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/CP_M3.json",
         "public_family": "CP",
         "public_model_code": "CP_M3",
-        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3.json"
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M3_A.json"
       },
       "quality_label": "poor"
     },
@@ -240,7 +240,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -256,7 +256,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M4",
           "public_name": "CP_M4",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4_B.json"
         }
       },
       "selected": {
@@ -272,7 +272,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/SemiCP_M4.json",
         "public_family": "CP",
         "public_model_code": "CP_M4",
-        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4.json"
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M4_B.json"
       },
       "quality_label": "acceptable"
     },
@@ -309,7 +309,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -325,7 +325,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
+          "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5_B.json"
         }
       },
       "selected": {
@@ -341,7 +341,7 @@
         "model_json": "data/models/GaSb_GaSb_Djurisic/SemiCP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5.json"
+        "model_curve": "data/model_curves/GaSb_GaSb_Djurisic/CP_M5_B.json"
       },
       "quality_label": "excellent"
     }

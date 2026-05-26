@@ -118,7 +118,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": "data/model_curves/As2Se3_As2Se3_Joseph-700nm/CP_M2.json"
+          "model_curve": "data/model_curves/As2Se3_As2Se3_Joseph-700nm/CP_M2_B.json"
         }
       },
       "selected": {
@@ -134,7 +134,7 @@
         "model_json": "data/models/As2Se3_As2Se3_Joseph-700nm/SemiCP_M2.json",
         "public_family": "CP",
         "public_model_code": "CP_M2",
-        "model_curve": "data/model_curves/As2Se3_As2Se3_Joseph-700nm/CP_M2.json"
+        "model_curve": "data/model_curves/As2Se3_As2Se3_Joseph-700nm/CP_M2_B.json"
       },
       "quality_label": "poor"
     },

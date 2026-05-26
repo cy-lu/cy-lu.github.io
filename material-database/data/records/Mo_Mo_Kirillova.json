@@ -283,7 +283,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M5",
           "public_name": "CP_M5",
-          "model_curve": "data/model_curves/Mo_Mo_Kirillova/CP_M5.json"
+          "model_curve": "data/model_curves/Mo_Mo_Kirillova/CP_M5_B.json"
         }
       },
       "selected": {
@@ -299,7 +299,7 @@
         "model_json": "data/models/Mo_Mo_Kirillova/SemiCP_M5.json",
         "public_family": "CP",
         "public_model_code": "CP_M5",
-        "model_curve": "data/model_curves/Mo_Mo_Kirillova/CP_M5.json"
+        "model_curve": "data/model_curves/Mo_Mo_Kirillova/CP_M5_B.json"
       },
       "quality_label": "warning"
     }

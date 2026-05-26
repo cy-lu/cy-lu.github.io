@@ -47,7 +47,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1.json"
+          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -63,7 +63,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M1",
           "public_name": "CP_M1",
-          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1.json"
+          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1_B.json"
         }
       },
       "selected": {
@@ -79,7 +79,7 @@
         "model_json": "data/models/C_C_Song-sHOPG-o/CP_M1.json",
         "public_family": "CP",
         "public_model_code": "CP_M1",
-        "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1.json"
+        "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M1_A.json"
       },
       "quality_label": "poor"
     },
@@ -116,7 +116,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2.json"
+          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2_A.json"
         },
         "SCP": {
           "family": "CP",
@@ -132,7 +132,7 @@
           "public_family": "CP",
           "public_model_code": "CP_M2",
           "public_name": "CP_M2",
-          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2.json"
+          "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2_B.json"
         }
       },
       "selected": {
@@ -148,7 +148,7 @@
         "model_json": "data/models/C_C_Song-sHOPG-o/SemiCP_M2.json",
         "public_family": "CP",
         "public_model_code": "CP_M2",
-        "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2.json"
+        "model_curve": "data/model_curves/C_C_Song-sHOPG-o/CP_M2_B.json"
       },
       "quality_label": "warning"
     },

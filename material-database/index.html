@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FDTD-ready RP/CP Material Fit Database</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>FDTD-ready RP/CP Material Fit Database</h1>
+      <p class="subtitle">Precomputed rational-pole and CP-family fits with passivity and G(theta) readiness gates.</p>
+    </div>
+    <div class="badge">Static GitHub Pages database</div>
+  </header>
+
+  <main>
+    <section class="panel controls">
+      <label>Material
+        <select id="materialSelect"></select>
+      </label>
+      <label>Record
+        <select id="recordSelect"></select>
+      </label>
+      <label>N
+        <select id="nSelect"></select>
+      </label>
+      <label class="checkboxLine">
+        <input type="checkbox" id="showFitCurve" checked /> show selected fit curve
+      </label>
+    </section>
+
+    <section class="grid2">
+      <div class="panel" id="recordSummary"></div>
+      <div class="panel" id="finalSummary"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Model decision at selected N</h2>
+      <div id="modelTable"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Optical data and selected fit</h2>
+      <p class="smallText">Dots are database/fitting-grid values. Lines are evaluated from the selected Tidy3D PoleResidue JSON when the JSON file is available.</p>
+      <div class="plotGrid">
+        <div id="plotNK"></div>
+        <div id="plotEps"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Class-level warning</h2>
+      <div id="classWarning"></div>
+    </section>
+  </main>
+
+  <footer>
+    Generated from precomputed RP / CP / SemiCP outputs. No fitting is performed in the browser.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

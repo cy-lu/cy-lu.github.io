@@ -148,6 +148,44 @@ h1, h2, h3, h4 {
   border-top: 1px solid #e7e7e7;
 }
 
+.material-db-lead {
+  max-width: 1200px;
+  margin-bottom: 22px;
+}
+
+.material-db-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 18px;
+  margin: 20px 0 18px 0;
+}
+
+.material-db-card {
+  flex: 1 1 calc(33.333% - 12px);
+  min-width: 260px;
+  background: #ffffff;
+  border: 1px solid #e5e7ea;
+  border-top: 3px solid #c9822b;
+  border-radius: 4px;
+  padding: 16px 16px 18px 16px;
+}
+
+.material-db-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.material-db-card p:last-child {
+  margin-bottom: 0;
+}
+
+.material-db-note {
+  background: #f8f9fa;
+  border-left: 3px solid #198fa1;
+  padding: 12px 14px;
+  margin: 14px 0 18px 0;
+}
+
 footer {
   margin-top: 32px;
   padding: 16px 0;
@@ -205,6 +243,9 @@ footer {
 </li>
 <li class="nav-item">
 <a class="nav-link" data-toggle="tab" href="#researchnotes">Research Notes</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#materialdatabase">Material Database</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" data-toggle="tab" href="#acknowledgement">Acknowledgement</a>
@@ -488,6 +529,38 @@ validated, and translated into defensible computational workflows for materials,
 <p>Notes on model validation, convergence assessment, analytical benchmarking, code verification, and physics-based interpretation across electromagnetic, mechanical, and atomistic simulation workflows.</p>
 </div>
 </div>
+</div>
+<div class="container tab-pane fade" id="materialdatabase"><br/>
+<h2>FDTD-Ready Material Fitting Database</h2>
+<p class="material-db-lead">
+This independent section provides an entry point to a searchable database of compact optical material fits for time-domain electromagnetic simulation.
+The database is intended for precomputed RP and CP-family dispersive models fitted to experimental optical constants, with passivity and FDTD-readiness checks reported explicitly.
+</p>
+<div class="material-db-note">
+The first release will use precomputed results only: users can search a material record, select the model order <i>N</i>, compare RP and CP-family fits, inspect RMS and stability status, and download the corresponding Tidy3D PoleResidue JSON when available.
+</div>
+<div class="material-db-grid">
+<div class="material-db-card">
+<h3>Database Scope</h3>
+<p>Experimental refractive-index records are converted into fitting grids and benchmarked over the selected wavelength window. Each material record is treated separately to avoid mixing data sources.</p>
+</div>
+<div class="material-db-card">
+<h3>Model Families</h3>
+<p>The online view will report RP and CP-family recommendations. Analytical CP and SemiCP are folded into the CP family for a cleaner user-facing decision.</p>
+</div>
+<div class="material-db-card">
+<h3>FDTD Readiness</h3>
+<p>Recommended models are selected from candidates that pass the production gates, including passivity and the final amplification-matrix stability audit.</p>
+</div>
+</div>
+<p>
+<a class="btn btn-outline-info" href="material-database/index.html" role="button">Open database interface</a>
+<a class="btn btn-outline-secondary" href="https://github.com/cy-lu/cy-lu.github.io/tree/master/material-database" rel="noopener noreferrer" target="_blank" role="button">View source files</a>
+</p>
+<hr/>
+<p class="small text-muted">
+Status: database interface under construction. The page is kept as a separate section so the existing homepage, publication, teaching, and research-note content remain unchanged.
+</p>
 </div>
 <div class="container tab-pane fade" id="acknowledgement"><br/>
 <h2 id="acknowledgement-list">THANK YOU ALL!</h2>

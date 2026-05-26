@@ -1,0 +1,24 @@
+{
+  "attrs": {},
+  "name": "SCP_M1",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 4.223907145420353,
+  "poles": [
+    [
+      {
+        "real": -52531858110602.96,
+        "imag": -848179427814752.2
+      },
+      {
+        "real": 5600562277590489.0,
+        "imag": 5.3076616554946536e+16
+      }
+    ]
+  ]
+}

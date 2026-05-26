@@ -1,0 +1,24 @@
+{
+  "attrs": {},
+  "name": "RP_M1",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 2.7756684496145425,
+  "poles": [
+    [
+      {
+        "real": -823114552890796.5,
+        "imag": -8412003935257334.0
+      },
+      {
+        "real": 905500782462846.5,
+        "imag": 5894125319148996.0
+      }
+    ]
+  ]
+}

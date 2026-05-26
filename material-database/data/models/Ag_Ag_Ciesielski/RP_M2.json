@@ -1,0 +1,34 @@
+{
+  "attrs": {},
+  "name": "RP_M2",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 1.645853743302996,
+  "poles": [
+    [
+      {
+        "real": -447930815754874.06,
+        "imag": -6005542155014589.0
+      },
+      {
+        "real": 704265016163508.6,
+        "imag": 941768802796199.8
+      }
+    ],
+    [
+      {
+        "real": -32626231582204.7,
+        "imag": -716136718038739.9
+      },
+      {
+        "real": 258248410972410.6,
+        "imag": 9.952483827705989e+16
+      }
+    ]
+  ]
+}

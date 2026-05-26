@@ -4,84 +4,112 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FDTD-Ready Optical Material Model Database</title>
-  <link rel="stylesheet" href="style.css?v=20260526_9" />
+  <link rel="stylesheet" href="style.css?v=20260527_26" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 </head>
 <body>
   <main class="page">
-    <header>
+    <header class="site-header">
       <p class="eyebrow">Optical Material Models</p>
       <h1>FDTD-Ready Optical Material Model Database</h1>
       <p class="lead">
-        This page lists compact analytic dielectric-function models for time-domain electromagnetic simulations.
-        The two model families are rational-pole (RP) models and critical-point (CP) models.
+        Compact rational-pole and critical-point dielectric-function models for broadband time-domain electromagnetic simulations.
       </p>
-      <p><a href="../index.html">← Back to Chun-Yu Lu's homepage</a></p>
+      <p class="home-link"><a href="../index.html">← Back to Chun-Yu Lu's homepage</a></p>
     </header>
 
-    <section class="panel model-definitions">
-      <h2>Mathematical model definitions</h2>
-      <div class="definition-grid">
-        <div class="definition-card rp-card">
-          <h3>Rational-pole (RP) model</h3>
-          <p>The RP representation is</p>
-          <div class="equation-text">ε<sub>RP</sub>(z) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>[ r<sub>j</sub>/(z − p<sub>j</sub>) + r<sub>j</sub><sup>*</sup>/(z − p<sub>j</sub><sup>*</sup>) ].</div>
-          <p>
-            Here <i>z</i> is the normalized complex-frequency variable,
-            <i>p</i><sub>j</sub> is a complex pole, <i>r</i><sub>j</sub> is the corresponding residue,
-            and <i>N</i> is the number of pole pairs.
-          </p>
+    <section class="panel controls-panel" aria-label="Browse models">
+      <div class="panel-heading-row">
+        <div>
+          <h2>Browse models</h2>
+          <p class="subtle">Select a material, reference record, and model order.</p>
         </div>
-        <div class="definition-card cp-card">
-          <h3>Critical-point (CP) model</h3>
-          <p>The CP representation is</p>
-          <div class="equation-text">ε<sub>CP</sub>(ω) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>[ c<sub>j</sub>Ω<sub>j</sub>/(Ω<sub>j</sub> − ω − iΓ<sub>j</sub>) + c<sub>j</sub><sup>*</sup>Ω<sub>j</sub>/(Ω<sub>j</sub> + ω + iΓ<sub>j</sub>) ], with Ω<sub>j</sub> &gt; 0 and Γ<sub>j</sub> &gt; 0.</div>
-          <p>
-            Here Ω<sub>j</sub> is the transition frequency, Γ<sub>j</sub> is the damping rate,
-            <i>c</i><sub>j</sub> is a complex coefficient, and <i>N</i> is the number of CP terms.
-          </p>
-        </div>
+        <div class="database-stats" id="databaseStats">Loading database...</div>
       </div>
-      <p class="note">
-        For each selected order <i>N</i>, the table reports the model family, RMS error,
-        FDTD-readiness status, and the available PoleResidue JSON file.
-      </p>
+      <div class="controls compact-controls">
+        <label>Material class
+          <select id="classSelect"></select>
+        </label>
+        <label>Search material
+          <input id="materialSearch" type="search" placeholder="HfO2, Ag, Ta2O5..." autocomplete="off" />
+        </label>
+        <label>Material
+          <select id="materialSelect"></select>
+        </label>
+        <label>Reference record
+          <select id="recordSelect"></select>
+        </label>
+        <label>Model order
+          <select id="nSelect"></select>
+        </label>
+      </div>
     </section>
 
-    <section class="panel controls">
-      <label>Material
-        <select id="materialSelect"></select>
-      </label>
-      <label>Record
-        <select id="recordSelect"></select>
-      </label>
-      <label>Model order
-        <select id="nSelect"></select>
-      </label>
-    </section>
-
-    <section class="grid">
+    <section class="grid top-grid">
       <div class="panel">
         <h2>Recommended model</h2>
         <div id="recommendationBox" class="recommendation"></div>
       </div>
       <div class="panel">
-        <h2>RP vs CP model</h2>
+        <h2>RP vs CP comparison</h2>
         <div id="modelTable"></div>
       </div>
     </section>
 
-    <section class="panel">
-      <h2>Optical constants and model response</h2>
+    <section class="panel plot-panel">
+      <div class="panel-heading-row">
+        <div>
+          <h2>Optical constants and model response</h2>
+          <p class="subtle">Filled markers show experimental database points. Optional open markers show the fitting grid.</p>
+        </div>
+      </div>
       <div id="nkPlot" class="plot"></div>
       <p class="plot-note" id="plotNote"></p>
     </section>
 
-    <section class="panel">
-      <h2>Record metadata</h2>
-      <pre id="metadataBox"></pre>
+    <section class="panel model-definitions compact-definitions">
+      <details>
+        <summary>Mathematical model definitions</summary>
+        <div class="definition-grid">
+          <div class="definition-card rp-card">
+            <h3>Rational-pole (RP)</h3>
+            <div class="equation-text">
+              ε<sub>RP</sub>(z) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>
+              [ r<sub>j</sub>/(z − p<sub>j</sub>) + r<sub>j</sub><sup>*</sup>/(z − p<sub>j</sub><sup>*</sup>) ].
+            </div>
+            <p>
+              Here <i>z</i> is the normalized complex-frequency variable, <i>p</i><sub>j</sub> is a complex pole,
+              <i>r</i><sub>j</sub> is the residue, and <i>N</i> is the number of pole pairs.
+            </p>
+          </div>
+          <div class="definition-card cp-card">
+            <h3>Critical-point (CP)</h3>
+            <div class="equation-text">
+              ε<sub>CP</sub>(ω) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>
+              [ c<sub>j</sub>Ω<sub>j</sub>/(Ω<sub>j</sub> − ω − iΓ<sub>j</sub>)
+              + c<sub>j</sub><sup>*</sup>Ω<sub>j</sub>/(Ω<sub>j</sub> + ω + iΓ<sub>j</sub>) ].
+            </div>
+            <p>
+              Ω<sub>j</sub> is the transition frequency, Γ<sub>j</sub> is the damping rate, and
+              <i>c</i><sub>j</sub> is a complex oscillator coefficient. The public CP entry reports the best CP-family branch.
+            </p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="panel metadata-panel">
+      <details>
+        <summary>Record metadata</summary>
+        <pre id="metadataBox"></pre>
+      </details>
+    </section>
+
+    <section class="panel source-panel">
+      <h2>Experimental data source</h2>
+      <div id="sourceBox" class="source-box"></div>
     </section>
   </main>
-  <script src="app.js?v=20260526_9"></script>
+  <script src="app.js?v=20260527_26"></script>
 </body>
 </html>

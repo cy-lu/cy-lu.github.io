@@ -1,0 +1,21 @@
+{
+  "generated_at_local": "2026-05-27T01:33:25",
+  "source_root": "D:\\02_Academic_Research\\11_Ultra_Boardband_CP_Fitting\\08_Refractive_index_No_Sigma\\00_VALIDATED_RP_CP_SEMICP_RESULTS_V18_FINAL_AUDIT",
+  "material_database_root": "D:\\02_Academic_Research\\11_Ultra_Boardband_CP_Fitting\\08_Refractive_index_No_Sigma\\00_WEBSITE_STAGING_FROM_V18_V23_APP_SCHEMA_FIXED_ROBUST\\material-database",
+  "materials_index_schema": "flat_record_array_expected_by_current_app_js",
+  "record_json_schema": "models_by_N_expected_by_current_app_js",
+  "all_model_rows": 8280,
+  "records": 276,
+  "materials": 54,
+  "FDTD_READY_rows": 5066,
+  "FDTD_READY_with_model_JSON": 2533,
+  "FDTD_READY_with_model_curve": 2533,
+  "raw_experimental_records_available": 276,
+  "fitting_grid_records_available": 276,
+  "experimental_records_missing_any": 0,
+  "index_records": 276,
+  "model_rows_in_record_json": 4140,
+  "FDTD_READY_rows_in_record_json": 2533,
+  "model_curve_missing_n_or_k": 0,
+  "validation_failure_rows": 0
+}

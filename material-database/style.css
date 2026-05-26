@@ -115,7 +115,7 @@ pre { white-space: pre-wrap; font-size: 0.86rem; background: #fafafa; padding: 1
   margin: 8px 0 0;
 }
 
-/* UI_V6_AXIS_AND_RP_CP_TOGGLE_START */
+/* UI_V7_MARKERS_AND_CURVES_START */
 .plot-controls {
   display: flex;
   gap: 18px;
@@ -130,14 +130,25 @@ pre { white-space: pre-wrap; font-size: 0.86rem; background: #fafafa; padding: 1
   align-items: center;
   font-weight: 600;
 }
+.plot-controls .checkbox-label {
+  font-weight: 500;
+  color: #555;
+}
 .plot-controls select {
   padding: 5px 8px;
   border: 1px solid #d7d7d0;
   border-radius: 4px;
   background: #fff;
 }
+.plot-controls input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
 .plot-range-label {
   color: #666;
   font-size: 0.9rem;
 }
-/* UI_V6_AXIS_AND_RP_CP_TOGGLE_END */
+.badge + .badge {
+  margin-left: 6px;
+}
+/* UI_V7_MARKERS_AND_CURVES_END */

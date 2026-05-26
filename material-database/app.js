@@ -2,7 +2,7 @@ let INDEX = [];
 let RECORD_CACHE = {};
 let JSON_CACHE = {};
 
-const APP_VERSION = '20260526_6';
+const APP_VERSION = '20260526_7';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 
 async function loadJson(path) {
@@ -56,10 +56,15 @@ function ensurePlotControls() {
         <option value="both">RP and CP models</option>
       </select>
     </label>
+    <label class="checkbox-label">
+      <input type="checkbox" id="showFitGridToggle" />
+      Show fitting grid
+    </label>
     <span class="plot-range-label" id="plotRangeLabel"></span>
   `;
   plotDiv.parentElement.insertBefore(controls, plotDiv);
   document.getElementById('plotModelSelect').addEventListener('change', renderCurrent);
+  document.getElementById('showFitGridToggle').addEventListener('change', renderCurrent);
 }
 
 function recordsForMaterial(material) {
@@ -173,21 +178,20 @@ function getWavelengthArray(points) {
   return points.wavelength_um || points.wavelength || points.lambda_um || points.wl_um || [];
 }
 function filterXY(wl, y, range) {
-  const xOut = [];
-  const yOut = [];
-  if (!Array.isArray(wl) || !Array.isArray(y)) return {x: xOut, y: yOut};
+  const pairs = [];
+  if (!Array.isArray(wl) || !Array.isArray(y)) return {x: [], y: []};
   for (let i = 0; i < wl.length && i < y.length; i++) {
     const x = Number(wl[i]);
     const yy = Number(y[i]);
     if (Number.isFinite(x) && Number.isFinite(yy) && x >= range[0] && x <= range[1]) {
-      xOut.push(x);
-      yOut.push(yy);
+      pairs.push([x, yy]);
     }
   }
-  return {x: xOut, y: yOut};
+  pairs.sort((a, b) => a[0] - b[0]);
+  return {x: pairs.map(p => p[0]), y: pairs.map(p => p[1])};
 }
 
-function addNkTraces(traces, payload, label, mode, dash, range) {
+function addExperimentalTraces(traces, payload, range) {
   if (!payload || !payload.points) return;
   const pts = payload.points;
   const wl = getWavelengthArray(pts);
@@ -195,11 +199,90 @@ function addNkTraces(traces, payload, label, mode, dash, range) {
 
   if (pts.n) {
     const s = filterXY(wl, pts.n, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, mode: mode, name: `${label}: n`, line: dash ? {dash: dash} : undefined, marker: {size: 5}});
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      mode: 'markers',
+      name: 'experiment n',
+      marker: {size: 8, opacity: 0.9, symbol: 'circle'},
+      hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>experiment n</extra>'
+    });
   }
   if (pts.k) {
     const s = filterXY(wl, pts.k, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, mode: mode, name: `${label}: k`, yaxis: 'y2', line: dash ? {dash: dash} : undefined, marker: {size: 5}});
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      yaxis: 'y2',
+      mode: 'markers',
+      name: 'experiment k',
+      marker: {size: 8, opacity: 0.9, symbol: 'circle'},
+      hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>experiment k</extra>'
+    });
+  }
+}
+
+function addFitGridTraces(traces, payload, range) {
+  if (!payload || !payload.points) return;
+  const pts = payload.points;
+  const wl = getWavelengthArray(pts);
+  if (!wl.length) return;
+
+  if (pts.n) {
+    const s = filterXY(wl, pts.n, range);
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      mode: 'markers',
+      name: 'fit grid n',
+      marker: {size: 4, opacity: 0.4, symbol: 'circle-open'},
+      hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>fit grid n</extra>'
+    });
+  }
+  if (pts.k) {
+    const s = filterXY(wl, pts.k, range);
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      yaxis: 'y2',
+      mode: 'markers',
+      name: 'fit grid k',
+      marker: {size: 4, opacity: 0.4, symbol: 'circle-open'},
+      hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>fit grid k</extra>'
+    });
+  }
+}
+
+function addModelTraces(traces, payload, label, dash, range) {
+  if (!payload || !payload.points) return;
+  const pts = payload.points;
+  const wl = getWavelengthArray(pts);
+  if (!wl.length) return;
+  const lineStyle = {width: 2.6};
+  if (dash) lineStyle.dash = dash;
+
+  if (pts.n) {
+    const s = filterXY(wl, pts.n, range);
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      mode: 'lines',
+      name: `${label} n`,
+      line: lineStyle,
+      hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>' + `${label} n` + '</extra>'
+    });
+  }
+  if (pts.k) {
+    const s = filterXY(wl, pts.k, range);
+    if (s.x.length) traces.push({
+      x: s.x,
+      y: s.y,
+      yaxis: 'y2',
+      mode: 'lines',
+      name: `${label} k`,
+      line: lineStyle,
+      hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>' + `${label} k` + '</extra>'
+    });
   }
 }
 
@@ -221,21 +304,23 @@ async function renderNkPlot(rec, entry, n) {
   const range = fitRange(rec);
   const selector = document.getElementById('plotModelSelect');
   const choice = selector ? selector.value : 'recommended';
+  const showFitGrid = document.getElementById('showFitGridToggle')?.checked || false;
   const rangeLabel = document.getElementById('plotRangeLabel');
   if (rangeLabel) rangeLabel.textContent = `Displayed wavelength range: ${rangeText(range)}`;
 
   try {
     const raw = rec.raw_database_points ? await loadJson(`${rec.raw_database_points}?v=${APP_VERSION}`) : null;
     const fit = rec.fitting_grid_points ? await loadJson(`${rec.fitting_grid_points}?v=${APP_VERSION}`) : null;
-    addNkTraces(traces, raw, 'raw data', 'markers', null, range);
-    addNkTraces(traces, fit, 'fit grid', 'lines', null, range);
+
+    addExperimentalTraces(traces, raw, range);
+    if (showFitGrid) addFitGridTraces(traces, fit, range);
 
     const models = modelForPlotChoice(entry, choice);
     for (const m of models) {
       if (m && m.model_curve) {
         const curve = await loadJson(`${m.model_curve}?v=${APP_VERSION}`);
-        const dash = m.family === 'RP' ? 'dash' : 'dot';
-        addNkTraces(traces, curve, `${publicCode(m, n)} model`, 'lines', dash, range);
+        const dash = m.family === 'RP' ? 'dash' : null;
+        addModelTraces(traces, curve, publicCode(m, n), dash, range);
       } else if (m) {
         notes.push(`${publicCode(m, n)} model curve is not available.`);
       }
@@ -251,7 +336,7 @@ async function renderNkPlot(rec, entry, n) {
     }
 
     Plotly.newPlot(plotDiv, traces, {
-      margin: {l: 60, r: 70, t: 20, b: 60},
+      margin: {l: 64, r: 74, t: 20, b: 68},
       xaxis: {
         title: `Wavelength, λ (µm)`,
         range: range,
@@ -260,7 +345,7 @@ async function renderNkPlot(rec, entry, n) {
       },
       yaxis: {title: 'n', automargin: true, zeroline: false},
       yaxis2: {title: 'k', overlaying: 'y', side: 'right', automargin: true, zeroline: false},
-      legend: {orientation: 'h', y: -0.28},
+      legend: {orientation: 'h', y: -0.30, x: 0, traceorder: 'normal'},
       hovermode: 'x unified'
     }, {responsive: true, displaylogo: false});
     note.textContent = notes.join(' ');

@@ -260,6 +260,107 @@ footer {
   .material-db-card { flex-basis: 100%; }
   .nav-tabs .nav-link { padding: 7px 10px; font-size: 0.88rem; }
 }
+
+/* MATERIAL_DATABASE_SNAPSHOT_V34_START */
+.material-db-snapshot {
+  background: #fbfaf7;
+  border: 1px solid #e5e7ea;
+  border-left: 4px solid #198fa1;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 20px 0 22px 0;
+}
+
+.material-db-snapshot h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.material-db-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 14px 0 16px 0;
+}
+
+.material-db-snapshot-item {
+  background: #ffffff;
+  border: 1px solid #e5e7ea;
+  border-radius: 5px;
+  padding: 12px 14px;
+}
+
+.material-db-snapshot-item span {
+  display: block;
+  color: #666;
+  font-size: 0.86rem;
+  margin-bottom: 4px;
+}
+
+.material-db-snapshot-item strong {
+  display: block;
+  color: #2d2d2d;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.material-db-coverage-bars {
+  margin: 14px 0 12px 0;
+}
+
+.material-db-coverage-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 90px;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+  font-size: 0.94rem;
+}
+
+.material-db-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #e6e4df;
+  overflow: hidden;
+}
+
+.material-db-bar > div {
+  height: 100%;
+  border-radius: 999px;
+  background: #198fa1;
+}
+
+.material-db-bar.material-db-bar-warning > div {
+  background: #c9822b;
+}
+
+.material-db-snapshot-note {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 12px 0 0 0;
+}
+
+.material-db-contact {
+  margin-top: 14px;
+}
+
+@media (max-width: 991px) {
+  .material-db-snapshot-grid {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+
+  .material-db-coverage-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 575px) {
+  .material-db-snapshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* MATERIAL_DATABASE_SNAPSHOT_V34_END */
 </style>
 </head>
 <body>
@@ -571,14 +672,18 @@ validated, and translated into defensible computational workflows for materials,
 </div>
 </div>
 </div>
-<div class="tab-pane fade" id="materialdatabase" style="padding-top:0;"><br/>
+<!-- MATERIAL_DATABASE_SECTION_V34_START -->
+<div class="container tab-pane fade" id="materialdatabase"><br/>
 <h2>FDTD-Ready Material Fitting Database</h2>
 <p class="material-db-lead">
-This independent section provides an entry point to a searchable database of compact optical material fits for time-domain electromagnetic simulation.
-The database is intended for precomputed RP and CP-family dispersive models fitted to experimental optical constants, with passivity and FDTD-readiness checks reported explicitly.
+This section provides access to a searchable database of compact optical material models for time-domain electromagnetic simulation.
+The database contains precomputed rational-pole (RP) and critical-point (CP) dielectric-function fits to experimental optical-constant records,
+with passivity and FDTD-readiness checks reported explicitly.
 </p>
 <div class="material-db-note">
-The first release will use precomputed results only: users can search a material record, select the model order <i>N</i>, compare RP and CP-family fits, inspect RMS and stability status, and download the corresponding Tidy3D PoleResidue JSON when available.
+All downloadable models are exported in the <b>Tidy3D PoleResidue JSON format</b> for direct use in FDTD workflows.
+Each downloadable JSON file has passed the database production gates, including passivity screening and a final time-domain stability audit.
+The exported models are intended to avoid nonphysical gain and unstable dispersive updates within the fitted wavelength range.
 </div>
 <div class="material-db-grid">
 <div class="material-db-card">
@@ -587,22 +692,71 @@ The first release will use precomputed results only: users can search a material
 </div>
 <div class="material-db-card">
 <h3>Model Families</h3>
-<p>The online view will report RP and CP-family recommendations. Analytical CP and SemiCP are folded into the CP family for a cleaner user-facing decision.</p>
+<p>The online view compares rational-pole and critical-point model recommendations. The downloadable files are provided in a common PoleResidue JSON format for practical FDTD use.</p>
 </div>
 <div class="material-db-card">
 <h3>FDTD Readiness</h3>
 <p>Recommended models are selected from candidates that pass the production gates, including passivity and the final amplification-matrix stability audit.</p>
 </div>
 </div>
+<div class="material-db-snapshot">
+<h3>Current 0.3–1.1 µm coverage</h3>
+<div class="material-db-snapshot-grid">
+<div class="material-db-snapshot-item">
+<span>Materials</span>
+<strong>54</strong>
+</div>
+<div class="material-db-snapshot-item">
+<span>Source-specific records</span>
+<strong>276</strong>
+</div>
+<div class="material-db-snapshot-item">
+<span>FDTD-ready entries</span>
+<strong>2533</strong>
+</div>
+<div class="material-db-snapshot-item">
+<span>Best RMS ≤ 10<sup>−2</sup></span>
+<strong>49 / 54 materials</strong>
+</div>
+</div>
+<div class="material-db-coverage-bars">
+<div class="material-db-coverage-row">
+<span>Best RMS ≤ 10<sup>−3</sup></span>
+<div class="material-db-bar"><div style="width:61%;"></div></div>
+<strong>33 / 54</strong>
+</div>
+<div class="material-db-coverage-row">
+<span>Best RMS ≤ 10<sup>−2</sup></span>
+<div class="material-db-bar"><div style="width:91%;"></div></div>
+<strong>49 / 54</strong>
+</div>
+<div class="material-db-coverage-row">
+<span>Best RMS &gt; 5×10<sup>−2</sup></span>
+<div class="material-db-bar material-db-bar-warning"><div style="width:4%;"></div></div>
+<strong>2 / 54</strong>
+</div>
+</div>
+<p class="material-db-snapshot-note">
+The current release is strongest for transparent dielectrics, high-<i>k</i> oxides, fluorides, carbon materials, and many metals.
+More challenging cases are concentrated in selected III–V semiconductors and chalcogenide/two-dimensional-material records.
+Future extensions will consider metal-optimized fitting strategies with explicit free-carrier and residual dispersive terms.
+</p>
+</div>
+<p class="material-db-contact">
+For questions, corrections, or suggestions, please contact
+<a href="mailto:jinyoulu@ntu.edu.tw">jinyoulu@ntu.edu.tw</a>.
+</p>
 <p>
 <a class="btn btn-outline-info" href="material-database/index.html" role="button">Open database interface</a>
 <a class="btn btn-outline-secondary" href="https://github.com/cy-lu/cy-lu.github.io/tree/master/material-database" rel="noopener noreferrer" target="_blank" role="button">View source files</a>
 </p>
 <hr/>
 <p class="small text-muted">
-Status: database interface under construction. The page is kept as a separate section so the existing homepage, publication, teaching, and research-note content remain unchanged.
+Current release: precomputed RP/CP optical material fits over the 0.3–1.1 µm fitting window. Last updated: May 2026.
 </p>
 </div>
+<!-- MATERIAL_DATABASE_SECTION_V34_END -->
+
 <div class="tab-pane fade" id="acknowledgement" style="padding-top:0;"><br/>
 <h2 id="acknowledgement-list">THANK YOU ALL!</h2>
 <ul>

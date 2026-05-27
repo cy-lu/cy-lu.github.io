@@ -361,6 +361,95 @@ footer {
   }
 }
 /* MATERIAL_DATABASE_SNAPSHOT_V34_END */
+
+/* MATERIALDB_HOME_ACTION_POLISH_V36_START */
+.materialdb-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 26px 0;
+}
+
+.materialdb-action-row .btn {
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.10);
+}
+
+.materialdb-action-row .materialdb-primary-action {
+  background: #0b7285 !important;
+  border-color: #0b7285 !important;
+  color: #ffffff !important;
+}
+
+.materialdb-action-row .materialdb-primary-action:hover {
+  background: #075c6b !important;
+  border-color: #075c6b !important;
+  color: #ffffff !important;
+}
+
+.materialdb-action-row .materialdb-secondary-action {
+  background: #c9822b !important;
+  border-color: #c9822b !important;
+  color: #ffffff !important;
+}
+
+.materialdb-action-row .materialdb-secondary-action:hover {
+  background: #a96820 !important;
+  border-color: #a96820 !important;
+  color: #ffffff !important;
+}
+
+.database-snapshot,
+.materialdb-snapshot,
+.material-db-snapshot,
+.materialdb-coverage-card,
+.coverage-snapshot {
+  border-left: 5px solid #0b7285 !important;
+  background: #fbfdfa !important;
+}
+
+.database-snapshot .snapshot-grid > div,
+.materialdb-snapshot .snapshot-grid > div,
+.material-db-snapshot .snapshot-grid > div,
+.materialdb-coverage-card .snapshot-grid > div,
+.coverage-snapshot .snapshot-grid > div,
+.database-snapshot .snapshot-grid div,
+.materialdb-snapshot .snapshot-grid div,
+.material-db-snapshot .snapshot-grid div {
+  background: #ffffff !important;
+  border: 1px solid #cfe3e8 !important;
+  box-shadow: 0 1px 7px rgba(11,114,133,0.08);
+}
+
+.database-snapshot .snapshot-grid strong,
+.materialdb-snapshot .snapshot-grid strong,
+.material-db-snapshot .snapshot-grid strong,
+.materialdb-coverage-card .snapshot-grid strong,
+.coverage-snapshot .snapshot-grid strong,
+.database-snapshot .metric-value,
+.materialdb-snapshot .metric-value,
+.material-db-snapshot .metric-value {
+  color: #075c6b !important;
+}
+
+.coverage-row .bar > div,
+.database-snapshot .bar > div,
+.materialdb-snapshot .bar > div,
+.material-db-snapshot .bar > div {
+  background: #0b7285 !important;
+}
+
+.coverage-row .muted-bar > div,
+.database-snapshot .muted-bar > div,
+.materialdb-snapshot .muted-bar > div,
+.material-db-snapshot .muted-bar > div {
+  background: #c9822b !important;
+}
+/* MATERIALDB_HOME_ACTION_POLISH_V36_END */
 </style>
 </head>
 <body>
@@ -680,6 +769,11 @@ This section provides access to a searchable database of compact optical materia
 The database contains precomputed rational-pole (RP) and critical-point (CP) dielectric-function fits to experimental optical-constant records,
 with passivity and FDTD-readiness checks reported explicitly.
 </p>
+<div class="materialdb-action-row">
+<a class="btn materialdb-primary-action" href="material-database/index.html" role="button">Open database interface</a>
+<a class="btn materialdb-secondary-action" href="https://github.com/cy-lu/cy-lu.github.io/tree/master/material-database" rel="noopener noreferrer" target="_blank" role="button">View source files</a>
+</div>
+
 <div class="material-db-note">
 All downloadable models are exported in the <b>Tidy3D PoleResidue JSON format</b> for direct use in FDTD workflows.
 Each downloadable JSON file has passed the database production gates, including passivity screening and a final time-domain stability audit.
@@ -745,10 +839,6 @@ Future extensions will consider metal-optimized fitting strategies with explicit
 <p class="material-db-contact">
 For questions, corrections, or suggestions, please contact
 <a href="mailto:jinyoulu@ntu.edu.tw">jinyoulu@ntu.edu.tw</a>.
-</p>
-<p>
-<a class="btn btn-outline-info" href="material-database/index.html" role="button">Open database interface</a>
-<a class="btn btn-outline-secondary" href="https://github.com/cy-lu/cy-lu.github.io/tree/master/material-database" rel="noopener noreferrer" target="_blank" role="button">View source files</a>
 </p>
 <hr/>
 <p class="small text-muted">

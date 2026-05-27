@@ -3,7 +3,7 @@ let RECORD_CACHE = Object.create(null);
 let JSON_CACHE = Object.create(null);
 let RENDER_TOKEN = 0;
 
-const APP_VERSION = '20260527_26';
+const APP_VERSION = '20260527_28_eps_toggle';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 const ALL_CLASSES = 'All material classes';
 
@@ -333,50 +333,123 @@ function filterXY(wl, y, range) {
   return {x: pairs.map(p => p[0]), y: pairs.map(p => p[1])};
 }
 
+function currentPlotQuantity() {
+  const el = getEl('plotQuantitySelect') || document.getElementById('plotQuantitySelect');
+  return el && el.value === 'eps' ? 'eps' : 'nk';
+}
+
+function primaryAxisTitle() {
+  return currentPlotQuantity() === 'eps' ? 'Re ε' : 'n';
+}
+
+function secondaryAxisTitle() {
+  return currentPlotQuantity() === 'eps' ? 'Im ε' : 'k';
+}
+
+function epsilonSeriesFromNK(points, component) {
+  const nArr = points?.n || points?.refractive_index_n || [];
+  const kArr = points?.k || points?.extinction_coefficient_k || [];
+  if (!Array.isArray(nArr) || !Array.isArray(kArr)) return [];
+  const out = [];
+  const m = Math.min(nArr.length, kArr.length);
+  for (let i = 0; i < m; i++) {
+    const n = Number(nArr[i]);
+    const k = Number(kArr[i]);
+    if (!Number.isFinite(n) || !Number.isFinite(k)) {
+      out.push(null);
+    } else if (component === 'primary') {
+      out.push(n*n - k*k);
+    } else {
+      out.push(2*n*k);
+    }
+  }
+  return out;
+}
+
+function seriesFromPoints(points, quantity, component) {
+  if (!points || typeof points !== 'object') return [];
+  if (quantity === 'eps') {
+    if (component === 'primary') {
+      const direct = points.eps_real || points.epsilon_real || points.re_eps || points.Re_epsilon || points.real_epsilon;
+      return Array.isArray(direct) && direct.length ? direct : epsilonSeriesFromNK(points, 'primary');
+    }
+    const direct = points.eps_imag || points.epsilon_imag || points.im_eps || points.Im_epsilon || points.imag_epsilon;
+    return Array.isArray(direct) && direct.length ? direct : epsilonSeriesFromNK(points, 'secondary');
+  }
+  if (component === 'primary') return points.n || points.refractive_index_n || [];
+  return points.k || points.extinction_coefficient_k || [];
+}
+
+function quantityTraceNames(prefix) {
+  return currentPlotQuantity() === 'eps'
+    ? [`${prefix} Re ε`, `${prefix} Im ε`]
+    : [`${prefix} n`, `${prefix} k`];
+}
+
+function hoverQuantityLabels() {
+  return currentPlotQuantity() === 'eps' ? ['Re ε', 'Im ε'] : ['n', 'k'];
+}
+
+function addOpticalTraces(traces, payload, prefix, mode, markerStyle, lineStyle, range) {
+  if (!payload || !payload.points) return;
+  const pts = payload.points;
+  const wl = getWavelengthArray(pts);
+  if (!wl.length) return;
+
+  const quantity = currentPlotQuantity();
+  const names = quantityTraceNames(prefix);
+  const labels = hoverQuantityLabels();
+  const primary = seriesFromPoints(pts, quantity, 'primary');
+  const secondary = seriesFromPoints(pts, quantity, 'secondary');
+
+  if (primary && primary.length) {
+    const s = filterXY(wl, primary, range);
+    if (s.x.length) {
+      const tr = {
+        x: s.x,
+        y: s.y,
+        mode,
+        name: names[0],
+        hovertemplate: 'λ=%{x:.4f} µm<br>' + labels[0] + '=%{y:.4g}<extra>' + names[0] + '</extra>'
+      };
+      if (markerStyle) tr.marker = markerStyle;
+      if (lineStyle) tr.line = lineStyle;
+      traces.push(tr);
+    }
+  }
+
+  if (secondary && secondary.length) {
+    const s = filterXY(wl, secondary, range);
+    if (s.x.length) {
+      const tr = {
+        x: s.x,
+        y: s.y,
+        yaxis: 'y2',
+        mode,
+        name: names[1],
+        hovertemplate: 'λ=%{x:.4f} µm<br>' + labels[1] + '=%{y:.4g}<extra>' + names[1] + '</extra>'
+      };
+      if (markerStyle) tr.marker = markerStyle;
+      if (lineStyle) tr.line = lineStyle;
+      traces.push(tr);
+    }
+  }
+}
+
 function addExperimentalTraces(traces, payload, range) {
-  if (!payload || !payload.points) return;
-  const pts = payload.points;
-  const wl = getWavelengthArray(pts);
-  if (!wl.length) return;
-  if (pts.n) {
-    const s = filterXY(wl, pts.n, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, mode: 'markers', name: 'experiment n', marker: {size: 7.5, opacity: 0.9, symbol: 'circle'}, hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>experiment n</extra>'});
-  }
-  if (pts.k) {
-    const s = filterXY(wl, pts.k, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, yaxis: 'y2', mode: 'markers', name: 'experiment k', marker: {size: 7.5, opacity: 0.9, symbol: 'circle'}, hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>experiment k</extra>'});
-  }
+  addOpticalTraces(traces, payload, 'experiment', 'markers', {size: 7.5, opacity: 0.9, symbol: 'circle'}, null, range);
 }
+
 function addFitGridTraces(traces, payload, range) {
-  if (!payload || !payload.points) return;
-  const pts = payload.points;
-  const wl = getWavelengthArray(pts);
-  if (!wl.length) return;
-  if (pts.n) {
-    const s = filterXY(wl, pts.n, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, mode: 'markers', name: 'fit grid n', marker: {size: 4, opacity: 0.45, symbol: 'circle-open'}, hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>fit grid n</extra>'});
-  }
-  if (pts.k) {
-    const s = filterXY(wl, pts.k, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, yaxis: 'y2', mode: 'markers', name: 'fit grid k', marker: {size: 4, opacity: 0.45, symbol: 'circle-open'}, hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>fit grid k</extra>'});
-  }
+  addOpticalTraces(traces, payload, 'fit grid', 'markers', {size: 4, opacity: 0.45, symbol: 'circle-open'}, null, range);
 }
+
 function addModelTraces(traces, payload, label, dash, range) {
-  if (!payload || !payload.points) return;
-  const pts = payload.points;
-  const wl = getWavelengthArray(pts);
-  if (!wl.length) return;
   const lineStyle = {width: 2.4};
   if (dash) lineStyle.dash = dash;
-  if (pts.n) {
-    const s = filterXY(wl, pts.n, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, mode: 'lines', name: `${label} n`, line: lineStyle, hovertemplate: 'λ=%{x:.4f} µm<br>n=%{y:.4g}<extra>' + `${label} n` + '</extra>'});
-  }
-  if (pts.k) {
-    const s = filterXY(wl, pts.k, range);
-    if (s.x.length) traces.push({x: s.x, y: s.y, yaxis: 'y2', mode: 'lines', name: `${label} k`, line: lineStyle, hovertemplate: 'λ=%{x:.4f} µm<br>k=%{y:.4g}<extra>' + `${label} k` + '</extra>'});
-  }
+  addOpticalTraces(traces, payload, label, 'lines', null, lineStyle, range);
 }
+
 function modelForPlotChoice(entry, choice) {
   const cpBest = cpFamilyBest(entry);
   const rp = entry?.models?.RP || null;
@@ -394,6 +467,12 @@ function ensurePlotControls() {
   const controls = document.createElement('div');
   controls.className = 'plot-controls';
   controls.innerHTML = `
+    <label>Plot quantity
+      <select id="plotQuantitySelect">
+        <option value="nk">n, k</option>
+        <option value="eps">Re ε, Im ε</option>
+      </select>
+    </label>
     <label>Displayed model curve
       <select id="plotModelSelect">
         <option value="recommended">Recommended model</option>
@@ -406,6 +485,8 @@ function ensurePlotControls() {
     <span class="plot-range-label" id="plotRangeLabel"></span>
   `;
   plotDiv.parentElement.insertBefore(controls, plotDiv);
+  const plotQuantitySelect = getEl('plotQuantitySelect') || document.getElementById('plotQuantitySelect');
+  if (plotQuantitySelect) plotQuantitySelect.addEventListener('change', () => renderCurrent());
   getEl('plotModelSelect').addEventListener('change', () => renderCurrent());
   getEl('showFitGridToggle').addEventListener('change', () => renderCurrent());
 }
@@ -450,8 +531,8 @@ async function renderNkPlot(rec, entry, n, token) {
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: '#ffffff',
       xaxis: {title: `Wavelength, λ (µm)`, range: range, zeroline: false, automargin: true, showgrid: true, gridcolor: '#eeeeee'},
-      yaxis: {title: 'n', automargin: true, zeroline: false, showgrid: true, gridcolor: '#eeeeee'},
-      yaxis2: {title: 'k', overlaying: 'y', side: 'right', automargin: true, zeroline: false, showgrid: false},
+      yaxis: {title: primaryAxisTitle(), automargin: true, zeroline: false, showgrid: true, gridcolor: '#eeeeee'},
+      yaxis2: {title: secondaryAxisTitle(), overlaying: 'y', side: 'right', automargin: true, zeroline: false, showgrid: false},
       legend: {orientation: 'h', y: -0.28, x: 0, traceorder: 'normal'},
       hovermode: 'x unified'
     }, {responsive: true, displaylogo: false});

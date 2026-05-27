@@ -211,3 +211,17 @@ pre {
   .controls, .source-grid { grid-template-columns: 1fr; }
   .page { padding: 20px 14px 44px; }
 }
+
+/* UI_V28_PERMITTIVITY_TOGGLE_START */
+.plot-controls label {
+  white-space: nowrap;
+}
+.plot-controls select#plotQuantitySelect {
+  min-width: 122px;
+}
+.plot-controls {
+  border-top: 1px solid #eeeeea;
+  padding-top: 10px;
+}
+/* UI_V28_PERMITTIVITY_TOGGLE_END */
+

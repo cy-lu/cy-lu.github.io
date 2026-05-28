@@ -2,8 +2,9 @@
   "material": "GeS2",
   "book": "GeS2",
   "page": "Slavich-abinitio-alpha",
-  "source": "raw_database_record",
+  "source": "raw_database_record_overlap",
   "metadata": {
+    "material_query": "GeS2",
     "shelf": "main",
     "book": "GeS2",
     "page": "Slavich-abinitio-alpha",
@@ -13,15 +14,26 @@
     "k_source": "database",
     "record_wl_min_um": 0.29945,
     "record_wl_max_um": 2.04216,
+    "target_wl_min_um": 0.3,
+    "target_wl_max_um": 1.1,
+    "fit_wl_min_um": 0.3,
+    "fit_wl_max_um": 1.1,
+    "fit_grid_step_nm": 1.0,
+    "fit_grid_npts": 801,
+    "raw_points_full": 31,
+    "raw_points_overlap": 25,
+    "coverage_policy": "overlap_with_target_window",
+    "min_raw_overlap_points": 10,
     "reference": "A. S. Slavich, G. A. Ermolaev, I. A. Zavidovskiy, D. V. Grudinin, K. V. Kravtsov, M. K. Tatmyshevskiy, M. S. Mironov, A. N. Toksumakov, G. I. Tselikov, I. M. Fradkin, K. V. Voronin, M. R. Povolotskiy, O. G. Matveeva, A. V. Syuy, D. I. Yakubovsky, D. M. Tsymbarenko, I. Kruglov, D. A. Ghazaryan, S. M. Novikov, A. A. Vyshnevyy, A. V. Arsenin, V. S. Volkov, K. S. Novoselov.\nGermanium disulfide as an alternative high refractive index and transparent material for UV-visible nanophotonics.\n<a href=\"https://doi.org/10.1038/s41377-025-01886-y\"><i>Light Sci. Appl.</i>, <b>14</b>, 213 (2025)</a>\n(Numerical data kindly provided by Dr. Georgy Ermolaev)\n",
     "comments": "n(α),k(α). Ab initio calculations.\n",
     "raw_data_class": "tabulated_nk",
     "raw_k_source": "database",
-    "raw_points": 31
+    "source_window": "record_target_overlap",
+    "wl_min_um": 0.3,
+    "wl_max_um": 1.1
   },
   "points": {
     "wavelength_um": [
-      0.29945,
       0.30785,
       0.31676,
       0.32624,
@@ -46,15 +58,9 @@
       0.78815,
       0.85329,
       0.93037,
-      1.02293,
-      1.13605,
-      1.27756,
-      1.45951,
-      1.70213,
-      2.04216
+      1.02293
     ],
     "n": [
-      2.55637,
       2.58063,
       2.58019,
       2.58244,
@@ -79,15 +85,9 @@
       2.25541,
       2.24215,
       2.23046,
-      2.22019,
-      2.2112,
-      2.20337,
-      2.19664,
-      2.19089,
-      2.18614
+      2.22019
     ],
     "k": [
-      0.69286,
       0.6358,
       0.59149,
       0.55893,
@@ -112,15 +112,9 @@
       0.00867,
       0.0076,
       0.00668,
-      0.00586,
-      0.00511,
-      0.00443,
-      0.00378,
-      0.00317,
-      0.00261
+      0.00586
     ],
     "eps_real": [
-      6.054972597299999,
       6.255409556900001,
       6.307520016,
       6.3565936087,
@@ -145,15 +139,9 @@
       5.086799099199999,
       5.0271788625000005,
       4.9749071892,
-      4.929209296500001,
-      4.8893793278999995,
-      4.854819732,
-      4.8252130012,
-      4.7999889432,
-      4.7792012875
+      4.929209296500001
     ],
     "eps_imag": [
-      3.5424130363999997,
       3.2815291080000004,
       3.0523131662,
       2.8868063784,
@@ -178,12 +166,7 @@
       0.0391088094,
       0.03408068,
       0.029798945599999998,
-      0.026020626800000002,
-      0.022598464,
-      0.0195218582,
-      0.0166065984,
-      0.0138902426,
-      0.0114116508
+      0.026020626800000002
     ]
   }
 }

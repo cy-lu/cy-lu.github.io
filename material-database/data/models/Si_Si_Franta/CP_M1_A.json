@@ -1,0 +1,44 @@
+{
+    "attrs": {},
+    "name": "GlobalCP_selected_N3",
+    "frequency_range": null,
+    "allow_gain": false,
+    "nonlinear_spec": null,
+    "modulation_spec": null,
+    "viz_spec": null,
+    "heat_spec": null,
+    "type": "PoleResidue",
+    "eps_inf": 0.7235276381188299,
+    "poles": [
+        [
+            {
+                "real": -8543864886929560.0,
+                "imag": -1476747551740784.2
+            },
+            {
+                "real": -9786231154295180.0,
+                "imag": -5.950158699993952e+16
+            }
+        ],
+        [
+            {
+                "real": -1247114092149428.5,
+                "imag": -3053769853404300.0
+            },
+            {
+                "real": -2325606146686351.5,
+                "imag": -4784257677370234.0
+            }
+        ],
+        [
+            {
+                "real": -1745829873688313.0,
+                "imag": -5401590547318668.0
+            },
+            {
+                "real": 1.674094394830289e+16,
+                "imag": 5.31604804314289e+16
+            }
+        ]
+    ]
+}

@@ -1,24 +1,54 @@
 {
-  "attrs": {},
-  "name": "CP_M1",
-  "frequency_range": null,
-  "allow_gain": false,
-  "nonlinear_spec": null,
-  "modulation_spec": null,
-  "viz_spec": null,
-  "heat_spec": null,
-  "type": "PoleResidue",
-  "eps_inf": 0.3098161182678596,
-  "poles": [
-    [
-      {
-        "real": -1541842268298495.0,
-        "imag": -852899659805614.0
-      },
-      {
-        "real": 2765885709721948.0,
-        "imag": 1.3833260936487786e+17
-      }
+    "attrs": {},
+    "name": "CP_selected_M4",
+    "frequency_range": null,
+    "allow_gain": false,
+    "nonlinear_spec": null,
+    "modulation_spec": null,
+    "viz_spec": null,
+    "heat_spec": null,
+    "type": "PoleResidue",
+    "eps_inf": 1.4845808871738766,
+    "poles": [
+        [
+            {
+                "real": -227698312202060.5,
+                "imag": -85622679776929.1
+            },
+            {
+                "real": 3.547681935413708e+16,
+                "imag": 3.6231477418348666e+17
+            }
+        ],
+        [
+            {
+                "real": -1879096067817702.2,
+                "imag": -2075226338516099.0
+            },
+            {
+                "real": -1.635872788333804e+16,
+                "imag": 8439545519099.125
+            }
+        ],
+        [
+            {
+                "real": -2921861091604853.5,
+                "imag": -5989850993196733.0
+            },
+            {
+                "real": -8246993873861186.0,
+                "imag": 480023086502072.6
+            }
+        ],
+        [
+            {
+                "real": -127649699003456.36,
+                "imag": -9373566008797356.0
+            },
+            {
+                "real": -2845281854423666.5,
+                "imag": 5224627116113743.0
+            }
+        ]
     ]
-  ]
 }

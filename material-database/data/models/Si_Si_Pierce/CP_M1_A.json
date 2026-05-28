@@ -1,0 +1,34 @@
+{
+    "attrs": {},
+    "name": "GlobalCP_selected_N2",
+    "frequency_range": null,
+    "allow_gain": false,
+    "nonlinear_spec": null,
+    "modulation_spec": null,
+    "viz_spec": null,
+    "heat_spec": null,
+    "type": "PoleResidue",
+    "eps_inf": 0.31476224475677295,
+    "poles": [
+        [
+            {
+                "real": -1443994920992491.8,
+                "imag": -1534604436157109.5
+            },
+            {
+                "real": -5938523140588748.0,
+                "imag": -835033050929343.4
+            }
+        ],
+        [
+            {
+                "real": -1819527564441211.2,
+                "imag": -4911889738186027.0
+            },
+            {
+                "real": 1.3524378960347082e+16,
+                "imag": 3.968320647518555e+16
+            }
+        ]
+    ]
+}

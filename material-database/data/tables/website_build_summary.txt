@@ -1,23 +1,88 @@
-V22 website staging build: app.js schema fixed
-========================================================================================
-generated_at_local                    : 2026-05-27T01:33:25
-source_root                           : D:\02_Academic_Research\11_Ultra_Boardband_CP_Fitting\08_Refractive_index_No_Sigma\00_VALIDATED_RP_CP_SEMICP_RESULTS_V18_FINAL_AUDIT
-material_database_root                : D:\02_Academic_Research\11_Ultra_Boardband_CP_Fitting\08_Refractive_index_No_Sigma\00_WEBSITE_STAGING_FROM_V18_V23_APP_SCHEMA_FIXED_ROBUST\material-database
-materials_index_schema                : flat_record_array_expected_by_current_app_js
-record_json_schema                    : models_by_N_expected_by_current_app_js
-all_model_rows                        : 8280
-records                               : 276
-materials                             : 54
-FDTD_READY_rows                       : 5066
-FDTD_READY_with_model_JSON            : 2533
-FDTD_READY_with_model_curve           : 2533
-raw_experimental_records_available    : 276
-fitting_grid_records_available        : 276
-experimental_records_missing_any      : 0
-index_records                         : 276
-model_rows_in_record_json             : 4140
-FDTD_READY_rows_in_record_json        : 2533
-model_curve_missing_n_or_k            : 0
-validation_failure_rows               : 0
+Website staging build from FINAL RP/CP/SemiCP summary package, V7 dynamic range
+============================================================================================
+SOURCE_ROOT                       : D:\02_Academic_Research\11_Ultra_Boardband_CP_Fitting\08_Refractive_index_No_sigma_V2\N1_N5_RP_CP\Data_range_300_1100\00_FINAL_RP_CP_JSON_EXP_AND_SUMMARY
+SUMMARY_CSV                       : D:\02_Academic_Research\11_Ultra_Boardband_CP_Fitting\08_Refractive_index_No_sigma_V2\N1_N5_RP_CP\Data_range_300_1100\00_FINAL_RP_CP_JSON_EXP_AND_SUMMARY\summary_RP_CP_semiCP_RMS_FDTD_EXP.csv
+OUT_ROOT                          : D:\02_Academic_Research\11_Ultra_Boardband_CP_Fitting\08_Refractive_index_No_sigma_V2\N1_N5_RP_CP\00_WEBSITE_STAGING_DYNAMIC_RANGE_FROM_FINAL_SUMMARY_V7_STATUS_PRIORITY
+summary_mode                      : wide_per_N_summary
 
-BUILD ERRORS: none
+mode                                  : BUILD
+records                               : 405
+materials                             : 60
+all_model_rows                        : 6075
+FDTD_READY_rows                       : 3991
+FDTD_READY_with_model_JSON            : 3991
+FDTD_READY_with_model_curve           : 3991
+FDTD_ready_but_missing_any_artifact   : 0
+raw_experimental_records_available    : 405
+fitting_grid_records_available        : 405
+experimental_records_missing_any      : 0
+index_records                         : 405
+strict_json_metadata_failures         : 0
+validation_failure_rows               : 0
+summary_ready_rows_downgraded_by_artifact_gate: 0
+
+Counts by family / N / FDTD_status:
+family  N                           FDTD_status  count
+    CP  1                            FDTD_READY    276
+    CP  1        NOT_FDTD_READY_EXPORT_REJECTED     56
+    CP  1             NOT_FDTD_READY_G_UNSTABLE     73
+    CP  2                            FDTD_READY    304
+    CP  2        NOT_FDTD_READY_EXPORT_REJECTED     26
+    CP  2             NOT_FDTD_READY_G_UNSTABLE     71
+    CP  2 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      3
+    CP  2               NO_FDTD_READY_CANDIDATE      1
+    CP  3                            FDTD_READY    291
+    CP  3        NOT_FDTD_READY_EXPORT_REJECTED     31
+    CP  3             NOT_FDTD_READY_G_UNSTABLE     79
+    CP  3 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      3
+    CP  3               NO_FDTD_READY_CANDIDATE      1
+    CP  4                            FDTD_READY    276
+    CP  4        NOT_FDTD_READY_EXPORT_REJECTED     30
+    CP  4             NOT_FDTD_READY_G_UNSTABLE     89
+    CP  4 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      4
+    CP  4               NO_FDTD_READY_CANDIDATE      6
+    CP  5                            FDTD_READY    287
+    CP  5        NOT_FDTD_READY_EXPORT_REJECTED     32
+    CP  5             NOT_FDTD_READY_G_UNSTABLE     75
+    CP  5 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      5
+    CP  5               NO_FDTD_READY_CANDIDATE      6
+    RP  1                            FDTD_READY     38
+    RP  1        NOT_EXPORTED_OR_AUDIT_REJECTED     12
+    RP  1             NOT_FDTD_READY_G_UNSTABLE    298
+    RP  1                   SELECTED_FDTD_READY     57
+    RP  2                            FDTD_READY     91
+    RP  2        NOT_EXPORTED_OR_AUDIT_REJECTED     12
+    RP  2             NOT_FDTD_READY_G_UNSTABLE    267
+    RP  2                   SELECTED_FDTD_READY     35
+    RP  3                            FDTD_READY     70
+    RP  3        NOT_EXPORTED_OR_AUDIT_REJECTED      9
+    RP  3             NOT_FDTD_READY_G_UNSTABLE    287
+    RP  3                   SELECTED_FDTD_READY     39
+    RP  4                            FDTD_READY     78
+    RP  4        NOT_EXPORTED_OR_AUDIT_REJECTED      9
+    RP  4             NOT_FDTD_READY_G_UNSTABLE    260
+    RP  4                   SELECTED_FDTD_READY     58
+    RP  5                            FDTD_READY     56
+    RP  5        NOT_EXPORTED_OR_AUDIT_REJECTED     13
+    RP  5             NOT_FDTD_READY_G_UNSTABLE    245
+    RP  5                   SELECTED_FDTD_READY     91
+SemiCP  1                            FDTD_READY    320
+SemiCP  1             NOT_FDTD_READY_G_UNSTABLE     85
+SemiCP  2                            FDTD_READY    317
+SemiCP  2        NOT_FDTD_READY_EXPORT_REJECTED      1
+SemiCP  2             NOT_FDTD_READY_G_UNSTABLE     83
+SemiCP  2 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      4
+SemiCP  3                            FDTD_READY    305
+SemiCP  3        NOT_FDTD_READY_EXPORT_REJECTED      4
+SemiCP  3             NOT_FDTD_READY_G_UNSTABLE     96
+SemiCP  4                            FDTD_READY    301
+SemiCP  4        NOT_FDTD_READY_EXPORT_REJECTED      5
+SemiCP  4             NOT_FDTD_READY_G_UNSTABLE     96
+SemiCP  4               NO_FDTD_READY_CANDIDATE      3
+SemiCP  5                            FDTD_READY    316
+SemiCP  5        NOT_FDTD_READY_EXPORT_REJECTED      2
+SemiCP  5             NOT_FDTD_READY_G_UNSTABLE     81
+SemiCP  5 NOT_FDTD_READY_REJECTED_OR_NONPASSIVE      2
+SemiCP  5               NO_FDTD_READY_CANDIDATE      4
+
+BUILD/AUDIT ISSUES: none

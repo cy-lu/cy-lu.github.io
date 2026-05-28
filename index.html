@@ -766,8 +766,8 @@ validated, and translated into defensible computational workflows for materials,
 <h2>FDTD-Ready Optical Material Fitting Database</h2>
 <p class="material-db-lead">
 This section provides access to a searchable database of compact optical material models for time-domain electromagnetic simulation.
-The current release contains precomputed rational-pole (RP), critical-point (CP), and semi-analytical critical-point (SemiCP)
-dielectric-function fits to experimental optical-constant records, with passivity and FDTD-readiness checks reported explicitly.
+The current release contains precomputed <b>rational-pole (RP)</b> and <b>critical-point (CP)</b> dielectric-function fits to experimental optical-constant records.
+The models are generated through an automated fitting procedure and are reported with explicit passivity, stability, and fitting-quality information.
 </p>
 <div class="materialdb-action-row">
 <a class="btn materialdb-primary-action" href="material-database/index.html" role="button">Open database interface</a>
@@ -775,23 +775,22 @@ dielectric-function fits to experimental optical-constant records, with passivit
 </div>
 
 <div class="material-db-note">
-All downloadable models are exported in the <b>Tidy3D PoleResidue JSON format</b> for direct use in FDTD workflows.
-Each downloadable JSON file has passed the database production gates, including passivity screening and a final time-domain
-amplification-matrix stability audit. The exported models are intended to avoid nonphysical gain and unstable dispersive
-updates within the fitted wavelength range.
+The exported model files are provided in the <b>Tidy3D PoleResidue JSON format</b> for practical FDTD workflows.
+Recommended models are selected from candidates that pass the database production gates, including passivity screening and a final time-domain amplification-matrix stability audit.
+These checks are intended to avoid nonphysical gain and unstable dispersive updates within the fitted wavelength range.
 </div>
 <div class="material-db-grid">
 <div class="material-db-card">
 <h3>Database Scope</h3>
-<p>The current release contains <b>60 material labels</b> and <b>405 source-specific optical-constant records</b>. Each record is converted into its own fitting grid and treated independently to avoid mixing data sources.</p>
+<p>The current release contains <b>60 material labels</b> and <b>405 source-specific optical-constant records</b>. Each record is converted into its own fitting grid and treated independently, so data from different literature sources are not mixed.</p>
 </div>
 <div class="material-db-card">
 <h3>Model Families</h3>
-<p>The online view compares <b>RP</b>, <b>CP</b>, and <b>SemiCP</b> model candidates over <b>N = 1–5</b>, giving <b>6075 candidate model rows</b> in the current release.</p>
+<p>The workflow uses two pole-based representations: <b>RP models</b> and <b>CP models</b>. Automated fitting and refinement are performed over <b>N = 1–5</b> pole pairs, giving <b>6075 candidate model rows</b> in the current release.</p>
 </div>
 <div class="material-db-card">
 <h3>FDTD Readiness</h3>
-<p>The release provides <b>3991 FDTD-ready exported models</b>. These are the candidates that pass the production gates and have both downloadable model JSON files and corresponding model-curve data.</p>
+<p>The current database contains <b>3991 exported model files</b>. Final recommendations are available for <b>402 of 405</b> source-specific records after passivity, export, and time-domain stability checks.</p>
 </div>
 </div>
 <div class="material-db-snapshot">
@@ -810,15 +809,15 @@ updates within the fitted wavelength range.
 <strong>6075</strong>
 </div>
 <div class="material-db-snapshot-item">
-<span>FDTD-ready exports</span>
+<span>Exported model files</span>
 <strong>3991</strong>
 </div>
 <div class="material-db-snapshot-item">
-<span>Records with ≥1 ready model</span>
+<span>Recommended records</span>
 <strong>402 / 405</strong>
 </div>
 <div class="material-db-snapshot-item">
-<span>Materials with ≥1 ready model</span>
+<span>Materials with recommendation</span>
 <strong>60 / 60</strong>
 </div>
 <div class="material-db-snapshot-item">
@@ -830,38 +829,47 @@ updates within the fitted wavelength range.
 <strong>131 / 405</strong>
 </div>
 </div>
+
+<div class="material-db-note">
+<b>How ε-RMS is computed.</b>
+For each source-specific record, the experimental optical constants are first converted to a complex dielectric function,
+ε<sub>exp</sub>(λ) = [n(λ) + i k(λ)]<sup>2</sup>. The fitted model gives ε<sub>fit</sub>(λ) on the same fitting grid.
+The reported dimensionless error is
+<code>ε-RMS = sqrt(mean(|ε<sub>fit</sub> − ε<sub>exp</sub>|<sup>2</sup> / (|ε<sub>exp</sub>|<sup>2</sup> + 10<sup>−12</sup>)))</code>.
+This is a relative RMS error of the <b>complex dielectric function</b>, not a direct RMS of n or k alone.
+</div>
+
 <div class="material-db-coverage-bars">
 <div class="material-db-coverage-row">
-<span>Record best ε-RMS ≤ 10<sup>−3</sup></span>
-<div class="material-db-bar"><div style="width:32.3%;"></div></div>
-<strong>130 / 402</strong>
+<span>Recommended ε-RMS ≤ 10<sup>−3</sup></span>
+<div class="material-db-bar"><div style="width:13.9%;"></div></div>
+<strong>56 / 402</strong>
 </div>
 <div class="material-db-coverage-row">
-<span>Record best ε-RMS ≤ 10<sup>−2</sup></span>
+<span>Recommended ε-RMS ≤ 5×10<sup>−3</sup></span>
+<div class="material-db-bar"><div style="width:60.0%;"></div></div>
+<strong>241 / 402</strong>
+</div>
+<div class="material-db-coverage-row">
+<span>Recommended ε-RMS ≤ 10<sup>−2</sup></span>
 <div class="material-db-bar"><div style="width:70.4%;"></div></div>
 <strong>283 / 402</strong>
 </div>
 <div class="material-db-coverage-row">
-<span>Record best ε-RMS &gt; 5×10<sup>−2</sup></span>
+<span>Recommended ε-RMS &gt; 5×10<sup>−2</sup></span>
 <div class="material-db-bar material-db-bar-warning"><div style="width:9.2%;"></div></div>
 <strong>37 / 402</strong>
 </div>
-<div class="material-db-coverage-row">
-<span>Full 0.3–1.1 µm coverage</span>
-<div class="material-db-bar"><div style="width:67.7%;"></div></div>
-<strong>274 / 405</strong>
-</div>
-<div class="material-db-coverage-row">
-<span>Subset wavelength coverage</span>
-<div class="material-db-bar material-db-bar-warning"><div style="width:32.3%;"></div></div>
-<strong>131 / 405</strong>
-</div>
 </div>
 <p class="material-db-snapshot-note">
-The wavelength window is record-specific. Many records span the full 0.3–1.1 µm visible–near-IR window, while others cover only
-the available subset of that range. Fitting quality is reported using the best FDTD-ready ε-RMS available for each source-specific record.
-At the material-label level, all 60 materials have at least one FDTD-ready exported model; 57 of 60 reach best ε-RMS ≤ 10<sup>−2</sup>
-and 42 of 60 reach best ε-RMS ≤ 10<sup>−3</sup>.
+The RMS statistics above use the <b>final recommended model</b> for each source-specific record, so the denominator is 402 rather than the 3991 exported model files.
+A value of ε-RMS ≤ 10<sup>−2</sup> means that the fitted complex dielectric function has an average relative RMS error below approximately 1% on the fitting grid.
+This usually indicates that the fitted dielectric response is visually close to the experimental ε(λ) over the fitted wavelength range, but it does not imply that the maximum pointwise error is below 1% at every wavelength.
+Records with sharp interband features, metallic free-carrier response, narrow wavelength coverage, or strong source-specific structure should still be checked in the online plots before use.
+</p>
+<p class="material-db-snapshot-note">
+The wavelength window is record-specific. Of the 405 source-specific records, 274 cover approximately the full 0.3–1.1 µm visible–near-IR window, while 131 cover only the available subset of that range.
+Three records have no recommended exported model in the current release.
 </p>
 </div>
 <p class="material-db-contact">
@@ -870,7 +878,7 @@ For questions, corrections, or suggestions, please contact
 </p>
 <hr/>
 <p class="small text-muted">
-Current release: precomputed RP/CP/SemiCP optical material fits with record-specific visible–near-IR wavelength coverage. Last updated: May 2026.
+Current release: precomputed RP/CP optical material fits with record-specific visible–near-IR wavelength coverage. Last updated: May 2026.
 </p>
 </div>
 <!-- MATERIAL_DATABASE_SECTION_V34_END -->

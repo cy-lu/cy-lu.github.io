@@ -604,6 +604,26 @@ footer {
 }
 /* MATERIAL_DATABASE_SECTION_STYLE_END */
 
+/* MATERIAL_DB_BUTTON_POLISH_START */
+.mdb-browse-button {
+  display: inline-block;
+  background: #0b7285 !important;
+  border-color: #0b7285 !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-weight: 700;
+  text-decoration: none !important;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.10);
+}
+
+.mdb-browse-button:hover {
+  background: #075c6b !important;
+  border-color: #075c6b !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+ /* MATERIAL_DB_BUTTON_POLISH_END */
 </style>
 </head>
 <body>
@@ -934,8 +954,8 @@ validated, and translated into defensible computational workflows for materials,
     </p>
 
     <div class="material-db-actions">
-      <a class="btn materialdb-primary-action" href="material-database/">Browse models</a>
-      <span class="mdb-small-note">Current release: June 2026  visible&ndash;near-IR  Tidy3D PoleResidue JSON</span>
+      <a class="btn materialdb-primary-action mdb-browse-button" href="material-database/">Browse models</a>
+      <span class="mdb-small-note">Current release: June 2026  visible&ndash;near-IR  fitting parameters exported in Tidy3D PoleResidue JSON format</span>
     </div>
 
     <div class="mdb-metrics-clean">

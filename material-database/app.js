@@ -263,7 +263,7 @@ function statusBadge(m) {
 }
 function modelRow(displayName, m, n) {
   let link = '--';
-  if (m && m.model_json) link = `<a href="${escapeAttr(m.model_json)}" target="_blank">download</a>`;
+  if (m && m.model_json) link = `<a href="${escapeAttr(normalizeDataPath(modelJsonPath(m)))}" target="_blank">download</a>`;
   else if (m && m.FDTD_ready) link = '<span class="muted">not exported</span>';
   return `<tr><td>${displayName}<br><small>${publicCode(m, n)}</small></td><td>${fmt(m?.epsilon_rms)}</td><td>${fmt(m?.absolute_rms)}</td><td>${fmt(m?.G_rho)}</td><td>${statusBadge(m)}</td><td>${link}</td></tr>`;
 }

@@ -1,0 +1,46 @@
+{
+  "attrs": {},
+  "name": "SCP_M3",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 2.0263518558012756,
+  "poles": [
+    [
+      {
+        "real": -2141300542605634.8,
+        "imag": -5813407882649218.0
+      },
+      {
+        "real": -823690319984.244,
+        "imag": 97285657247.99861
+      }
+    ],
+    [
+      {
+        "real": -2134440168718467.5,
+        "imag": -5776571941485847.0
+      },
+      {
+        "real": 795243116981.8984,
+        "imag": -105845563000.5231
+      }
+    ],
+    [
+      {
+        "real": -13666060453.356205,
+        "imag": -9616226900799792.0
+      },
+      {
+        "real": -26748354184.68936,
+        "imag": 729300470616193.4
+      }
+    ]
+  ],
+  "model_family": "SCP",
+  "order_N": 3
+}

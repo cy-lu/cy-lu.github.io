@@ -1,0 +1,26 @@
+{
+  "attrs": {},
+  "name": "CP_M1",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 5.649354854102018,
+  "poles": [
+    [
+      {
+        "real": -31689856446343.887,
+        "imag": -394748708610614.7
+      },
+      {
+        "real": 2203793883418387.2,
+        "imag": 2.5261475396068557e+17
+      }
+    ]
+  ],
+  "model_family": "CP",
+  "order_N": 1
+}

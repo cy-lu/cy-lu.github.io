@@ -1,0 +1,46 @@
+{
+  "attrs": {},
+  "name": "RP_M3",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 4.238693810702171,
+  "poles": [
+    [
+      {
+        "real": -29398.545996015157,
+        "imag": 2.4187637393069896e+16
+      },
+      {
+        "real": -15421205389.320694,
+        "imag": -5.400281517273697e+16
+      }
+    ],
+    [
+      {
+        "real": -1941.5790120600266,
+        "imag": 4195705176566910.5
+      },
+      {
+        "real": -178057.20490522782,
+        "imag": -4678588136.144896
+      }
+    ],
+    [
+      {
+        "real": -32229.56605854036,
+        "imag": 2546103482962115.5
+      },
+      {
+        "real": -33169.794179962744,
+        "imag": 66313659.01240437
+      }
+    ]
+  ],
+  "model_family": "RP",
+  "order_N": 3
+}

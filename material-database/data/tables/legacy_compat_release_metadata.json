@@ -1,0 +1,10 @@
+{
+  "created_at_unix": 1781209043.6688905,
+  "source_release_data": "D:\\02_Academic_Research\\12_Material_Fitter\\05_Website\\WEBSITE_READY_VISNIR_RP_CP_SCP_405_ONLY_PUBLIC_KEYS\\data",
+  "current_site_data_used_as_schema_template": "D:\\GitHub_work\\cy-lu.github.io\\material-database\\data",
+  "purpose": "405-record legacy-schema-compatible public website release",
+  "records": 405,
+  "models": 3929,
+  "model_curves": 3929,
+  "experimental": 810
+}

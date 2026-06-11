@@ -1,44 +1,26 @@
 {
-    "attrs": {},
-    "name": "RP_selected_M3",
-    "frequency_range": null,
-    "allow_gain": false,
-    "nonlinear_spec": null,
-    "modulation_spec": null,
-    "viz_spec": null,
-    "heat_spec": null,
-    "type": "PoleResidue",
-    "eps_inf": 2.1956457334456183,
-    "poles": [
-        [
-            {
-                "real": -41952021395218.4,
-                "imag": -1950149480087481.5
-            },
-            {
-                "real": 294397400612.77423,
-                "imag": 240121216350.94348
-            }
-        ],
-        [
-            {
-                "real": -1043603577552525.4,
-                "imag": -7116656653596095.0
-            },
-            {
-                "real": 189622635467035.38,
-                "imag": 1087621959078940.4
-            }
-        ],
-        [
-            {
-                "real": -349515956161723.06,
-                "imag": -5317635022853560.0
-            },
-            {
-                "real": 79331488764398.9,
-                "imag": 68654749657125.64
-            }
-        ]
+  "attrs": {},
+  "name": "RP_M1",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 2.4119226727069014,
+  "poles": [
+    [
+      {
+        "real": -768461640947507.5,
+        "imag": 5898447069971260.0
+      },
+      {
+        "real": 136647293232052.28,
+        "imag": -471330392460215.56
+      }
     ]
+  ],
+  "model_family": "RP",
+  "order_N": 1
 }

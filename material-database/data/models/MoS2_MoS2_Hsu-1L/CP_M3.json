@@ -1,0 +1,46 @@
+{
+  "attrs": {},
+  "name": "CP_M3",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 13.538426269144448,
+  "poles": [
+    [
+      {
+        "real": -42249568478977.68,
+        "imag": -2929744737499432.0
+      },
+      {
+        "real": -304543559057906.3,
+        "imag": 234778802925173.88
+      }
+    ],
+    [
+      {
+        "real": -161183286804911.25,
+        "imag": -3057840968043996.0
+      },
+      {
+        "real": 498706218176929.9,
+        "imag": 1864808986263926.8
+      }
+    ],
+    [
+      {
+        "real": -438328306608042.06,
+        "imag": -4342201039308434.0
+      },
+      {
+        "real": 1122069977455344.4,
+        "imag": 1.226875045598769e+16
+      }
+    ]
+  ],
+  "model_family": "CP",
+  "order_N": 3
+}

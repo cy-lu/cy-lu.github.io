@@ -1,0 +1,16 @@
+405-record conservative public-key-preserving VISNIR release summary
+================================================================================
+merged_data                     = D:\02_Academic_Research\12_Material_Fitter\05_Website\MERGED_WEBSITE_READY_VISNIR_RP_CP_SCP_2nm_G401_DX5\data
+mapping_csv                     = D:\02_Academic_Research\12_Material_Fitter\05_Website\mapping_405_old_to_merged.csv
+out_root                        = D:\02_Academic_Research\12_Material_Fitter\05_Website\WEBSITE_READY_VISNIR_RP_CP_SCP_405_ONLY_PUBLIC_KEYS
+public records                  = 405
+mapped merged records           = 405
+all model rows                  = 6075
+exportable FDTD-ready rows      = 3929
+copied model JSON               = 3929
+copied model curves             = 3929
+recommendations                 = 396
+records without recommendation  = 9
+recommendation family counts    = {'SCP': 256, 'CP': 71, 'RP': 69}
+experimental JSON               = 810
+elapsed_s                       = 131.69

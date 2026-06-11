@@ -1,0 +1,36 @@
+{
+  "attrs": {},
+  "name": "SCP_M2",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 1.1048457110631482,
+  "poles": [
+    [
+      {
+        "real": -1868365925447076.5,
+        "imag": -2.0081026039132572e+16
+      },
+      {
+        "real": 3779342481908671.0,
+        "imag": 4987334327497854.0
+      }
+    ],
+    [
+      {
+        "real": -1.064451832794531e+16,
+        "imag": -2.5451297029431104e+16
+      },
+      {
+        "real": -1441352130428008.2,
+        "imag": 6195391793483022.0
+      }
+    ]
+  ],
+  "model_family": "SCP",
+  "order_N": 2
+}

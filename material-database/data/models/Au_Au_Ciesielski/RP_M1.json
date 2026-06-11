@@ -1,64 +1,26 @@
 {
-    "attrs": {},
-    "name": "RP_selected_M5",
-    "frequency_range": null,
-    "allow_gain": false,
-    "nonlinear_spec": null,
-    "modulation_spec": null,
-    "viz_spec": null,
-    "heat_spec": null,
-    "type": "PoleResidue",
-    "eps_inf": 0.8639112714907196,
-    "poles": [
-        [
-            {
-                "real": -2173452577064357.2,
-                "imag": -112466367754144.75
-            },
-            {
-                "real": 4.497574959765318e+16,
-                "imag": 1.0294634727524018e+18
-            }
-        ],
-        [
-            {
-                "real": -242706917277147.47,
-                "imag": -496775093226136.5
-            },
-            {
-                "real": -5.5264392743600504e+16,
-                "imag": 2.261849042521955e+17
-            }
-        ],
-        [
-            {
-                "real": -1308343214014005.2,
-                "imag": -5803926797636523.0
-            },
-            {
-                "real": 8005331640979568.0,
-                "imag": 5043683235488881.0
-            }
-        ],
-        [
-            {
-                "real": -827038336591394.4,
-                "imag": -4290680526838695.5
-            },
-            {
-                "real": 3594250170938046.5,
-                "imag": 4897658614504411.0
-            }
-        ],
-        [
-            {
-                "real": -220061442689060.03,
-                "imag": -3911483072083860.0
-            },
-            {
-                "real": -123410117543072.61,
-                "imag": 171680663052392.6
-            }
-        ]
+  "attrs": {},
+  "name": "RP_M1",
+  "frequency_range": null,
+  "allow_gain": false,
+  "nonlinear_spec": null,
+  "modulation_spec": null,
+  "viz_spec": null,
+  "heat_spec": null,
+  "type": "PoleResidue",
+  "eps_inf": 5.772373267907556,
+  "poles": [
+    [
+      {
+        "real": -85361523764337.3,
+        "imag": 638688680399130.2
+      },
+      {
+        "real": 888782370384030.6,
+        "imag": -1.1040146656071683e+17
+      }
     ]
+  ],
+  "model_family": "RP",
+  "order_N": 1
 }

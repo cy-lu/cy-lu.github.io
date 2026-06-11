@@ -453,74 +453,138 @@ footer {
 </style>
 <!-- MATERIAL_DATABASE_SECTION_STYLE_START -->
 <style>
-.material-database-section { margin-top: 2.5rem; }
-.material-database-section h2 { margin-bottom: 0.6rem; }
-.mdb-eyebrow {
+.material-database-section {
+  margin-top: 2.5rem;
+  max-width: 980px;
+}
+.mdb-hero {
+  padding: 1.35rem 0 0.4rem;
+}
+.mdb-kicker {
+  margin: 0 0 0.35rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.78rem;
-  opacity: 0.72;
-  margin-bottom: 0.25rem;
+  font-size: 0.76rem;
+  opacity: 0.68;
 }
-.mdb-lead { max-width: 960px; line-height: 1.65; }
-.mdb-button {
+.material-database-section h2 {
+  margin: 0 0 0.7rem;
+}
+.material-database-section h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+}
+.mdb-summary {
+  max-width: 900px;
+  line-height: 1.65;
+  margin-bottom: 0.95rem;
+}
+.mdb-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+.mdb-primary-link {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.62rem 0.95rem;
-  border-radius: 8px;
+  padding: 0.58rem 0.9rem;
   border: 1px solid currentColor;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: 600;
 }
-.mdb-block { margin-top: 1.6rem; }
-.mdb-two-col {
+.mdb-release-note,
+.mdb-small,
+.mdb-contact {
+  font-size: 0.92rem;
+  opacity: 0.78;
+}
+.mdb-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin: 1.2rem 0 1.35rem;
+}
+.mdb-metrics div {
+  padding: 0.8rem 0.85rem;
+  border: 1px solid rgba(0,0,0,0.13);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.55);
+}
+.mdb-metrics strong {
+  display: block;
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+.mdb-metrics span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.84rem;
+  opacity: 0.72;
+}
+.mdb-panel {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.10);
+}
+.mdb-panel p {
+  line-height: 1.62;
+}
+.mdb-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
-  margin-top: 1.2rem;
 }
-.mdb-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(130px, 1fr));
-  gap: 0.85rem;
-  margin-top: 0.9rem;
+.mdb-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.55rem;
+  font-size: 0.94rem;
 }
-.mdb-grid-small { grid-template-columns: repeat(4, minmax(150px, 1fr)); }
-.mdb-card {
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 10px;
-  padding: 0.85rem 0.9rem;
-  background: rgba(255,255,255,0.55);
+.mdb-table th,
+.mdb-table td {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+  text-align: left;
+  vertical-align: top;
 }
-.mdb-value {
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.2;
+.mdb-table th {
+  width: 68%;
+  font-weight: 500;
+  opacity: 0.82;
 }
-.mdb-label {
-  margin-top: 0.25rem;
-  font-size: 0.88rem;
-  opacity: 0.75;
-  line-height: 1.35;
+.mdb-table td {
+  font-weight: 650;
 }
-.mdb-note { font-size: 0.92rem; opacity: 0.82; }
-.mdb-figure { margin: 1.2rem 0 0; }
+.mdb-rms-table th {
+  width: 72%;
+}
+.mdb-figure {
+  margin: 1rem 0 0;
+}
 .mdb-figure img {
+  display: block;
   max-width: 100%;
   height: auto;
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 8px;
+  background: #fff;
 }
 .mdb-figure figcaption {
   margin-top: 0.45rem;
   font-size: 0.9rem;
+  line-height: 1.45;
   opacity: 0.78;
 }
-@media (max-width: 900px) {
-  .mdb-two-col { grid-template-columns: 1fr; }
-  .mdb-grid, .mdb-grid-small { grid-template-columns: repeat(2, minmax(130px, 1fr)); }
+.mdb-contact {
+  margin-top: 1.2rem;
 }
-@media (max-width: 560px) {
-  .mdb-grid, .mdb-grid-small { grid-template-columns: 1fr; }
+@media (max-width: 760px) {
+  .mdb-metrics,
+  .mdb-split {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 <!-- MATERIAL_DATABASE_SECTION_STYLE_END -->
@@ -842,161 +906,125 @@ validated, and translated into defensible computational workflows for materials,
     <section id="material-database" class="material-database-section">
   <div class="mdb-header">
     <p class="mdb-eyebrow">Optical material models</p>
+    <section id="material-database" class="material-database-section">
+  <div class="mdb-hero">
+    <p class="mdb-kicker">Optical material models</p>
     <h2>FDTD-Ready Optical Material Model Database</h2>
-    <p class="mdb-lead">
-      A searchable release of compact, directly exportable dispersive material models for broadband time-domain electromagnetic simulations.
+    <p class="mdb-summary">
+      A searchable release of compact optical material models for time-domain electromagnetic simulations.
       The database provides precomputed rational-pole (RP), analytical critical-point (CP), and semi-analytical critical-point (SCP)
-      fits to source-specific experimental optical-constant records.
+      dielectric-function fits to source-specific experimental optical-constant records.
     </p>
-    <p class="mdb-lead">
-      Each exported model is provided in Tidy3D PoleResidue JSON format and is reported with fitting quality, passivity information,
-      artifact availability, and a final time-domain amplification-matrix stability audit.
+    <p class="mdb-summary">
+      The exported files are Tidy3D PoleResidue JSON models intended for centered-ADE FDTD workflows.
+      Candidate models are screened for fitting quality, causal pole structure, passivity, export completeness, and compatibility
+      with the centered-ADE time-domain update used in the database validation.
     </p>
-    <p><a class="mdb-button" href="material-database/">Browse the database</a></p>
-  </div>
-
-  <div class="mdb-block">
-    <h3>Release at a glance</h3>
-    <div class="mdb-grid">
-
-      <div class="mdb-card">
-        <div class="mdb-value">60</div>
-        <div class="mdb-label">material labels</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">405</div>
-        <div class="mdb-label">source-specific records</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">6075</div>
-        <div class="mdb-label">candidate model rows</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">3929</div>
-        <div class="mdb-label">FDTD-ready exported models</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">396 / 405</div>
-        <div class="mdb-label">records with recommendation</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">9</div>
-        <div class="mdb-label">records without recommendation</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">279 / 405</div>
-        <div class="mdb-label">full 0.31.1 µm records</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">126 / 405</div>
-        <div class="mdb-label">partial-window records</div>
-      </div>
+    <div class="mdb-actions">
+      <a class="mdb-primary-link" href="material-database/">Browse models</a>
+      <span class="mdb-release-note">Current release: visiblenear-IR  June 2026</span>
     </div>
   </div>
 
-  <div class="mdb-two-col">
-    <div class="mdb-block">
-      <h3>Intended use and validity range</h3>
+  <div class="mdb-metrics">
+    <div><strong>405</strong><span>source records</span></div>
+    <div><strong>60</strong><span>materials</span></div>
+    <div><strong>3929</strong><span>center-ADE-ready exports</span></div>
+    <div><strong>396 / 405</strong><span>recommended records</span></div>
+  </div>
+
+  <div class="mdb-panel">
+    <h3>Scope of use</h3>
+    <p>
+      Use this database when you need an already-audited dispersive model for FDTD simulations within the fitted visiblenear-IR window.
+      Each source record is fitted independently over its available wavelength interval, typically within 0.31.1&nbsp;µm or a subset
+      of that range.
+    </p>
+    <p>
+      The models are not universal material descriptions outside their fitted intervals. Extrapolation can be inaccurate even when a
+      model is causal, passive, and stable in the centered-ADE update. Users should inspect the online n/k and ε plots before using a
+      model in production simulations.
+    </p>
+  </div>
+
+  <div class="mdb-split">
+    <div class="mdb-panel">
+      <h3>Model families</h3>
       <p>
-        This database is intended for users who need compact dispersive models for visiblenear-IR FDTD simulations.
-        Each model is fitted only over the wavelength interval supported by its own experimental record, typically within
-        0.31.1&nbsp;µm or a subset of that range.
-      </p>
-      <p>
-        The models should not be treated as universal optical-constant descriptions outside the fitted interval.
-        Extrapolation to longer or shorter wavelengths may be inaccurate even when the fitted model is passive and FDTD-stable.
-        Users should check the online optical-constant and permittivity plots before using a model in production simulations.
+        The release contains RP, CP, and SCP pole-based representations. Automated fitting and refinement are performed over
+        N = 15 pole pairs, producing 6075 candidate model rows.
       </p>
     </div>
 
-    <div class="mdb-block">
-      <h3>Model families and FDTD readiness</h3>
+    <div class="mdb-panel">
+      <h3>Causality, passivity, and center-ADE usability</h3>
       <p>
-        The release contains three pole-based model families: RP, CP, and SCP. Automated fitting and refinement are performed
-        over N = 15 pole pairs, producing 6075 candidate model rows in the current release.
-      </p>
-      <p>
-        A model is marked FDTD-ready only after passing the production gates, including passivity screening, successful JSON
-        and curve export, and a final amplification-matrix stability check. The recommended model is selected from this
-        audited candidate set rather than from fitting error alone.
+        Recommended models are selected from exported candidates that satisfy the database production checks: causal pole placement,
+        passive dielectric response over the fitted grid, available model-response curves, valid PoleResidue JSON export, and readiness
+        for the centered-ADE FDTD update.
       </p>
     </div>
   </div>
 
-  <div class="mdb-block">
+  <div class="mdb-panel">
+    <h3>Release statistics</h3>
+    <table class="mdb-table">
+      <tbody>
+        <tr><th>Candidate model rows</th><td>6075</td></tr>
+        <tr><th>Exported center-ADE-ready model files</th><td>3929</td></tr>
+        <tr><th>Records with final recommendation</th><td>396 / 405</td></tr>
+        <tr><th>Records without recommended export</th><td>9 / 405</td></tr>
+        <tr><th>Full fitted 0.31.1&nbsp;µm records</th><td>279 / 405</td></tr>
+        <tr><th>Partial-window records</th><td>126 / 405</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mdb-panel">
     <h3>How ε-RMS is computed</h3>
     <p>
-      For each source-specific record, the experimental optical constants are converted to a complex dielectric function,
-      ε<sub>exp</sub>(λ) = [n(λ) + i k(λ)]. The fitted model gives ε<sub>fit</sub>(λ) on the same fitting grid.
-      The reported dimensionless error is
+      The experimental optical constants are converted to ε<sub>exp</sub>(λ) = [n(λ) + i k(λ)] and compared with the fitted
+      ε<sub>fit</sub>(λ) on the same fitting grid. The reported error is
       ε-RMS = sqrt(mean(|ε<sub>fit</sub>  ε<sub>exp</sub>| / (|ε<sub>exp</sub>| + 10))).
-      This is a relative RMS error of the complex dielectric function, not a direct RMS error of n or k alone.
+      This is a relative RMS error of the complex dielectric function, not a direct RMS error of n or k.
     </p>
-    <div class="mdb-grid mdb-grid-small">
-
-      <div class="mdb-card">
-        <div class="mdb-value">59 / 396</div>
-        <div class="mdb-label">recommended ε-RMS  10</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">241 / 396</div>
-        <div class="mdb-label">recommended ε-RMS  510</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">281 / 396</div>
-        <div class="mdb-label">recommended ε-RMS  10</div>
-      </div>
-
-      <div class="mdb-card">
-        <div class="mdb-value">39 / 396</div>
-        <div class="mdb-label">recommended ε-RMS > 510</div>
-      </div>
-    </div>
-    <p class="mdb-note">
-      These RMS statistics use the final recommended model for each recommended source-specific record, so the denominator is
-      396, not the 3929 exported FDTD-ready model files. A value of ε-RMS  10
-      indicates an average relative complex-permittivity error below approximately 1% on the fitting grid; it does not imply
-      that every wavelength point has less than 1% pointwise error.
+    <table class="mdb-table mdb-rms-table">
+      <tbody>
+        <tr><th>Recommended ε-RMS  10</th><td>59 / 396</td></tr>
+        <tr><th>Recommended ε-RMS  510</th><td>241 / 396</td></tr>
+        <tr><th>Recommended ε-RMS  10</th><td>281 / 396</td></tr>
+        <tr><th>Recommended ε-RMS > 510</th><td>39 / 396</td></tr>
+      </tbody>
+    </table>
+    <p class="mdb-small">
+      These statistics use the final recommended model for each recommended source record. The denominator is therefore
+      396, not the 3929 exported model files.
     </p>
   </div>
 
-  <div class="mdb-block">
-    <h3>Relation to Tidy3D FastFitter and on-demand fitting</h3>
+  <div class="mdb-panel">
+    <h3>Relation to Tidy3D FastFitter</h3>
     <p>
-      This database is complementary to on-demand fitting tools such as Tidy3D FastFitter. A fast fitter is useful when a user
-      needs a custom model from a chosen optical-constant dataset, wavelength range, weighting scheme, or target model order.
-      In contrast, this database provides a precomputed and reproducible release of audited RP, CP, and SCP candidates for
-      hundreds of source-specific optical records.
-    </p>
-    <p>
-      The goal is not only to minimize fitting error, but to provide FDTD-ready material files with traceable experimental data,
-      fitting grids, model curves, JSON exports, passivity status, stability status, and recommendation logic. For custom wavelength
-      bands or application-specific weighting, users should perform a new fit and apply equivalent passivity and FDTD-stability checks.
+      This database is complementary to on-demand fitting tools such as Tidy3D FastFitter. Fast fitting is appropriate when a user needs
+      a custom model for a chosen dataset, wavelength range, weighting scheme, or target order. This release instead provides a
+      reproducible lookup database of precomputed RP/CP/SCP models with attached experimental data, fitting grids, model curves,
+      JSON exports, causal/passive screening, centered-ADE readiness, and recommendation metadata.
     </p>
 
+    <figure class="mdb-figure">
+      <img src="material-database/assets/proposed_vs_tidy3d_eps_rms_by_N.png"
+           alt="Relative epsilon RMS comparison between the proposed center-ADE-ready database models and a Tidy3D FastFitter reference." />
+      <figcaption>
+        Relative ε-RMS distribution by model order N for the proposed audited database and a Tidy3D FastFitter reference.
+        The comparison is intended as a fitting-quality reference on paired source-specific records and model orders; the proposed
+        release additionally screens models for causal/passive behavior and center-ADE FDTD usability.
+      </figcaption>
+    </figure>
   </div>
 
-  <div class="mdb-block">
-    <h3>Current release</h3>
-    <p>
-      Current release: record-specific visiblenear-IR RP/CP/SCP optical material fits with Tidy3D PoleResidue JSON exports.
-      9 of 405 source-specific records currently have no recommended exported model.
-    </p>
-    <p>
-      For questions, corrections, or suggestions, please contact
-      <a href="mailto:jinyoulu@ntu.edu.tw">jinyoulu@ntu.edu.tw</a>.
-    </p>
-    <p class="mdb-note">Last updated: June 2026.</p>
-  </div>
+  <p class="mdb-contact">
+    Questions, corrections, or suggestions: <a href="mailto:jinyoulu@ntu.edu.tw">jinyoulu@ntu.edu.tw</a>.
+  </p>
 </section>
 <h2 id="acknowledgement-list">THANK YOU ALL!</h2>
 <ul>

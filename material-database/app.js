@@ -286,6 +286,114 @@ function poorFitWarning(m) {
   return '';
 }
 
+
+function modelCurvePath(m) {
+  return m ? (m.model_curve || m.model_curve_json || m.website_model_curve || '') : '';
+}
+
+function modelJsonPath(m) {
+  return m ? (m.model_json || m.website_model_json || '') : '';
+}
+
+function isUsableModel(m) {
+  return !!(m && m.FDTD_ready && modelJsonPath(m) && modelCurvePath(m) && isFiniteValue(m.epsilon_rms));
+}
+
+function bestModel(models) {
+  const arr = (models || []).filter(isUsableModel);
+  if (!arr.length) return null;
+  arr.sort((a, b) => {
+    const ar = Number(a.epsilon_rms);
+    const br = Number(b.epsilon_rms);
+    if (Number.isFinite(ar) && Number.isFinite(br) && ar !== br) return ar - br;
+    const af = String(a.family || '');
+    const bf = String(b.family || '');
+    return af.localeCompare(bf);
+  });
+  return arr[0];
+}
+
+function normalizeModelEntry(entry, n=null) {
+  if (Array.isArray(entry)) {
+    const rows = entry.filter(x => x && typeof x === 'object');
+    const models = {};
+    for (const m0 of rows) {
+      const m = {...m0};
+      if (!m.model_curve && m.model_curve_json) m.model_curve = m.model_curve_json;
+      if (!m.model_json && m.website_model_json) m.model_json = m.website_model_json;
+      if (!m.model_curve && m.website_model_curve) m.model_curve = m.website_model_curve;
+      const fam = String(m.family || m.public_family || '').toUpperCase();
+      if (fam) models[fam] = m;
+    }
+
+    let selected = rows.find(m => m && (m.recommended === true || m.selected === true) && isUsableModel(m));
+    if (!selected) selected = bestModel(rows);
+
+    return {
+      N: n !== null && n !== undefined ? Number(n) : (selected ? Number(selected.N) : null),
+      quality_label: selected ? (selected.quality_label || 'unknown') : 'none',
+      selected: selected,
+      models: models
+    };
+  }
+
+  if (entry && typeof entry === 'object') {
+    const out = {...entry};
+    out.models = out.models || {};
+    for (const k of Object.keys(out.models)) {
+      const m = out.models[k];
+      if (m && typeof m === 'object') {
+        if (!m.model_curve && m.model_curve_json) m.model_curve = m.model_curve_json;
+        if (!m.model_json && m.website_model_json) m.model_json = m.website_model_json;
+        if (!m.model_curve && m.website_model_curve) m.model_curve = m.website_model_curve;
+      }
+    }
+    if (!out.selected) out.selected = bestModel(Object.values(out.models));
+    return out;
+  }
+
+  return {N: n, quality_label: 'none', selected: null, models: {}};
+}
+
+function normalizePointPayload(payload) {
+  if (!payload || typeof payload !== 'object') return payload;
+  const pts = payload.points;
+
+  if (Array.isArray(pts)) {
+    const out = {...payload, points: {}};
+    const keys = ['wavelength_um', 'wl_um', 'lambda_um', 'wavelength', 'n', 'k', 'eps_real', 'eps_imag'];
+    for (const key of keys) out.points[key] = [];
+    for (const row of pts) {
+      if (!row || typeof row !== 'object') continue;
+      const wl = row.wavelength_um ?? row.wl_um ?? row.lambda_um ?? row.wavelength;
+      out.points.wavelength_um.push(wl);
+      out.points.wl_um.push(wl);
+      out.points.lambda_um.push(wl);
+      out.points.wavelength.push(wl);
+      out.points.n.push(row.n);
+      out.points.k.push(row.k);
+      out.points.eps_real.push(row.eps_real);
+      out.points.eps_imag.push(row.eps_imag);
+    }
+    return out;
+  }
+
+  if (pts && typeof pts === 'object') {
+    const out = {...payload, points: {...pts}};
+    const wl = out.points.wavelength_um || out.points.wl_um || out.points.lambda_um || out.points.wavelength;
+    if (wl) {
+      out.points.wavelength_um = wl;
+      out.points.wl_um = wl;
+      out.points.lambda_um = wl;
+      out.points.wavelength = wl;
+    }
+    return out;
+  }
+
+  return payload;
+}
+
+
 async function renderCurrent(existingToken=null) {
   const token = existingToken || ++RENDER_TOKEN;
   const recordKey = getEl('recordSelect').value;
@@ -295,7 +403,7 @@ async function renderCurrent(existingToken=null) {
   let rec, entry;
   try {
     rec = await getRecord(recordKey);
-    entry = safeModelsByN(rec)[String(n)];
+    entry = normalizeModelEntry(safeModelsByN(rec)[String(n)], n);
   } catch (err) {
     if (token !== RENDER_TOKEN) return;
     clearPanels(`Could not load selected record: ${err.message || err}`);
@@ -311,7 +419,7 @@ async function renderCurrent(existingToken=null) {
   } else {
     const q = entry.quality_label || 'unknown';
     const downloadLine = sel.model_json
-      ? `<p><a class="button-link" href="${escapeAttr(sel.model_json)}" target="_blank">Download PoleResidue JSON</a></p>`
+      ? `<p><a class="button-link" href="${escapeAttr(normalizeDataPath(modelJsonPath(sel)))}" target="_blank">Download PoleResidue JSON</a></p>`
       : `<p class="muted">PoleResidue JSON is not exported for this selected entry.</p>`;
     box.innerHTML = `
       <div class="family">${familyDisplayName(sel)}</div>
@@ -477,14 +585,20 @@ function addModelTraces(traces, payload, label, dash, range) {
 }
 
 function modelForPlotChoice(entry, choice) {
-  const cpBest = cpFamilyBest(entry);
-  const rp = entry?.models?.RP || null;
-  const sel = entry?.selected || null;
+  const e = normalizeModelEntry(entry);
+  const models = e.models || {};
+  const rp = models.RP || null;
+
+  const cpCandidates = [models.SCP, models.CP].filter(Boolean);
+  const cpBest = bestModel(cpCandidates) || cpCandidates[0] || null;
+  const sel = e.selected || bestModel(Object.values(models));
+
   if (choice === 'RP') return [rp].filter(Boolean);
   if (choice === 'CP') return [cpBest].filter(Boolean);
   if (choice === 'both') return [rp, cpBest].filter(Boolean);
   return [sel].filter(Boolean);
 }
+
 
 function ensurePlotControls() {
   if (getEl('plotModelSelect')) return;
@@ -530,14 +644,15 @@ async function renderNkPlot(rec, entry, n, token) {
   if (rangeLabel) rangeLabel.textContent = `Displayed wavelength range: ${rangeText(range)}`;
 
   try {
-    const raw = rec.raw_database_points ? await loadJson(rec.raw_database_points) : null;
-    const fit = rec.fitting_grid_points ? await loadJson(rec.fitting_grid_points) : null;
+    const raw = rec.raw_database_points ? normalizePointPayload(await loadJson(rec.raw_database_points)) : null;
+    const fit = rec.fitting_grid_points ? normalizePointPayload(await loadJson(rec.fitting_grid_points)) : null;
     if (token !== RENDER_TOKEN) return;
     addExperimentalTraces(traces, raw, range);
     if (showFitGrid) addFitGridTraces(traces, fit, range);
     for (const m of modelForPlotChoice(entry, choice)) {
-      if (m && m.model_curve) {
-        const curve = await loadJson(m.model_curve);
+      const curvePath = modelCurvePath(m);
+      if (m && curvePath) {
+        const curve = normalizePointPayload(await loadJson(curvePath));
         if (token !== RENDER_TOKEN) return;
         addModelTraces(traces, curve, publicCode(m, n), m.family === 'RP' ? 'dash' : null, range);
       } else if (m) {
@@ -589,8 +704,8 @@ async function renderSourcePanel(rec, token) {
   const citation = src.citation || src.reference || src.references || rawPayload?.metadata?.citation || '';
   const comments = src.comments || rawPayload?.metadata?.comments || '';
   const sourceLabel = src.label || `${book} / ${page}`;
-  const rawLink = rec.raw_database_points ? `<a href="${escapeAttr(rec.raw_database_points)}" target="_blank">raw experimental JSON</a>` : '<span class="muted">not available</span>';
-  const fitLink = rec.fitting_grid_points ? `<a href="${escapeAttr(rec.fitting_grid_points)}" target="_blank">fitting-grid JSON</a>` : '<span class="muted">not available</span>';
+  const rawLink = rec.raw_database_points ? `<a href="${escapeAttr(normalizeDataPath(rec.raw_database_points))}" target="_blank">raw experimental JSON</a>` : '<span class="muted">not available</span>';
+  const fitLink = rec.fitting_grid_points ? `<a href="${escapeAttr(normalizeDataPath(rec.fitting_grid_points))}" target="_blank">fitting-grid JSON</a>` : '<span class="muted">not available</span>';
   const sourceUrl = url ? `<a href="${escapeAttr(url)}" target="_blank">open source page</a>` : '<span class="muted">not available</span>';
   box.innerHTML = `
     <div class="source-grid">

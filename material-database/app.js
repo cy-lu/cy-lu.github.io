@@ -20,7 +20,33 @@ function sanitizeJsonText(text) {
     .replace(/,\s*-Infinity(?=\s*[,\]])/g, ', null');
 }
 
+
+function normalizeDataPath(path) {
+  if (!path) return path;
+  const s = String(path);
+
+  // Do not touch absolute URLs or root-relative URLs.
+  if (/^(https?:)?\/\//.test(s) || s.startsWith('/')) return s;
+
+  // Already correct for this website.
+  if (s.startsWith('data/')) return s;
+
+  // All database artifacts live under material-database/data/.
+  if (
+    s.startsWith('experimental/') ||
+    s.startsWith('records/') ||
+    s.startsWith('models/') ||
+    s.startsWith('model_curves/') ||
+    s.startsWith('tables/')
+  ) {
+    return 'data/' + s;
+  }
+
+  return s;
+}
+
 async function loadJson(path) {
+  path = normalizeDataPath(path);
   if (!path) return null;
   const cacheKey = String(path);
   if (Object.prototype.hasOwnProperty.call(JSON_CACHE, cacheKey)) return JSON_CACHE[cacheKey];

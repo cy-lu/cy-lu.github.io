@@ -1277,17 +1277,60 @@ computational electromagnetics, scientific computing, and materials modeling.
 <script>
 /* MDB_HASH_TAB_ACTIVATION_START */
 (function () {
-  function activateMaterialDatabaseHash() {
-    if (window.location.hash !== '#materialdatabase') return;
+  function wantsMaterialDatabaseTab() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('tab') === 'materialdatabase') return true;
+    } catch (e) {}
 
-    var tab = document.querySelector('a[data-toggle="tab"][href="#materialdatabase"]');
-    if (tab && window.jQuery && window.jQuery.fn && window.jQuery.fn.tab) {
-      window.jQuery(tab).tab('show');
-    }
+    return window.location.hash === '#materialdatabase';
   }
 
-  document.addEventListener('DOMContentLoaded', activateMaterialDatabaseHash);
-  window.addEventListener('hashchange', activateMaterialDatabaseHash);
+  function activateMaterialDatabaseTab() {
+    if (!wantsMaterialDatabaseTab()) return false;
+
+    var tabLink = document.querySelector('a[data-toggle="tab"][href="#materialdatabase"]');
+    var tabPane = document.querySelector('#materialdatabase');
+    if (!tabLink || !tabPane) return false;
+
+    if (window.jQuery && window.jQuery.fn && window.jQuery.fn.tab) {
+      window.jQuery(tabLink).tab('show');
+    }
+
+    document.querySelectorAll('.nav-tabs .nav-link').forEach(function (el) {
+      el.classList.remove('active');
+      el.setAttribute('aria-selected', 'false');
+    });
+
+    document.querySelectorAll('.tab-content .tab-pane').forEach(function (el) {
+      el.classList.remove('active', 'show');
+    });
+
+    tabLink.classList.add('active');
+    tabLink.setAttribute('aria-selected', 'true');
+    tabPane.classList.add('active', 'show');
+
+    return true;
+  }
+
+  function activateWithRetry() {
+    var tries = 0;
+    var timer = window.setInterval(function () {
+      tries += 1;
+      var ok = activateMaterialDatabaseTab();
+      if (ok || tries >= 20) {
+        window.clearInterval(timer);
+      }
+    }, 100);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activateWithRetry);
+  } else {
+    activateWithRetry();
+  }
+
+  window.addEventListener('hashchange', activateWithRetry);
 })();
 /* MDB_HASH_TAB_ACTIVATION_END */
 </script>

@@ -989,21 +989,39 @@ validated, and translated into defensible computational workflows for materials,
         the centered-ADE update coefficients used in FDTD.
       </p>
 
+      
       <p>
-        The CP model uses a critical-point-inspired line shape before conversion to the same PoleResidue export format,
+        The CP model is used as a positive-frequency critical-point fitting ansatz for interband-like optical features,
       </p>
       <div class="mdb-equation">
-        &epsilon;<sub>CP</sub>(&omega;) =
+        &epsilon;<sub>CP</sub><sup>+</sup>(&omega;) =
         &epsilon;<sub>&infin;</sub> +
         &sum;<sub>&ell;</sub>
         A<sub>&ell;</sub> e<sup>i&phi;<sub>&ell;</sub></sup>
-        (&Omega;<sub>&ell;</sub> - &omega; - i&Gamma;<sub>&ell;</sub>)<sup>-&nu;<sub>&ell;</sub></sup>,
-        &nbsp; &Gamma;<sub>&ell;</sub> &gt; 0.
+        [(&Omega;<sub>&ell;</sub> - &omega;) - i&Gamma;<sub>&ell;</sub>]<sup>-p<sub>&ell;</sub></sup>,
+        &nbsp; &omega; &gt; 0, &nbsp; &Gamma;<sub>&ell;</sub> &gt; 0.
       </div>
       <p>
         Here &Omega;<sub>&ell;</sub>, &Gamma;<sub>&ell;</sub>, A<sub>&ell;</sub>, &phi;<sub>&ell;</sub>, and
-        &nu;<sub>&ell;</sub> describe the critical-point energy, broadening, strength, phase, and line-shape exponent.
-        After fitting, the CP response is represented through the same PoleResidue JSON pathway, so the FDTD implementation
+        p<sub>&ell;</sub> denote the critical-point energy, broadening, strength, phase, and line-shape exponent.
+        This CP expression is used for fitting the optical response; the fractional-power CP term is not stored directly
+        as the FDTD update model.
+      </p>
+      <p>
+        For the released JSON files, each accepted CP fit is converted to a finite CCPR/PoleResidue representation,
+      </p>
+      <div class="mdb-equation">
+        &epsilon;<sub>JSON</sub>(&omega;) =
+        &epsilon;<sub>&infin;</sub> +
+        &sum;<sub>m</sub>
+        [
+        c<sub>m</sub> / (a<sub>m</sub> - i&omega;) +
+        c<sub>m</sub><sup>*</sup> / (a<sub>m</sub><sup>*</sup> - i&omega;)
+        ],
+        &nbsp; Re(a<sub>m</sub>) &gt; 0.
+      </div>
+      <p>
+        Therefore, users download and implement the converted CCPR/PoleResidue JSON parameters, and the FDTD implementation
         remains a centered-ADE PoleResidue update.
       </p>
     </div>

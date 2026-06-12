@@ -1274,5 +1274,22 @@ computational electromagnetics, scientific computing, and materials modeling.
 <hr/>
 <footer>Last updated: May 2026</footer>
 </div>
+<script>
+/* MDB_HASH_TAB_ACTIVATION_START */
+(function () {
+  function activateMaterialDatabaseHash() {
+    if (window.location.hash !== '#materialdatabase') return;
+
+    var tab = document.querySelector('a[data-toggle="tab"][href="#materialdatabase"]');
+    if (tab && window.jQuery && window.jQuery.fn && window.jQuery.fn.tab) {
+      window.jQuery(tab).tab('show');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', activateMaterialDatabaseHash);
+  window.addEventListener('hashchange', activateMaterialDatabaseHash);
+})();
+/* MDB_HASH_TAB_ACTIVATION_END */
+</script>
 </body>
 </html>

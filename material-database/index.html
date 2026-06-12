@@ -19,23 +19,21 @@
       <div class="panel" id="release-credibility">
         <p><strong>June 2026 release</strong> &mdash; 405 source-specific records &middot; 60 material labels &middot; 3929 centered-ADE-ready exports.</p>
         <p>Each downloadable entry provides a compact PoleResidue dielectric model, source-data traceability, fitting-error indicators, and a simulation-oriented readiness label for FDTD users.</p>
-        <p><a href="https://cy-lu.github.io/#materialdatabase">Full methodology, fitting statistics, and accuracy benchmarks &rarr;</a></p>
+
+        <h2>Using the downloaded models</h2>
+        <ol class="usage-steps">
+          <li>Select a material, reference record, and model order.</li>
+          <li>Download the PoleResidue JSON model.</li>
+          <li>Use the JSON model in a compatible solver, or validate it with the MATLAB 1D FDTD reference example.</li>
+        </ol>
+        <p class="subtle">The MATLAB example reads a downloaded PoleResidue JSON file, runs a simple 1D dispersive-film FDTD test, and optionally compares reflection, transmission, and absorption against a transfer-matrix reference.</p>
+        <p><a href="../index.html#materialdatabase">Full methodology, fitting statistics, and accuracy benchmarks &rarr;</a></p>
+        <p><a class="button-link" href="examples/fdtd1d_pole_residue_6panel_matlab.zip" download>Download MATLAB 1D FDTD example</a></p>
       </div>
       <!-- MDB_CREDIBILITY_HEADER_ONLY_END -->
       <p class="home-link"><a href="../index.html">← Back to Chun-Yu Lu's homepage</a></p>
     </header>
 
-    <section class="panel" id="using-models">
-      <h2>Using the downloaded models</h2>
-      <p>Each entry can be downloaded as a compact PoleResidue JSON dielectric model for time-domain electromagnetic simulations.</p>
-      <ol class="usage-steps">
-        <li>Select a material, reference record, and model order.</li>
-        <li>Download the PoleResidue JSON model.</li>
-        <li>Use the JSON model in a compatible solver, or validate it with the MATLAB 1D FDTD reference example.</li>
-      </ol>
-      <p class="subtle">The MATLAB example reads a downloaded PoleResidue JSON file, runs a simple 1D dispersive-film FDTD test, and optionally compares reflection, transmission, and absorption against a transfer-matrix reference.</p>
-      <p><a class="button-link" href="examples/fdtd1d_pole_residue_6panel_matlab.zip" download>Download MATLAB 1D FDTD example</a></p>
-    </section>
     <section class="panel controls-panel" aria-label="Browse models">
       <div class="panel-heading-row">
         <div>

@@ -450,6 +450,12 @@ footer {
   background: #c9822b !important;
 }
 /* MATERIALDB_HOME_ACTION_POLISH_V36_END */
+/* MATERIAL_DB_NAV_LABEL_POLISH_START */
+.nav-tabs .nav-link.mdb-nav-material {
+  font-size: 0.86rem;
+  letter-spacing: -0.01em;
+}
+/* MATERIAL_DB_NAV_LABEL_POLISH_END */
 
 /* MATERIAL_DATABASE_SECTION_STYLE_START */
 .material-db-overview {
@@ -477,10 +483,23 @@ footer {
   margin: 16px 0 20px;
 }
 
-.material-db-actions .btn {
+.mdb-browse-button {
+  display: inline-block;
+  background: #0b7285 !important;
+  border-color: #0b7285 !important;
+  color: #ffffff !important;
   border-radius: 8px;
-  padding: 9px 16px;
-  font-weight: 600;
+  padding: 9px 18px;
+  font-weight: 700;
+  text-decoration: none !important;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.10);
+}
+
+.mdb-browse-button:hover {
+  background: #075c6b !important;
+  border-color: #075c6b !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 
 .mdb-metrics-clean {
@@ -531,15 +550,9 @@ footer {
   line-height: 1.68;
 }
 
-.mdb-clean-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
 .mdb-clean-table {
   width: 100%;
-  max-width: 760px;
+  max-width: 880px;
   border-collapse: collapse;
   margin-top: 8px;
   font-size: 0.94rem;
@@ -553,7 +566,6 @@ footer {
 }
 
 .mdb-clean-table th {
-  width: 68%;
   font-weight: 500;
   color: #444;
 }
@@ -562,9 +574,22 @@ footer {
   font-weight: 650;
 }
 
+.mdb-equation {
+  max-width: 920px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  overflow-x: auto;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
 .mdb-benchmark-figure {
-  margin: 14px 0 0;
-  max-width: 900px;
+  margin: 14px 0 18px;
+  max-width: 920px;
 }
 
 .mdb-benchmark-figure img {
@@ -592,9 +617,6 @@ footer {
   .mdb-metrics-clean {
     grid-template-columns: repeat(2, minmax(135px, 1fr));
   }
-  .mdb-clean-split {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 575px) {
@@ -604,32 +626,6 @@ footer {
 }
 /* MATERIAL_DATABASE_SECTION_STYLE_END */
 
-/* MATERIAL_DB_BUTTON_POLISH_START */
-.mdb-browse-button {
-  display: inline-block;
-  background: #0b7285 !important;
-  border-color: #0b7285 !important;
-  color: #ffffff !important;
-  border-radius: 8px;
-  padding: 9px 18px;
-  font-weight: 700;
-  text-decoration: none !important;
-  box-shadow: 0 2px 9px rgba(0,0,0,0.10);
-}
-
-.mdb-browse-button:hover {
-  background: #075c6b !important;
-  border-color: #075c6b !important;
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
- /* MATERIAL_DB_BUTTON_POLISH_END */
-/* MATERIAL_DB_NAV_LABEL_POLISH_START */
-.nav-tabs .nav-link.mdb-nav-material {
-  font-size: 0.86rem;
-  letter-spacing: -0.01em;
-}
-/* MATERIAL_DB_NAV_LABEL_POLISH_END */
 </style>
 </head>
 <body>
@@ -945,23 +941,24 @@ validated, and translated into defensible computational workflows for materials,
 <div class="tab-pane fade" id="materialdatabase" style="padding-top:0;"><br>
   <div class="material-db-overview">
     <p class="mdb-kicker">Optical material models</p>
-    <h2>FDTD-Ready Optical Material Model Database</h2>
+    <h2>FDTD Optical Material Database</h2>
 
     <p class="mdb-lead">
       This section provides a searchable database of compact optical material models for time-domain electromagnetic simulation.
-      The current visible&ndash;near-IR release contains precomputed rational-pole (RP), analytical critical-point (CP), and
-      semi-analytical critical-point (SCP) dielectric-function fits to source-specific experimental optical-constant records.
+      The current visible&ndash;near-IR release is organized around complex-conjugate pole-residue rational-pole models
+      (CCPR/RP) and critical-point (CP) extensions of the same pole-residue framework.
     </p>
 
     <p class="mdb-lead">
-      The exported files are provided in Tidy3D PoleResidue JSON format for centered-ADE FDTD workflows. Candidate models are
-      screened for fitting quality, causal pole structure, passive dielectric response, export completeness, and usability in the
-      centered-ADE time-domain update used for this database.
+      RP provides the general complex pole-residue representation, while CP introduces critical-point-inspired structure for
+      optical spectra with interband-like features. In both cases, the final fitted parameters are exported as PoleResidue JSON
+      files following the Tidy3D-compatible file convention for easy implementation and are used directly by the centered-ADE
+      FDTD update.
     </p>
 
     <div class="material-db-actions">
       <a class="btn materialdb-primary-action mdb-browse-button" href="material-database/">Browse models</a>
-      <span class="mdb-small-note">Current release: June 2026  visible&ndash;near-IR  fitting parameters exported in Tidy3D PoleResidue JSON format</span>
+      <span class="mdb-small-note">Current release: June 2026  visible&ndash;near-IR  fitting parameters exported in PoleResidue JSON format</span>
     </div>
 
     <div class="mdb-metrics-clean">
@@ -969,6 +966,83 @@ validated, and translated into defensible computational workflows for materials,
       <div class="mdb-metric-clean"><strong>60</strong><span>material labels</span></div>
       <div class="mdb-metric-clean"><strong>3929</strong><span>centered-ADE-ready exports</span></div>
       <div class="mdb-metric-clean"><strong>396 / 405</strong><span>records with recommendation</span></div>
+    </div>
+
+    <div class="mdb-clean-panel">
+      <h3>Model representation</h3>
+      <p>
+        In the PoleResidue convention used by the exported JSON files, the CCPR/RP model is written as a complex-conjugate
+        pole-residue expansion,
+      </p>
+      <div class="mdb-equation">
+        &epsilon;<sub>RP</sub>(&omega;) =
+        &epsilon;<sub>&infin;</sub> +
+        &sum;<sub>m</sub>
+        [
+        c<sub>m</sub> / (a<sub>m</sub> - i&omega;) +
+        c<sub>m</sub><sup>*</sup> / (a<sub>m</sub><sup>*</sup> - i&omega;)
+        ],
+        &nbsp; Re(a<sub>m</sub>) &gt; 0.
+      </div>
+      <p>
+        The complex-conjugate pairing gives a real time-domain response, while the positive decay convention is converted to
+        the centered-ADE update coefficients used in FDTD.
+      </p>
+
+      <p>
+        The CP model uses a critical-point-inspired line shape before conversion to the same PoleResidue export format,
+      </p>
+      <div class="mdb-equation">
+        &epsilon;<sub>CP</sub>(&omega;) =
+        &epsilon;<sub>&infin;</sub> +
+        &sum;<sub>&ell;</sub>
+        A<sub>&ell;</sub> e<sup>i&phi;<sub>&ell;</sub></sup>
+        (&Omega;<sub>&ell;</sub> - &omega; - i&Gamma;<sub>&ell;</sub>)<sup>-&nu;<sub>&ell;</sub></sup>,
+        &nbsp; &Gamma;<sub>&ell;</sub> &gt; 0.
+      </div>
+      <p>
+        Here &Omega;<sub>&ell;</sub>, &Gamma;<sub>&ell;</sub>, A<sub>&ell;</sub>, &phi;<sub>&ell;</sub>, and
+        &nu;<sub>&ell;</sub> describe the critical-point energy, broadening, strength, phase, and line-shape exponent.
+        After fitting, the CP response is represented through the same PoleResidue JSON pathway, so the FDTD implementation
+        remains a centered-ADE PoleResidue update.
+      </p>
+    </div>
+
+    <div class="mdb-clean-panel">
+      <h3>Causality, passivity, and centered-ADE readiness</h3>
+      <p>
+        The fitting workflow does not select models by RMS error alone. Exported models are screened for causal pole placement,
+        passive dielectric response on the fitted wavelength grid, valid PoleResidue JSON export, available model-response curves,
+        and numerical readiness for the centered-ADE update at CFL = 0.75.
+      </p>
+    </div>
+
+    <div class="mdb-clean-panel">
+      <h3>Fitting accuracy versus pole-pair order</h3>
+      <p>
+        The figures below summarize the relative complex-permittivity RMS error as a function of pole-pair order N on common
+        optical records. The reference curve corresponds to an external on-demand pole-residue fitter, while CCPR and CP denote
+        the database fitting families. Increasing N generally reduces the median error of the released CCPR and CP candidates,
+        but the final recommendation is selected using both fitting accuracy and physical/numerical readiness.
+      </p>
+
+      <figure class="mdb-benchmark-figure">
+        <img src="material-database/assets/ccpr_cp_vs_reference_eps_rms_by_N.png" alt="Median relative epsilon RMS versus pole-pair order for reference fitter, CCPR, and CP models">
+        <figcaption>
+          Median relative &epsilon;-RMS versus pole-pair order N on common optical records. The blue curve is an external
+          on-demand pole-residue fitting reference. CCPR and CP show the released database fitting families after
+          causal/passive screening and centered-ADE readiness checks at CFL = 0.75. Shaded bands indicate the interquartile range.
+        </figcaption>
+      </figure>
+
+      <figure class="mdb-benchmark-figure">
+        <img src="material-database/assets/comparison_of_ccpr_cp_and_fitter_distributions.png" alt="Distribution of relative epsilon RMS by pole-pair order for CCPR CP database and reference fitter">
+        <figcaption>
+          Distribution of relative &epsilon;-RMS by pole-pair order N. The left panel summarizes the CCPR/CP database models,
+          and the right panel shows the external reference fitter. This view complements the median trend by showing the spread
+          and low-error tails across the common optical records.
+        </figcaption>
+      </figure>
     </div>
 
     <div class="mdb-clean-panel">
@@ -983,25 +1057,6 @@ validated, and translated into defensible computational workflows for materials,
         inaccurate even when a model is causal, passive, and usable in the centered-ADE update. Users should inspect the online
         n/k and permittivity plots before using a model in production simulations.
       </p>
-    </div>
-
-    <div class="mdb-clean-split">
-      <div class="mdb-clean-panel">
-        <h3>Model families</h3>
-        <p>
-          The release includes RP, CP, and SCP pole-based representations. Automated fitting and refinement are performed over
-          N = 1&ndash;5 pole pairs, producing 6075 candidate model rows.
-        </p>
-      </div>
-
-      <div class="mdb-clean-panel">
-        <h3>Causality, passivity, and centered-ADE readiness</h3>
-        <p>
-          Recommended models are selected from exported candidates that satisfy the database production checks: causal pole placement,
-          passive dielectric response on the fitting grid, available model-response curves, valid PoleResidue JSON export, and
-          readiness for the centered-ADE FDTD update.
-        </p>
-      </div>
     </div>
 
     <div class="mdb-clean-panel">
@@ -1039,25 +1094,6 @@ validated, and translated into defensible computational workflows for materials,
         These statistics use the final recommended model for each recommended record, so the denominator is 396 rather than
         the 3929 exported model files.
       </p>
-    </div>
-
-    <div class="mdb-clean-panel">
-      <h3>Relation to Tidy3D FastFitter</h3>
-      <p>
-        This database is complementary to on-demand fitting tools such as Tidy3D FastFitter. Fast fitting is useful when a user
-        needs a custom model for a chosen dataset, wavelength range, weighting scheme, or target order. This database instead
-        provides a reproducible lookup release of precomputed RP/CP/SCP models with experimental data, fitting grids, model
-        curves, JSON exports, causal/passive screening, centered-ADE readiness, and recommendation metadata.
-      </p>
-      
-<figure class="mdb-benchmark-figure">
-  <img src="material-database/assets/proposed_vs_tidy3d_eps_rms_by_N.png" alt="Relative epsilon RMS comparison between the proposed database and a Tidy3D FastFitter reference">
-  <figcaption>
-    Relative &epsilon;-RMS distribution by model order N for the proposed audited database and a Tidy3D FastFitter reference.
-    This comparison is used as a fitting-quality reference on paired source records; the database additionally reports causal,
-    passive, and centered-ADE-ready exported models.
-  </figcaption>
-</figure>
     </div>
 
     <p class="mdb-contact">

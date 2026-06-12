@@ -7,6 +7,16 @@ const APP_VERSION = '20260527_28_eps_toggle';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 const ALL_CLASSES = 'All material classes';
 
+/* MATERIAL_CLASS_ORDER_START */
+const MATERIAL_CLASS_ORDER = [
+  'Metal / conductor',
+  'Semiconductor',
+  'Transparent dielectric',
+  '2D / layered material',
+  'Chalcogenide glass'
+];
+/* MATERIAL_CLASS_ORDER_END */
+
 function sanitizeJsonText(text) {
   return text
     .replace(/:\s*NaN(?=\s*[,}\]])/g, ': null')
@@ -118,7 +128,11 @@ async function init() {
   const materialSelect = getEl('materialSelect');
   const search = getEl('materialSearch');
 
-  const classes = unique(INDEX.map(categoryOfIndexRow)).sort((a,b) => String(a).localeCompare(String(b)));
+  const classValues = unique(INDEX.map(categoryOfIndexRow));
+  const classes = [
+    ...MATERIAL_CLASS_ORDER.filter(c => classValues.includes(c)),
+    ...classValues.filter(c => !MATERIAL_CLASS_ORDER.includes(c)).sort((a,b) => String(a).localeCompare(String(b)))
+  ];
   clearSelect(classSelect);
   addOption(classSelect, ALL_CLASSES, ALL_CLASSES);
   classes.forEach(c => addOption(classSelect, c, c));

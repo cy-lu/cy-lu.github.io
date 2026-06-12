@@ -92,30 +92,35 @@
         <summary>Mathematical model definitions</summary>
         <div class="definition-grid">
           <div class="definition-card rp-card">
-            <h3>Rational-pole (RP)</h3>
+            <h3>PoleResidue JSON / rational-pole (RP)</h3>
             <div class="equation-text">
-              ε<sub>RP</sub>(z) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>
-              [ r<sub>j</sub>/(z − p<sub>j</sub>) + r<sub>j</sub><sup>*</sup>/(z − p<sub>j</sub><sup>*</sup>) ].
+              &epsilon;<sub>JSON</sub>(&omega;) = &epsilon;<sub>&infin;</sub> &minus; &sum;<sub>m=1</sub><sup>M</sup>
+              [ c<sub>m</sub>/(i&omega; + a<sub>m</sub>) + c<sub>m</sub><sup>*</sup>/(i&omega; + a<sub>m</sub><sup>*</sup>) ],
+              Re(a<sub>m</sub>) &lt; 0.
             </div>
             <p>
-              Here <i>z</i> is the normalized complex-frequency variable, <i>p</i><sub>j</sub> is a complex pole,
-              <i>r</i><sub>j</sub> is the residue, and <i>N</i> is the number of pole pairs.
+              This is the native convention used by the exported JSON files and the MATLAB reference code,
+              under the exp(&minus;i&omega;t) time convention. Here a<sub>m</sub> and c<sub>m</sub> are the pole and
+              residue stored in the JSON file; passive poles have negative real parts and should not be sign-flipped.
             </p>
           </div>
           <div class="definition-card cp-card">
-            <h3>Critical-point (CP)</h3>
+            <h3>Critical-point fitting ansatz (CP)</h3>
             <div class="equation-text">
-              ε<sub>CP</sub>(ω) = ε<sub>∞</sub> + Σ<sub>j=1</sub><sup>N</sup>
-              [ c<sub>j</sub>Ω<sub>j</sub>/(Ω<sub>j</sub> − ω − iΓ<sub>j</sub>)
-              + c<sub>j</sub><sup>*</sup>Ω<sub>j</sub>/(Ω<sub>j</sub> + ω + iΓ<sub>j</sub>) ].
+              &epsilon;<sub>CP+</sub>(&omega;) = &epsilon;<sub>&infin;</sub> + &sum;<sub>&ell;=1</sub><sup>N<sub>CP</sub></sup>
+              A<sub>&ell;</sub> exp(i&phi;<sub>&ell;</sub>) [(&Omega;<sub>&ell;</sub> &minus; &omega;) &minus; i&Gamma;<sub>&ell;</sub>]<sup>&minus;p<sub>&ell;</sub></sup>,
+              &omega; &gt; 0, &Gamma;<sub>&ell;</sub> &gt; 0.
             </div>
             <p>
-              Ω<sub>j</sub> is the transition frequency, Γ<sub>j</sub> is the damping rate, and
-              <i>c</i><sub>j</sub> is a complex oscillator coefficient. The public CP entry reports the best CP-family branch.
+              &Omega;<sub>&ell;</sub>, &Gamma;<sub>&ell;</sub>, A<sub>&ell;</sub>, &phi;<sub>&ell;</sub>, and p<sub>&ell;</sub>
+              denote the critical-point energy, broadening, strength, phase, and line-shape exponent.
+              The CP expression is used as a fitting ansatz only.
             </p>
             <p>
-              CP is used as a fitting ansatz. Released CP-family entries are converted to finite
-              PoleResidue JSON models before use in the centered-ADE FDTD update.
+              Released CP-family entries are converted to the same finite PoleResidue JSON convention used above:
+              &epsilon;<sub>JSON</sub>(&omega;) = &epsilon;<sub>&infin;</sub> &minus; &sum;<sub>m</sub>
+              [c<sub>m</sub>/(i&omega;+a<sub>m</sub>) + c<sub>m</sub><sup>*</sup>/(i&omega;+a<sub>m</sub><sup>*</sup>)],
+              with Re(a<sub>m</sub>) &lt; 0. The fractional-power CP term is not stored directly as the FDTD update model.
             </p>
           </div>
         </div>

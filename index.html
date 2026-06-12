@@ -971,58 +971,55 @@ validated, and translated into defensible computational workflows for materials,
     <div class="mdb-clean-panel">
       <h3>Model representation</h3>
       <p>
-        In the PoleResidue convention used by the exported JSON files, the CCPR/RP model is written as a complex-conjugate
-        pole-residue expansion,
+        In the Tidy3D-compatible PoleResidue convention used by the exported JSON files,
+        the CCPR/RP model is evaluated under the exp(&minus;i&omega;t) time convention as
       </p>
       <div class="mdb-equation">
-        &epsilon;<sub>RP</sub>(&omega;) =
-        &epsilon;<sub>&infin;</sub> +
-        &sum;<sub>m</sub>
+        &epsilon;<sub>JSON</sub>(&omega;) = &epsilon;<sub>&infin;</sub> &minus;
+        &sum;<sub>m=1</sub><sup>M</sup>
         [
-        c<sub>m</sub> / (a<sub>m</sub> - i&omega;) +
-        c<sub>m</sub><sup>*</sup> / (a<sub>m</sub><sup>*</sup> - i&omega;)
+        c<sub>m</sub> / (i&omega; + a<sub>m</sub>) +
+        c<sub>m</sub><sup>*</sup> / (i&omega; + a<sub>m</sub><sup>*</sup>)
         ],
-        &nbsp; Re(a<sub>m</sub>) &gt; 0.
+        &nbsp; Re(a<sub>m</sub>) &lt; 0.
       </div>
       <p>
-        The complex-conjugate pairing gives a real time-domain response, while the positive decay convention is converted to
-        the centered-ADE update coefficients used in FDTD.
+        The complex-conjugate pairing gives a real time-domain response. The pole a<sub>m</sub>
+        and residue c<sub>m</sub> are the parameters stored in the JSON file; passive poles have
+        negative real parts and should not be sign-flipped before use in the centered-ADE FDTD update.
       </p>
-
-      
       <p>
         The CP model is used as a positive-frequency critical-point fitting ansatz for interband-like optical features,
       </p>
       <div class="mdb-equation">
         &epsilon;<sub>CP</sub><sup>+</sup>(&omega;) =
         &epsilon;<sub>&infin;</sub> +
-        &sum;<sub>&ell;</sub>
-        A<sub>&ell;</sub> e<sup>i&phi;<sub>&ell;</sub></sup>
-        [(&Omega;<sub>&ell;</sub> - &omega;) - i&Gamma;<sub>&ell;</sub>]<sup>-p<sub>&ell;</sub></sup>,
+        &sum;<sub>&ell;=1</sub><sup>N<sub>CP</sub></sup>
+        A<sub>&ell;</sub> exp(i&phi;<sub>&ell;</sub>)
+        [(&Omega;<sub>&ell;</sub> &minus; &omega;) &minus; i&Gamma;<sub>&ell;</sub>]<sup>&minus;p<sub>&ell;</sub></sup>,
         &nbsp; &omega; &gt; 0, &nbsp; &Gamma;<sub>&ell;</sub> &gt; 0.
       </div>
       <p>
-        Here &Omega;<sub>&ell;</sub>, &Gamma;<sub>&ell;</sub>, A<sub>&ell;</sub>, &phi;<sub>&ell;</sub>, and
-        p<sub>&ell;</sub> denote the critical-point energy, broadening, strength, phase, and line-shape exponent.
+        Here &Omega;<sub>&ell;</sub>, &Gamma;<sub>&ell;</sub>, A<sub>&ell;</sub>, &phi;<sub>&ell;</sub>,
+        and p<sub>&ell;</sub> denote the critical-point energy, broadening, strength, phase, and line-shape exponent.
         This CP expression is used for fitting the optical response; the fractional-power CP term is not stored directly
         as the FDTD update model.
       </p>
       <p>
-        For the released JSON files, each accepted CP fit is converted to a finite CCPR/PoleResidue representation,
+        For the released JSON files, each accepted CP-family fit is converted to the same finite PoleResidue convention,
       </p>
       <div class="mdb-equation">
-        &epsilon;<sub>JSON</sub>(&omega;) =
-        &epsilon;<sub>&infin;</sub> +
-        &sum;<sub>m</sub>
+        &epsilon;<sub>JSON</sub>(&omega;) = &epsilon;<sub>&infin;</sub> &minus;
+        &sum;<sub>m=1</sub><sup>M</sup>
         [
-        c<sub>m</sub> / (a<sub>m</sub> - i&omega;) +
-        c<sub>m</sub><sup>*</sup> / (a<sub>m</sub><sup>*</sup> - i&omega;)
+        c<sub>m</sub> / (i&omega; + a<sub>m</sub>) +
+        c<sub>m</sub><sup>*</sup> / (i&omega; + a<sub>m</sub><sup>*</sup>)
         ],
-        &nbsp; Re(a<sub>m</sub>) &gt; 0.
+        &nbsp; Re(a<sub>m</sub>) &lt; 0.
       </div>
       <p>
-        Therefore, users download and implement the converted CCPR/PoleResidue JSON parameters, and the FDTD implementation
-        remains a centered-ADE PoleResidue update.
+        Therefore, users download and implement the converted PoleResidue JSON parameters, and the FDTD implementation
+        remains a centered-ADE PoleResidue update using the native JSON convention.
       </p>
     </div>
 

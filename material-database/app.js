@@ -3,7 +3,7 @@ let RECORD_CACHE = Object.create(null);
 let JSON_CACHE = Object.create(null);
 let RENDER_TOKEN = 0;
 
-const APP_VERSION = '20260612_class3_fe3o4';
+const APP_VERSION = '20260612_range_warning_v1';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 const ALL_CLASSES = 'All material classes';
 
@@ -435,10 +435,12 @@ async function renderCurrent(existingToken=null) {
     const downloadLine = sel.model_json
       ? `<p><a class="button-link" href="${escapeAttr(normalizeDataPath(modelJsonPath(sel)))}" target="_blank">Download PoleResidue JSON</a></p>`
       : `<p class="muted">PoleResidue JSON is not exported for this selected entry.</p>`;
+    const fittedRangeLine = `<p class="muted"><b>Fitted range:</b> ${rangeText(fitRange(rec))}. Avoid extrapolation outside this interval without revalidation.</p>`;
     box.innerHTML = `
       <div class="family">${familyDisplayName(sel)}</div>
       <p><span class="badge ${badgeForQuality(q)}">${escapeHtml(q)}</span><span class="badge">${publicCode(sel, n)}</span></p>
       <p class="metric-line"><b>ε RMS:</b> ${fmt(sel.epsilon_rms)}<br><b>Abs RMS:</b> ${fmt(sel.absolute_rms)}<br><b>Format:</b> PoleResidue JSON<br><b>Status:</b> ${escapeHtml(sel.FDTD_status || '--')}</p>
+      ${fittedRangeLine}
       ${poorFitWarning(sel)}
       ${downloadLine}
     `;

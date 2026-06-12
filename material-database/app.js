@@ -3,7 +3,7 @@ let RECORD_CACHE = Object.create(null);
 let JSON_CACHE = Object.create(null);
 let RENDER_TOKEN = 0;
 
-const APP_VERSION = '20260612_range_warning_v1';
+const APP_VERSION = '20260612_display_fix_v1';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 const ALL_CLASSES = 'All material classes';
 
@@ -95,8 +95,30 @@ function setText(id, text) { const el = getEl(id); if (el) el.textContent = text
 function escapeHtml(s) { return String(s ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch])); }
 function escapeAttr(s) { return escapeHtml(s); }
 
+function textValue(v) {
+  const s = String(v ?? '').trim();
+  return s ? s : '';
+}
 function categoryOfIndexRow(x) {
-  return x.material_category || x.material_class || x.category || x.class || 'Other materials';
+  return textValue(x?.material_category) || textValue(x?.material_class) || textValue(x?.category) || textValue(x?.class) || 'Other materials';
+}
+function indexRowForRecord(rec) {
+  const key = textValue(getEl('recordSelect')?.value || rec?.record_key);
+  if (key) {
+    const byKey = INDEX.find(x => textValue(x.record_key) === key);
+    if (byKey) return byKey;
+  }
+  const material = textValue(rec?.material);
+  const label = `${textValue(rec?.book)} / ${textValue(rec?.page)}`;
+  return INDEX.find(x =>
+    textValue(x.material) === material &&
+    (textValue(x.record_label) === label || textValue(x.record_key) === key)
+  ) || null;
+}
+function categoryOfRecord(rec) {
+  const idx = indexRowForRecord(rec);
+  return textValue(idx?.material_category) || textValue(idx?.material_class) || textValue(idx?.category) || textValue(idx?.class) ||
+         textValue(rec?.material_category) || textValue(rec?.material_class) || 'Other materials';
 }
 function safeModelsByN(rec) {
   return (rec && rec.models_by_N && typeof rec.models_by_N === 'object') ? rec.models_by_N : {};
@@ -268,7 +290,7 @@ function cpFamilyBest(entry) {
   return cp || scp || null;
 }
 function familyDisplayName(m) { return !m ? '--' : (m.family === 'RP' ? 'Rational-pole (RP)' : 'Critical-point (CP)'); }
-function publicCode(m, n) { return !m ? '--' : (m.family === 'RP' ? `RP_M${n}` : `CP_M${n}`); }
+function publicCode(m, n) { return !m ? '--' : (m.public_model_code || m.model_code || (m.family === 'RP' ? `RP_M${n}` : `CP_M${n}`)); }
 function statusBadge(m) {
   if (!m) return '<span class="badge bad">not available</span>';
   if (m.FDTD_ready && m.model_json) return '<span class="badge good">FDTD-ready</span>';
@@ -286,11 +308,29 @@ function badgeForQuality(q) {
   if (q === 'warning') return 'warn';
   return 'bad';
 }
+function parseRangeCandidate(v) {
+  let arr = null;
+  if (Array.isArray(v)) {
+    arr = v;
+  } else if (typeof v === 'string') {
+    arr = v.match(/[-+]?(?:\d+\.\d+|\d+|\.\d+)(?:[eE][-+]?\d+)?/g);
+  }
+  if (!arr || arr.length < 2) return null;
+  const lo = Number(arr[0]);
+  const hi = Number(arr[1]);
+  return Number.isFinite(lo) && Number.isFinite(hi) && hi > lo ? [lo, hi] : null;
+}
 function fitRange(rec) {
-  const r = rec && Array.isArray(rec.wavelength_range_um) ? rec.wavelength_range_um : DEFAULT_FIT_RANGE_UM;
-  const lo = Number(r[0]);
-  const hi = Number(r[1]);
-  if (Number.isFinite(lo) && Number.isFinite(hi) && hi > lo) return [lo, hi];
+  const candidates = [
+    rec?.wavelength_range_um,
+    rec?.fitting_wavelength_range_um,
+    [rec?.fit_wl_min_um, rec?.fit_wl_max_um],
+    [rec?.final_recommendation?.fit_wl_min_um, rec?.final_recommendation?.fit_wl_max_um]
+  ];
+  for (const c of candidates) {
+    const r = parseRangeCandidate(c);
+    if (r) return r;
+  }
   return DEFAULT_FIT_RANGE_UM;
 }
 function rangeText(range) { return `${range[0].toFixed(3)}-${range[1].toFixed(3)} µm`; }
@@ -340,7 +380,8 @@ function normalizeModelEntry(entry, n=null) {
       if (fam) models[fam] = m;
     }
 
-    let selected = rows.find(m => m && (m.recommended === true || m.selected === true) && isUsableModel(m));
+    let selected = rows.find(m => m && m.recommended === true && isUsableModel(m));
+    if (!selected) selected = rows.find(m => m && m.selected === true && isUsableModel(m));
     if (!selected) selected = bestModel(rows);
 
     return {
@@ -362,7 +403,12 @@ function normalizeModelEntry(entry, n=null) {
         if (!m.model_curve && m.website_model_curve) m.model_curve = m.website_model_curve;
       }
     }
-    if (!out.selected) out.selected = bestModel(Object.values(out.models));
+    const modelRows = Object.values(out.models).filter(m => m && typeof m === 'object');
+    const recommended = modelRows.find(m => m.recommended === true && isUsableModel(m));
+    const selectedFlag = modelRows.find(m => m.selected === true && isUsableModel(m));
+    const existingSelected = isUsableModel(out.selected) ? out.selected : null;
+    out.selected = recommended || selectedFlag || existingSelected || bestModel(modelRows);
+    if (out.selected) out.quality_label = out.selected.quality_label || out.quality_label || 'unknown';
     return out;
   }
 
@@ -435,7 +481,7 @@ async function renderCurrent(existingToken=null) {
     const downloadLine = sel.model_json
       ? `<p><a class="button-link" href="${escapeAttr(normalizeDataPath(modelJsonPath(sel)))}" target="_blank">Download PoleResidue JSON</a></p>`
       : `<p class="muted">PoleResidue JSON is not exported for this selected entry.</p>`;
-    const fittedRangeLine = `<p class="muted"><b>Fitted range:</b> ${rangeText(fitRange(rec))}. Avoid extrapolation outside this interval without revalidation.</p>`;
+    const fittedRangeLine = `<p class="muted"><b>Validated/fitted range:</b> ${rangeText(fitRange(rec))}. This interval follows the data used for fitting; avoid extrapolation outside it without revalidation.</p>`;
     box.innerHTML = `
       <div class="family">${familyDisplayName(sel)}</div>
       <p><span class="badge ${badgeForQuality(q)}">${escapeHtml(q)}</span><span class="badge">${publicCode(sel, n)}</span></p>
@@ -454,11 +500,11 @@ async function renderCurrent(existingToken=null) {
 
   const meta = {
     material: rec.material,
-    material_category: rec.material_category || rec.material_class,
+    material_category: categoryOfRecord(rec),
     record: `${rec.book} / ${rec.page}`,
     wavelength_range_um: rec.wavelength_range_um,
     selected_N: Number(n),
-    selected_family: sel ? (sel.family === 'RP' ? 'RP' : 'CP') : 'none',
+    selected_family: sel ? (sel.public_family || sel.family || (sel.family === 'RP' ? 'RP' : 'CP')) : 'none',
     selected_model: sel ? publicCode(sel, n) : 'none',
     epsilon_rms: sel && isFiniteValue(sel.epsilon_rms) ? Number(sel.epsilon_rms) : null,
     FDTD_status: sel ? (sel.FDTD_status || null) : 'NO_FDTD_READY_MODEL',
@@ -725,7 +771,7 @@ async function renderSourcePanel(rec, token) {
   const sourceUrl = url ? `<a href="${escapeAttr(url)}" target="_blank">open source page</a>` : '<span class="muted">not available</span>';
   box.innerHTML = `
     <div class="source-grid">
-      <div><span class="source-label">Material class</span><strong>${escapeHtml(rec.material_category || rec.material_class || 'Other materials')}</strong></div>
+      <div><span class="source-label">Material class</span><strong>${escapeHtml(categoryOfRecord(rec))}</strong></div>
       <div><span class="source-label">Database record</span><strong>${escapeHtml(sourceLabel)}</strong></div>
       <div><span class="source-label">Raw data</span>${rawLink}</div>
       <div><span class="source-label">Fitting grid</span>${fitLink}</div>

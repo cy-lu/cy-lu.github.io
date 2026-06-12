@@ -3,7 +3,7 @@ let RECORD_CACHE = Object.create(null);
 let JSON_CACHE = Object.create(null);
 let RENDER_TOKEN = 0;
 
-const APP_VERSION = '20260527_28_eps_toggle';
+const APP_VERSION = '20260612_class3_fe3o4';
 const DEFAULT_FIT_RANGE_UM = [0.3, 1.1];
 const ALL_CLASSES = 'All material classes';
 

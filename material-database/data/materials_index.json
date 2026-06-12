@@ -4055,7 +4055,7 @@
     "record_label": "Fe3O4 / Querry",
     "book": "Fe3O4",
     "page": "Querry",
-    "material_class": "Metal / conductor",
+    "material_class": "Semiconductor",
     "record_json": "records/Fe3O4_Fe3O4_Querry.json",
     "raw_database_points": "experimental/Fe3O4_Fe3O4_Querry/raw_database_points.json",
     "fitting_grid_points": "experimental/Fe3O4_Fe3O4_Querry/fitting_grid_points.json",

@@ -265,7 +265,7 @@ function modelRow(displayName, m, n) {
   let link = '--';
   if (m && m.model_json) link = `<a href="${escapeAttr(normalizeDataPath(modelJsonPath(m)))}" target="_blank">download</a>`;
   else if (m && m.FDTD_ready) link = '<span class="muted">not exported</span>';
-  return `<tr><td>${displayName}<br><small>${publicCode(m, n)}</small></td><td>${fmt(m?.epsilon_rms)}</td><td>${fmt(m?.absolute_rms)}</td><td>${fmt(m?.G_rho)}</td><td>${statusBadge(m)}</td><td>${link}</td></tr>`;
+  return `<tr><td>${displayName}<br><small>${publicCode(m, n)}</small></td><td>${fmt(m?.epsilon_rms)}</td><td>${fmt(m?.absolute_rms)}</td><td>${statusBadge(m)}</td><td>${link}</td></tr>`;
 }
 function badgeForQuality(q) {
   if (q === 'excellent' || q === 'acceptable') return 'good';
@@ -424,7 +424,7 @@ async function renderCurrent(existingToken=null) {
     box.innerHTML = `
       <div class="family">${familyDisplayName(sel)}</div>
       <p><span class="badge ${badgeForQuality(q)}">${escapeHtml(q)}</span><span class="badge">${publicCode(sel, n)}</span></p>
-      <p class="metric-line"><b>ε RMS:</b> ${fmt(sel.epsilon_rms)}<br><b>Abs RMS:</b> ${fmt(sel.absolute_rms)}<br><b>G ρ:</b> ${fmt(sel.G_rho)}<br><b>Status:</b> ${escapeHtml(sel.FDTD_status || '--')}</p>
+      <p class="metric-line"><b>ε RMS:</b> ${fmt(sel.epsilon_rms)}<br><b>Abs RMS:</b> ${fmt(sel.absolute_rms)}<br><b>Format:</b> PoleResidue JSON<br><b>Status:</b> ${escapeHtml(sel.FDTD_status || '--')}</p>
       ${poorFitWarning(sel)}
       ${downloadLine}
     `;
@@ -432,7 +432,7 @@ async function renderCurrent(existingToken=null) {
 
   const cpBest = cpFamilyBest(entry);
   setHtml('modelTable', `
-    <table><thead><tr><th>Model family</th><th>ε RMS</th><th>Abs RMS</th><th>G ρ</th><th>Status</th><th>JSON</th></tr></thead>
+    <table><thead><tr><th>Model family</th><th>ε RMS</th><th>Abs RMS</th><th>Status</th><th>JSON</th></tr></thead>
     <tbody>${modelRow('Rational-pole (RP)', entry.models?.RP || null, n)}${modelRow('Critical-point (CP)', cpBest, n)}</tbody></table>
   `);
 
